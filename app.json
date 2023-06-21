@@ -1,0 +1,30 @@
+{
+  "pages": [
+    "pages/login/index",
+    "pages/home/index",
+    "pages/my/index"
+  ],
+  "window": {
+    "defaultTitle": "My App"
+  },
+  "tabBar": {
+    "textColor": "#404040",
+    "selectedColor": "#ff5500",
+    "backgroundColor": "#F5F5F9",
+    "items": [
+      {
+        "pagePath": "pages/home/index",
+        "icon": "image/component.png",
+        "activeIcon": "image/component_filled.png",
+        "name": "HOME"
+      },
+      {
+        "pagePath": "pages/my/index",
+        "icon": "image/api.png",
+        "activeIcon": "image/api_filled.png",
+        "name": "MY"
+      }
+    ]
+  },
+  "debug": true
+}
