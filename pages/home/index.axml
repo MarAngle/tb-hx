@@ -22,5 +22,6 @@
       </swiper-item>
     </swiper>
   </view>
+  {{hotProduct.status.load}}
   <product-list product="{{hotProduct}}" />
 </view>

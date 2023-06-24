@@ -24,25 +24,26 @@ const banner = new BannerData({
       // }).catch(err => {
       //   reject(err)
       // })
-      this.list = [
-        {
-          name: '衣鞋洗护专区',
-          id: 1,
-          icon: ''
-        },
-        {
-          name: '家纺专区',
-          id: 2,
-          icon: ''
-        },
-        {
-          name: '奢护专区',
-          id: 3,
-          icon: ''
-        },
-      ]
-      console.log(this)
-      resolve()
+      setTimeout(() => {
+        this.list = [
+          {
+            name: '衣鞋洗护专区',
+            id: 1,
+            icon: ''
+          },
+          {
+            name: '家纺专区',
+            id: 2,
+            icon: ''
+          },
+          {
+            name: '奢护专区',
+            id: 3,
+            icon: ''
+          },
+        ]
+        resolve()
+      }, 1000)
     })
   }
 })

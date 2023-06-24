@@ -29,7 +29,9 @@ class Data {
     } else {
       for (let i = 0; i < this.$page.length; i++) {
         const page = this.$page[i]
-        page.setData(this.$prop, this)
+        page.setData({
+          [this.$prop]: this
+        })
       }
     }
   }

@@ -1,3 +1,4 @@
 <view class="component-product-list">
+  {{product.status.load}}
   <product-item a:for="{{product.list}}" :data="{{item}}" key="component-product-list-item-{{index}}" />
 </view>

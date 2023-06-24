@@ -45,17 +45,22 @@ class ProductList extends BaseData{
   $getData() {
     return new Promise((resolve, reject) => {
       const search = this.$getSearch()
-      require[this.service.method]({
-        url: this.service.url,
-        [this.service.data]: search,
-        timeout: 0,
-        token: false
-      }).then(res => {
-        this.formatData(res)
-        resolve(res)
-      }).catch(err => {
-        reject(err)
-      })
+      // require[this.service.method]({
+      //   url: this.service.url,
+      //   [this.service.data]: search,
+      //   timeout: 0,
+      //   token: false
+      // }).then(res => {
+      //   this.formatData(res)
+      //   resolve(res)
+      //   console.log(this)
+      // }).catch(err => {
+      //   reject(err)
+      // })
+      setTimeout(() => {
+        this.formatData()
+        resolve()
+      }, 1000)
     })
   }
 }
