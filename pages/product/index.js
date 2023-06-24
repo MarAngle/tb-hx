@@ -1,26 +1,23 @@
 import banner from "../../data/banner";
-import hotProductList from "../../data/hotProductList";
+import productInfo from "../../data/productInfo";
 import category from "./../../data/category";
 
 Page({
   data: {
-    [category.$prop]: category,
-    [banner.$prop]: banner,
-    [hotProductList.$prop]: hotProductList
+    [productInfo.$prop]: productInfo
   },
-  onLoad() {
-    category.$appendPage(this)
-    category.$reloadData(true)
-    banner.$appendPage(this)
-    banner.$reloadData(true)
-    hotProductList.$appendPage(this)
-    hotProductList.$reloadData(true)
+  onLoad(...args) {
+    console.log(...args)
   },
-  onReady() {
+  onReady(...args) {
+    console.log(...args)
     // 页面加载完成
   },
-  onShow() {
+  onShow(...args) {
+    console.log(...args)
     // 页面显示
+    productInfo.$appendPage(this)
+    productInfo.$reloadData(true)
   },
   onHide() {
     // 页面隐藏

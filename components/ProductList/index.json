@@ -1,6 +1,6 @@
 {
   "component": true,
   "usingComponents": {
-    "product-item":"./../ProductItem/index"
+    "product-card":"./../ProductCard/index"
   }
 }

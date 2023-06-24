@@ -1,4 +1,4 @@
-<view class="component-product-item">
+<view class="component-product-item" onTap="toInfo" >
   <view class="component-product-item-icon"></view>
   <view class="component-product-item-content">
     <view class="component-product-item-content-line">

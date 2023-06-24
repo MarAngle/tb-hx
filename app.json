@@ -2,6 +2,8 @@
   "pages": [
     "pages/home/index",
     "pages/login/index",
+    "pages/product/index",
+    "pages/product/info/index",
     "pages/my/index"
   ],
   "window": {

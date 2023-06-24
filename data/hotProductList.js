@@ -1,10 +1,10 @@
 import ProductList from './class/ProductList'
 
-const hotProduct = new ProductList({
-  prop: 'hotProduct',
+const hotProductList = new ProductList({
+  prop: 'hotProductList',
   service: {
     url: 'https://ihuanxi.cn'
   }
 })
 
-export default hotProduct
+export default hotProductList
