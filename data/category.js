@@ -4,7 +4,23 @@ import require from "../utils/require";
 class CategoryData extends BaseData{
   constructor(initOption) {
     super(initOption)
-    this.list = []
+    this.data = {
+      left: {
+        name: '衣鞋洗护专区',
+        id: 1,
+        icon: ''
+      },
+      rightTop: {
+        name: '家纺专区',
+        id: 2,
+        icon: ''
+      },
+      rightBottom: {
+        name: '奢护专区',
+        id: 3,
+        icon: ''
+      }
+    }
   }
 }
 
@@ -20,25 +36,8 @@ const category = new CategoryData({
         dataType: '',
         token: false
       }).then(res => {
-        console.log(res)
-        this.list = [
-          {
-            name: '衣鞋洗护专区',
-            id: 1,
-            icon: ''
-          },
-          {
-            name: '家纺专区',
-            id: 2,
-            icon: ''
-          },
-          {
-            name: '奢护专区',
-            id: 3,
-            icon: ''
-          },
-        ]
         console.log(this)
+        resolve(res)
       }).catch(err => {
         reject(err)
       })

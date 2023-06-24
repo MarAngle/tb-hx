@@ -1,12 +1,16 @@
+import banner from "../../data/banner";
 import category from "./../../data/category";
 
 Page({
   data: {
-    [category.$prop]: category
+    [category.$prop]: category,
+    [banner.$prop]: banner
   },
   onLoad() {
     category.$appendPage(this)
     category.$reloadData(true)
+    banner.$appendPage(this)
+    banner.$reloadData(true)
   },
   onReady() {
     // 页面加载完成

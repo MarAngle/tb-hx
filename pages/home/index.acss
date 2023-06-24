@@ -36,3 +36,16 @@
   border-radius: 4px;
   box-shadow: 0 0 5px #ccc;
 }
+
+.page-home-banner {
+  padding-bottom: 10rpx;
+}
+.page-home-banner-swiper{
+  width: 720rpx;
+  margin: 0 auto;
+}
+.page-home-banner-swiper-item{
+  width: 720rpx;
+  height: 200rpx;
+  background-color: blanchedalmond;
+}

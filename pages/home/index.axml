@@ -7,4 +7,19 @@
       <view class="page-home-category-right-bottom page-home-category-item"></view>
     </view>
   </view>
+  <view class="page-home-banner">
+     <swiper 
+      class="page-home-banner-swiper"
+      style="width: 720rpx;"
+      indicator-dots="{{true}}"
+      autoplay="{{true}}"
+      vertical="{{false}}"
+      interval="{{5000}}"
+      circular="{{true}}"
+    >
+      <swiper-item a:for="{{banner.list}}" key="page-home-banner-swiper-item-{{index}}">
+        <view class="page-home-banner-swiper-item"></view>
+      </swiper-item>
+    </swiper>
+  </view>
 </view>
