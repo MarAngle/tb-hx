@@ -1,7 +1,12 @@
+import category from "./../../data/category";
+
 Page({
-  onLoad(query) {
-    // 页面加载
-    console.info(`Page onLoad with query: ${JSON.stringify(query)}`);
+  data: {
+    [category.$prop]: category
+  },
+  onLoad() {
+    category.$appendPage(this)
+    category.$reloadData(true)
   },
   onReady() {
     // 页面加载完成
@@ -29,7 +34,7 @@ Page({
     return {
       title: 'My App',
       desc: 'My App description',
-      path: 'pages/index/index',
+      path: 'pages/home/index',
     };
   },
 });

@@ -1,3 +1,10 @@
-<view>
-  this is a blank page
+<view class="page-home">
+  <view class="page-home-title">品类</view>
+  <view class="page-home-category">
+    <view class="page-home-category-left page-home-category-item"></view>
+    <view class="page-home-category-right">
+      <view class="page-home-category-right-top page-home-category-item"></view>
+      <view class="page-home-category-right-bottom page-home-category-item"></view>
+    </view>
+  </view>
 </view>

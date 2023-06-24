@@ -2,7 +2,12 @@
 class Data {
   constructor(initOption) {
     this.$prop = initOption.prop
-    this.$page = []
+    Object.defineProperty(this, '$page', {
+      value: [],
+      writable: true,
+      enumerable: false,
+      configurable: true
+    })
   }
   $appendPage(page) {
     if (this.$page.indexOf(page) == -1) {

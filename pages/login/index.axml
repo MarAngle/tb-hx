@@ -1,3 +1,13 @@
-<view>
-  this is a blank page
+<view class='page-login'>
+  <view class="page-login-form" a:if="{{user.auth == 'auto'}}" >
+    <button size="mini" onTap="bingAutoLogin">登录</button>
+  </view>
+  <view class="page-login-form" a:if="{{user.auth == 'auto'}}" >
+    <view class="page-login-form-item">
+      <view class="form-row">
+        <input class="input" placeholder="请输入手机号" />
+        <button size="mini" onTap="bindButtonTap">获取验证码</button>
+      </view>
+    </view>
+  </view>
 </view>

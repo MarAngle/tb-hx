@@ -20,6 +20,7 @@ class BaseData extends DefaultData {
       this.$operate++
       this.status.operate = 'ing'
     }
+    this.$syncPage()
   }
   $triggerMethod(methodName, args = [], strict = false) {
     if (this[methodName]) {
@@ -43,6 +44,9 @@ class BaseData extends DefaultData {
       return Promise.reject({ status: 'fail', code: `method is undefined` })
     }
   }
+  $reloadData(force, ...args) {
+    this.$loadData(force, ...args).then(() => {}).catch(() => {})
+  }
   $loadData(force, ...args) {
     if (this.status.load == 'success' && !force) {
       return Promise.resolve({ status: 'loaded' })
@@ -51,11 +55,14 @@ class BaseData extends DefaultData {
     } else {
       return new Promise((resolve, reject) => {
         this.status.load = 'ing'
+        this.$syncPage()
         this.$getData(...args).then(() => {
           this.status.load = 'success'
+          this.$syncPage()
           resolve({ status: 'success' })
         }).catch(err => {
           this.status.load = 'un'
+          this.$syncPage()
           console.error(err)
           reject(err)
         })

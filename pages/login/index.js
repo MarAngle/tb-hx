@@ -4,6 +4,25 @@ Page({
   data: {
     [user.$prop]: user
   },
+  bingAutoLogin() {
+    my.authorize({
+      scopes: ['scope.userInfo'],
+      success: (res) => {
+        console.log(res)
+        my.getAuthUserInfo({
+          success:(res)=>{
+            console.log(res)
+          },
+          fail:(err)=>{
+            console.log(err)
+          }
+        })
+      },
+      fail:(err)=>{
+        console.log(err)
+      }
+    });
+  },
   onLoad() {
     user.$appendPage(this)
   },
