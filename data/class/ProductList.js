@@ -1,6 +1,7 @@
 import BaseData from "../../class/BaseData"
+import require from "../../utils/require";
 
-class ProductData extends BaseData{
+class ProductList extends BaseData{
   constructor(initOption) {
     super(initOption)
     this.service = initOption.service
@@ -43,20 +44,20 @@ class ProductData extends BaseData{
   }
   $getData() {
     return new Promise((resolve, reject) => {
-      const search = this.getSearch()
-      reject[this.service.method]({
+      const search = this.$getSearch()
+      require[this.service.method]({
         url: this.service.url,
         [this.service.data]: search,
         timeout: 0,
         token: false
       }).then(res => {
         this.formatData(res)
-        resolve()
+        resolve(res)
       }).catch(err => {
-        rejecr(err)
+        reject(err)
       })
     })
   }
 }
 
-export default ProductData
+export default ProductList

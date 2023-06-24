@@ -1,6 +1,6 @@
-import ProductData from './class/ProductData'
+import ProductList from './class/ProductList'
 
-const hotProduct = new ProductData({
+const hotProduct = new ProductList({
   prop: 'hotProduct',
   service: {
     url: 'http://ihuanxi.cn'

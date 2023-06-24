@@ -22,4 +22,5 @@
       </swiper-item>
     </swiper>
   </view>
+  <product-list product="{{hotProduct}}" />
 </view>
