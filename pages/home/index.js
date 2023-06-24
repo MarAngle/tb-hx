@@ -1,16 +1,20 @@
 import banner from "../../data/banner";
+import hotProduct from "../../data/hotProduct";
 import category from "./../../data/category";
 
 Page({
   data: {
     [category.$prop]: category,
-    [banner.$prop]: banner
+    [banner.$prop]: banner,
+    [hotProduct.$prop]: hotProduct
   },
   onLoad() {
     category.$appendPage(this)
     category.$reloadData(true)
     banner.$appendPage(this)
     banner.$reloadData(true)
+    hotProduct.$appendPage(this)
+    hotProduct.$reloadData(true)
   },
   onReady() {
     // 页面加载完成

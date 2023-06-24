@@ -8,7 +8,7 @@ class BaseData extends DefaultData {
       load: 'un'
     }
     this.$operate = 0
-    this.$getData = initOption.getData
+    this.$appendMethod('$getData', initOption.getData)
   }
   $changeOperate(target) {
     if (target == 'un') {

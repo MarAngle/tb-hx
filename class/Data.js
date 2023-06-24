@@ -9,6 +9,14 @@ class Data {
       configurable: true
     })
   }
+  $appendMethod(name, method) {
+    if (method !== undefined) {
+      if (this[name] !== undefined) {
+        this.$exportMsg(`${name}函数被改写！`)
+      }
+      this[name] = method
+    }
+  }
   $appendPage(page) {
     if (this.$page.indexOf(page) == -1) {
       this.$page.push(page)
