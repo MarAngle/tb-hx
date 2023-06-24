@@ -1,3 +1,16 @@
-<view>
-  new component
+<view class="component-product-item">
+  <view class="component-product-item-icon"></view>
+  <view class="component-product-item-content">
+    <view class="component-product-item-content-line">
+      <view class="component-product-item-content-title">{{data.name}}</view>
+    </view>
+    <view class="component-product-item-content-line">
+      <view class="component-product-item-content-desc">{{data.desc}}</view>
+      <view class="component-product-item-content-price">{{data.price}}</view>
+    </view>
+    <view class="component-product-item-content-line">
+      <view class="component-product-item-content-sale">月销{{data.sale}}</view>
+      <view class="component-product-item-content-favorable">好评率{{data.favorable}}%</view>
+    </view>
+  </view>
 </view>
