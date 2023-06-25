@@ -1,13 +1,15 @@
-import banner from "../../data/banner";
-import productInfo from "../../data/productInfo";
-import category from "./../../data/category";
+import productList from "../../data/productList";
 
 Page({
   data: {
-    [productInfo.$prop]: productInfo
+    [productList.$prop]: productList
   },
-  onLoad(...args) {
-    console.log(...args)
+  onLoad(query) {
+    productList.$setExtra('search', {
+      categoaryId: query.id
+    })
+    productList.$appendPage(this)
+    productList.$reloadData(true)
   },
   onReady(...args) {
     console.log(...args)
@@ -16,8 +18,6 @@ Page({
   onShow(...args) {
     console.log(...args)
     // 页面显示
-    productInfo.$appendPage(this)
-    productInfo.$reloadData(true)
   },
   onHide() {
     // 页面隐藏

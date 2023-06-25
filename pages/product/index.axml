@@ -1,26 +1,3 @@
 <view class="page-home">
-  <view class="page-home-title">品类</view>
-  <view class="page-home-category">
-    <view class="page-home-category-left page-home-category-item"></view>
-    <view class="page-home-category-right">
-      <view class="page-home-category-right-top page-home-category-item"></view>
-      <view class="page-home-category-right-bottom page-home-category-item"></view>
-    </view>
-  </view>
-  <view class="page-home-banner">
-     <swiper 
-      class="page-home-banner-swiper"
-      style="width: 720rpx;"
-      indicator-dots="{{true}}"
-      autoplay="{{true}}"
-      vertical="{{false}}"
-      interval="{{5000}}"
-      circular="{{true}}"
-    >
-      <swiper-item a:for="{{banner.list}}" key="page-home-banner-swiper-item-{{index}}">
-        <view class="page-home-banner-swiper-item"></view>
-      </swiper-item>
-    </swiper>
-  </view>
-  <product-list product="{{hotProductList}}" />
+  <product-list product="{{productList}}" />
 </view>

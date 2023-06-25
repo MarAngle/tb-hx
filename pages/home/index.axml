@@ -1,10 +1,10 @@
 <view class="page-home">
   <view class="page-home-title">品类</view>
   <view class="page-home-category">
-    <view class="page-home-category-left page-home-category-item"></view>
+    <view class="page-home-category-left page-home-category-item" onTap="toProductList"></view>
     <view class="page-home-category-right">
-      <view class="page-home-category-right-top page-home-category-item"></view>
-      <view class="page-home-category-right-bottom page-home-category-item"></view>
+      <view class="page-home-category-right-top page-home-category-item" onTap="toProductList"></view>
+      <view class="page-home-category-right-bottom page-home-category-item" onTap="toProductList"></view>
     </view>
   </view>
   <view class="page-home-banner">

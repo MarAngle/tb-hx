@@ -16,6 +16,12 @@ Page({
     hotProductList.$appendPage(this)
     hotProductList.$reloadData(true)
   },
+  toProductList(...args) {
+    console.log(args)
+    // my.navigateTo({
+    //   url: '/pages/product/index?id=' + 1
+    // })
+  },
   onReady() {
     // 页面加载完成
   },
