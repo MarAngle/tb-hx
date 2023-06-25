@@ -36,7 +36,6 @@ const category = new CategoryData({
         dataType: '',
         token: false
       }).then(res => {
-        console.log(this)
         resolve(res)
       }).catch(err => {
         reject(err)

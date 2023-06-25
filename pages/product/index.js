@@ -5,18 +5,17 @@ Page({
     [productList.$prop]: productList
   },
   onLoad(query) {
+    console.log(query)
     productList.$setExtra('search', {
       categoaryId: query.id
     })
     productList.$appendPage(this)
     productList.$reloadData(true)
   },
-  onReady(...args) {
-    console.log(...args)
+  onReady() {
     // 页面加载完成
   },
-  onShow(...args) {
-    console.log(...args)
+  onShow() {
     // 页面显示
   },
   onHide() {

@@ -4,27 +4,17 @@ Page({
   data: {
     [user.$prop]: user
   },
-  bingAutoLogin() {
-    my.authorize({
-      scopes: ['scope.userInfo'],
-      success: (res) => {
-        console.log(res)
-        my.getAuthUserInfo({
-          success:(res)=>{
-            console.log(res)
-          },
-          fail:(err)=>{
-            console.log(err)
-          }
-        })
-      },
-      fail:(err)=>{
-        console.log(err)
-      }
-    });
+  getCode() {
+    
+  },
+  login() {
+    
   },
   onLoad() {
     user.$appendPage(this)
+    user.autoData().then(res => {}, err => {
+      console.error(err)
+    })
   },
   onReady() {
     // 页面加载完成

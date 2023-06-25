@@ -10,6 +10,30 @@ class UserData extends BaseData{
       phone: ''
     }
   }
+  autoData() {
+    return new Promise((resolve, reject) => {
+      my.authorize({
+        scopes: ['scope.userInfo'],
+        success: (res) => {
+          console.log(res)
+          my.getAuthUserInfo({
+            success:(res)=>{
+              console.log(res)
+              resolve(res)
+            },
+            fail:(err)=>{
+              this.auth = 'phone'
+              reject(err)
+            }
+          })
+        },
+        fail:(err)=>{
+          this.auth = 'phone'
+          reject(err)
+        }
+      })
+    })
+  }
 }
 
 const user = new UserData({

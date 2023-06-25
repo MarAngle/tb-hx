@@ -16,11 +16,10 @@ Page({
     hotProductList.$appendPage(this)
     hotProductList.$reloadData(true)
   },
-  toProductList(...args) {
-    console.log(args)
-    // my.navigateTo({
-    //   url: '/pages/product/index?id=' + 1
-    // })
+  toProductList({ target }) {
+    my.navigateTo({
+      url: '/pages/product/index?id=' + target.dataset.id
+    })
   },
   onReady() {
     // 页面加载完成
