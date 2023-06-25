@@ -13,7 +13,7 @@ class UserData extends BaseData{
   autoData() {
     return new Promise((resolve, reject) => {
       my.authorize({
-        scopes: ['scope.userInfo'],
+        scopes: 'scope.userInfo',
         success: (res) => {
           console.log(res)
           my.getAuthUserInfo({
@@ -22,12 +22,14 @@ class UserData extends BaseData{
               resolve(res)
             },
             fail:(err)=>{
+              console.log(err)
               this.auth = 'phone'
               reject(err)
             }
           })
         },
         fail:(err)=>{
+          console.log(err)
           this.auth = 'phone'
           reject(err)
         }

@@ -1,4 +1,7 @@
 <view class='page-login'>
+  <view class="page-login-form" a:if="{{user.auth == 'auto'}}" >
+    <button size="mini" onTap="onAutoLogin">登录</button>
+  </view>
   <view class="page-login-form" a:if="{{user.auth == 'phone'}}" >
     <view class="page-login-form-item">
       <view class="form-row">

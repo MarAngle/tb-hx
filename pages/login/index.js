@@ -16,6 +16,11 @@ Page({
       console.error(err)
     })
   },
+  onAutoLogin() {
+    user.autoData().then(res => {}, err => {
+      console.error(err)
+    })
+  },
   onReady() {
     // 页面加载完成
   },

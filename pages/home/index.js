@@ -1,5 +1,6 @@
 import banner from "../../data/banner";
 import hotProductList from "../../data/hotProductList";
+import { toLogin } from "../../utils";
 import category from "./../../data/category";
 
 Page({
