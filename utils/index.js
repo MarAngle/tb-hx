@@ -8,6 +8,19 @@ export const rule = {
   mobile: /^1(3|4|5|6|7|8|9)\d{9}$/
 }
 
+export const setLocal = function(key, value) {
+  my.setStorageSync({
+    key: key,
+    data: value
+  })
+}
+
+export const getLocal = function(key) {
+  my.getStorageSync({
+    key: key
+  })
+}
+
 export const confirm = function(content, next, option = {}) {
   const currentOption = {
     title: option.title,

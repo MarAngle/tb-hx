@@ -24,26 +24,31 @@ class Data {
     if (this.$unEnum.page.indexOf(page) == -1) {
       this.$unEnum.page.push(page)
     }
-    this.$syncPage(page)
+    this.$syncTargetPage(page)
   }
-  $syncPage(page) {
-    if (page) {
-      page.setData(this.$prop, this)
+  $syncPage(force) {
+    if (force) {
+      for (let i = 0; i < this.$unEnum.page.length; i++) {
+        console.log(this.$unEnum.page[i], this.$prop)
+        this.$syncTargetPage(this.$unEnum.page[i])
+      }
     } else {
       // 刷新页面数据添加判断，减少不必要刷新机制，后期考虑升级成微任务
       if (!this.$unEnum.next) {
         this.$unEnum.next = true
         setTimeout(() => {
           for (let i = 0; i < this.$unEnum.page.length; i++) {
-            const page = this.$unEnum.page[i]
-            page.setData({
-              [this.$prop]: this
-            })
+            this.$syncTargetPage(this.$unEnum.page[i])
           }
           this.$unEnum.next = false
         }, 0)
       }
     }
+  }
+  $syncTargetPage(page) {
+    page.setData({
+      [this.$prop]: this
+    })
   }
   $exportMsg(msg, type = 'log', ...args) {
     console[type](`${this.$prop}错误:[${msg}]`, ...args)

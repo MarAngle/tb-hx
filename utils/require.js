@@ -1,18 +1,44 @@
-import { showMsg } from "."
+import { getLocal, setLocal, showMsg } from "."
 
-export const token = {
-  data: undefined,
+export const data = {
+  token: undefined,
   refresh: undefined
 }
 
-export const setToken = function(data) {
+export const getToken = function() {
   token.data = data
+  getLocal('token', data)
 }
-export const setRefreshToken = function(refreshToken) {
+export const getRefreshToken = function(refreshToken) {
   token.refresh = refreshToken
+  getLocal('refreshToken', refreshToken)
 }
 
 const require = {
+  token: {
+    data: undefined,
+    refresh: undefined
+  },
+  setToken(token) {
+    this.token.data = token
+    setLocal('token', token)
+  },
+  setRefreshToken(refresh) {
+    this.token.refresh = refresh
+    setLocal('refresh', refresh)
+  },
+  getToken() {
+    if (!this.token.data) {
+      this.token.data = getLocal('token')
+    }
+    return this.token.data
+  },
+  getRefreshToken() {
+    if (!this.token.refresh) {
+      this.token.refresh = getLocal('refresh')
+    }
+    return this.token.refresh
+  },
   require(requireOption) {
     if (!requireOption.data) {
       requireOption.data = {}
@@ -21,7 +47,7 @@ const require = {
       requireOption.headers = {}
     }
     if (requireOption.token === true || requireOption.token === undefined) {
-      requireOption.headers.token = token.data
+      requireOption.headers.token = this.getToken()
     }
     if (requireOption.url.indexOf('http://') !== 0 && requireOption.url.indexOf('https://') !== 0) {
       requireOption.url = 'https://test.ihuanxi.cn' + requireOption.url

@@ -1,6 +1,6 @@
 import BaseData from "../class/BaseData";
 import { rule, showMsg } from "../utils";
-import require, { setRefreshToken, setToken } from "../utils/require";
+import require from "../utils/require";
 
 class UserData extends BaseData{
   constructor(initOption) {
@@ -75,8 +75,9 @@ class UserData extends BaseData{
           code: this.form.code
         }
       }).then((res) => {
-        setToken(res.data.token)
-        setRefreshToken(res.data.refreshToken)
+        require.setToken(res.data.token)
+        require.setRefreshToken(res.data.refreshToken)
+        this.login = true
         this.$syncPage()
       }).catch(err => {
         console.error(err)
@@ -96,7 +97,7 @@ class UserData extends BaseData{
       } else {
         this.runCount()
       }
-      this.$syncPage()
+      this.$syncPage(true)
     }, 1000)
   }
   loginByAuth() {
@@ -148,5 +149,9 @@ const user = new UserData({
     })
   }
 })
+
+if (require.getToken()) {
+  user.login = true
+}
 
 export default user
