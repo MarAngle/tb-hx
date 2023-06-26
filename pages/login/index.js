@@ -5,18 +5,17 @@ Page({
     [user.$prop]: user
   },
   getCode() {
-    
+    user.getCode()
   },
-  login() {
-    
+  onLogin() {
+    user.loginByPhone()
+  },
+  onFormChange(e) {
+    const prop = e.target.dataset.prop
+    user.changeForm(prop, e.detail.value)
   },
   onLoad() {
     user.$appendPage(this)
-    user.autoData().then(res => {}, err => {
-      console.error(err)
-    })
-  },
-  onAutoLogin() {
     user.autoData().then(res => {}, err => {
       console.error(err)
     })

@@ -2,8 +2,11 @@
 class Data {
   constructor(initOption) {
     this.$prop = initOption.prop
-    Object.defineProperty(this, '$page', {
-      value: [],
+    Object.defineProperty(this, '$unEnum', {
+      value: {
+        page: [],
+        next: false
+      },
       writable: true,
       enumerable: false,
       configurable: true
@@ -18,8 +21,8 @@ class Data {
     }
   }
   $appendPage(page) {
-    if (this.$page.indexOf(page) == -1) {
-      this.$page.push(page)
+    if (this.$unEnum.page.indexOf(page) == -1) {
+      this.$unEnum.page.push(page)
     }
     this.$syncPage(page)
   }
@@ -27,11 +30,18 @@ class Data {
     if (page) {
       page.setData(this.$prop, this)
     } else {
-      for (let i = 0; i < this.$page.length; i++) {
-        const page = this.$page[i]
-        page.setData({
-          [this.$prop]: this
-        })
+      // 刷新页面数据添加判断，减少不必要刷新机制，后期考虑升级成微任务
+      if (!this.$unEnum.next) {
+        this.$unEnum.next = true
+        setTimeout(() => {
+          for (let i = 0; i < this.$unEnum.page.length; i++) {
+            const page = this.$unEnum.page[i]
+            page.setData({
+              [this.$prop]: this
+            })
+          }
+          this.$unEnum.next = false
+        }, 0)
       }
     }
   }
