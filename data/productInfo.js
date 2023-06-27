@@ -33,8 +33,9 @@ const productInfo = new ProductInfo({
       //   reject(err)
       // })
       this.info.name = '床品四件套（枕套*2；床单*1；被套*1）真丝'
+      this.info.icon = ['/image/test/category.jpg']
       this.info.price = 129
-      this.info.detail = 'https://hximg-1255667659.cos.ap-beijing.myqcloud.com/HuanxiPlatform/2021-12/88b1dbad76b34b37a81cc2c5c407ecb3.jpg'
+      this.info.detail = '/image/product/1.png'
       resolve()
     })
   }

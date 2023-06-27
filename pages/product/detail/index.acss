@@ -183,9 +183,9 @@
 
 .buy {
   position: fixed;
-  left: 20rpx;
+  left: 25rpx;
   bottom: 40rpx;
-  width: calc(100% - 40rpx);
+  width: 700rpx;
   display: flex;
   justify-content: space-between;
   align-items: center;
