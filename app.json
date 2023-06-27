@@ -16,14 +16,14 @@
     "items": [
       {
         "pagePath": "pages/home/index",
-        "icon": "image/component.png",
-        "activeIcon": "image/component_filled.png",
+        "icon": "image/icon/component.png",
+        "activeIcon": "image/icon/component_filled.png",
         "name": "HOME"
       },
       {
         "pagePath": "pages/my/index",
-        "icon": "image/api.png",
-        "activeIcon": "image/api_filled.png",
+        "icon": "image/icon/api.png",
+        "activeIcon": "image/icon/api_filled.png",
         "name": "MY"
       }
     ]
