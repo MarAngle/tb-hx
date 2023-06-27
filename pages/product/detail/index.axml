@@ -1,0 +1,62 @@
+<view class="detail">
+  <view class="swiper">
+    <swiper indicator-dots="{{true}}" indicator-active-color="#999BB2" indicator-color="#ECECEC">
+      <block a:for="{{3}}">
+        <swiper-item>
+          <view class="swiper-item"><image mode="widthFix" src="/image/product/1.png" /></view>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <view class="title">衣鞋任洗3件套餐  拒用“四氯”健康洗 不分长短款</view>
+  <view class="info">
+    <view class="price">
+      <view>￥109.00</view>
+      <view>已优惠19元</view>
+    </view>
+    <view class="collect">
+      <view class="icon"><icon type="HeartOutline" /></view>
+      <view class="text">收藏</view>
+    </view>
+  </view>
+  <view class="service-detail">
+    <view>服务详情</view>
+    <view><image mode="widthFix" src="/image/product/2.png" /></view>
+  </view>
+  <view class="more">
+    <view class="tit">更多推荐</view>
+    <view class="product-list">
+      <view class="product-item" a:for="{{4}}" onTap="detail">
+        <view class="img"><image mode="widthFix" src="/image/index/5.png" /></view>
+        <view class="info1">
+          <view class="name">衣鞋任意洗3件</view>
+          <view class="tip-1">快递免费上门取送</view>
+          <view class="tip-2">拒用“四氯”健康洗</view>
+          <view class="another">
+            <view>月销100+</view>
+            <view>好评度96%</view>
+          </view>
+        </view>
+        <view class="pri">
+          <view>￥109</view>
+          <view class="arrow"><image mode="widthFix" src="/image/index/arrow.png" /></view>
+        </view>
+        <!-- <view class="mark">特惠</view> -->
+      </view>
+    </view>
+  </view>
+  <view style="height: 200rpx;width: 100%;"></view>
+  <view class="buy">
+    <view>￥109.00</view>
+    <view onTap="open">立即购买</view>
+  </view>
+  <modal class="modal" show="{{showModal}}" show-close="{{false}}">
+    <view class="dialog">
+      <view class="dialog-title">支付成功！</view>
+      <view class="dialog-control">
+        <view onTap="close">查看更多</view>
+        <view onTap="close">立即使用</view>
+      </view>
+    </view>
+  </modal>
+</view>

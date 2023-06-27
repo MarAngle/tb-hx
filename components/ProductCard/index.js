@@ -12,7 +12,7 @@ Component({
   methods: {
     toInfo() {
       my.navigateTo({
-        url: '/pages/product/info/index?id=' + this.props.data.id
+        url: '/pages/product/detail/index?id=' + this.props.data.id
       })
       // toLogin()
     },

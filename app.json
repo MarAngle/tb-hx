@@ -3,7 +3,7 @@
     "pages/home/index",
     "pages/login/index",
     "pages/product/index",
-    "pages/product/info/index",
+    "pages/product/detail/index",
     "pages/mine/mine",
     "pages/mine/collect/collect",
     "pages/mine/info/info",

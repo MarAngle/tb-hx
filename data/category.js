@@ -28,18 +28,19 @@ const category = new CategoryData({
   prop: 'category',
   getData() {
     return new Promise((resolve, reject) => {
-      require.get({
-        url: 'https://ihuanxi.cn',
-        headers: {},
-        data: {},
-        timeout: 0,
-        dataType: '',
-        token: false
-      }).then(res => {
-        resolve(res)
-      }).catch(err => {
-        reject(err)
-      })
+      // require.get({
+      //   url: 'https://ihuanxi.cn',
+      //   headers: {},
+      //   data: {},
+      //   timeout: 0,
+      //   dataType: '',
+      //   token: false
+      // }).then(res => {
+      //   resolve(res)
+      // }).catch(err => {
+      //   reject(err)
+      // })
+      resolve()
     })
   }
 })

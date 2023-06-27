@@ -1,0 +1,250 @@
+.detail {
+  padding: 14rpx;
+}
+
+.swiper-item {
+  height: 760rpx;
+}
+
+.swiper-item image {
+  border-radius: 30rpx;
+}
+
+.title {
+  padding: 0 20rpx;
+  font-size: 34rpx;
+  font-weight: 600;
+  color: #494949;
+  letter-spacing: 2rpx;
+  line-height: 44rpx;
+}
+
+.info {
+  padding: 0 20rpx;
+  margin-top: 20rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.price {
+  display: flex;
+  align-items: flex-end;
+}
+
+.price view:first-of-type {
+  font-size: 48rpx;
+  font-weight: 600;
+  color: #E83447;
+  margin-right: 20rpx;
+}
+
+.price view:first-of-type::first-letter {
+  font-size: 30rpx;
+}
+
+.price view:last-of-type {
+  font-size: 24rpx;
+  color: #ffffff;
+  background: linear-gradient(89.55deg, rgba(234,77,20,1) 51.24%,rgba(255,255,255,0) 326.28%);
+  padding: 6rpx 10rpx;
+  border-radius: 10rpx;
+  margin-bottom: 6rpx;
+}
+
+.collect {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #999bb2;
+}
+
+.icon {
+  font-size: 40rpx;
+}
+
+.text {
+  font-size: 26rpx;
+}
+
+.service-detail {
+  padding-top: 20rpx;
+  margin-top: 20rpx;
+}
+
+.service-detail view:first-of-type {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #bbbbbb;
+  font-size: 32rpx;
+}
+
+.service-detail view:first-of-type::before,
+.service-detail view:first-of-type::after {
+  content: '';
+  display: block;
+  width: 30%;
+  height: 2rpx;
+  background-color: #bbbbbb;
+  margin: 4rpx 20rpx 0;
+}
+
+
+.tit {
+  font-size: 44rpx;
+  font-family: '阿里妈妈数黑体 Bold';
+  color: #F5860B;
+  padding: 0 0 10rpx 10rpx;
+}
+
+.product-list {
+  padding: 10rpx;
+}
+
+.product-item {
+  background-color: #d9ecf2;
+  border-radius: 20rpx;
+  margin-bottom: 20rpx;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+  padding: 20rpx;
+}
+
+.product-item .img {
+  width: 30%;
+  overflow: hidden;
+  border-radius: 20rpx;
+}
+
+.product-item .info1 {
+  width: 66%;
+  box-sizing: border-box;
+  padding-right: 20rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.info1 .name {
+  font-weight: 600;
+  font-size: 30rpx;
+}
+
+.info1 .tip-1 {
+  font-size: 20rpx;
+  color: #BBBBBB;
+}
+
+.info1 .tip-2 {
+  font-size: 24rpx;
+  color: #e50c2c;
+}
+
+.info1 .another {
+  display: flex;
+  justify-content: space-between;
+  font-size: 22rpx;
+  color: #BBBBBB;
+}
+
+.pri {
+  position: absolute;
+  right: 4%;
+  top: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  font-size: 34rpx;
+  color: #e50c2c;
+}
+
+.pri .arrow {
+  width: 40rpx;
+  padding-left: 20rpx;
+}
+
+.mark {
+  position: absolute;
+  right: -36rpx;
+  top: 0;
+  color: #e50c2c;
+  background-color: rgba(8, 9, 4, 0.21);
+  font-size: 20rpx;
+  padding: 16rpx 10rpx 10rpx;
+  width: 100rpx;
+  text-align: center;
+  transform: rotate(45deg);
+}
+
+.buy {
+  position: fixed;
+  left: 20rpx;
+  bottom: 40rpx;
+  width: calc(100% - 40rpx);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #4f5160;
+  border-radius: 40rpx;
+  overflow: hidden;
+}
+
+.buy view:first-of-type {
+  color: #EA7914;
+  font-size: 40rpx;
+  font-weight: 600;
+  flex-grow: 1;
+  text-align: end;
+  padding-right: 40rpx;
+}
+
+.buy view:last-of-type {
+  background-color: #2F3143;
+  color: #ffffff;
+  font-size: 34rpx;
+  font-weight: 600;
+  padding: 40rpx;
+}
+
+.am-modal {
+  border-radius: 20rpx;
+}
+
+.am-modal-body {
+  margin: 0;
+  padding: 0;
+}
+
+.dialog {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 60vh;
+  padding: 30rpx;
+}
+
+.dialog-title {
+  font-size: 38rpx;
+  font-weight: 600;
+  letter-spacing: 3rpx;
+  color: #101010;
+}
+
+.dialog-control {
+  display: flex;
+  justify-content: space-around;
+}
+
+.dialog-control view {
+  padding: 20rpx 40rpx;
+  background-color: #F39B11;
+  color: #ffffff;
+  border-radius: 20rpx;
+  font-size: 26rpx;
+  letter-spacing: 2rpx;
+}
