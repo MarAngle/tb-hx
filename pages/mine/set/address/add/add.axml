@@ -1,0 +1,28 @@
+<view class="add">
+  <view class="title">添加地址</view>
+  <view class="paste">
+    <view>智能识别</view>
+    <view>粘贴整段文字，自动识别寄件信息</view>
+    <view class="button">粘贴</view>
+  </view>
+  <view class="info">
+    <view class="item">
+      <view class="text">姓名</view>
+      <view class="input"><input type="text" /></view>
+    </view>
+    <view class="item">
+      <view class="text">手机号</view>
+      <view class="input"><input type="text" /></view>
+    </view>
+    <view class="item">
+      <view class="text">寄件地址</view>
+      <view class="input"><input type="text" /></view>
+    </view>
+    <view class="item">
+      <view class="text">楼层及门牌号，例如3单元501</view>
+      <view class="input"><input type="text" /></view>
+    </view>
+  </view>
+  <view class="clear">全部清空</view>
+  <view class="save" onTap="saveAddress">保存地址</view>
+</view>

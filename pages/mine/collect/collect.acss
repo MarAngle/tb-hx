@@ -1,0 +1,73 @@
+.collect {
+  padding: 14rpx;
+}
+
+.title {
+  font-size: 44rpx;
+  font-family: '阿里妈妈数黑体 Bold';
+  color: #494949;
+  padding: 0 0 10rpx 10rpx;
+}
+
+.order-list {
+  margin-top: 20rpx;
+}
+
+.list-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20rpx;
+  background-color: #F5F5F5;
+  border-radius: 20rpx;
+  padding: 20rpx;
+  position: relative;
+  overflow: hidden;
+}
+
+.list-item .img {
+  width: 30%;
+  border-radius: 20rpx;
+  overflow: hidden;
+}
+
+.list-item .info {
+  width: 66%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.name {
+  font-size: 34rpx;
+  font-weight: 600;
+  color: #494949;
+}
+
+.tip-1 {
+  font-size: 20rpx;
+  color: #494949;
+}
+
+.tip-2 {
+  font-size: 24rpx;
+  color: #999bb2;
+}
+
+.control {
+  display: flex;
+  align-self: flex-end;
+  align-items: center;
+  margin-top: 10rpx;
+  padding-right: 20rpx;
+}
+
+.icon {
+  color: #DC8E14;
+  margin-right: 10rpx;
+}
+
+.price {
+  font-weight: 600;
+  font-size: 30rpx;
+  color: #494949;
+}

@@ -1,0 +1,28 @@
+.feedback {
+  padding: 14rpx;
+}
+
+.title {
+  font-size: 44rpx;
+  font-family: '阿里妈妈数黑体 Bold';
+  color: #494949;
+  padding: 0 0 10rpx 10rpx;
+}
+
+textarea {
+  margin: 20rpx 0;
+  font-size: 24rpx;
+  border: 1px solid #bbbbbb;
+  border-radius: 20rpx;
+  padding: 10rpx;
+  height: 300rpx;
+}
+
+.submit {
+  width: 100%;
+  padding: 20rpx 0;
+  color: #ffffff;
+  background-color: #F5860B;
+  text-align: center;
+  border-radius: 40rpx;
+}

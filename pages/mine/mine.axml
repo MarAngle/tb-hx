@@ -1,0 +1,33 @@
+<view class="mine">
+  <view class="setting" data-page-url="/pages/mine/set/set" onTap="changePage"><icon type="SetOutline" /></view>
+  <view class="user">
+    <view class="img" data-page-url="/pages/mine/info/info" onTap="changePage"><image mode="widthFix" src="/image/mine/user.png" /></view>
+    <view class="name" data-page-url="/pages/mine/info/info" onTap="changePage">浣洗小浣</view>
+    <view class="control">
+      <view class="item">
+        <view class="icon"><image mode="widthFix" src="/image/mine/6.png" /></view>
+        <view class="text">我的套餐</view>
+      </view>
+      <view class="item" data-page-url="/pages/mine/payment/payment" onTap="changePage">
+        <view class="icon"><image mode="widthFix" src="/image/mine/2.png" /></view>
+        <view class="text">待付款</view>
+      </view>
+      <view class="item">
+        <view class="icon"><image mode="widthFix" src="/image/mine/4.png" /></view>
+        <view class="text">已完成</view>
+      </view>
+      <view class="item">
+        <view class="icon"><image mode="widthFix" src="/image/mine/3.png" /></view>
+        <view class="text">退款</view>
+      </view>
+      <view class="item" data-page-url="/pages/mine/collect/collect" onTap="changePage">
+        <view class="icon"><image mode="widthFix" src="/image/mine/1.png" /></view>
+        <view class="text">已收藏</view>
+      </view>
+      <view class="item" data-page-url="/pages/mine/help/help" onTap="changePage">
+        <view class="icon"><image mode="widthFix" src="/image/mine/5.png" /></view>
+        <view class="text">客户服务</view>
+      </view>
+    </view>
+  </view>
+</view>

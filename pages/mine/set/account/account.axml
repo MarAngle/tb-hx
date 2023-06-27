@@ -1,0 +1,18 @@
+<view class="account">
+  <view class="title">账户管理</view>
+  <view class="list">
+    <view class="item">
+      <view class="img">
+        <view>
+          <image mode="widthFix" src="/image/mine/user.png" />
+        </view>
+        <view class="icon"><icon type="CheckCircleFill" /></view>
+      </view>
+      <view class="name">浣洗小浣</view>
+    </view>
+  </view>
+  <view class="add-account">
+    <view><icon type="AddOutline" /></view>
+    <view class="name">添加账户</view>
+  </view>
+</view>

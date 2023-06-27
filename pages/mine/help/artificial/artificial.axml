@@ -1,0 +1,28 @@
+<view class="artificial">
+  <view class="session">
+    <view class="header">
+      <view class="img"><image mode="widthFix" src="/image/mine/user.png" /></view>
+      <view class="name">客服会话</view>
+    </view>
+    <view class="content">
+      <view class="time">今天 12:30</view>
+      <block a:for="{{20}}">
+        <view class="cust-serv" hidden="{{!(item % 2)}}">
+          <view class="img"><image mode="widthFix" src="/image/mine/user.png" /></view>
+          <view class="detail">浣洗为您服务</view>
+        </view>
+        <view class="user" hidden="{{item % 2}}">
+          <view class="detail">请问衣鞋洗护套餐使用范围是什么呢</view>
+          <view class="img"><image mode="widthFix" src="/image/mine/user.png" /></view>
+        </view>
+      </block>
+    </view>
+  </view>
+  <view class="bottom">
+    <view class="input"><input /></view>
+    <view class="control">
+      <view class="more"><image mode="widthFix" src="/image/mine/7.png" /></view>
+      <view class="send"><image mode="widthFix" src="/image/mine/send.png" /></view>
+    </view>
+  </view>
+</view>

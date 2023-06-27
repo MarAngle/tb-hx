@@ -4,27 +4,61 @@
     "pages/login/index",
     "pages/product/index",
     "pages/product/info/index",
-    "pages/my/index"
+    "pages/mine/mine",
+    "pages/mine/collect/collect",
+    "pages/mine/info/info",
+    "pages/mine/payment/payment",
+    "pages/mine/set/set",
+    "pages/mine/set/feedback/feedback",
+    "pages/mine/set/about/about",
+    "pages/mine/set/about/policy/policy",
+    "pages/mine/set/about/agreement/agreement",
+    "pages/mine/set/address/address",
+    "pages/mine/set/address/add/add",
+    "pages/mine/set/account/account",
+    "pages/mine/help/help",
+    "pages/mine/help/artificial/artificial",
+    "pages/order/order",
+    "pages/order/reservation/reservation",
+    "pages/order/detail/detail",
+    "pages/order/refund/refund"
   ],
   "window": {
-    "defaultTitle": "My App"
+    "defaultTitle": "浣洗",
+    "titleBarColor": "#f7f7f7",
+    "navigationBarTextStyle": "black",
+    "showNavigationBarLogo": "true",
+    "navigationBarForceEnable": "true"
   },
   "tabBar": {
-    "textColor": "#404040",
-    "selectedColor": "#ff5500",
-    "backgroundColor": "#F5F5F9",
+    "textColor": "#999BB2",
+    "selectedColor": "#DC8E14",
+    "backgroundColor": "#2F3143",
+    "disableOnInit": false,
     "items": [
       {
         "pagePath": "pages/home/index",
-        "icon": "image/icon/component.png",
-        "activeIcon": "image/icon/component_filled.png",
-        "name": "HOME"
+        "name": "主页",
+        "icon": "image/tabbar/index.png",
+        "activeIcon": "image/tabbar/index-active.png"
       },
       {
-        "pagePath": "pages/my/index",
-        "icon": "image/icon/api.png",
-        "activeIcon": "image/icon/api_filled.png",
-        "name": "MY"
+        "pagePath": "pages/product/index",
+        "name": "所有商品",
+        "icon": "image/tabbar/product.png",
+        "activeIcon": "image/tabbar/product-active.png"
+      },
+      {
+        "pagePath": "pages/order/order",
+        "name": "我的订单",
+        "icon": "image/tabbar/order.png",
+        "activeIcon": "image/tabbar/order-active.png"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "name": "我的",
+        "icon": "image/tabbar/mine.png",
+        "activeIcon": "image/tabbar/mine-active.png"
       }
     ]
   },

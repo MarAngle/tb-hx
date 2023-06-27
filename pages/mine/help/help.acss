@@ -1,0 +1,41 @@
+.help {
+  padding: 14rpx;
+}
+
+.title {
+  font-size: 44rpx;
+  font-family: '阿里妈妈数黑体 Bold';
+  color: #494949;
+  padding: 0 0 10rpx 10rpx;
+}
+
+.list {
+  padding: 20rpx 40rpx;
+  color: #494949;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80rpx;
+  font-size: 26rpx;
+}
+
+.button {
+  margin: 20rpx;
+  background-color: #999BB2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20rpx;
+  height: 100rpx;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 28rpx;
+}
+
+.button image {
+  width: 40rpx;
+  margin-right: 20rpx;
+}

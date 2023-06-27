@@ -1,0 +1,39 @@
+.info {
+  padding: 14rpx;
+}
+
+.title {
+  font-size: 44rpx;
+  font-family: '阿里妈妈数黑体 Bold';
+  color: #494949;
+  padding: 0 0 10rpx 10rpx;
+}
+
+.userinfo {
+  padding: 20rpx 40rpx;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  font-size: 28rpx;
+  height: 80rpx;
+  color: #494949;
+  /* background-color: #494949; */
+  margin-bottom: 20rpx;
+}
+
+.detail {
+  margin-left: auto;
+  margin-right: 20rpx;
+}
+
+.img {
+  margin-left: auto;
+  width: 60rpx;
+  margin-right: 20rpx;
+}
+
+.icon {
+  width: 30rpx;
+}

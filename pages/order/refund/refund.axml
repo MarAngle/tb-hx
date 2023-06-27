@@ -1,0 +1,44 @@
+<view class="refund">
+  <view class="state" a:if="{{!refundDone}}">
+    <view>已提交，等待卖家处理</view>
+    <view>预计在 23:47:05 内为您处理</view>
+  </view>
+  <view class="success-state" a:else>
+    <view>退款成功</view>
+    <view>
+      <view>退款成功￥109.00元</view>
+      <view style="color: #999bb2;margin-top: 10rpx;">2023年06月09日 13:33</view>
+    </view>
+  </view>
+  <view class="info">
+    <view class="title">退款信息</view>
+    <view class="product">
+      <view class="img"><image mode="widthFix" src="/image/index/5.png" /></view>
+      <view class="pd-info">
+        <view class="name">衣鞋任洗3件</view>
+        <view class="tip-1">长短不限任洗免费上门取送</view>
+        <view class="tip-2">拒用“四氯”健康洗</view>
+      </view>
+    </view>
+    <view class="refund-info">
+      <view class="item">
+        <view class="text">申请时间</view>
+        <view class="val">2022-22-22 12:12:12</view>
+      </view>
+      <view class="item">
+        <view class="text">退款原因</view>
+        <view class="val">不想要了</view>
+      </view>
+      <view class="item">
+        <view class="text">退款金额</view>
+        <view class="val">￥109.00</view>
+      </view>
+      <view class="item">
+        <view class="text">退款编号</view>
+        <view class="val">129090123129023</view>
+      </view>
+    </view>
+    <view class="cancel" hidden="{{refundDone}}" onTap="cancelRefund">取消退款</view>
+    <view class="delete" hidden="{{!refundDone}}">删除记录</view>
+  </view>
+</view>

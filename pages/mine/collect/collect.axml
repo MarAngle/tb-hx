@@ -1,0 +1,17 @@
+<view class="collect">
+  <view class="title">已收藏</view>
+  <view class="order-list">
+    <view class="list-item">
+      <view class="img"><image mode="widthFix" src="/image/index/5.png" /></view>
+      <view class="info">
+        <view class="name">衣鞋任意洗3件</view>
+        <view class="tip-1">长短不限任洗免费上门取送</view>
+        <view class="tip-2">拒用“四氯”健康洗</view>
+        <view class="control">
+          <view class="icon"><icon type="HeartFill" /></view>
+          <view class="price">￥109</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

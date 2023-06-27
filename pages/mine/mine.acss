@@ -1,0 +1,75 @@
+.mine {
+  /* padding: 14rpx; */
+}
+
+.setting {
+  height: 80rpx;
+  width: 80rpx;
+  border: 1px solid #bbbbbb;
+  border-radius: 50%;
+  font-size: 50rpx;
+  text-align: center;
+  line-height: 80rpx;
+  position: absolute;
+  right: 5%;
+  top: 20rpx;
+}
+
+.user {
+  background-color: #ECECEC;
+  position: absolute;
+  top: 20%;
+  width: calc(100% - 40rpx);
+  box-sizing: border-box;
+  margin: 0 20rpx;
+  border-radius: 20rpx;
+  padding: 0 30rpx 30rpx;
+}
+
+.user .img {
+  width: 20%;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: #fefefe;
+  padding: 10rpx;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.user .name {
+  position: absolute;
+  top: 100rpx;
+  left: 50%;
+  transform: translate(-50%);
+  font-size: 32rpx;
+}
+
+.user .control {
+  margin-top: 180rpx;
+  padding: 20rpx 0;
+  background-color: #ffffff;
+  border-radius: 20rpx;
+  display: grid;
+  grid-template-columns: repeat(3, 30%);
+  justify-content: space-evenly;
+  justify-items: center;
+  row-gap: 40rpx;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #494949;
+}
+
+.item .icon {
+  width: 50rpx;
+  margin-bottom: 10rpx;
+}
+
+.item .text {
+  font-size: 28rpx;
+}

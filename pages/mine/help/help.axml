@@ -1,0 +1,29 @@
+<view class="help">
+  <view class="title">帮助中心</view>
+  <view class="list">
+    <view class="item">
+      <view class="text">活动 / 购买</view>
+      <view class="icon"><icon type="DownOutline" /></view>
+    </view>
+    <view class="item">
+      <view class="text">配送服务</view>
+      <view class="icon"><icon type="DownOutline" /></view>
+    </view>
+    <view class="item">
+      <view class="text">订单服务</view>
+      <view class="icon"><icon type="DownOutline" /></view>
+    </view>
+    <view class="item">
+      <view class="text">售后服务</view>
+      <view class="icon"><icon type="DownOutline" /></view>
+    </view>
+    <view class="item">
+      <view class="text">账户 / 协议</view>
+      <view class="icon"><icon type="DownOutline" /></view>
+    </view>
+  </view>
+  <view class="button" onTap="service">
+    <image mode="widthFix" src="/image/mine/service.png" />
+    <view>人工客服</view>
+  </view>
+</view>

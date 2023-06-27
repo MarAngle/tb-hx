@@ -1,0 +1,61 @@
+.account {
+  padding: 14rpx;
+}
+
+.title {
+  font-size: 44rpx;
+  font-family: '阿里妈妈数黑体 Bold';
+  color: #494949;
+  padding: 0 0 10rpx 10rpx;
+}
+
+.list {
+  padding: 30rpx 40rpx;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+.img {
+  width: 120rpx;
+  margin-right: 20rpx;
+  position: relative;
+}
+
+.img view:first-of-type {
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.icon {
+  color: #F5860B;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+.name {
+  font-size: 30rpx;
+}
+
+.add-account {
+  display: flex;
+  align-items: center;
+  padding: 0 40rpx;
+}
+
+.add-account view:first-of-type {
+  width: 110rpx;
+  height: 110rpx;
+  border-radius: 50%;
+  border: 1rpx dashed #bbbbbb;
+  margin-right: 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40rpx;
+  color: #bbbbbb;
+}

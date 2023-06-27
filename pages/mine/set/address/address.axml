@@ -1,0 +1,22 @@
+<view class="address">
+  <view class="title">我的地址</view>
+  <view class="list">
+    <view class="item" a:for="{{4}}">
+      <view class="detail">山东省日照市东港区石臼街道绿洲南路66号IFC国际财富中心A座</view>
+      <view class="control">
+        <view class="name">张三 &nbsp;&nbsp; 12322222222</view>
+        <view class="button-group">
+          <view class="button">
+            <view class="icon"><icon type="EditSOutline" /></view>
+            <view class="text">编辑</view>
+          </view>
+          <view class="button">
+            <view class="icon"><icon type="DeleteOutline" /></view>
+            <view class="text">删除</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="add" onTap="addAddress">新增地址</view>
+</view>

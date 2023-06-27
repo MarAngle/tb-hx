@@ -1,0 +1,30 @@
+<view class="info">
+  <view class="title">个人信息</view>
+  <view class="userinfo">
+    <view class="item">
+      <view class="subtitle">头像</view>
+      <view class="img"><image mode="widthFix" src="/image/mine/user.png" /></view>
+      <view class="icon"><image mode="widthFix" src="/image/index/arrow.png" /></view>
+    </view>
+    <view class="item">
+      <view class="subtitle">昵称</view>
+      <view class="detail">浣洗小浣</view>
+      <view class="icon"><image mode="widthFix" src="/image/index/arrow.png" /></view>
+    </view>
+    <view class="item">
+      <view class="subtitle">登录手机号</view>
+      <view class="detail">183****1111</view>
+      <view class="icon"><image mode="widthFix" src="/image/index/arrow.png" /></view>
+    </view>
+    <view class="item">
+      <view class="subtitle">性别</view>
+      <view class="detail">女</view>
+      <view class="icon"><image mode="widthFix" src="/image/index/arrow.png" /></view>
+    </view>
+    <view class="item">
+      <view class="subtitle">生日</view>
+      <view class="detail">1999-09-09</view>
+      <view class="icon"><image mode="widthFix" src="/image/index/arrow.png" /></view>
+    </view>
+  </view>
+</view>

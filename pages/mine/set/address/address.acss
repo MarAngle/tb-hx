@@ -1,0 +1,68 @@
+.address {
+  padding: 14rpx;
+}
+
+.title {
+  font-size: 44rpx;
+  font-family: '阿里妈妈数黑体 Bold';
+  color: #494949;
+  padding: 0 0 10rpx 10rpx;
+}
+
+.list {
+  padding: 10rpx 0;
+}
+
+.item {
+  border-bottom: 1px solid #bbbbbb;
+  margin-bottom: 20rpx;
+  padding: 0 20rpx 20rpx;
+}
+
+.detail {
+  font-weight: 600;
+  font-size: 28rpx;
+  margin-bottom: 20rpx;
+  color: #494949;
+}
+
+.control {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.name {
+  font-size: 24rpx;
+  color: #888888;
+}
+
+.button-group {
+  display: flex;
+  color: #888888;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  margin-left: 20rpx;
+}
+
+.text {
+  font-size: 24rpx;
+  margin-left: 6rpx;
+}
+
+.add {
+  position: fixed;
+  bottom: 30rpx;
+  width: calc(100% - 40rpx);
+  background-color: #2F3143;
+  color: #ffffff;
+  text-align: center;
+  padding: 20rpx 0;
+  font-size: 30rpx;
+  font-weight: 600;
+  border-radius: 60rpx;
+  letter-spacing: 2rpx;
+}

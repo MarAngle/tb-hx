@@ -1,0 +1,11 @@
+<view class="about">
+  <view class="title">关于我们</view>
+  <view class="item" data-page-url="/pages/mine/set/about/policy/policy" onTap="changePage">
+    <view class="name">隐私政策</view>
+    <view class="icon"><image mode="widthFix" src="/image/index/arrow.png" /></view>
+  </view>
+  <view class="item" data-page-url="/pages/mine/set/about/agreement/agreement" onTap="changePage">
+    <view class="name">用户协议</view>
+    <view class="icon"><image mode="widthFix" src="/image/index/arrow.png" /></view>
+  </view>
+</view>

@@ -1,0 +1,100 @@
+.add {
+  padding: 14rpx;
+}
+
+.title {
+  font-size: 44rpx;
+  font-family: '阿里妈妈数黑体 Bold';
+  color: #494949;
+  padding: 0 0 10rpx 10rpx;
+}
+
+.paste {
+  background-color: #f5f5f5;
+  border-radius: 20rpx;
+  padding: 30rpx 40rpx;
+  position: relative;
+  margin-top: 20rpx;
+}
+
+.paste view:first-of-type {
+  font-size: 30rpx;
+  font-weight: 600;
+  color: #101010;
+  margin-bottom: 10rpx;
+}
+
+.paste view:nth-of-type(2) {
+  font-size: 24rpx;
+  color: #888888;
+}
+
+.button {
+  position: absolute;
+  top: 50%;
+  right: 30rpx;
+  transform: translateY(-50%);
+  font-size: 28rpx;
+  color: #101010;
+  border: 1rpx solid #bbbbbb;
+  border-radius: 30rpx;
+  padding: 10rpx 30rpx;
+}
+
+.info {
+  padding: 20rpx;
+}
+
+.item {
+  border-bottom: 1rpx solid #eeeeee;
+  padding: 20rpx 0 10rpx 50rpx;
+  position: relative;
+}
+
+.item::before {
+  content: '';
+  display: block;
+  width: 14rpx;
+  height: 14rpx;
+  background-color: #FFCA2F;
+  position: absolute;
+  top: 50%;
+  left: 20rpx;
+}
+
+.item:last-child::before {
+  background-color: #aaaaaa;
+}
+
+.text {
+  font-size: 26rpx;
+  color: #888888;
+  margin-bottom: 10rpx;
+  padding-left: 10rpx;
+}
+
+.input {
+  font-size: 32rpx;
+}
+
+.clear {
+  position: fixed;
+  top: 30rpx;
+  right: 40rpx;
+  font-size: 26rpx;
+  color: #888888;
+}
+
+.save {
+  position: fixed;
+  bottom: 30rpx;
+  width: calc(100% - 40rpx);
+  background-color: #2F3143;
+  color: #ffffff;
+  text-align: center;
+  padding: 20rpx 0;
+  font-size: 30rpx;
+  font-weight: 600;
+  border-radius: 60rpx;
+  letter-spacing: 2rpx;
+}

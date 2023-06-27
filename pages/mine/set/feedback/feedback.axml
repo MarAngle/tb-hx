@@ -1,0 +1,5 @@
+<view class="feedback">
+  <view class="title">意见反馈</view>
+  <textarea placeholder="您的宝贵意见会使我们做得更好哦~" />
+  <view class="submit">提交</view>
+</view>

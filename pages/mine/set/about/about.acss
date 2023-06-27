@@ -1,0 +1,30 @@
+.about {
+  padding: 14rpx;
+}
+
+.title {
+  font-size: 44rpx;
+  font-family: '阿里妈妈数黑体 Bold';
+  color: #494949;
+  padding: 0 0 10rpx 10rpx;
+}
+
+.item {
+  padding: 20rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1rpx solid #bbbbbb;
+  border-radius: 20rpx;
+  margin-top: 20rpx;
+  height: 60rpx;
+}
+
+.name {
+  font-size: 28rpx;
+  color: #494949;
+}
+
+.icon {
+  width: 30rpx;
+}
