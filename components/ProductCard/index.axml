@@ -8,11 +8,20 @@
     </view>
     <view class="component-product-item-content-line">
       <view class="component-product-item-content-desc">{{data.desc}}</view>
-      <view class="component-product-item-content-price">{{data.price}}</view>
+      <view class="component-product-item-content-price">
+        <view>¥</view>
+        <view>{{data.price}}</view>
+      </view>
     </view>
     <view class="component-product-item-content-line">
+      <view class="component-product-item-content-import">{{data.import}}</view>
+    </view>
+    <!-- <view class="component-product-item-content-line">
       <view class="component-product-item-content-sale">月销{{data.sale}}</view>
       <view class="component-product-item-content-favorable">好评率{{data.favorable}}%</view>
-    </view>
+    </view> -->
+  </view>
+  <view class="component-product-item-menu">
+    <image src="/image/icon/open.png" />
   </view>
 </view>

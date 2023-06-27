@@ -1,7 +1,7 @@
 .component-product-item{
   margin: 0 auto;
   width: 700rpx;
-  background-color: #ccc;
+  background-color: #eee;
   border-radius: 8rpx;
   display: flex;
   flex-direction: row;
@@ -12,9 +12,9 @@
 }
 
 .component-product-item-icon{
+  flex: none;
   width: 160rpx;
   height: 160rpx;
-  background-color: aqua;
   border-radius: 12rpx;
   margin-right: 20rpx;
   overflow: hidden;
@@ -24,12 +24,22 @@
   height: 100%;
 }
 .component-product-item-content{
-  width: 530rpx;
+  width: 100%;
   height: 160rpx;
+  flex: auto;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: stretch;
+}
+.component-product-item-menu{
+  flex: none;
+  padding: 0 0rpx 0 20rpx;
+}
+.component-product-item-menu image{
+  width: 40rpx;
+  height: 40rpx;
+  margin: 0 auto;
 }
 
 .component-product-item-content-line{
@@ -40,6 +50,24 @@
   font-size: 20rpx;
 }
 .component-product-item-content-title{
-  font-size: 24rpx;
+  font-size: 28rpx;
   font-weight: bold;
+}
+.component-product-item-content-desc{
+  color: rgba(0, 0, 0, 0.65);
+}
+.component-product-item-content-price{
+  color: #f5222d;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+.component-product-item-content-price view{
+  font-size: 32rpx;
+  font-weight: bold;
+}
+.component-product-item-content-import{
+  color: #f5222d;
+  font-size: 24rpx;
 }

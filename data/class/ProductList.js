@@ -26,32 +26,35 @@ class ProductList extends BaseData{
     console.log('暂时写死数据，等待接口！')
     this.list = [
       {
-        name: '产品1',
-        desc: '这是一个小简介',
-        label: '',
+        name: '衣服任意3件',
+        label: '特惠',
+        desc: '快递免费上门取送',
+        import: '拒用"四氯"健康洗',
         id: 1,
         icon: '/image/test/category.jpg',
-        price: 100,
+        price: 129,
         sale: 100,
         favorable: 100
       },
       {
-        name: '产品2',
-        desc: '这是一个小简介',
+        name: '衣服任意1件',
         label: '',
+        desc: '快递免费上门取送',
+        import: '拒用"四氯"健康洗',
         id: 2,
         icon: '/image/test/category.jpg',
-        price: 100,
+        price: 99,
         sale: 100,
         favorable: 100
       },
       {
-        name: '产品3',
-        desc: '这是一个小简介',
+        name: '衣服任意2件',
         label: '',
+        desc: '快递免费上门取送',
+        import: '拒用"四氯"健康洗',
         id: 3,
         icon: '/image/test/category.jpg',
-        price: 100,
+        price: 29.9,
         sale: 100,
         favorable: 100
       },

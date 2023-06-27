@@ -11,10 +11,10 @@ Component({
   didUnmount() {},
   methods: {
     toInfo() {
-      // my.navigateTo({
-      //   url: '/pages/product/info/index?id=' + this.props.data.id
-      // })
-      toLogin()
+      my.navigateTo({
+        url: '/pages/product/info/index?id=' + this.props.data.id
+      })
+      // toLogin()
     },
   },
 });
