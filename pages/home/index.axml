@@ -1,16 +1,21 @@
 <view class="page-home">
   <view class="page-home-title">品类</view>
   <view class="page-home-category">
-    <view class="page-home-category-left page-home-category-item" data-id="{{1}}" onTap="toProductList"></view>
+    <view class="page-home-category-left page-home-category-item" data-id="{{1}}" onTap="toProductList">
+      <image src="/image/index/1.png" />
+    </view>
     <view class="page-home-category-right">
-      <view class="page-home-category-right-top page-home-category-item" data-id="{{2}}" onTap="toProductList"></view>
-      <view class="page-home-category-right-bottom page-home-category-item" data-id="{{3}}" onTap="toProductList"></view>
+      <view class="page-home-category-right-top page-home-category-item" data-id="{{2}}" onTap="toProductList">
+        <image src="/image/index/2.png" />
+      </view>
+      <view class="page-home-category-right-bottom page-home-category-item" data-id="{{3}}" onTap="toProductList">
+        <image src="/image/index/3.png" />
+      </view>
     </view>
   </view>
   <view class="page-home-banner">
      <swiper 
       class="page-home-banner-swiper"
-      style="width: 720rpx;"
       indicator-dots="{{true}}"
       autoplay="{{true}}"
       vertical="{{false}}"

@@ -30,7 +30,7 @@ class ProductList extends BaseData{
         desc: '这是一个小简介',
         label: '',
         id: 1,
-        icon: '',
+        icon: '/image/test/category.jpg',
         price: 100,
         sale: 100,
         favorable: 100
@@ -40,7 +40,7 @@ class ProductList extends BaseData{
         desc: '这是一个小简介',
         label: '',
         id: 2,
-        icon: '',
+        icon: '/image/test/category.jpg',
         price: 100,
         sale: 100,
         favorable: 100
@@ -50,7 +50,7 @@ class ProductList extends BaseData{
         desc: '这是一个小简介',
         label: '',
         id: 3,
-        icon: '',
+        icon: '/image/test/category.jpg',
         price: 100,
         sale: 100,
         favorable: 100

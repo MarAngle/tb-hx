@@ -7,7 +7,8 @@
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  padding: 10rpx 10rpx;
+  padding: 20rpx 20rpx;
+  box-shadow: 0 0 5px #ccc;
 }
 
 .component-product-item-icon{
@@ -15,9 +16,13 @@
   height: 160rpx;
   background-color: aqua;
   border-radius: 12rpx;
-  margin-right: 10rpx;
+  margin-right: 20rpx;
+  overflow: hidden;
 }
-
+.component-product-item-icon image{
+  width: 100%;
+  height: 100%;
+}
 .component-product-item-content{
   width: 530rpx;
   height: 160rpx;

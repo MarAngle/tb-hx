@@ -1,5 +1,7 @@
 <view class="component-product-item" onTap="toInfo" >
-  <view class="component-product-item-icon"></view>
+  <view class="component-product-item-icon">
+    <image src="{{ data.icon }}" />
+  </view>
   <view class="component-product-item-content">
     <view class="component-product-item-content-line">
       <view class="component-product-item-content-title">{{data.name}}</view>

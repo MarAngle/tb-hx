@@ -1,7 +1,9 @@
 page {
   background: #fefefe;
 }
-
+*{
+  box-sizing: border-box;
+}
 image {
   width: 100%;
   display: block;
