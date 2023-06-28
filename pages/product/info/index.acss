@@ -1,0 +1,32 @@
+.page-product-info-title{
+  text-align: left;
+  font-size: 28rpx;
+  font-weight: bold;
+  padding: 10rpx 20rpx;
+}
+
+.page-product-info-line{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.page-product-info-price{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+
+.page-product-info-detail-title{
+  text-align: center;
+  font-size: 24rpx;
+  color: rgba(0, 0, 0, 0.65);
+}
+.page-product-info-detail-content image{
+  display: block;
+  width: 700rpx;
+  height: auto;
+  margin: 10rpx auto;
+}
