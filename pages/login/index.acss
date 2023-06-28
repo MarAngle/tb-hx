@@ -1,0 +1,30 @@
+.page-login-form-item{
+  width: 600rpx;
+  margin: 20rpx auto;
+}
+.page-login-form-row{
+  display: flex;
+  flex-direction: row;
+  justify-content: stretch;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+.page-login-form-input{
+  display: block;
+  flex: auto;
+  width: 100%;
+}
+.page-login-form-code{
+  display: block;
+  flex: none;
+  width: auto;
+  padding: 10rpx 20rpx;
+  background: none;
+  border: none;
+}
+
+.page-login-form-menu{
+  margin: 20rpx auto;
+}
+
+

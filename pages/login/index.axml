@@ -4,15 +4,15 @@
   </view>
   <view class="page-login-form" a:if="{{user.auth == 'phone'}}" >
     <view class="page-login-form-item">
-      <view class="form-row">
-        <input class="input" data-prop='phone' placeholder="请输入手机号" onInput="onFormChange" />
+      <view class="page-login-form-row">
+        <input class="page-login-form-input" data-prop='phone' placeholder="请输入手机号" onInput="onFormChange" />
+        <button class="page-login-form-code" onTap="getCode" loading="{{ user.code.ing }}" disabled="{{ user.code.operate }}" >{{ user.code.operate ? user.code.count : '发送验证码' }}</button>
       </view>
-      <view class="form-row">
-        <input class="input" data-prop='code' placeholder="请输入验证码" onInput="onFormChange" />
-        <button size="mini" onTap="getCode" loading="{{ user.code.ing }}" disabled="{{ user.code.operate }}" >{{ user.code.operate ? user.code.count : '获取验证码' }}</button>
+      <view class="page-login-form-row">
+        <input class="page-login-form-input" data-prop='code' placeholder="请输入验证码" onInput="onFormChange" />
       </view>
-      <view class="form-row">
-        <button size="mini" onTap="onLogin">登录</button>
+      <view class="page-login-form-row">
+        <button class="page-login-form-menu" onTap="onLogin">登录</button>
       </view>
     </view>
   </view>

@@ -86,13 +86,13 @@ class UserData extends BaseData{
     }
   }
   startCount() {
-    this.count = 60
+    this.code.count = 60
     this.runCount()
   }
   runCount() {
     setTimeout(() => {
-      this.count = this.count - 1
-      if (this.count === 0) {
+      this.code.count = this.code.count - 1
+      if (this.code.count === 0) {
         this.code.operate = false
       } else {
         this.runCount()
@@ -103,9 +103,10 @@ class UserData extends BaseData{
   loginByAuth() {
     return new Promise((resolve, reject) => {
       my.authorize({
-        scopes: 'scope.userInfo',
+        scopes: ['scope.userInfo', 'scope.addressList', 'scope.getPhoneNumber'],
         success: (res) => {
           console.log(res)
+          console.log(res.accessToken)
           my.getAuthUserInfo({
             success:(res)=>{
               console.log(res)
@@ -135,7 +136,7 @@ class UserData extends BaseData{
         this.auth = 'phone'
         this.$syncPage()
         reject()
-      }, 1000)
+      }, 1)
     })
   }
 }
