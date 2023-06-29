@@ -36,7 +36,6 @@
 .page-home-category-right-top,.page-home-category-right-bottom{
   width: 100%;
   height: 162.5rpx;
-  background-color: aqua;
 }
 .page-home-category-item{
   border-radius: 4px;
@@ -44,15 +43,15 @@
 }
 
 .page-home-banner {
-  padding-bottom: 10rpx;
+  padding-bottom: 20rpx;
 }
 .page-home-banner-swiper{
   width: 700rpx;
   margin: 0 auto;
 }
 .page-home-banner-swiper-item{
+  display: block;
   width: 700rpx;
-  height: 200rpx;
+  height: 243rpx;
   border-radius: 12rpx;
-  background-color: blanchedalmond;
 }

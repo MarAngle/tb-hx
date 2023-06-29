@@ -2,14 +2,14 @@
   <view class="page-home-title">品类</view>
   <view class="page-home-category">
     <view class="page-home-category-left page-home-category-item" data-id="{{1}}" onTap="toProductList">
-      <image src="/image/index/1.png" />
+      <image src="/image/test/cate1.png" />
     </view>
     <view class="page-home-category-right">
       <view class="page-home-category-right-top page-home-category-item" data-id="{{2}}" onTap="toProductList">
-        <image src="/image/index/2.png" />
+        <image src="/image/test/cate2.png" />
       </view>
       <view class="page-home-category-right-bottom page-home-category-item" data-id="{{3}}" onTap="toProductList">
-        <image src="/image/index/3.png" />
+        <image src="/image/test/cate3.jpg" />
       </view>
     </view>
   </view>
@@ -17,13 +17,13 @@
      <swiper 
       class="page-home-banner-swiper"
       indicator-dots="{{true}}"
-      autoplay="{{true}}"
+      autoplay="{{false}}"
       vertical="{{false}}"
       interval="{{5000}}"
       circular="{{true}}"
     >
       <swiper-item a:for="{{banner.list}}" key="page-home-banner-swiper-item-{{index}}">
-        <view class="page-home-banner-swiper-item"></view>
+        <image class="page-home-banner-swiper-item" src="/image/test/banner.png"></image>
       </swiper-item>
     </swiper>
   </view>

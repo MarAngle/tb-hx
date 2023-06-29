@@ -107,9 +107,11 @@ class UserData extends BaseData{
         success: (res) => {
           console.log(res)
           console.log(res.accessToken)
+          this.accessToken = res.accessToken
           my.getAuthUserInfo({
             success:(res)=>{
               console.log(res)
+              this.login = true
               resolve(res)
             },
             fail:(err)=>{
@@ -130,14 +132,14 @@ class UserData extends BaseData{
     })
   }
   autoData() {
-    // return this.loginByAuth()
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        this.auth = 'phone'
-        this.$syncPage()
-        reject()
-      }, 1)
-    })
+    return this.loginByAuth()
+    // return new Promise((resolve, reject) => {
+    //   setTimeout(() => {
+    //     this.auth = 'phone'
+    //     this.$syncPage()
+    //     reject()
+    //   }, 1)
+    // })
   }
 }
 
