@@ -50,7 +50,7 @@ const require = {
       requireOption.headers.token = this.getToken()
     }
     if (requireOption.url.indexOf('http://') !== 0 && requireOption.url.indexOf('https://') !== 0) {
-      requireOption.url = 'https://test.ihuanxi.cn' + requireOption.url
+      requireOption.url = 'https://tb.ihuanxi.cn' + requireOption.url
       requireOption.$auto = true
     }
     if (requireOption.$fail === undefined) {

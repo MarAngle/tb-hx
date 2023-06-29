@@ -1,0 +1,10 @@
+<view class="page-pay-success">
+  <view class="page-pay-success-title">支付成功!</view>
+  <view class="page-pay-success-icon">
+    <image src="/image/icon/success.png" />
+  </view>
+  <view class="page-pay-success-menu">
+    <view class="page-pay-success-menu-item" onTap='toList'>查看更多</view>
+    <view class="page-pay-success-menu-item" onTap='useProduct'>立即使用</view>
+  </view>
+</view>

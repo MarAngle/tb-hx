@@ -1,5 +1,7 @@
 import BaseData from "../class/BaseData";
+import { showMsg } from "../utils";
 import require from "../utils/require";
+import user from "./user";
 
 class ProductInfo extends BaseData{
   constructor(initOption) {
@@ -10,6 +12,53 @@ class ProductInfo extends BaseData{
       price: 0,
       detail: ''
     }
+  }
+  createOrder() {
+    return new Promise((resolve, reject) => {
+      user.auth().then(() => {
+        this.createOrderNext().then((res) => {
+          resolve(res)
+        }).catch(err => {
+          reject(err)
+        })
+      }).catch(err => {
+        showMsg('请授权信息以进行下一步操作！', 'error')
+        reject(err)
+      })
+    })
+  }
+  createOrderNext() {
+    return new Promise((resolve, reject) => {
+      my.tb.createOrderAndPay({
+        additionalRemarks: '',
+        additionalPrice: 0,
+        path: '/pages/pay/success',
+        outOrderId: 'HX:' + Date.now(),
+        itemList: [
+          {
+            outItemId: '92001008',
+            itemId: '3000000535',
+            amount: 1,
+            salePrice: 1,
+            realPrice: 1,
+          },
+        ],
+        payAmount: 1,
+        discountedPrice: 0,
+        fail(err) {
+          my.alert({
+            content: 'fail == ' + JSON.stringify(err),
+          })
+          reject(err)
+        },
+        success(res) {
+          my.alert({
+            content: 'success == ' + JSON.stringify(res),
+          });
+          resolve(res)
+        },
+      })
+    })
   }
 }
 

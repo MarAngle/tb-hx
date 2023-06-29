@@ -47,7 +47,7 @@
   <view style="height: 200rpx;width: 100%;"></view>
   <view class="buy">
     <view>￥{{productInfo.info.price.toFixed(2)}}</view>
-    <view onTap="open">立即购买</view>
+    <view onTap="createOrder">立即购买</view>
   </view>
   <!-- <modal class="modal" show="{{showModal}}" show-close="{{false}}">
     <view class="dialog">

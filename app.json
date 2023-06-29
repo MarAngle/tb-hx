@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/home/index",
+    "pages/pay/success",
     "pages/login/index",
     "pages/product/index",
     "pages/product/detail/index",

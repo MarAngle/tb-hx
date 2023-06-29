@@ -1,16 +1,17 @@
 import BaseData from "../class/BaseData";
-import { rule, showMsg } from "../utils";
+import { getLocal, rule, showMsg } from "../utils";
 import require from "../utils/require";
 
 class UserData extends BaseData{
   constructor(initOption) {
     super(initOption)
-    this.auth = 'auto'
-    this.login = false
+    this.status.login = false
+    this.status.type = 'auth'
     this.info = {
-      id: 0,
-      name: '',
-      phone: ''
+      accessToken: undefined,
+      phone: undefined,
+      name: undefined,
+      avatar: undefined
     }
     this.form = {
       phone: '',
@@ -77,7 +78,7 @@ class UserData extends BaseData{
       }).then((res) => {
         require.setToken(res.data.token)
         require.setRefreshToken(res.data.refreshToken)
-        this.login = true
+        this.status.login = true
         this.$syncPage()
       }).catch(err => {
         console.error(err)
@@ -100,46 +101,60 @@ class UserData extends BaseData{
       this.$syncPage(true)
     }, 1000)
   }
-  loginByAuth() {
+  auth() {
     return new Promise((resolve, reject) => {
       my.authorize({
         scopes: ['scope.userInfo', 'scope.addressList', 'scope.getPhoneNumber'],
         success: (res) => {
           console.log(res)
-          console.log(res.accessToken)
           this.accessToken = res.accessToken
-          my.getAuthUserInfo({
-            success:(res)=>{
-              console.log(res)
-              this.login = true
-              resolve(res)
-            },
-            fail:(err)=>{
-              console.log(err)
-              this.auth = 'phone'
-              this.$syncPage()
-              reject(err)
-            }
+          this.getPhoneNumber().then(() => {
+            this.status.login = true
+            my.getAuthUserInfo({
+              success:(res)=>{
+                console.log(res)
+                this.$syncPage()
+                resolve(res)
+              },
+              fail:(err)=>{
+                console.log(err)
+                resolve(err)
+              }
+            })
+          }).catch(err => {
+            console.error(err)
+            reject(err)
           })
         },
         fail:(err)=>{
           console.log(err)
-          this.auth = 'phone'
+          this.status.type = 'phone'
           this.$syncPage()
           reject(err)
         }
       })
     })
   }
-  autoData() {
-    return this.loginByAuth()
-    // return new Promise((resolve, reject) => {
-    //   setTimeout(() => {
-    //     this.auth = 'phone'
-    //     this.$syncPage()
-    //     reject()
-    //   }, 1)
-    // })
+  getPhoneNumber() {
+    return new Promise((resolve, reject) => {
+      require.post({
+        url: '/tb_api/api/Login.php',
+        token: false,
+        data: {
+          status: "userPhoneGet",
+          sessionKey: this.info.accessToken
+        }
+      }).then((res) => {
+        console.log(res)
+        resolve(res)
+      }).catch(err => {
+        console.error(err)
+        reject(err)
+      })
+    })
+  }
+  getDataByLocal() {
+
   }
 }
 
@@ -153,8 +168,6 @@ const user = new UserData({
   }
 })
 
-if (require.getToken()) {
-  user.login = true
-}
+user.getDataByLocal()
 
 export default user
