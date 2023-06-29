@@ -1,4 +1,9 @@
 import { getLocal, setLocal, showMsg } from "."
+import cloud from '@tbmp/mp-cloud-sdk'
+
+cloud.init({
+  env: 'test' 
+});
 
 export const data = {
   token: undefined,
@@ -13,7 +18,6 @@ export const getRefreshToken = function(refreshToken) {
   token.refresh = refreshToken
   getLocal('refreshToken', refreshToken)
 }
-
 
 const showMsgAllType = function(data) {
   if (typeof data === 'object') {
@@ -53,67 +57,84 @@ const require = {
     return this.token.refresh
   },
   require(requireOption) {
-    if (!requireOption.data) {
-      requireOption.body = {}
-    } else {
-      requireOption.body = requireOption.data
-      delete requireOption.data
-    }
-    if (!requireOption.headers) {
-      requireOption.headers = {}
-    }
-    if (requireOption.token === true || requireOption.token === undefined) {
-      requireOption.headers.token = this.getToken()
-    }
-    if (requireOption.url.indexOf('http://') !== 0 && requireOption.url.indexOf('https://') !== 0) {
-      requireOption.url = 'https://tb.ihuanxi.cn' + requireOption.url
-      requireOption.$auto = true
-    }
-    if (requireOption.$fail === undefined) {
-      requireOption.$fail = {}
-    }
     return new Promise((resolve, reject) => {
-      requireOption.success = function(result) {
-        const res = result.data
-        if (requireOption.$auto) {
-          if (res.code == 0) {
-            resolve(res)
-          } else {
-            if (!requireOption.$fail.data) {
-              showMsg(res.codemsg || '请求失败且无错误信息！', 'fail')
-            }
-            reject(res)
-          }
-        } else {
-          resolve(res)
-        }
+      if (!requireOption.data) {
+        requireOption.body = {}
+      } else {
+        requireOption.body = requireOption.data
+        delete requireOption.data
       }
-      requireOption.fail = function(err) {
-        if (!requireOption.$fail.service) {
-          showMsg('服务器请求失败！' + requireOption.url, 'fail', {
-            duration: 3000
-          })
-          setTimeout(() => {
-            showMsgAllType(err)
-          }, 4000)
-        }
+      if (!requireOption.headers) {
+        requireOption.headers = {}
+      }
+      if (requireOption.token === true || requireOption.token === undefined) {
+        requireOption.headers.token = this.getToken()
+      }
+      // if (requireOption.url.indexOf('http://') !== 0 && requireOption.url.indexOf('https://') !== 0) {
+      //   requireOption.url = 'https://tb.ihuanxi.cn' + requireOption.url
+      //   requireOption.$auto = true
+      // }
+      requireOption.path = requireOption.url
+      delete requireOption.url
+      if (requireOption.$fail === undefined) {
+        requireOption.$fail = {}
+      }
+      requireOption.exts = {
+        domain: 'https://tb.ihuanxi.cn',
+        timeout: 6000
+      }
+
+      cloud.application.httpRequest(requireOption).then(res => {
+        console.log(res)
+        resolve(res)
+      }).catch(err => {
+        console.log(err)
         reject(err)
-      }
-      try{
-        my.tb.request(requireOption)
-      }catch(err) {
-        console.log(err.message)
-        showMsgAllType(err.message)
-        reject(err)
-      }
+      })
     })
+
+      // return new Promise((resolve, reject) => {
+      //   requireOption.success = function(result) {
+      //     const res = result.data
+      //     if (requireOption.$auto) {
+      //       if (res.code == 0) {
+      //         resolve(res)
+      //       } else {
+      //         if (!requireOption.$fail.data) {
+      //           showMsg(res.codemsg || '请求失败且无错误信息！', 'fail')
+      //         }
+      //         reject(res)
+      //       }
+      //     } else {
+      //       resolve(res)
+      //     }
+      //   }
+      //   requireOption.fail = function(err) {
+      //     if (!requireOption.$fail.service) {
+      //       showMsg('服务器请求失败！' + requireOption.url, 'fail', {
+      //         duration: 3000
+      //       })
+      //       setTimeout(() => {
+      //         showMsgAllType(err)
+      //       }, 4000)
+      //     }
+      //     reject(err)
+      //   }
+      //   try{
+      //     my.tb.request(requireOption)
+      //   }catch(err) {
+      //     console.log(err.message)
+      //     showMsgAllType(err.message)
+      //     reject(err)
+      //   }
+      // })
   },
   get(requireOption) {
-    requireOption.method = 'get'
+    requireOption.method = 'GET'
     return this.require(requireOption)
   },
   post(requireOption) {
-    requireOption.method = 'post'
+    requireOption.method = 'POST'
     return this.require(requireOption)
   }
 }
