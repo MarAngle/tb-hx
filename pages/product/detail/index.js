@@ -22,8 +22,8 @@ Page({
   },
   open() {
     if (!user.login) {
-      toLogin()
-      return
+      // toLogin()
+      // return
 
       my.tb.createOrderAndPay({
         additionalRemarks: '',
@@ -48,7 +48,7 @@ Page({
             outItemId: '92001008',
             itemId: '3000000535',
             amount: 1,
-            salePrice: 0,
+            salePrice: 1,
             realPrice: 1,
           },
         ],
