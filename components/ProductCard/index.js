@@ -1,4 +1,4 @@
-import { toLogin } from "../../utils";
+import productInfo from "../../data/productInfo";
 
 Component({
   mixins: [],
@@ -11,8 +11,13 @@ Component({
   didUnmount() {},
   methods: {
     toInfo() {
+      console.log(this.props.data, productInfo)
+      productInfo.setData(this.props.data)
+      // my.navigateTo({
+      //   url: '/pages/product/detail/index?id=' + this.props.data.id
+      // })
       my.navigateTo({
-        url: '/pages/product/detail/index?id=' + this.props.data.id
+        url: '/pages/product/detail/index'
       })
       // toLogin()
     },

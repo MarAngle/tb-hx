@@ -1,18 +1,18 @@
 <view class="detail">
   <view class="swiper">
     <swiper indicator-dots="{{true}}" indicator-active-color="#999BB2" indicator-color="#ECECEC">
-      <block a:for="{{productInfo.info.icon}}">
+      <block>
         <swiper-item>
-          <view class="swiper-item"><image mode="widthFix" src="{{ item }}" /></view>
+          <view class="swiper-item"><image mode="widthFix" src="{{ productInfo.data.icon }}" /></view>
         </swiper-item>
       </block>
     </swiper>
   </view>
-  <view class="title">{{productInfo.info.name}}</view>
+  <view class="title">{{productInfo.data.name}}</view>
   <view class="info">
     <view class="price">
-      <view>￥{{productInfo.info.price.toFixed(2)}}</view>
-      <view>已优惠19元</view>
+      <view>￥{{productInfo.data.price.show.data}}</view>
+      <view>已优惠{{productInfo.data.price.show.discounted}}元</view>
     </view>
     <view class="collect">
       <view class="icon"><icon type="HeartOutline" /></view>
@@ -21,7 +21,7 @@
   </view>
   <view class="service-detail">
     <view>服务详情</view>
-    <view><image mode="widthFix" src="{{productInfo.info.detail}}" /></view>
+    <view><image mode="widthFix" src="{{productInfo.data.detail}}" /></view>
   </view>
   <!-- <view class="more">
     <view class="tit">更多推荐</view>
@@ -46,7 +46,7 @@
   </view> -->
   <view style="height: 200rpx;width: 100%;"></view>
   <view class="buy">
-    <view>￥{{productInfo.info.price.toFixed(2)}}</view>
+    <view>￥{{productInfo.data.price.show.data}}</view>
     <view onTap="createOrder">立即购买</view>
   </view>
   <!-- <modal class="modal" show="{{showModal}}" show-close="{{false}}">

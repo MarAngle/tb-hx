@@ -6,6 +6,7 @@ require('../../components/ProductList/index?hash=aeca18ec55e4c36a45554211c7af7fa
 require('../../node_modules/antd-mini/es/Icon/index?hash=05d2a9730dd6009bf9446182f9c985f40f8c0f43');
 require('../../node_modules/antd-mini/es/Popup/index?hash=05d2a9730dd6009bf9446182f9c985f40f8c0f43');
 require('../../pages/home/index?hash=ba28b9f05083c7e5ff40c64239269b0057bf9a31');
+require('../../pages/pay/success?hash=ba28b9f05083c7e5ff40c64239269b0057bf9a31');
 require('../../pages/login/index?hash=32d7d2807ed4e666ef03b4b3fe8c38ecf2e34e68');
 require('../../pages/product/index?hash=ba28b9f05083c7e5ff40c64239269b0057bf9a31');
 require('../../pages/product/detail/index?hash=8385356bd8b4ca9fa87738563e035351b35a7175');

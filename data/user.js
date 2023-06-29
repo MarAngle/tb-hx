@@ -8,8 +8,6 @@ class UserData extends BaseData{
     this.status.login = false
     this.status.type = 'auth'
     this.info = {
-      accessToken: undefined,
-      phone: undefined,
       name: undefined,
       avatar: undefined
     }
@@ -106,9 +104,7 @@ class UserData extends BaseData{
       my.authorize({
         scopes: ['scope.userInfo', 'scope.addressList', 'scope.getPhoneNumber'],
         success: (res) => {
-          console.log(res)
-          this.accessToken = res.accessToken
-          this.getPhoneNumber().then(() => {
+          this.getPhoneNumber(res.accessToken.accessToken).then(() => {
             this.status.login = true
             my.getAuthUserInfo({
               success:(res)=>{
@@ -135,17 +131,19 @@ class UserData extends BaseData{
       })
     })
   }
-  getPhoneNumber() {
+  getPhoneNumber(accessToken) {
     return new Promise((resolve, reject) => {
       require.post({
         url: '/tb_api/api/Login.php',
         token: false,
         data: {
           status: "userPhoneGet",
-          sessionKey: this.info.accessToken
+          sessionKey: accessToken
         }
       }).then((res) => {
         console.log(res)
+        require.setToken(res.data.token)
+        require.setRefreshToken(res.data.refreshToken)
         resolve(res)
       }).catch(err => {
         console.error(err)
@@ -154,7 +152,9 @@ class UserData extends BaseData{
     })
   }
   getDataByLocal() {
-
+    if (require.getToken()) {
+      this.status.login = true
+    }
   }
 }
 

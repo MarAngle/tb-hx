@@ -10,7 +10,7 @@
       <view class="component-product-item-content-desc">{{data.desc}}</view>
       <view class="component-product-item-content-price">
         <view>¥</view>
-        <view>{{data.price}}</view>
+        <view>{{data.price.show.data}}</view>
       </view>
     </view>
     <view class="component-product-item-content-line">
@@ -18,7 +18,7 @@
     </view>
     <!-- <view class="component-product-item-content-line">
       <view class="component-product-item-content-sale">月销{{data.sale}}</view>
-      <view class="component-product-item-content-favorable">好评率{{data.favorable}}%</view>
+      <view class="component-product-item-content-evaluate">好评率{{data.evaluate}}%</view>
     </view> -->
   </view>
   <view class="component-product-item-menu">

@@ -2,8 +2,11 @@ import ProductList from './class/ProductList'
 
 const hotProductList = new ProductList({
   prop: 'hotProductList',
+  params: {
+    status: "tradeItemList"
+  },
   service: {
-    url: 'https://ihuanxi.cn'
+    url: '/tb_api/api/TradeItem.php'
   }
 })
 
