@@ -14,6 +14,19 @@ export const getRefreshToken = function(refreshToken) {
   getLocal('refreshToken', refreshToken)
 }
 
+
+const showMsgAllType = function(data) {
+  if (typeof data === 'object') {
+    showMsg(JSON.stringify(data), undefined, {
+      duration: 9000
+    })
+  } else {
+    showMsg(data, undefined, {
+      duration: 9000
+    })
+  }
+}
+
 const require = {
   token: {
     data: undefined,
@@ -41,7 +54,10 @@ const require = {
   },
   require(requireOption) {
     if (!requireOption.data) {
-      requireOption.data = {}
+      requireOption.body = {}
+    } else {
+      requireOption.body = requireOption.data
+      delete requireOption.data
     }
     if (!requireOption.headers) {
       requireOption.headers = {}
@@ -74,11 +90,22 @@ const require = {
       }
       requireOption.fail = function(err) {
         if (!requireOption.$fail.service) {
-          showMsg('服务器请求失败！', 'fail')
+          showMsg('服务器请求失败！' + requireOption.url, 'fail', {
+            duration: 3000
+          })
+          setTimeout(() => {
+            showMsgAllType(err)
+          }, 4000)
         }
         reject(err)
       }
-      my.request(requireOption)
+      try{
+        my.tb.request(requireOption)
+      }catch(err) {
+        console.log(err.message)
+        showMsgAllType(err.message)
+        reject(err)
+      }
     })
   },
   get(requireOption) {
@@ -90,5 +117,7 @@ const require = {
     return this.require(requireOption)
   }
 }
+
+
 
 export default require

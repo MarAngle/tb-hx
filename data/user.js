@@ -100,6 +100,10 @@ class UserData extends BaseData{
     }, 1000)
   }
   auth() {
+    // require.setToken(1)
+    // require.setRefreshToken(2)
+    // this.status.login = true
+    // return Promise.resolve()
     return new Promise((resolve, reject) => {
       my.authorize({
         scopes: ['scope.userInfo', 'scope.addressList', 'scope.getPhoneNumber'],
