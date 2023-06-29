@@ -23,7 +23,7 @@
     <view>服务详情</view>
     <view><image mode="widthFix" src="{{productInfo.info.detail}}" /></view>
   </view>
-  <view class="more">
+  <!-- <view class="more">
     <view class="tit">更多推荐</view>
     <view class="product-list">
       <view class="product-item" a:for="{{4}}" onTap="detail">
@@ -41,10 +41,9 @@
           <view>￥109</view>
           <view class="arrow"><image mode="widthFix" src="/image/index/arrow.png" /></view>
         </view>
-        <!-- <view class="mark">特惠</view> -->
       </view>
     </view>
-  </view>
+  </view> -->
   <view style="height: 200rpx;width: 100%;"></view>
   <view class="buy">
     <view>￥{{productInfo.info.price.toFixed(2)}}</view>

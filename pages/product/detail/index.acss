@@ -69,32 +69,31 @@
 }
 
 .service-detail {
-  padding-top: 20rpx;
-  margin-top: 20rpx;
+  padding-top: 25rpx;
 }
 
 .service-detail view:first-of-type {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #bbbbbb;
+  color: rgba(0, 0, 0, 0.65);
   font-size: 32rpx;
+  margin-bottom: 25rpx;
 }
 
 .service-detail view:first-of-type::before,
 .service-detail view:first-of-type::after {
   content: '';
   display: block;
-  width: 30%;
+  width: 20%;
   height: 2rpx;
-  background-color: #bbbbbb;
+  background-color: rgba(0, 0, 0, 0.65);
   margin: 4rpx 20rpx 0;
 }
 
 
 .tit {
   font-size: 44rpx;
-  font-family: '阿里妈妈数黑体 Bold';
   color: #F5860B;
   padding: 0 0 10rpx 10rpx;
 }
@@ -136,19 +135,19 @@
 
 .info1 .tip-1 {
   font-size: 20rpx;
-  color: #BBBBBB;
+  color: rgba(0, 0, 0, 0.65);
 }
 
 .info1 .tip-2 {
   font-size: 24rpx;
-  color: #e50c2c;
+  color: #f5222d;
 }
 
 .info1 .another {
   display: flex;
   justify-content: space-between;
   font-size: 22rpx;
-  color: #BBBBBB;
+  color: rgba(0, 0, 0, 0.65);
 }
 
 .pri {
@@ -160,7 +159,7 @@
   align-items: center;
   font-weight: 600;
   font-size: 34rpx;
-  color: #e50c2c;
+  color: #f5222d;
 }
 
 .pri .arrow {
@@ -172,7 +171,7 @@
   position: absolute;
   right: -36rpx;
   top: 0;
-  color: #e50c2c;
+  color: #f5222d;
   background-color: rgba(8, 9, 4, 0.21);
   font-size: 20rpx;
   padding: 16rpx 10rpx 10rpx;
@@ -198,9 +197,8 @@
   color: #EA7914;
   font-size: 40rpx;
   font-weight: 600;
-  flex-grow: 1;
-  text-align: end;
-  padding-right: 40rpx;
+  text-align: left;
+  padding-left: 40rpx;
 }
 
 .buy view:last-of-type {
