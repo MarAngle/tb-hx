@@ -1,14 +1,14 @@
 .component-product-item{
   margin: 0 auto;
   width: 700rpx;
-  background-color: #eee;
+  background-color: rgb(247, 248, 250);
   border-radius: 8rpx;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  padding: 20rpx 20rpx;
-  box-shadow: 0 0 5px #ccc;
+  padding: 25rpx 25rpx;
+  box-shadow: 0 0 10rpx #ccc;
 }
 
 .component-product-item-icon{
@@ -16,7 +16,7 @@
   width: 160rpx;
   height: 160rpx;
   border-radius: 12rpx;
-  margin-right: 20rpx;
+  margin-right: 25rpx;
   overflow: hidden;
 }
 .component-product-item-icon image{
@@ -34,7 +34,7 @@
 }
 .component-product-item-menu{
   flex: none;
-  padding: 0 0rpx 0 20rpx;
+  padding: 0 0rpx 0 25rpx;
 }
 .component-product-item-menu image{
   width: 40rpx;
