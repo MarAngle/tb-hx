@@ -2,7 +2,7 @@ import { getLocal, setLocal, showMsg } from "."
 import cloud from '@tbmp/mp-cloud-sdk'
 
 cloud.init({
-  env: 'test' 
+  env: 'online' 
 });
 
 export const data = {
@@ -67,67 +67,37 @@ const require = {
       if (!requireOption.headers) {
         requireOption.headers = {}
       }
+      requireOption.headers["Content-Type"] = "application/json;charset=UTF-8"
       if (requireOption.token === true || requireOption.token === undefined) {
         requireOption.headers.token = this.getToken()
       }
-      // if (requireOption.url.indexOf('http://') !== 0 && requireOption.url.indexOf('https://') !== 0) {
-      //   requireOption.url = 'https://tb.ihuanxi.cn' + requireOption.url
-      //   requireOption.$auto = true
-      // }
       requireOption.path = requireOption.url
+      const fail = requireOption.fail
+      delete requireOption.token
       delete requireOption.url
-      if (requireOption.$fail === undefined) {
-        requireOption.$fail = {}
-      }
+      delete requireOption.fail
       requireOption.exts = {
         domain: 'https://tb.ihuanxi.cn',
         timeout: 6000
       }
-
       cloud.application.httpRequest(requireOption).then(res => {
-        console.log(res)
-        resolve(res)
+        res = JSON.parse(res)
+        if (res.success) {
+          resolve(res)
+        } else {
+          if (fail === undefined || fail.show === undefined || fail.show) {
+            showMsg(res.errorMessage || '请求失败且无错误信息！', 'fail')
+          }
+          reject(res)
+        }
       }).catch(err => {
         console.log(err)
+        if (fail === undefined || fail.show === undefined || fail.show) {
+          showMsg('请求失败！', 'fail')
+        }
         reject(err)
       })
     })
-
-      // return new Promise((resolve, reject) => {
-      //   requireOption.success = function(result) {
-      //     const res = result.data
-      //     if (requireOption.$auto) {
-      //       if (res.code == 0) {
-      //         resolve(res)
-      //       } else {
-      //         if (!requireOption.$fail.data) {
-      //           showMsg(res.codemsg || '请求失败且无错误信息！', 'fail')
-      //         }
-      //         reject(res)
-      //       }
-      //     } else {
-      //       resolve(res)
-      //     }
-      //   }
-      //   requireOption.fail = function(err) {
-      //     if (!requireOption.$fail.service) {
-      //       showMsg('服务器请求失败！' + requireOption.url, 'fail', {
-      //         duration: 3000
-      //       })
-      //       setTimeout(() => {
-      //         showMsgAllType(err)
-      //       }, 4000)
-      //     }
-      //     reject(err)
-      //   }
-      //   try{
-      //     my.tb.request(requireOption)
-      //   }catch(err) {
-      //     console.log(err.message)
-      //     showMsgAllType(err.message)
-      //     reject(err)
-      //   }
-      // })
   },
   get(requireOption) {
     requireOption.method = 'GET'

@@ -1,13 +1,12 @@
 .detail {
-  padding: 14rpx;
-}
-
-.swiper-item {
-  height: 760rpx;
+  padding: 25rpx 25rps;
 }
 
 .swiper-item image {
   border-radius: 30rpx;
+  width: 700rpx;
+  height: 525rpx;
+  border-radius: 12rpx;
 }
 
 .title {

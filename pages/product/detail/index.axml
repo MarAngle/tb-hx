@@ -1,9 +1,9 @@
 <view class="detail">
   <view class="swiper">
     <swiper indicator-dots="{{true}}" indicator-active-color="#999BB2" indicator-color="#ECECEC">
-      <block>
+      <block a:for="{{productInfo.data.mainPic}}">
         <swiper-item>
-          <view class="swiper-item"><image mode="widthFix" src="{{ productInfo.data.icon }}" /></view>
+          <view class="swiper-item"><image mode="widthFix" src="{{ item }}" /></view>
         </swiper-item>
       </block>
     </swiper>
@@ -21,7 +21,7 @@
   </view>
   <view class="service-detail">
     <view>服务详情</view>
-    <view><image mode="widthFix" src="{{productInfo.data.detail}}" /></view>
+    <view><image a:for="{{productInfo.data.detailPic}}" mode="widthFix" src="{{item}}" /></view>
   </view>
   <!-- <view class="more">
     <view class="tit">更多推荐</view>
