@@ -1,5 +1,5 @@
 import BaseData from "../class/BaseData";
-import { getLocal, rule, showMsg } from "../utils";
+import { rule, showMsg } from "../utils";
 import require from "../utils/require";
 
 class UserData extends BaseData{
@@ -99,50 +99,75 @@ class UserData extends BaseData{
       this.$syncPage(true)
     }, 1000)
   }
-  auth() {
-    // require.setToken(1)
-    // require.setRefreshToken(2)
-    // this.status.login = true
-    // return Promise.resolve()
+  auth(force) {
     return new Promise((resolve, reject) => {
-      my.authorize({
-        scopes: ['scope.userInfo', 'scope.addressList', 'scope.getPhoneNumber'],
-        success: (res) => {
-          this.getPhoneNumber(res.accessToken.accessToken).then(() => {
-            this.status.login = true
-            my.getAuthUserInfo({
-              success:(res)=>{
-                console.log(res)
+      if (force || !this.status.login) {
+        my.authorize({
+          scopes: ['scope.userInfo', 'scope.addressList', 'scope.getPhoneNumber'],
+          success: () => {
+            this.getAuthInfo().then((info) => {
+              this.loginByAuth(info).then(res => {
+                this.status.login = true
                 this.$syncPage()
                 resolve(res)
-              },
-              fail:(err)=>{
-                console.log(err)
-                resolve(err)
-              }
+              }).catch(err => {
+                console.error(err)
+                reject(err)
+              })
+            }).catch(err => {
+              console.error(err)
+              reject(err)
             })
-          }).catch(err => {
-            console.error(err)
+          },
+          fail:(err)=>{
+            console.log(err)
             reject(err)
-          })
-        },
-        fail:(err)=>{
-          console.log(err)
-          this.status.type = 'phone'
-          this.$syncPage()
-          reject(err)
-        }
+          }
+        })
+      } else {
+        resolve({ status: 'success', code: 'logined' })
+      }
+    })
+  }
+  getAuthInfo() {
+    return new Promise((resolve, reject) => {
+      require.top({
+        api: 'taobao.miniapp.user.phone.get',
+        scope: 'scope.getPhoneNumber'
+      }).then((res) => {
+        my.getAuthUserInfo({
+          success:(infoRes)=>{
+            this.$syncPage()
+            resolve({
+              mobile: res.phone,
+              nickname: infoRes.nickName,
+              avatar: infoRes.avatar
+            })
+          },
+          fail:(err)=>{
+            console.log(err)
+            resolve({
+              mobile: res.phone,
+              nickname: '',
+              avatar: ''
+            })
+          }
+        })
+      }).catch(err => {
+        console.error(err)
+        reject(err)
       })
     })
   }
-  getPhoneNumber(accessToken) {
+  
+  loginByAuth(info) {
     return new Promise((resolve, reject) => {
       require.post({
         url: '/tb_api/api/Login.php',
         token: false,
         data: {
-          status: "userPhoneGet",
-          sessionKey: accessToken
+          status: "tradeLogin",
+          ...info
         }
       }).then((res) => {
         console.log(res)

@@ -2,7 +2,7 @@ import { getLocal, setLocal, showMsg } from "."
 import cloud from '@tbmp/mp-cloud-sdk'
 
 cloud.init({
-  env: 'online' 
+  env: 'test' 
 });
 
 export const data = {
@@ -106,6 +106,20 @@ const require = {
   post(requireOption) {
     requireOption.method = 'POST'
     return this.require(requireOption)
+  },
+  top({api, scope}) {
+    return new Promise((resolve, reject) => {
+      cloud.topApi.invoke({  
+        api: api,  
+        authScope: scope  
+      }).then(res => {
+        resolve(res)
+      }).catch(err => {
+        console.log(err)
+        my.alert({ content: 'error ' + err.message })
+        reject(err)
+      })
+    })
   }
 }
 

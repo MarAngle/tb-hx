@@ -14,7 +14,7 @@ Page({
   },
   createOrder() {
     productInfo.createOrder().then(() => {
-      my.toList({
+      my.navigateTo({
         url: '/pages/pay/success'
       })
     }).catch(err => {
