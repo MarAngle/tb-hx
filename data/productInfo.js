@@ -28,20 +28,6 @@ class ProductInfo extends BaseData{
       })
     })
   }
-  // createOrder() {
-  //   return new Promise((resolve, reject) => {
-  //     // user.auth().then(() => {
-  //       this.createOrderNext().then((res) => {
-  //         resolve(res)
-  //       }).catch(err => {
-  //         reject(err)
-  //       })
-  //     // }).catch(err => {
-  //     //   showMsg('请授权信息以进行下一步操作！', 'error')
-  //     //   reject(err)
-  //     // })
-  //   })
-  // }
   beforeCreateOrder() {
     return new Promise((resolve, reject) => {
       require.post({
@@ -83,19 +69,39 @@ class ProductInfo extends BaseData{
           payAmount: this.data.price.data,
           discountedPrice: this.data.price.discounted,
           fail: (err) => {
-            my.alert({
-              content: 'fail == ' + JSON.stringify(err),
-            })
+            showMsg('支付失败！', 'error')
             reject(err)
           },
           success: (res) => {
             my.alert({
               content: 'success == ' + JSON.stringify(res) + ':' + this.orderId,
-            });
-            resolve(res)
+            })
+            // {resultCode, bizOrderId, bizOrderIdStr}
+            this.syncOrder(this.orderId).then(res => {
+              resolve(res)
+            }).catch(err => {
+              reject(err)
+            })
           },
         })
       }).catch(err => {
+        reject(err)
+      })
+    })
+  }
+  syncOrder(orderId) {
+    return new Promise((resolve, reject) => {
+      require.post({
+        url: '/tb_api/api/Order.php',
+        token: true,
+        data: {
+          status: "tradeOrderCreate",
+          orderId: orderId
+        }
+      }).then((res) => {
+        resolve({ status: 'success', success: res.data ? true : false })
+      }).catch(err => {
+        console.error(err)
         reject(err)
       })
     })

@@ -1,4 +1,5 @@
 import productInfo from "../../../data/productInfo";
+import { showMsg } from "../../../utils";
 
 Page({
   data: {
@@ -13,10 +14,15 @@ Page({
     productInfo.$syncPage()
   },
   createOrder() {
-    productInfo.createOrder().then(() => {
-      my.navigateTo({
-        url: '/pages/pay/success'
-      })
+    productInfo.createOrder().then((res) => {
+      if (res.success) {
+        my.navigateTo({
+          url: '/pages/pay/success'
+        })
+      } else {
+        // ...
+        showMsg('支付失败，如何处理？')
+      }
     }).catch(err => {
       console.error(err)
     })
