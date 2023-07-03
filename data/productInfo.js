@@ -73,11 +73,7 @@ class ProductInfo extends BaseData{
             reject(err)
           },
           success: (res) => {
-            my.alert({
-              content: 'success == ' + JSON.stringify(res) + ':' + this.orderId,
-            })
-            // {resultCode, bizOrderId, bizOrderIdStr}
-            this.syncOrder(this.orderId).then(res => {
+            this.syncOrder(this.orderId, res.bizOrderIdStr).then(res => {
               resolve(res)
             }).catch(err => {
               reject(err)
@@ -89,16 +85,20 @@ class ProductInfo extends BaseData{
       })
     })
   }
-  syncOrder(orderId) {
+  syncOrder(orderId, tbOrderId) {
     return new Promise((resolve, reject) => {
       require.post({
         url: '/tb_api/api/Order.php',
         token: true,
         data: {
-          status: "tradeOrderCreate",
-          orderId: orderId
+          status: "tradeOrderQuery",
+          pay_no: orderId,
+          order_id: tbOrderId
         }
       }).then((res) => {
+        my.alert({
+          content: 'success == ' + JSON.stringify(res),
+        })
         resolve({ status: 'success', success: res.data ? true : false })
       }).catch(err => {
         console.error(err)
