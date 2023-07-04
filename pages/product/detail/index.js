@@ -20,8 +20,9 @@ Page({
           url: '/pages/pay/success'
         })
       } else {
-        // ...
-        showMsg('支付失败，如何处理？')
+        my.navigateTo({
+          url: '/pages/order/index?type=unPay'
+        })
       }
     }).catch(err => {
       console.error(err)

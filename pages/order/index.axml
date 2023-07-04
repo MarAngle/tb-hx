@@ -1,13 +1,14 @@
 <view class="order">
   <view class="title">我的订单</view>
-  <view class="input">
+  <!-- <view class="input">
     <input placeholder="手机号、订单号搜索" value="{{ inputVal }}" onConfirm="search" />
-  </view>
+  </view> -->
   <view class="nav">
-    <view class="{{[page==0 && 'select-nav']}}" data-page="0" onTap="changePage">全部</view>
+    <!-- <view class="{{[page==0 && 'select-nav']}}" data-page="0" onTap="changePage">全部</view>
     <view class="{{[page==1 && 'select-nav']}}" data-page="1" onTap="changePage">未使用</view>
     <view class="{{[page==2 && 'select-nav']}}" data-page="2" onTap="changePage">洗护中</view>
-    <view class="{{[page==3 && 'select-nav']}}" data-page="3" onTap="changePage">已完成</view>
+    <view class="{{[page==3 && 'select-nav']}}" data-page="3" onTap="changePage">已完成</view> -->
+    <view a:for="{{orderList.type.list}}" data="{{item}}" class="{{[orderList.type.current == item.value && 'select-nav']}}" data-value="{{item.value}}" onTap="changeOrderType">{{item.label}}</view>
   </view>
   <view class="order-list">
     <view class="list-item">

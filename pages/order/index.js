@@ -1,20 +1,20 @@
+import orderList from "../../data/orderList";
+
 Page({
   data: {
-    inputVal: '',
-    page: '0'
+    [orderList.$prop]: orderList
   },
   onLoad(query) {
-    console.log('page onLoad', query)
+    orderList.changeType(query.type)
+    orderList.$appendPage(this)
+    orderList.$reloadData(true)
   },
   onShow() {},
   search() {
     my.showToast();
   },
-  changePage({target}) {
-    // console.log(target.dataset)
-    this.setData({
-      page: target.dataset.page
-    })
+  changeOrderType({target}) {
+    orderList.changeType(target.dataset.value)
   },
   useThali() {
     my.navigateTo({

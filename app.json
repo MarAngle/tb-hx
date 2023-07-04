@@ -19,7 +19,7 @@
     "pages/mine/set/account/account",
     "pages/mine/help/help",
     "pages/mine/help/artificial/artificial",
-    "pages/order/order",
+    "pages/order/index",
     "pages/order/reservation/reservation",
     "pages/order/detail/detail",
     "pages/order/refund/refund"
@@ -50,7 +50,7 @@
         "activeIcon": "image/tabbar/product-active.png"
       },
       {
-        "pagePath": "pages/order/order",
+        "pagePath": "pages/order/index",
         "name": "我的订单",
         "icon": "image/tabbar/order.png",
         "activeIcon": "image/tabbar/order-active.png"

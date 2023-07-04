@@ -69,7 +69,7 @@ const require = {
       }
       requireOption.headers["Content-Type"] = "application/json;charset=UTF-8"
       if (requireOption.token === true || requireOption.token === undefined) {
-        requireOption.headers.token = this.getToken()
+        requireOption.headers.AUTHORIZATION = this.getToken()
       }
       requireOption.path = requireOption.url
       const fail = requireOption.fail
@@ -91,7 +91,6 @@ const require = {
           reject(res)
         }
       }).catch(err => {
-        console.log(err)
         if (fail === undefined || fail.show === undefined || fail.show) {
           showMsg('请求失败！', 'fail')
         }
