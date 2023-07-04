@@ -1,0 +1,27 @@
+<view class="component-order-item" onTap="toInfo" >
+  <view class="component-order-item-icon">
+    <image src="{{ data.icon }}" />
+  </view>
+  <view class="component-order-item-content">
+    <view class="component-order-item-content-line">
+      <view class="component-order-item-content-title">{{data.name}}</view>
+    </view>
+    <view class="component-order-item-content-line">
+      <view class="component-order-item-content-desc">{{data.desc}}</view>
+      <view class="component-order-item-content-price">
+        <view>¥</view>
+        <view>{{data.price.show.data}}</view>
+      </view>
+    </view>
+    <view class="component-order-item-content-line">
+      <view class="component-order-item-content-import">{{data.import}}</view>
+    </view>
+    <!-- <view class="component-order-item-content-line">
+      <view class="component-order-item-content-sale">月销{{data.sale}}</view>
+      <view class="component-order-item-content-evaluate">好评率{{data.evaluate}}%</view>
+    </view> -->
+  </view>
+  <view class="component-order-item-menu">
+    <image src="/image/icon/open.png" />
+  </view>
+</view>

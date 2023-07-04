@@ -1,0 +1,3 @@
+<view class="component-order-list">
+  <order-card a:for="{{order.list}}" data="{{item}}" key="component-order-list-item-{{index}}" />
+</view>

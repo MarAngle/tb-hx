@@ -1,0 +1,3 @@
+.component-order-list .component-order-item{
+  margin-bottom: 25rpx;
+}
