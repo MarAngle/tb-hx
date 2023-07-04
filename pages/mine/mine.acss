@@ -11,14 +11,14 @@
   text-align: center;
   line-height: 80rpx;
   position: absolute;
-  right: 5%;
-  top: 20rpx;
+  right: 10rpx;
+  top: 40rpx;
 }
 
 .user {
   background-color: #ECECEC;
   position: absolute;
-  top: 20%;
+  top: 200rpx;
   width: calc(100% - 40rpx);
   box-sizing: border-box;
   margin: 0 20rpx;
@@ -27,7 +27,7 @@
 }
 
 .user .img {
-  width: 20%;
+  width: 160rpx;
   aspect-ratio: 1 / 1;
   border-radius: 50%;
   overflow: hidden;

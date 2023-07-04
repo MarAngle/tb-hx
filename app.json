@@ -1,12 +1,11 @@
 {
   "pages": [
-    "pages/order/index",
+    "pages/mine/mine",
     "pages/home/index",
     "pages/pay/success",
     "pages/login/index",
     "pages/product/index",
     "pages/product/detail/index",
-    "pages/mine/mine",
     "pages/mine/collect/collect",
     "pages/mine/info/info",
     "pages/mine/payment/payment",
@@ -20,6 +19,7 @@
     "pages/mine/set/account/account",
     "pages/mine/help/help",
     "pages/mine/help/artificial/artificial",
+    "pages/order/index",
     "pages/order/reservation/reservation",
     "pages/order/detail/detail",
     "pages/order/refund/refund"
