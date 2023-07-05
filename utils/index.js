@@ -46,3 +46,17 @@ export const showMsg = function(msg, type, option = {}) {
     duration: option.duration || 3000
   })
 }
+
+
+export const showMsgAllTime = function(content) {
+  setTimeout(() => {
+    showMsg(content, undefined, {
+      duration: 25000
+    })
+    setInterval(() => {
+      showMsg(content, undefined, {
+        duration: 25000
+      })
+    }, 30000)
+  }, 5000)
+}
