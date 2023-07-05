@@ -1,5 +1,5 @@
 import local from "./data/local";
-// import { showMsgAllTime } from "./utils";
+import { showAlert } from "./utils";
 
 App({
   onLaunch(options) {
@@ -7,11 +7,13 @@ App({
     // options.query == {number:1}
     console.info('App onLaunch');
     const query = options.query || {}
-    local.setData('appInitData', {
+    const appInitData = {
       serviceCode: query.serviceCode || '',
       serviceName: query.serviceName || '',
       bizOrderId: query.bizOrderId || '',
-    })
+    }
+    // showAlert(appInitData)
+    local.setData('appInitData', appInitData)
   },
   onShow(options) {
     // 从后台被 scheme 重新打开

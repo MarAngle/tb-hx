@@ -47,16 +47,12 @@ export const showMsg = function(msg, type, option = {}) {
   })
 }
 
-
-// export const showMsgAllTime = function(content) {
-//   setTimeout(() => {
-//     showMsg(content, undefined, {
-//       duration: 25000
-//     })
-//     setInterval(() => {
-//       showMsg(content, undefined, {
-//         duration: 25000
-//       })
-//     }, 30000)
-//   }, 5000)
-// }
+export const showAlert = function(content, title) {
+  if (typeof content === 'object') {
+    content = JSON.stringify(content)
+  }
+  my.alert({
+    title: title,
+    content: content
+  })
+}

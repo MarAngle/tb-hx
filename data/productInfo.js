@@ -1,5 +1,5 @@
 import BaseData from "../class/BaseData";
-import { showMsg } from "../utils";
+import { showAlert, showMsg } from "../utils";
 import require from "../utils/require";
 import local from "./local";
 import user from "./user";
@@ -39,6 +39,7 @@ class ProductInfo extends BaseData{
   beforeCreateOrder() {
     return new Promise((resolve, reject) => {
       const appInitData = local.getData('appInitData') || {}
+      // showAlert(appInitData)
       require.post({
         url: '/tb_api/api/Order.php',
         token: true,
