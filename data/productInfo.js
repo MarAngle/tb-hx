@@ -1,7 +1,15 @@
 import BaseData from "../class/BaseData";
 import { showMsg } from "../utils";
 import require from "../utils/require";
+import local from "./local";
 import user from "./user";
+// serviceCode
+// serviceName
+// bizOrderId
+// 开放服务Code
+// 开放服务名称
+// 开放服务id
+// ["path"."pages/home/index","query[bizOrderld""Dge0x13JGn55kYYt5dmOJGkYWZkJwKbl2ISSiocjVzebuk0cSGFkk2GvmQ5vQMFr""serviceCode"."IND-VA-huanxiWash""serviceName"."洗洗护"},"apiCategory"."default"}
 
 class ProductInfo extends BaseData{
   constructor(initOption) {
@@ -30,6 +38,7 @@ class ProductInfo extends BaseData{
   }
   beforeCreateOrder() {
     return new Promise((resolve, reject) => {
+      const appInitData = local.getData('appInitData') || {}
       require.post({
         url: '/tb_api/api/Order.php',
         token: true,
@@ -38,7 +47,10 @@ class ProductInfo extends BaseData{
           commodity_id: this.data.id,
           commodity_name: this.data.name,
           number: 1,
-          price: this.data.price.data
+          price: this.data.price.data,
+          serviceCode: appInitData.serviceCode,
+          serviceName: appInitData.serviceName,
+          bizOrderId: appInitData.bizOrderId,
         }
       }).then((res) => {
         this.orderId = res.data.pay_no
