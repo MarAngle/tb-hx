@@ -1,8 +1,18 @@
+import orderInfo from "../../../data/orderInfo";
+
 Page({
   data: {
+    [orderInfo.$prop]: orderInfo,
     refundPopup: false
   },
-  onLoad() {},
+  onLoad() {
+    if (!orderInfo.data.id) {
+      my.navigateBack(1)
+      return
+    }
+    orderInfo.$appendPage(this)
+    orderInfo.$syncPage()
+  },
   onShow() {},
   copy({target}) {
     my.setClipboard({

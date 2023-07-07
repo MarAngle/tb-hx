@@ -1,73 +1,124 @@
-.component-order-item{
-  margin: 0 auto;
-  width: 700rpx;
-  background-color: rgb(247, 248, 250);
-  border-radius: 8rpx;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  padding: 25rpx 25rpx;
-  box-shadow: 0 0 10rpx #ccc;
+.order {
+  padding: 14rpx;
 }
 
-.component-order-item-icon{
-  flex: none;
-  width: 160rpx;
-  height: 160rpx;
-  border-radius: 12rpx;
-  margin-right: 25rpx;
+.title {
+  font-size: 44rpx;
+  font-family: '阿里妈妈数黑体 Bold';
+  color: #494949;
+  padding: 0 0 10rpx 10rpx;
+}
+
+.input {
+  margin-top: 20rpx;
+  width: 100%;
+  border-radius: 60rpx;
+  overflow: hidden;
+  border: 1rpx solid #bbbbbb;
+  padding: 0 20rpx;
+  box-sizing: border-box;
+}
+
+.input input {
+  width: 100%;
+  background-color: #fefefe;
+}
+
+.nav {
+  margin-top: 20rpx;
+  padding: 0 20rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  color: #494949;
+}
+
+.select-nav {
+  font-size: 36rpx;
+  font-family: '阿里妈妈数黑体 Bold';
+  color: #F5860B;
+}
+
+.list-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20rpx;
+  background-color: #F5F5F5;
+  border-radius: 20rpx;
+  padding: 20rpx;
+  position: relative;
   overflow: hidden;
 }
-.component-order-item-icon image{
-  width: 100%;
-  height: 100%;
-}
-.component-order-item-content{
-  width: 100%;
-  height: 160rpx;
-  flex: auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: stretch;
-}
-.component-order-item-menu{
-  flex: none;
-  padding: 0 0rpx 0 25rpx;
-}
-.component-order-item-menu image{
-  width: 40rpx;
-  height: 40rpx;
-  margin: 0 auto;
+
+.list-item .img {
+  width: 30%;
+  overflow: hidden;
+  border-radius: 20rpx;
 }
 
-.component-order-item-content-line{
+.list-item .info {
+  width: 66%;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.name {
+  font-size: 34rpx;
+  font-weight: 600;
+  color: #494949;
+}
+
+.tip-1 {
   font-size: 20rpx;
+  color: #494949;
 }
-.component-order-item-content-title{
-  font-size: 28rpx;
-  font-weight: bold;
-}
-.component-order-item-content-desc{
-  color: rgba(0, 0, 0, 0.65);
-}
-.component-order-item-content-price{
-  color: #f5222d;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-}
-.component-order-item-content-price view{
-  font-size: 32rpx;
-  font-weight: bold;
-}
-.component-order-item-content-import{
-  color: #f5222d;
+
+.tip-2 {
   font-size: 24rpx;
+  color: #999bb2;
+}
+
+.time {
+  font-size: 26rpx;
+  color: #999bb2;
+}
+
+.control {
+  display: flex;
+  align-self: flex-end;
+  margin-top: 10rpx;
+}
+
+.button {
+  font-size: 26rpx;
+  margin-left: 20rpx;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 60rpx;
+  padding: 6rpx 30rpx;
+}
+
+.detail {
+  border-color: #F39B11;
+  color: #F39B11;
+}
+
+.use {
+  background-color: #F39B11;
+  border-color: #F39B11;
+  color: #ffffff;
+}
+
+.mark {
+  position: absolute;
+  left: -40rpx;
+  top: 12rpx;
+  width: 120rpx;
+  text-align: center;
+  color: #e50c2c;
+  transform: rotate(-45deg);
+  background-color: rgba(8, 9, 4, 0.21);
+  font-size: 20rpx;
+  padding: 10rpx 10rpx 6rpx;
 }

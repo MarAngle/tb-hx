@@ -86,6 +86,7 @@ class OrderList extends BaseData{
       }
       const item = {
         id: resItem.pay_id, // 订单id
+        ucId: resItem.uc_id, // 用户商品id?
         payNo: resItem.pay_no, // 订单号
         aliOrderId: resItem.pay_order_id, // 手淘订单号
         status: resItem.status, // 100待支付 200未使用 201洗护中 202已完成

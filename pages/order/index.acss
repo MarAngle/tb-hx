@@ -1,27 +1,9 @@
-.order {
-  padding: 14rpx;
-}
 
 .title {
   font-size: 44rpx;
   font-family: '阿里妈妈数黑体 Bold';
   color: #494949;
   padding: 0 0 10rpx 10rpx;
-}
-
-.input {
-  margin-top: 20rpx;
-  width: 100%;
-  border-radius: 60rpx;
-  overflow: hidden;
-  border: 1rpx solid #bbbbbb;
-  padding: 0 20rpx;
-  box-sizing: border-box;
-}
-
-.input input {
-  width: 100%;
-  background-color: #fefefe;
 }
 
 .nav {
@@ -31,98 +13,4 @@
   justify-content: space-between;
   align-items: baseline;
   color: #494949;
-}
-
-.select-nav {
-  font-size: 36rpx;
-  font-family: '阿里妈妈数黑体 Bold';
-  color: #F5860B;
-}
-
-.order-list {
-  margin-top: 20rpx;
-}
-
-.list-item {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 20rpx;
-  background-color: #F5F5F5;
-  border-radius: 20rpx;
-  padding: 20rpx;
-  position: relative;
-  overflow: hidden;
-}
-
-.list-item .img {
-  width: 30%;
-  overflow: hidden;
-  border-radius: 20rpx;
-}
-
-.list-item .info {
-  width: 66%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-}
-
-.name {
-  font-size: 34rpx;
-  font-weight: 600;
-  color: #494949;
-}
-
-.tip-1 {
-  font-size: 20rpx;
-  color: #494949;
-}
-
-.tip-2 {
-  font-size: 24rpx;
-  color: #999bb2;
-}
-
-.time {
-  font-size: 26rpx;
-  color: #999bb2;
-}
-
-.control {
-  display: flex;
-  align-self: flex-end;
-  margin-top: 10rpx;
-}
-
-.button {
-  font-size: 26rpx;
-  margin-left: 20rpx;
-  border-width: 1px;
-  border-style: solid;
-  border-radius: 60rpx;
-  padding: 6rpx 30rpx;
-}
-
-.detail {
-  border-color: #F39B11;
-  color: #F39B11;
-}
-
-.use {
-  background-color: #F39B11;
-  border-color: #F39B11;
-  color: #ffffff;
-}
-
-.mark {
-  position: absolute;
-  left: -40rpx;
-  top: 12rpx;
-  width: 120rpx;
-  text-align: center;
-  color: #e50c2c;
-  transform: rotate(-45deg);
-  background-color: rgba(8, 9, 4, 0.21);
-  font-size: 20rpx;
-  padding: 10rpx 10rpx 6rpx;
 }

@@ -16,14 +16,4 @@ Page({
   changeOrderType({target}) {
     orderList.changeType(target.dataset.value)
   },
-  useThali() {
-    my.navigateTo({
-      url: '/pages/order/reservation/reservation'
-    });
-  },
-  orderDetail() {
-    my.navigateTo({
-      url: '/pages/order/detail/detail'
-    })
-  }
 })

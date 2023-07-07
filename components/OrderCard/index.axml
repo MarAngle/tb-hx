@@ -1,27 +1,14 @@
-<view class="component-order-item" onTap="toInfo" >
-  <view class="component-order-item-icon">
-    <image src="{{ data.icon }}" />
-  </view>
-  <view class="component-order-item-content">
-    <view class="component-order-item-content-line">
-      <view class="component-order-item-content-title">{{data.name}}</view>
+<view class="list-item">
+  <view class="img"><image mode="widthFix" src="/image/index/5.png" /></view>
+  <view class="info">
+    <view class="name">{{ data.product.name }}</view>
+    <view class="tip-1">{{data.product.desc}}</view>
+    <view class="tip-2">{{data.product.import}}</view>
+    <view class="time">有效期：2023-02-02</view>
+    <view class="control">
+      <view class="button detail" onTap="toDetail">订单详情</view>
+      <view class="button use" onTap="use">立即使用</view>
     </view>
-    <view class="component-order-item-content-line">
-      <view class="component-order-item-content-desc">{{data.desc}}</view>
-      <view class="component-order-item-content-price">
-        <view>¥</view>
-        <view>{{data.price.show.data}}</view>
-      </view>
-    </view>
-    <view class="component-order-item-content-line">
-      <view class="component-order-item-content-import">{{data.import}}</view>
-    </view>
-    <!-- <view class="component-order-item-content-line">
-      <view class="component-order-item-content-sale">月销{{data.sale}}</view>
-      <view class="component-order-item-content-evaluate">好评率{{data.evaluate}}%</view>
-    </view> -->
   </view>
-  <view class="component-order-item-menu">
-    <image src="/image/icon/open.png" />
-  </view>
+  <view class="mark">已完成</view>
 </view>

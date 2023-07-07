@@ -1,4 +1,4 @@
-import productInfo from "../../data/productInfo";
+import orderInfo from "../../data/orderInfo";
 
 Component({
   mixins: [],
@@ -10,16 +10,15 @@ Component({
   didUpdate() {},
   didUnmount() {},
   methods: {
-    toInfo() {
-      console.log(this.props.data, productInfo)
-      productInfo.setData(this.props.data)
-      // my.navigateTo({
-      //   url: '/pages/product/detail/index?id=' + this.props.data.id
-      // })
+    use() {
       my.navigateTo({
-        url: '/pages/product/detail/index'
-      })
-      // toLogin()
+        url: '/pages/order/reservation/reservation'
+      });
     },
+    toDetail() {
+      my.navigateTo({
+        url: '/pages/order/detail/detail'
+      })
+    }
   },
 });

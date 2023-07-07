@@ -1,21 +1,3 @@
-<view class="order">
-  <view class="order-list">
-    <view class="list-item">
-      <view class="img"><image mode="widthFix" src="/image/index/5.png" /></view>
-      <view class="info">
-        <view class="name">衣鞋任意洗3件</view>
-        <view class="tip-1">长短不限任洗免费上门取送</view>
-        <view class="tip-2">拒用“四氯”健康洗</view>
-        <view class="time">有效期：2023-02-02</view>
-        <view class="control">
-          <view class="button detail" onTap="orderDetail">订单详情</view>
-          <view class="button use" onTap="useThali">立即使用</view>
-        </view>
-      </view>
-      <view class="mark">已完成</view>
-    </view>
-  </view>
-</view>
 
 <view class="page-order-list">
   <view class="title">我的订单</view>
