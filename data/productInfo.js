@@ -73,7 +73,7 @@ class ProductInfo extends BaseData{
           itemList: [
             {
               outItemId: this.data.skuId,
-              itemId: this.data.tbId,
+              itemId: this.data.aliId,
               amount: 1,
               salePrice: this.data.price.origin,
               realPrice: this.data.price.data,
