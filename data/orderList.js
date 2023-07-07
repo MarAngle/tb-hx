@@ -109,7 +109,11 @@ class OrderList extends BaseData{
     return new Promise((resolve, reject) => {
       require.post({
         url: '/tb_api/api/Order.php',
-        data: this.type.params,
+        data: {
+          ...this.type.params,
+          pageNumber: 1,
+          pageSize: 50
+        },
         timeout: 0,
         token: false
       }).then(res => {

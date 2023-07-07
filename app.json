@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/order/index",
     "pages/home/index",
     "pages/mine/mine",
     "pages/pay/success",
@@ -19,7 +20,6 @@
     "pages/mine/set/account/account",
     "pages/mine/help/help",
     "pages/mine/help/artificial/artificial",
-    "pages/order/index",
     "pages/order/reservation/reservation",
     "pages/order/detail/detail",
     "pages/order/refund/refund"
