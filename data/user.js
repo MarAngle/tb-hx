@@ -8,9 +8,11 @@ class UserData extends BaseData{
     this.status.login = false
     this.status.type = 'auth'
     this.info = {
+      phone: undefined,
       name: undefined,
       avatar: undefined
     }
+    this.address = []
     this.form = {
       phone: '',
       code: ''
@@ -129,17 +131,42 @@ class UserData extends BaseData{
       }
     })
   }
-  getAuthInfo() {
+  getPhoneNumber() {
     return new Promise((resolve, reject) => {
       require.top({
         api: 'taobao.miniapp.user.phone.get',
         scope: 'scope.getPhoneNumber'
       }).then((res) => {
+        this.info.phone = res.phone
+        resolve(res)
+      }).catch(err => {
+        console.error(err)
+        reject(err)
+      })
+    })
+  }
+  getAddressList() {
+    return new Promise((resolve, reject) => {
+      require.top({
+        api: 'taobao.miniapp.user.address.get',
+        scope: 'scope.addressList'
+      }).then((res) => {
+        this.info.phone = res.phone
+        resolve(res)
+      }).catch(err => {
+        console.error(err)
+        reject(err)
+      })
+    })
+  }
+  getAuthInfo() {
+    return new Promise((resolve, reject) => {
+      this.getPhoneNumber().then(() => {
         my.getAuthUserInfo({
           success:(infoRes)=>{
             this.$syncPage()
             resolve({
-              mobile: res.phone,
+              mobile: this.info.phone,
               nickname: infoRes.nickName,
               avatar: infoRes.avatar
             })
@@ -147,7 +174,7 @@ class UserData extends BaseData{
           fail:(err)=>{
             console.log(err)
             resolve({
-              mobile: res.phone,
+              mobile: this.info.phone,
               nickname: '',
               avatar: ''
             })
