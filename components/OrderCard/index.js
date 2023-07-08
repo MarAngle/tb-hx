@@ -16,8 +16,9 @@ Component({
       });
     },
     toDetail() {
+      orderInfo.setData(this.props.data)
       my.navigateTo({
-        url: '/pages/order/detail/detail'
+        url: '/pages/order/detail/index'
       })
     }
   },

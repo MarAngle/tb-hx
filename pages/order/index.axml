@@ -1,7 +1,7 @@
 
 <view class="page-order-list">
-  <view class="title">我的订单</view>
-  <view class="nav">
+  <view class="page-order-list-title">我的订单</view>
+  <view class="page-order-list-nav">
     <view a:for="{{orderList.type.list}}" data="{{item}}" class="{{[orderList.type.current == item.value && 'select-nav']}}" data-value="{{item.value}}" onTap="changeOrderType">{{item.label}}</view>
   </view>
   <order-list order="{{orderList}}" />

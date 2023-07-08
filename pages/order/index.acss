@@ -1,16 +1,22 @@
 
-.title {
+.page-order-list-title {
   font-size: 44rpx;
-  font-family: '阿里妈妈数黑体 Bold';
   color: #494949;
-  padding: 0 0 10rpx 10rpx;
+  padding: 20rpx 25rpx 0rpx 25rpx;
+
 }
 
-.nav {
-  margin-top: 20rpx;
-  padding: 0 20rpx;
+.page-order-list-nav {
+  margin-top: 25rpx;
+  padding: 0 25rpx;
   display: flex;
   justify-content: space-between;
   align-items: baseline;
   color: #494949;
+  font-size: 36rpx;
+  margin-bottom: 25rpx;
+}
+
+.select-nav {
+  color: #F5860B;
 }
