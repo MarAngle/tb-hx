@@ -41,7 +41,7 @@ Page({
   },
   useThali() {
     my.navigateTo({
-      url: '/pages/order/reservation/reservation'
+      url: '/pages/order/use/index'
     });
   },
   refundPage() {

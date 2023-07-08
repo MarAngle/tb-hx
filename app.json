@@ -20,7 +20,7 @@
     "pages/mine/set/account/account",
     "pages/mine/help/help",
     "pages/mine/help/artificial/artificial",
-    "pages/order/reservation/reservation",
+    "pages/order/use/index",
     "pages/order/detail/index",
     "pages/order/refund/refund"
   ],

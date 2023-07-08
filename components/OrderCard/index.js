@@ -11,8 +11,9 @@ Component({
   didUnmount() {},
   methods: {
     use() {
+      orderInfo.setData(this.props.data)
       my.navigateTo({
-        url: '/pages/order/reservation/reservation'
+        url: '/pages/order/use/index'
       });
     },
     toDetail() {

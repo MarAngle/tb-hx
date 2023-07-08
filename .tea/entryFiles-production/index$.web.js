@@ -27,6 +27,6 @@ require('../../pages/mine/set/account/account?hash=8385356bd8b4ca9fa87738563e035
 require('../../pages/mine/help/help?hash=8385356bd8b4ca9fa87738563e035351b35a7175');
 require('../../pages/mine/help/artificial/artificial?hash=32d7d2807ed4e666ef03b4b3fe8c38ecf2e34e68');
 require('../../pages/order/index?hash=8c997138e47743dfd962708fcb1d6094f360f759');
-require('../../pages/order/reservation/reservation?hash=32d7d2807ed4e666ef03b4b3fe8c38ecf2e34e68');
+require('../../pages/order/use/index?hash=32d7d2807ed4e666ef03b4b3fe8c38ecf2e34e68');
 require('../../pages/order/detail/detail?hash=8cc1d6e378657cfcc6378322979bcddd0e7eef89');
 require('../../pages/order/refund/refund?hash=32d7d2807ed4e666ef03b4b3fe8c38ecf2e34e68');
