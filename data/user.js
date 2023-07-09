@@ -39,7 +39,7 @@ class UserData extends BaseData{
       return true
     }
   }
-  choiceAddressList() {
+  choiceAddress() {
     return new Promise((resolve, reject) => {
       my.authorize({
         scopes: ['scope.addressList'],
@@ -218,6 +218,31 @@ class UserData extends BaseData{
         console.log(res)
         require.setToken(res.data.token)
         require.setRefreshToken(res.data.refreshToken)
+        resolve(res)
+      }).catch(err => {
+        console.error(err)
+        reject(err)
+      })
+    })
+  }
+  getAddressList() {
+    return new Promise((resolve, reject) => {
+      require.post({
+        url: '/tb_api/api/Address.php',
+        token: true,
+        data: {
+          status: "showAddress",
+        }
+      }).then((res) => {
+        console.log(res)
+        this.address = []
+        let originList = res.data.data || []
+        for (let i = 0; i < originList.length; i++) {
+          const oitem = originList[i];
+          oitem.value = oitem.id
+          oitem.label = oitem.name + '/' + oitem.mobile + '/' + oitem.province_name + oitem.city_name + oitem.county_name + oitem.address
+        }
+        this.address = originList
         resolve(res)
       }).catch(err => {
         console.error(err)

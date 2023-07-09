@@ -5,7 +5,11 @@ Page({
   data: {
     [orderInfo.$prop]: orderInfo,
     [user.$prop]: user,
-    minDate: new Date()
+    minDate: new Date(),
+    data: {
+      send: undefined,
+      back: undefined
+    }
   },
   onLoad() {
     if (!orderInfo.data.id) {
@@ -15,7 +19,7 @@ Page({
     orderInfo.$appendPage(this)
     orderInfo.$syncPage()
     user.$appendPage(this)
-    // user.choiceAddressList()
+    user.getAddressList()
   },
   onShow() {},
   handleTriggerPicker(visible, e) {
