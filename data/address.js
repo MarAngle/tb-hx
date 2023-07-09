@@ -7,6 +7,90 @@ class AddressData extends BaseData{
   constructor(initOption) {
     super(initOption)
     this.data = []
+    this.cityMap = {}
+    this.location = []
+  }
+  loadLocation() {
+    return new Promise((resolve, reject) => {
+      user.auth().then(() => {
+        require.post({
+          url: '/tb_api/api/Address.php',
+          token: true,
+          data: {
+            status: "getArea"
+          }
+        }).then((res) => {
+          this.location = []
+          this.cityMap = {}
+          let originList = res.data || []
+          for (let i = 0; i < originList.length; i++) {
+            const oitem = originList[i]
+            const item = {
+              value: oitem.province_name,
+              label: oitem.province_name,
+              id: oitem.province_id,
+              load: true,
+              children: oitem.city.map(citem => {
+                let ccitem = {
+                  value: citem.city_name,
+                  label: citem.city_name,
+                  load: false,
+                  id: citem.city_id,
+                  children: []
+                }
+                this.cityMap[oitem.province_name + ccitem.value] = ccitem
+                return ccitem
+              })
+            }
+            this.location.push(item)
+          }
+          this.$syncPage()
+          resolve(res)
+        }).catch(err => {
+          console.error(err)
+          reject(err)
+        })
+      }).catch(err => {
+        console.error(err)
+        reject(err)
+      })
+    })
+  }
+  getCounty(valueList) {
+    return new Promise((resolve, reject) => {
+      const prop = valueList.join('')
+      const cityItem = this.cityMap[prop]
+      if (cityItem.load) {
+        resolve({ list: cityItem.children })
+      } else {
+        require.post({
+          url: '/tb_api/api/Address.php',
+          token: true,
+          data: {
+            status: "getCounty",
+            city_id: cityItem.id
+          }
+        }).then((res) => {
+          cityItem.children = []
+          let originList = res.data || []
+          for (let i = 0; i < originList.length; i++) {
+            const oitem = originList[i]
+            const item = {
+              value: oitem.county_name,
+              label: oitem.county_name,
+              id: oitem.county_id,
+            }
+            cityItem.children.push(item)
+          }
+          cityItem.load = true
+          this.$syncPage()
+          resolve({ list: cityItem.children })
+        }).catch(err => {
+          console.error(err)
+          reject(err)
+        })
+      }
+    })
   }
   choiceData() {
     return new Promise((resolve, reject) => {

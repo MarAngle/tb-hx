@@ -6,17 +6,17 @@
       <view class="control">
         <view class="name">{{item.name}} &nbsp;&nbsp; {{item.mobile}}</view>
         <view class="button-group">
-          <!-- <view class="button" data-index="{{index}}" onTap="onChange">
+          <view class="button" data-index="{{index}}" onTap="onChange">
             <view class="icon"><icon type="EditSOutline" /></view>
             <view class="text">编辑</view>
           </view>
           <view class="button" data-index="{{index}}" onTap="onDelete">
             <view class="icon"><icon type="DeleteOutline" /></view>
             <view class="text">删除</view>
-          </view> -->
+          </view>
         </view>
       </view>
     </view>
   </view>
-  <!-- <view class="add" onTap="addAddress">新增地址</view> -->
+  <view class="add" onTap="onBuild">新增地址</view>
 </view>

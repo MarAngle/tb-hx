@@ -1,4 +1,4 @@
-.add {
+/* .add {
   padding: 14rpx;
 }
 
@@ -97,4 +97,11 @@
   font-weight: 600;
   border-radius: 60rpx;
   letter-spacing: 2rpx;
+} */
+
+.btn-wrapper {
+  text-align: center;
+  padding: 24rpx;
 }
+
+

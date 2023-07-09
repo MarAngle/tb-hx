@@ -4,7 +4,7 @@ Page({
   data: {
     [orderList.$prop]: orderList
   },
-  onLoad(query) {
+  onShow(query) {
     orderList.changeType(query.type)
     orderList.$appendPage(this)
     orderList.$reloadData(true)

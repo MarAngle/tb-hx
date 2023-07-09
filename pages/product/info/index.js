@@ -4,7 +4,7 @@ Page({
   data: {
     [productInfo.$prop]: productInfo
   },
-  onLoad(query) {
+  onShow(query) {
     if (!query || !query.id) {
       my.navigateBack(1)
       return
