@@ -1,0 +1,7 @@
+
+.btn-wrapper {
+  text-align: center;
+  padding: 24rpx;
+}
+
+

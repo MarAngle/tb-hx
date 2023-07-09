@@ -2,7 +2,7 @@ import BaseData from "../class/BaseData";
 import { showAlert, showMsg } from "../utils";
 import require from "../utils/require";
 import user from "./user";
-
+console.error('检查传参，特别是编辑')
 class AddressData extends BaseData{
   constructor(initOption) {
     super(initOption)
@@ -106,12 +106,13 @@ class AddressData extends BaseData{
               county_name: res.countyName,
               address: res.streetName + res.detailInfo
             }
-            this.autoBuildData(addressInfo).then(res => {
-              resolve(res)
-            }).catch(err => {
-              console.error(err)
-              reject(err)
-            })
+            resolve(addressInfo)
+            // this.autoBuildData(addressInfo).then(res => {
+            //   resolve(res)
+            // }).catch(err => {
+            //   console.error(err)
+            //   reject(err)
+            // })
           }, (err) => {
             reject(err)
           })
@@ -161,11 +162,56 @@ class AddressData extends BaseData{
       })
     })
   }
+  changeItem(addressInfo) {
+    return new Promise((resolve, reject) => {
+      require.post({
+        url: '/tb_api/api/Address.php',
+        token: true,
+        data: {
+          status: "setAddress",
+          type: 2,
+          ...addressInfo
+        }
+      }).then((res) => {
+        for (let i = 0; i < this.data.length; i++) {
+          const item = this.data[i];
+          if (item.value == addressInfo.address_id) {
+            this.data[i] = this.formatData(addressInfo)
+            break
+          }
+        }
+        this.$syncPage()
+        resolve()
+      }).catch(err => {
+        console.error(err)
+        reject(err)
+      })
+    })
+  }
   formatData(addressInfo) {
     addressInfo.value = addressInfo.address_id
     addressInfo.totalAddress = (addressInfo.province_name || '') + (addressInfo.city_name || '') + (addressInfo.county_name  || '') + (addressInfo.address || '')
     addressInfo.label = addressInfo.name + '/' + addressInfo.mobile + '/' + addressInfo.totalAddress
     return addressInfo
+  }
+  deleteItem(index) {
+    return new Promise((resolve, reject) => {
+      require.post({
+        url: '/tb_api/api/Address.php',
+        token: true,
+        data: {
+          status: "delAddress",
+          address_id: this.data[index].value
+        }
+      }).then((res) => {
+        this.data.splice(index, 1)
+        this.$syncPage()
+        resolve()
+      }).catch(err => {
+        console.error(err)
+        reject(err)
+      })
+    })
   }
 }
 

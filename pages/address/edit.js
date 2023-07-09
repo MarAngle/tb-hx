@@ -5,6 +5,7 @@ Page({
   data: {
     [address.$prop]: address,
     county: [],
+    id: undefined,
     form: {
       name: '',
       mobile: '',
@@ -13,7 +14,48 @@ Page({
       address: ''
     }
   },
-  onLoad() {
+  onLoad(query) {
+    if (query && query.value) {
+      this.initData(query)
+      this.data.id = query.value
+    } else {
+      this.data.id = undefined
+    }
+    this.setData({
+      id: this.data.id
+    })
+  },
+  initData(defaultData) {
+    console.log(defaultData)
+    this.data.form.name = defaultData.name
+    this.data.form.mobile = defaultData.mobile
+    this.data.form.provinceCity = [defaultData.province_name, defaultData.city_name]
+    this.data.form.county = defaultData.county_name
+    this.data.form.address = defaultData.address
+    address.getCounty(this.data.form.provinceCity).then(res => {
+      this.data.county = res.list
+      this.setData({
+        county: this.data.county
+      })
+    })
+    this.setData({
+      form: this.data.form
+    })
+  },
+  onSync() {
+    address.choiceData().then(res => {
+      this.initData(res)
+      address.getCounty(this.data.form.provinceCity).then(res => {
+        this.data.county = res.list
+        this.setData({
+          county: this.data.county
+        })
+      })
+      this.setData({
+        form: this.data.form
+      })
+      console.log(this.data)
+    })
   },
   onShow(query) {
     address.$appendPage(this)
@@ -69,8 +111,20 @@ Page({
       showMsg('请选择县区')
     } else if (!this.data.form.address) {
       showMsg('请输入详细地址')
-    } else {
+    } else if (!this.id) {
       address.buildItem({
+        name: this.data.form.name,
+        mobile: this.data.form.mobile,
+        province_name: this.data.form.provinceCity[0],
+        city_name: this.data.form.provinceCity[1],
+        county_name: this.data.form.county,
+        address: this.data.form.address,
+      }).then(() => {
+        my.navigateBack()
+      })
+    } else {
+      address.changeItem({
+        address_id: this.id,
         name: this.data.form.name,
         mobile: this.data.form.mobile,
         province_name: this.data.form.provinceCity[0],
