@@ -2,6 +2,13 @@ import BaseData from "../class/BaseData"
 import require from "../utils/require";
 import productList from "./productList";
 
+const statusSelect = {
+  100: '待支付',
+  200: '未使用',
+  201: '洗护中',
+  202: '已完成'
+}
+
 class OrderList extends BaseData{
   constructor(initOption) {
     super(initOption)
@@ -89,7 +96,10 @@ class OrderList extends BaseData{
         ucId: resItem.uc_id, // 用户商品id?
         payNo: resItem.pay_no, // 订单号
         aliOrderId: resItem.pay_order_id, // 手淘订单号
-        status: resItem.status, // 100待支付 200未使用 201洗护中 202已完成
+        status: {
+          value: resItem.status,
+          label: statusSelect[resItem.status]
+        },
         payTime: resItem.pay_time, // 支付时间
         price: price,
         wash: {

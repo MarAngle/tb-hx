@@ -85,8 +85,8 @@
 
 .component-order-item-mark {
   position: absolute;
-  right: -40rpx;
-  top: 0rpx;
+  right: -30rpx;
+  top: 10rpx;
   width: 120rpx;
   text-align: center;
   color: #e50c2c;
