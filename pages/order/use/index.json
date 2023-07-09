@@ -1,3 +1,6 @@
 {
-  "defaultTitle": "洗护套餐下单"
+  "defaultTitle": "洗护套餐下单",
+  "usingComponents": {
+    "date-picker": "antd-mini/es/DatePicker/index"
+  }
 }

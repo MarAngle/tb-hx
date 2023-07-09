@@ -1,5 +1,5 @@
 import BaseData from "../class/BaseData";
-import { rule, showMsg } from "../utils";
+import { rule, showAlert, showMsg } from "../utils";
 import require from "../utils/require";
 
 class UserData extends BaseData{
@@ -38,6 +38,24 @@ class UserData extends BaseData{
       showMsg('请正确输入手机号！', 'fail')
       return true
     }
+  }
+  choiceAddressList() {
+    return new Promise((resolve, reject) => {
+      my.authorize({
+        scopes: ['scope.addressList'],
+        success: () => {
+          my.tb.chooseAddress({}, (res) => {
+            resolve(res)
+          }, (err) => {
+            reject(err)
+          })
+        },
+        fail:(err)=>{
+          console.log(err)
+          reject(err)
+        }
+      })
+    })
   }
   getCode() {
     if (!this.checkForm(true)) {
@@ -145,20 +163,20 @@ class UserData extends BaseData{
       })
     })
   }
-  getAddressList() {
-    return new Promise((resolve, reject) => {
-      require.top({
-        api: 'taobao.miniapp.user.address.get',
-        scope: 'scope.addressList'
-      }).then((res) => {
-        this.info.phone = res.phone
-        resolve(res)
-      }).catch(err => {
-        console.error(err)
-        reject(err)
-      })
-    })
-  }
+  // getAddressList() {
+  //   return new Promise((resolve, reject) => {
+  //     require.top({
+  //       api: 'taobao.miniapp.user.address.get',
+  //       scope: 'scope.addressList'
+  //     }).then((res) => {
+  //       this.info.phone = res.phone
+  //       resolve(res)
+  //     }).catch(err => {
+  //       console.error(err)
+  //       reject(err)
+  //     })
+  //   })
+  // }
   getAuthInfo() {
     return new Promise((resolve, reject) => {
       this.getPhoneNumber().then(() => {

@@ -20,7 +20,14 @@
       </view>
       <view class="item">
         <view class="text">上门时间</view>
-        <view class="icon"><image mode="widthFix" src="/image/index/arrow.png" /></view>
+        <date-picker 
+            slot="extra"
+            min="{{minDate}}"
+            precision="minute"
+            format="YYYY-MM-DD HH:mm"
+            placeholder="选择"
+            onVisibleChange="handleTriggerPicker"
+            onOk="handleOk"/>
       </view>
       <view class="item">
         <view class="text">下单备注</view>
