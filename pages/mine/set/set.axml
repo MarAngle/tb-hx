@@ -4,7 +4,7 @@
     <view class="name">账户管理</view>
     <view class="icon"><image mode="widthFix" src="/image/index/arrow.png" /></view>
   </view>
-  <view class="item" data-page-url="/pages/mine/set/address/address" onTap="changePage">
+  <view class="item" data-page-url="/pages/address/index" onTap="changePage">
     <view class="name">我的地址</view>
     <view class="icon"><image mode="widthFix" src="/image/index/arrow.png" /></view>
   </view>

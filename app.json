@@ -2,6 +2,8 @@
   "pages": [
     "pages/order/index",
     "pages/home/index",
+    "pages/address/index",
+    "pages/address/build",
     "pages/mine/mine",
     "pages/pay/success",
     "pages/login/index",
@@ -15,8 +17,6 @@
     "pages/mine/set/about/about",
     "pages/mine/set/about/policy/policy",
     "pages/mine/set/about/agreement/agreement",
-    "pages/mine/set/address/address",
-    "pages/mine/set/address/add/add",
     "pages/mine/set/account/account",
     "pages/mine/help/help",
     "pages/mine/help/artificial/artificial",
