@@ -16,10 +16,10 @@
     <view class="component-order-item-content-line">
       <view class="component-order-item-content-text">有效期：2023-02-02</view>
     </view>
-    <view class="component-order-item-content-line end">
+    <view class="component-order-item-content-line end" a:if="{{ !use }}">
       <view class="component-order-item-content-menu detail" onTap="toDetail">订单详情</view>
       <view class="component-order-item-content-menu use" onTap="use">立即使用</view>
     </view>
   </view>
-  <view class="component-order-item-mark">已完成</view>
+  <view class="component-order-item-mark" a:if="{{ !use }}" >已完成</view>
 </view>

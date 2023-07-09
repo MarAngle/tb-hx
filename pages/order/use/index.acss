@@ -8,27 +8,6 @@
   padding: 20rpx;
 }
 
-.product {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 20rpx;
-  position: relative;
-  overflow: hidden;
-}
-
-.product .img {
-  width: 30%;
-  border-radius: 20rpx;
-  overflow: hidden;
-}
-
-.product .info {
-  width: 68%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-}
-
 .name {
   font-size: 34rpx;
   font-weight: 600;

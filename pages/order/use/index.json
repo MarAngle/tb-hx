@@ -1,6 +1,7 @@
 {
   "defaultTitle": "洗护套餐下单",
   "usingComponents": {
+    "order-card":"/components/OrderCard/index",
     "date-picker": "antd-mini/es/DatePicker/index"
   }
 }

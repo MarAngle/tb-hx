@@ -1,14 +1,6 @@
 <view class="reservation">
   <view class="detail">
-    <view class="product">
-      <view class="img"><image mode="widthFix" src="/image/index/5.png" /></view>
-      <view class="info">
-        <view class="name">衣鞋任意洗3件</view>
-        <view class="tip-1">长短不限任洗免费上门取送</view>
-        <view class="tip-2">拒用“四氯”健康洗</view>
-        <view class="time">有效期：2023-02-02</view>
-      </view>
-    </view>
+    <order-card data="{{orderInfo.data}}" use="{{true}}" ></order-card>
     <view class="info">
       <view class="item">
         <view class="text">取衣地址</view>
