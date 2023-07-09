@@ -12,7 +12,6 @@ class UserData extends BaseData{
       name: undefined,
       avatar: undefined
     }
-    this.address = []
     this.form = {
       phone: '',
       code: ''
@@ -145,20 +144,6 @@ class UserData extends BaseData{
       })
     })
   }
-  // getAddressList() {
-  //   return new Promise((resolve, reject) => {
-  //     require.top({
-  //       api: 'taobao.miniapp.user.address.get',
-  //       scope: 'scope.addressList'
-  //     }).then((res) => {
-  //       this.info.phone = res.phone
-  //       resolve(res)
-  //     }).catch(err => {
-  //       console.error(err)
-  //       reject(err)
-  //     })
-  //   })
-  // }
   getAuthInfo() {
     return new Promise((resolve, reject) => {
       this.getPhoneNumber().then(() => {
@@ -201,121 +186,6 @@ class UserData extends BaseData{
         require.setToken(res.data.token)
         require.setRefreshToken(res.data.refreshToken)
         resolve(res)
-      }).catch(err => {
-        console.error(err)
-        reject(err)
-      })
-    })
-  }
-  autoBuildAddress(addressInfo) {
-    return new Promise((resolve, reject) => {
-      for (let i = 0; i < this.address.length; i++) {
-        const item = this.address[i];
-        if (item.name == addressInfo.name && item.mobile == addressInfo.mobile && item.province_name == addressInfo.province_name && item.city_name == addressInfo.city_name && item.county_name == addressInfo.county_name && item.address == addressInfo.address) {
-          resolve(item)
-          return
-        }
-      }
-      this.buildAddress(addressInfo).then(res => {
-        resolve(res)
-      }).catch(err => {
-        reject(err)
-      })
-    })
-  }
-  buildAddress(addressInfo) {
-    return new Promise((resolve, reject) => {
-      require.post({
-        url: '/tb_api/api/Address.php',
-        token: true,
-        data: {
-          status: "setAddress",
-          type: 1,
-          ...addressInfo
-        }
-      }).then((res) => {
-        console.log(res)
-        let id = res.data.address_id
-        addressInfo.address_id = id
-        this.address.push(this.formatAddress(addressInfo))
-        this.$syncPage()
-        resolve(addressInfo)
-      }).catch(err => {
-        console.error(err)
-        reject(err)
-      })
-    })
-  }
-  choiceAddress() {
-    return new Promise((resolve, reject) => {
-      my.authorize({
-        scopes: ['scope.addressList'],
-        success: () => {
-          my.tb.chooseAddress({}, (res) => {
-            const addressInfo = {
-              name: res.name,
-              mobile: res.telNumber,
-              province_name: res.provinceName	,
-              city_name: res.cityName,
-              county_name: res.countyName,
-              address: res.streetName + res.detailInfo
-            }
-            this.autoBuildAddress(addressInfo).then(res => {
-              resolve(res)
-            }).catch(err => {
-              console.error(err)
-              reject(err)
-            })
-          }, (err) => {
-            reject(err)
-          })
-        },
-        fail:(err)=>{
-          console.log(err)
-          reject(err)
-        }
-      })
-    })
-  }
-  formatAddress(addressInfo) {
-    addressInfo.value = addressInfo.address_id
-    addressInfo.label = addressInfo.name + '/' + addressInfo.mobile + '/' + addressInfo.province_name + addressInfo.city_name + addressInfo.county_name + addressInfo.address
-    return addressInfo
-  }
-  getAddressList() {
-    return new Promise((resolve, reject) => {
-      this.auth().then(() => {
-        require.post({
-          url: '/tb_api/api/Address.php',
-          token: true,
-          data: {
-            status: "showAddress",
-          }
-        }).then((res) => {
-          console.log(res)
-          this.address = []
-          let originList = res.data || []
-          // if (originList.length == 0) {
-          //   originList.push({
-          //     address_id: '321',
-          //     name: 'test',
-          //     mobile: '123456',
-          //     province_name: '山东省',
-          //     city_name: '日照市',
-          //     county_name: '东港区',
-          //     address: '这里是一个具体的地址'
-          //   })
-          // }
-          for (let i = 0; i < originList.length; i++) {
-            this.formatAddress(originList[i])
-          }
-          this.address = originList
-          this.$syncPage()
-          resolve(res)
-        }).catch(err => {
-          console.error(err)
-          reject(err)
-        })
       }).catch(err => {
         console.error(err)
         reject(err)

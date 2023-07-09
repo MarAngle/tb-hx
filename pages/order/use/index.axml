@@ -5,13 +5,13 @@
       <view class="item">
         <view class="text">取衣地址</view>
         <picker
-          a:if="{{ user.address.length > 0 }}"
+          a:if="{{ address.data.length > 0 }}"
           class="item-content"
           defaultValue="{{data.send}}"
           placeholder="请选择取衣地址"
           title="请选择取衣地址"
           onOk="onSendChange"
-          options="{{user.address}}">
+          options="{{address.data}}">
         </picker>
         <view
           a:else
@@ -22,13 +22,13 @@
       <view class="item">
         <view class="text">净衣地址</view>
         <picker
-          a:if="{{ user.address.length > 0 }}"
+          a:if="{{ address.data.length > 0 }}"
           class="item-content"
           defaultValue="{{data.back}}"
           placeholder="请选择净衣地址"
           title="请选择净衣地址"
           onOk="onBackChange"
-          options="{{user.address}}">
+          options="{{address.data}}">
         </picker>
         <view
           a:else

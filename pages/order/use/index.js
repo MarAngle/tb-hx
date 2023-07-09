@@ -1,11 +1,11 @@
 import orderInfo from "../../../data/orderInfo";
-import user from "../../../data/user";
+import address from "../../../data/address";
 import { showMsg } from "../../../utils";
 
 Page({
   data: {
     [orderInfo.$prop]: orderInfo,
-    [user.$prop]: user,
+    [address.$prop]: address,
     minDate: new Date(),
     data: {
       send: undefined,
@@ -21,8 +21,8 @@ Page({
     }
     orderInfo.$appendPage(this)
     orderInfo.$syncPage()
-    user.$appendPage(this)
-    user.getAddressList()
+    address.$appendPage(this)
+    address.$reloadData(true)
   },
   onShow() {},
   handleTriggerPicker(visible, e) {
@@ -55,7 +55,7 @@ Page({
     })
   },
   choiceAddress() {
-    user.choiceAddress()
+    address.choiceData()
   },
   onUse() {
     if (!this.data.data.send) {
