@@ -22,7 +22,17 @@ Page({
     orderInfo.$appendPage(this)
     orderInfo.$syncPage()
     address.$appendPage(this)
-    address.$reloadData(true)
+    address.$loadData().then(() => {
+      if (address.length == 0) {
+        showMsg('请先添加地址')
+        this.toAddress()
+      }
+    })
+  },
+  toAddress() {
+    my.navigateTo({
+      url: '/pages/address/index'
+    })
   },
   onShow() {},
   handleTriggerPicker(visible, e) {
@@ -47,15 +57,11 @@ Page({
       data: this.data.data
     })
   },
-  onRemarkChange(value, ...args) {
-    console.log(value, ...args)
+  onRemarkChange(value) {
     this.data.data.remark = value
     this.setData({
       data: this.data.data
     })
-  },
-  choiceAddress() {
-    address.choiceData()
   },
   onUse() {
     if (!this.data.data.send) {

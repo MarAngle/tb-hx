@@ -16,7 +16,7 @@ Page({
   onDelete(e) {
     console.log(e)
   },
-  addAddress() {
+  onBuild() {
     my.navigateTo({
       url: '/pages/address/build'
     });

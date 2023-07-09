@@ -24,7 +24,7 @@ class OrderInfo extends BaseData{
           send: data.send,
           back: data.back,
           reservation_time: data.time,
-          remark: data.remark,
+          remark: data.remark || '无',
           uc_id: this.data.ucId,
           sku_id: this.data.product.skuId,
           freight: this.data.price.freight
