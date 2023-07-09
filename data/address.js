@@ -79,7 +79,8 @@ class AddressData extends BaseData{
   }
   formatData(addressInfo) {
     addressInfo.value = addressInfo.address_id
-    addressInfo.label = addressInfo.name + '/' + addressInfo.mobile + '/' + addressInfo.province_name + addressInfo.city_name + addressInfo.county_name + addressInfo.address
+    addressInfo.totalAddress = (addressInfo.province_name || '') + (addressInfo.city_name || '') + (addressInfo.county_name  || '') + (addressInfo.address || '')
+    addressInfo.label = addressInfo.name + '/' + addressInfo.mobile + '/' + addressInfo.totalAddress
     return addressInfo
   }
 }

@@ -11,7 +11,7 @@ Page({
     user.loginByPhone()
   },
   onFormChange(e) {
-    const prop = e.target.dataset.prop
+    const prop = get.dataset.prop
     user.changeForm(prop, e.detail.value)
   },
   onLoad() {
