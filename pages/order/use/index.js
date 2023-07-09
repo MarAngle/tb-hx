@@ -1,5 +1,6 @@
 import orderInfo from "../../../data/orderInfo";
 import user from "../../../data/user";
+import { showMsg } from "../../../utils";
 
 Page({
   data: {
@@ -53,7 +54,18 @@ Page({
       data: this.data.data
     })
   },
+  choiceAddress() {
+    user.choiceAddress()
+  },
   onUse() {
-    console.log(this.data.data)
+    if (!this.data.data.send) {
+      showMsg('请选择取衣地址')
+    } else if (!this.data.data.back) {
+      showMsg('请选择净衣地址')
+    } else if (!this.data.data.time) {
+      showMsg('请选择上门时间')
+    } else {
+      orderInfo.useOrder(this.data.data)
+    }
   }
 })

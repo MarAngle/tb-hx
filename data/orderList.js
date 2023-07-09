@@ -78,7 +78,7 @@ class OrderList extends BaseData{
       const resItem = resList[i]
       const price = {
         data: resItem.pay_amount,
-        freight: resItem.freight
+        freight: resItem.freight || 0
       }
       price.show = {
         data: (price.data / 100).toString(),
