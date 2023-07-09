@@ -40,14 +40,19 @@
   color: #494949;
   font-size: 26rpx;
   flex: none;
-  width: 120rpx;
+  width: 140rpx;
+}
+
+.item-content{
+  color: #494949;
+  font-size: 26rpx;
 }
 
 .icon {
   width: 40rpx;
 }
 
-.textarea {
+/* .textarea {
   padding-top: 40rpx;
   flex: 1;
   margin-left: 40rpx;
@@ -60,7 +65,7 @@ textarea {
   height: 100%;
   font-size: 24rpx;
   color: #494949;
-}
+} */
 
 .button {
   position: fixed;
