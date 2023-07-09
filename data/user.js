@@ -227,23 +227,40 @@ class UserData extends BaseData{
   }
   getAddressList() {
     return new Promise((resolve, reject) => {
-      require.post({
-        url: '/tb_api/api/Address.php',
-        token: true,
-        data: {
-          status: "showAddress",
-        }
-      }).then((res) => {
-        console.log(res)
-        this.address = []
-        let originList = res.data.data || []
-        for (let i = 0; i < originList.length; i++) {
-          const oitem = originList[i];
-          oitem.value = oitem.id
-          oitem.label = oitem.name + '/' + oitem.mobile + '/' + oitem.province_name + oitem.city_name + oitem.county_name + oitem.address
-        }
-        this.address = originList
-        resolve(res)
+      this.auth().then(() => {
+        require.post({
+          url: '/tb_api/api/Address.php',
+          token: true,
+          data: {
+            status: "showAddress",
+          }
+        }).then((res) => {
+          console.log(res)
+          this.address = []
+          let originList = res.data || []
+          if (originList.length == 0) {
+            originList.push({
+              address_id: '321',
+              name: 'test',
+              mobile: '123456',
+              province_name: '山东省',
+              city_name: '日照市',
+              county_name: '东港区',
+              address: '这里是一个具体的地址'
+            })
+          }
+          for (let i = 0; i < originList.length; i++) {
+            const oitem = originList[i];
+            oitem.value = oitem.address_id
+            oitem.label = oitem.name + '/' + oitem.mobile + '/' + oitem.province_name + oitem.city_name + oitem.county_name + oitem.address
+          }
+          this.address = originList
+          this.$syncPage()
+          resolve(res)
+        }).catch(err => {
+          console.error(err)
+          reject(err)
+        })
       }).catch(err => {
         console.error(err)
         reject(err)

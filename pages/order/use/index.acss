@@ -14,16 +14,6 @@
   color: #494949;
 }
 
-.tip-1 {
-  font-size: 20rpx;
-  color: #494949;
-}
-
-.tip-2 {
-  font-size: 24rpx;
-  color: #999bb2;
-}
-
 .time {
   font-size: 26rpx;
   color: #999bb2;
@@ -49,6 +39,8 @@
 .text {
   color: #494949;
   font-size: 26rpx;
+  flex: none;
+  width: 120rpx;
 }
 
 .icon {

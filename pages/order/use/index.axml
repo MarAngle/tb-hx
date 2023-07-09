@@ -4,15 +4,23 @@
     <view class="info">
       <view class="item">
         <view class="text">取衣地址</view>
-        <picker onChange="bindPickerChange" value="{{data.send}}" range="{{user.address}}" range-key="label">
+        <picker
+          defaultValue="{{data.send}}"
+          placeholder="请选择取衣地址"
+          title="请选择取衣地址"
+          onOk="onSendChange"
+          options="{{user.address}}">
         </picker>
-
-
-        <view class="icon"><image mode="widthFix" src="/image/index/arrow.png" /></view>
       </view>
       <view class="item">
         <view class="text">净衣地址</view>
-        <view class="icon"><image mode="widthFix" src="/image/index/arrow.png" /></view>
+        <picker
+          defaultValue="{{data.back}}"
+          placeholder="请选择净衣地址"
+          title="请选择净衣地址"
+          onOk="onBackChange"
+          options="{{user.address}}">
+        </picker>
       </view>
       <view class="item">
         <view class="text">上门时间</view>
@@ -21,15 +29,19 @@
           precision="minute"
           format="YYYY-MM-DD HH:mm"
           placeholder="选择"
-          onVisibleChange="handleTriggerPicker"
-          onOk="handleOk"
+          onOk="onTimeChange"
         />
       </view>
       <view class="item">
         <view class="text">下单备注</view>
-        <view class="textarea"><textarea></textarea></view>
+        <textarea
+          placeholder="请输入内容"
+          autoHeight
+          onChange="onRemarkChange"
+        />
+        <!-- <view class="textarea"><textarea></textarea></view> -->
       </view>
     </view>
   </view>
-  <view class="button">立即预约</view>
+  <view class="button" onTap="onUse">立即预约</view>
 </view>
