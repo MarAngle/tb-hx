@@ -1,11 +1,11 @@
 {
   "pages": [
+    "pages/pay/success",
     "pages/home/index",
     "pages/address/index",
     "pages/address/edit",
     "pages/order/index",
     "pages/mine/mine",
-    "pages/pay/success",
     "pages/login/index",
     "pages/product/index",
     "pages/product/detail/index",

@@ -127,9 +127,25 @@ class OrderList extends BaseData{
         timeout: 0,
         token: false
       }).then(res => {
-        console.log(res)
         this.formatData(res.data)
         resolve(res)
+      }).catch(err => {
+        reject(err)
+      })
+    })
+  }
+  getInfo(payNo) {
+    return new Promise((resolve, reject) => {
+      this.$loadData(true).then(() => {
+        let data = null
+        for (let i = 0; i < this.list.length; i++) {
+          const item = this.list[i];
+          if (item.payNo == payNo) {
+            data = item
+            break
+          }
+        }
+        resolve({ status: 'success', data: data })
       }).catch(err => {
         reject(err)
       })

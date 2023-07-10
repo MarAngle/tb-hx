@@ -1,5 +1,4 @@
 import productInfo from "../../../data/productInfo";
-import { showMsg } from "../../../utils";
 
 Page({
   data: {
@@ -17,11 +16,11 @@ Page({
     productInfo.createOrder().then((res) => {
       if (res.success) {
         my.navigateTo({
-          url: '/pages/pay/success'
+          url: '/pages/pay/success?payNo=' + res.payNo
         })
       } else {
         my.navigateTo({
-          url: '/pages/order/index?type=unPay'
+          url: '/pages/order/index?type=isOrder'
         })
       }
     }).catch(err => {

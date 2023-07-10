@@ -3,23 +3,16 @@ import { showAlert, showMsg } from "../utils";
 import require from "../utils/require";
 import local from "./local";
 import user from "./user";
-// serviceCode
-// serviceName
-// bizOrderId
-// 开放服务Code
-// 开放服务名称
-// 开放服务id
-// ["path"."pages/home/index","query[bizOrderld""Dge0x13JGn55kYYt5dmOJGkYWZkJwKbl2ISSiocjVzebuk0cSGFkk2GvmQ5vQMFr""serviceCode"."IND-VA-huanxiWash""serviceName"."洗洗护"},"apiCategory"."default"}
 
 class ProductInfo extends BaseData{
   constructor(initOption) {
     super(initOption)
     this.data = {}
-    this.orderId = null
+    this.payNo = null
   }
   setData(data) {
     this.data = data
-    this.orderId = null
+    this.payNo = null
     this.$syncPage()
   }
   createOrder() {
@@ -54,7 +47,7 @@ class ProductInfo extends BaseData{
           bizOrderId: appInitData.bizOrderId,
         }
       }).then((res) => {
-        this.orderId = res.data.pay_no
+        this.payNo = res.data.pay_no
         resolve(res)
       }).catch(err => {
         console.error(err)
@@ -69,7 +62,7 @@ class ProductInfo extends BaseData{
           additionalRemarks: '',
           additionalPrice: 0,
           path: '/pages/pay/success',
-          outOrderId: this.orderId,
+          outOrderId: this.payNo,
           itemList: [
             {
               outItemId: this.data.skuId,
@@ -86,7 +79,7 @@ class ProductInfo extends BaseData{
             reject(err)
           },
           success: (res) => {
-            this.syncOrder(this.orderId, res.bizOrderIdStr).then(res => {
+            this.syncOrder(this.payNo, res.bizOrderIdStr).then(res => {
               resolve(res)
             }).catch(err => {
               reject(err)
@@ -98,18 +91,18 @@ class ProductInfo extends BaseData{
       })
     })
   }
-  syncOrder(orderId, tbOrderId) {
+  syncOrder(payNo, aliOrderId) {
     return new Promise((resolve, reject) => {
       require.post({
         url: '/tb_api/api/Order.php',
         token: true,
         data: {
           status: "tradeOrderQuery",
-          pay_no: orderId,
-          order_id: tbOrderId
+          pay_no: payNo,
+          order_id: aliOrderId
         }
       }).then((res) => {
-        resolve({ status: 'success', success: res.data.status == 200 ? true : false })
+        resolve({ status: 'success', success: res.data.status == 200 ? true : false, payNo: payNo })
       }).catch(err => {
         console.error(err)
         reject(err)

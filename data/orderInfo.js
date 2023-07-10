@@ -6,11 +6,9 @@ class OrderInfo extends BaseData{
   constructor(initOption) {
     super(initOption)
     this.data = {}
-    this.orderId = null
   }
   setData(data) {
     this.data = data
-    this.orderId = null
     this.$syncPage()
   }
   useOrder(data) {

@@ -1,36 +1,30 @@
 .page-pay-success{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   width: 750rpx;
-  height: 100%;
-  padding-top: 100rpx;
+  height: 100vh;
+  padding-top: 0rpx;
+  background-color: #f7f7f7;
 }
 
-.page-pay-success-title{
-  text-align: center;
-  font-size: 36rpx;
-  /* color: rgba(245,134,11,1); */
-  font-weight: bold;
-}
 .page-pay-success-icon image{
-  width: 300rpx;
-  height: 300rpx;
-  margin: 80rpx auto;
+  width: 650rpx;
+  height: auto;
+  margin: 0rpx auto 0rpx auto;
 }
+
 .page-pay-success-menu{
+  margin-top: -320rpx;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  width: 700rpx;
+  width: 750rpx;
 }
+
 .page-pay-success-menu-item{
   width: auto;
   background-color: rgba(245,134,11,1);
   color: #fff;
   padding: 20rpx 30rpx;
   border-radius: 12rpx;
-  margin: 0 50rpx;
+  margin: 0 30rpx;
 }

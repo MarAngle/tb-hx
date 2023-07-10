@@ -1,7 +1,6 @@
 <view class="page-pay-success">
-  <view class="page-pay-success-title">支付成功!</view>
   <view class="page-pay-success-icon">
-    <image src="/image/icon/success.png" />
+    <image mode="widthFix" src="/image/order/success.png" />
   </view>
   <view class="page-pay-success-menu">
     <view class="page-pay-success-menu-item" onTap='toList'>查看更多</view>
