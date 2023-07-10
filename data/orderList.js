@@ -1,6 +1,7 @@
 import BaseData from "../class/BaseData"
 import require from "../utils/require";
 import productList from "./productList";
+import user from "./user";
 
 const statusSelect = {
   100: '待支付',
@@ -79,57 +80,63 @@ class OrderList extends BaseData{
       return {}
     }
   }
+  $formatItem(resData) {
+    const price = {
+      data: resData.pay_amount,
+      freight: resData.freight || 0
+    }
+    price.show = {
+      data: (price.data / 100).toString(),
+      freight: (price.freight / 100).toString()
+    }
+    const item = {
+      id: resData.pay_id, // 订单id
+      ucId: resData.uc_id, // 用户商品id?
+      payNo: resData.pay_no, // 订单号
+      aliOrderId: resData.pay_order_id, // 手淘订单号
+      status: {
+        value: resData.status,
+        label: statusSelect[resData.status]
+      },
+      payTime: resData.pay_time, // 支付时间
+      expiresTime: resData.expires_time, // 有效时间
+      price: price,
+      wash: {
+        id: resData.order_no, // 洗护
+        time: resData.reservation_time, // 预约时间
+        send: resData.waybill_send, // 取衣地址
+        back: resData.waybill_back, // 送回地址
+        createTime: resData.order_time, // 下单时间
+      },
+      product: productList.parseData(resData)
+    }
+    return item
+  }
   formatData(resList = []) {
     let list = []
     for (let i = 0; i < resList.length; i++) {
-      const resItem = resList[i]
-      const price = {
-        data: resItem.pay_amount,
-        freight: resItem.freight || 0
-      }
-      price.show = {
-        data: (price.data / 100).toString(),
-        freight: (price.freight / 100).toString()
-      }
-      const item = {
-        id: resItem.pay_id, // 订单id
-        ucId: resItem.uc_id, // 用户商品id?
-        payNo: resItem.pay_no, // 订单号
-        aliOrderId: resItem.pay_order_id, // 手淘订单号
-        status: {
-          value: resItem.status,
-          label: statusSelect[resItem.status]
-        },
-        payTime: resItem.pay_time, // 支付时间
-        expiresTime: resItem.expires_time, // 有效时间
-        price: price,
-        wash: {
-          id: resItem.order_no, // 洗护
-          time: resItem.reservation_time, // 预约时间
-          send: resItem.waybill_send, // 取衣地址
-          back: resItem.waybill_back, // 送回地址
-          createTime: resItem.order_time, // 下单时间
-        },
-        product: productList.parseData(resItem)
-      }
-      list.push(item)
+      list.push(this.$formatItem(resList[i]))
     }
     this.list = list
   }
   $getData() {
     return new Promise((resolve, reject) => {
-      require.post({
-        url: '/tb_api/api/Order.php',
-        data: {
-          ...this.type.params,
-          pageNumber: 1,
-          pageSize: 50
-        },
-        timeout: 0,
-        token: false
-      }).then(res => {
-        this.formatData(res.data)
-        resolve(res)
+      user.auth().then(() => {
+        require.post({
+          url: '/tb_api/api/Order.php',
+          data: {
+            ...this.type.params,
+            pageNumber: 1,
+            pageSize: 50
+          },
+          timeout: 0,
+          token: true
+        }).then(res => {
+          this.formatData(res.data)
+          resolve(res)
+        }).catch(err => {
+          reject(err)
+        })
       }).catch(err => {
         reject(err)
       })
@@ -137,19 +144,25 @@ class OrderList extends BaseData{
   }
   getInfo(payNo) {
     return new Promise((resolve, reject) => {
-      this.$loadData(true).then(() => {
-        let data = null
-        for (let i = 0; i < this.list.length; i++) {
-          const item = this.list[i];
-          if (item.payNo == payNo) {
-            data = item
-            break
-          }
-        }
-        resolve({ status: 'success', data: data })
-      }).catch(err => {
-        reject(err)
+      user.auth().then(() => {
+        require.post({
+          url: '/tb_api/api/Order.php',
+          data: {
+            status: 'tradeOrderInfo',
+            pay_id: '',
+            uc_id: ''
+          },
+          timeout: 0,
+          token: true
+        }).then(res => {
+          const data = this.$formatItem(res.data)
+          resolve({ status: 'success', data: data })
+        }).catch(err => {
+          reject(err)
+        })
       })
+    }).catch(err => {
+      reject(err)
     })
   }
 }
