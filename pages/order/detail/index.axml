@@ -2,8 +2,8 @@
   <view class="state">
     <view class="order-no">
       <view>
-        <view>订单号：12312312</view>
-        <view class="icon" data-order-num="213123123" onTap="copy"><image mode="widthFix" src="/image/order/copy.png" /></view>
+        <view>订单号：{{orderInfo.data.id}}</view>
+        <view class="icon" data-order-num="{{orderInfo.data.id}}" onTap="copy"><image mode="widthFix" src="/image/order/copy.png" /></view>
       </view>
       <view>取件收货</view>
     </view>
