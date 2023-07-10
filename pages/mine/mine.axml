@@ -8,17 +8,17 @@
         <view class="icon"><image mode="widthFix" src="/image/mine/6.png" /></view>
         <view class="text">我的套餐</view>
       </view>
-      <view class="item" data-page-url="/pages/mine/payment/payment" onTap="changePage">
+      <view class="item" data-page-url="/pages/order/index?type=isOrder" onTap="changePage">
         <view class="icon"><image mode="widthFix" src="/image/mine/2.png" /></view>
         <view class="text">待付款</view>
       </view>
-      <view class="item">
+      <view class="item" data-page-url="/pages/order/index?type=isPay" onTap="changePage">
+        <view class="icon"><image mode="widthFix" src="/image/mine/3.png" /></view>
+        <view class="text">未使用</view>
+      </view>
+      <view class="item" data-page-url="/pages/order/index?type=isFinished" onTap="changePage">
         <view class="icon"><image mode="widthFix" src="/image/mine/4.png" /></view>
         <view class="text">已完成</view>
-      </view>
-      <view class="item">
-        <view class="icon"><image mode="widthFix" src="/image/mine/3.png" /></view>
-        <view class="text">退款</view>
       </view>
       <view class="item" data-page-url="/pages/mine/collect/collect" onTap="changePage">
         <view class="icon"><image mode="widthFix" src="/image/mine/1.png" /></view>

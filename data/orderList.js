@@ -25,7 +25,7 @@ class OrderList extends BaseData{
           }
         },
         {
-          value: 'unPay',
+          value: 'isOrder',
           label: '待支付',
           params: {
             status: 'tradeOrderList',
@@ -49,7 +49,7 @@ class OrderList extends BaseData{
           }
         },
         {
-          value: 'finished',
+          value: 'isFinished',
           label: '已完成',
           params: {
             status: 'tradeOrderList',

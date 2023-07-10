@@ -109,9 +109,6 @@ class ProductInfo extends BaseData{
           order_id: tbOrderId
         }
       }).then((res) => {
-        // my.alert({
-        //   content: 'success == ' + JSON.stringify(res),
-        // })
         resolve({ status: 'success', success: res.data.status == 200 ? true : false })
       }).catch(err => {
         console.error(err)
