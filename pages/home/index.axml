@@ -9,7 +9,7 @@
         <image src="/image/test/cate2.png" />
       </view>
       <view class="page-home-category-right-bottom page-home-category-item" data-id="{{3}}" onTap="toProductList">
-        <image src="/image/test/cate3.jpg" />
+        <image src="/image/test/cate3.png" />
       </view>
     </view>
   </view>
