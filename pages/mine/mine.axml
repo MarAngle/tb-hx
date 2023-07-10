@@ -21,13 +21,13 @@
         <view class="text">洗护中</view>
       </view>
       <view class="item" data-page-url="/pages/order/index?type=isFinished" onTap="changePage">
-        <view class="icon"><image mode="widthFix" src="/image/mine/4.png" /></view>
+        <view class="icon"><image mode="widthFix" src="/image/mine/isFinished.png" /></view>
         <view class="text">已完成</view>
       </view>
-      <view class="item" data-page-url="/pages/mine/help/help" onTap="changePage">
+      <!-- <view class="item" data-page-url="/pages/mine/help/help" onTap="changePage">
         <view class="icon"><image mode="widthFix" src="/image/mine/customer.png" /></view>
         <view class="text">客户服务</view>
-      </view>
+      </view> -->
     </view>
   </view>
 </view>

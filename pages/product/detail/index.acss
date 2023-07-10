@@ -1,5 +1,5 @@
 .detail {
-  padding: 25rpx 25rps;
+  padding: 25rpx 25rpx;
 }
 
 .swiper-item image {
@@ -11,16 +11,15 @@
 
 .title {
   padding: 0 20rpx;
-  font-size: 34rpx;
+  font-size: 32rpx;
   font-weight: 600;
   color: #494949;
   letter-spacing: 2rpx;
-  line-height: 44rpx;
+  line-height: 64rpx;
 }
 
 .info {
   padding: 0 20rpx;
-  margin-top: 20rpx;
   display: flex;
   justify-content: space-between;
   align-items: center;
