@@ -5,7 +5,6 @@ Page({
     [productList.$prop]: productList
   },
   onLoad(query) {
-    console.log(query)
     productList.$setExtra('search', {
       categoaryId: query.id
     })

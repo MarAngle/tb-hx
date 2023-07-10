@@ -1,4 +1,5 @@
 import orderInfo from "../../data/orderInfo";
+import orderList from "../../data/orderList";
 
 Component({
   mixins: [],
@@ -10,6 +11,16 @@ Component({
   didUpdate() {},
   didUnmount() {},
   methods: {
+    payOrder() {
+      orderList.payOrder(this.props.data).then(() => {}).catch(err => {
+        console.error(err)
+      })
+    },
+    payBack() {
+      orderList.payBack(this.props.data).then(() => {}).catch(err => {
+        console.error(err)
+      })
+    },
     use() {
       orderInfo.setData(this.props.data)
       my.navigateTo({

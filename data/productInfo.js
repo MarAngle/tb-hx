@@ -2,6 +2,7 @@ import BaseData from "../class/BaseData";
 import { showAlert, showMsg } from "../utils";
 import require from "../utils/require";
 import local from "./local";
+import orderList from "./orderList";
 import user from "./user";
 
 class ProductInfo extends BaseData{
@@ -79,7 +80,7 @@ class ProductInfo extends BaseData{
             reject(err)
           },
           success: (res) => {
-            this.syncOrder(this.payNo, res.bizOrderIdStr).then(res => {
+            orderList.syncOrder(this.payNo, res.bizOrderIdStr).then(res => {
               resolve(res)
             }).catch(err => {
               reject(err)
@@ -87,24 +88,6 @@ class ProductInfo extends BaseData{
           },
         })
       }).catch(err => {
-        reject(err)
-      })
-    })
-  }
-  syncOrder(payNo, aliOrderId) {
-    return new Promise((resolve, reject) => {
-      require.post({
-        url: '/tb_api/api/Order.php',
-        token: true,
-        data: {
-          status: "tradeOrderQuery",
-          pay_no: payNo,
-          order_id: aliOrderId
-        }
-      }).then((res) => {
-        resolve({ status: 'success', success: res.data.status == 200 ? true : false, payNo: payNo })
-      }).catch(err => {
-        console.error(err)
         reject(err)
       })
     })

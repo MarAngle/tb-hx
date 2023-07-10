@@ -119,6 +119,48 @@ class OrderList extends BaseData{
     }
     this.list = list
   }
+  payOrder(target) {
+    return new Promise((resolve, reject) => {
+      my.tb.createOrderAndPay({
+        outOrderId: target.payNo,
+        fail: (err) => {
+          showMsg('支付失败！', 'error')
+          reject(err)
+        },
+        success: (res) => {
+          // 这里需要进行订单的重新判断还是直接获取订单列表？？
+          this.syncOrder(target.payNo, res.bizOrderIdStr).then(res => {
+            resolve(res)
+          }).catch(err => {
+            reject(err)
+          })
+        },
+      })
+    })
+  }
+  payBack(target) {
+    return new Promise((resolve, reject) => {
+      console.log(target)
+      user.auth().then(() => {
+        require.post({
+          url: '/tb_api/api/Order.php',
+          data: {
+            status: 'tradeWashOrderCancel',
+            order_no: target.wash.id
+          },
+          timeout: 0,
+          token: true
+        }).then(res => {
+          my.alert('这里需要看一下咋下一步')
+          resolve(res)
+        }).catch(err => {
+          reject(err)
+        })
+      }).catch(err => {
+        reject(err)
+      })
+    })
+  }
   $getData() {
     return new Promise((resolve, reject) => {
       user.auth().then(() => {
@@ -163,6 +205,24 @@ class OrderList extends BaseData{
       })
     }).catch(err => {
       reject(err)
+    })
+  }
+  syncOrder(payNo, aliOrderId) {
+    return new Promise((resolve, reject) => {
+      require.post({
+        url: '/tb_api/api/Order.php',
+        token: true,
+        data: {
+          status: "tradeOrderQuery",
+          pay_no: payNo,
+          order_id: aliOrderId
+        }
+      }).then((res) => {
+        resolve({ status: 'success', success: res.data.status == 200 ? true : false, payNo: payNo })
+      }).catch(err => {
+        console.error(err)
+        reject(err)
+      })
     })
   }
 }
