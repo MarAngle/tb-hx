@@ -29,11 +29,15 @@ export const confirm = function(content, next, option = {}) {
     cancelButtonText: option.cancelText || '取消'
   }
   if (next) {
-    currentOption.success = function() {
-      next('ok')
+    currentOption.success = function({ confirm }) {
+      if (confirm) {
+        next('ok')
+      } else {
+        next('cancel')
+      }
     }
     currentOption.fail = function() {
-      next('cancel')
+      next('fail')
     }
   }
   my.confirm(currentOption)
