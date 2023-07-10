@@ -1,11 +1,14 @@
+import user from "../../data/user";
+
 Page({
-  data: {},
-  onLoad(query) {
-    console.log('page onLoad', query)
+  data: {
+    [user.$prop]: user,
+  },
+  onLoad() {
+    user.$appendPage(this)
   },
   onShow() {},
   changePage({target}) {
-    console.log(target)
     my.navigateTo({
       url: target.dataset.pageUrl
     });

@@ -1,5 +1,5 @@
 import BaseData from "../class/BaseData";
-import { rule, showAlert, showMsg } from "../utils";
+import { getLocal, rule, setLocal, showAlert, showMsg } from "../utils";
 import require from "../utils/require";
 
 class UserData extends BaseData{
@@ -21,6 +21,15 @@ class UserData extends BaseData{
       operate: false,
       count: 60
     }
+  }
+  setInfoPhone(phone) {
+    this.info.phone = phone
+    setLocal('userInfo', this.info)
+  }
+  setInfoData(name, avatar) {
+    this.info.name = name
+    this.info.avatar = avatar
+    setLocal('userInfo', this.info)
   }
   changeForm(prop, value) {
     this.form[prop] = value
@@ -136,7 +145,7 @@ class UserData extends BaseData{
         api: 'taobao.miniapp.user.phone.get',
         scope: 'scope.getPhoneNumber'
       }).then((res) => {
-        this.info.phone = res.phone
+        this.setInfoPhone(res.phone)
         resolve(res)
       }).catch(err => {
         console.error(err)
@@ -150,14 +159,16 @@ class UserData extends BaseData{
         my.getAuthUserInfo({
           success:(infoRes)=>{
             this.$syncPage()
+            this.setInfoData(infoRes.nickName, infoRes.avatar)
             resolve({
               mobile: this.info.phone,
-              nickname: infoRes.nickName,
-              avatar: infoRes.avatar
+              nickname: this.info.name,
+              avatar: this.info.avatar
             })
           },
           fail:(err)=>{
             console.log(err)
+            this.setInfoData()
             resolve({
               mobile: this.info.phone,
               nickname: '',
@@ -195,6 +206,8 @@ class UserData extends BaseData{
   getDataByLocal() {
     if (require.getToken()) {
       this.status.login = true
+      this.info = getLocal('userInfo')
+      console.log(this.info)
     }
   }
 }

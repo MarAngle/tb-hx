@@ -4,28 +4,28 @@
     <view class="img" data-page-url="/pages/mine/info/info" onTap="changePage"><image mode="widthFix" src="/image/mine/user.png" /></view>
     <view class="name" data-page-url="/pages/mine/info/info" onTap="changePage">浣洗小浣</view>
     <view class="control">
-      <view class="item">
-        <view class="icon"><image mode="widthFix" src="/image/mine/6.png" /></view>
-        <view class="text">我的套餐</view>
+      <view class="item" data-page-url="/pages/mine/collect/collect" onTap="changePage">
+        <view class="icon"><image mode="widthFix" src="/image/mine/collect.png" /></view>
+        <view class="text">收藏</view>
       </view>
       <view class="item" data-page-url="/pages/order/index?type=isOrder" onTap="changePage">
-        <view class="icon"><image mode="widthFix" src="/image/mine/2.png" /></view>
+        <view class="icon"><image mode="widthFix" src="/image/mine/isOrder.png" /></view>
         <view class="text">待付款</view>
       </view>
       <view class="item" data-page-url="/pages/order/index?type=isPay" onTap="changePage">
-        <view class="icon"><image mode="widthFix" src="/image/mine/3.png" /></view>
+        <view class="icon"><image mode="widthFix" src="/image/mine/isPay.png" /></view>
         <view class="text">未使用</view>
+      </view>
+      <view class="item" data-page-url="/pages/order/index?type=isUse" onTap="changePage">
+        <view class="icon"><image mode="widthFix" src="/image/mine/isUse.png" /></view>
+        <view class="text">洗护中</view>
       </view>
       <view class="item" data-page-url="/pages/order/index?type=isFinished" onTap="changePage">
         <view class="icon"><image mode="widthFix" src="/image/mine/4.png" /></view>
         <view class="text">已完成</view>
       </view>
-      <view class="item" data-page-url="/pages/mine/collect/collect" onTap="changePage">
-        <view class="icon"><image mode="widthFix" src="/image/mine/1.png" /></view>
-        <view class="text">已收藏</view>
-      </view>
       <view class="item" data-page-url="/pages/mine/help/help" onTap="changePage">
-        <view class="icon"><image mode="widthFix" src="/image/mine/5.png" /></view>
+        <view class="icon"><image mode="widthFix" src="/image/mine/customer.png" /></view>
         <view class="text">客户服务</view>
       </view>
     </view>
