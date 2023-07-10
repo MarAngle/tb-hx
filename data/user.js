@@ -111,6 +111,7 @@ class UserData extends BaseData{
   }
   auth(force) {
     return new Promise((resolve, reject) => {
+      console.log(force, this.status.login)
       if (force || !this.status.login) {
         my.authorize({
           scopes: ['scope.userInfo', 'scope.addressList', 'scope.getPhoneNumber'],
@@ -121,15 +122,21 @@ class UserData extends BaseData{
                 this.$syncPage()
                 resolve(res)
               }).catch(err => {
+                this.status.login = false
+                this.$syncPage()
                 console.error(err)
                 reject(err)
               })
             }).catch(err => {
+              this.status.login = false
+              this.$syncPage()
               console.error(err)
               reject(err)
             })
           },
           fail:(err)=>{
+            this.status.login = false
+            this.$syncPage()
             console.log(err)
             reject(err)
           }
@@ -204,6 +211,7 @@ class UserData extends BaseData{
     })
   }
   getDataByLocal() {
+    console.log(require.getToken())
     if (require.getToken()) {
       this.status.login = true
       this.info = getLocal('userInfo')

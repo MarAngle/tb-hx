@@ -1,8 +1,8 @@
 <view class="mine">
   <view class="setting" data-page-url="/pages/mine/set/set" onTap="changePage"><icon type="SetOutline" /></view>
   <view class="user">
-    <view class="img" data-page-url="/pages/mine/info/info" onTap="changePage"><image mode="widthFix" src="/image/mine/user.png" /></view>
-    <view class="name" data-page-url="/pages/mine/info/info" onTap="changePage">浣洗小浣</view>
+    <view class="img" onTap="onLogin"><image mode="widthFix" src="{{ user.info.avatar || '/image/mine/user.png' }}" /></view>
+    <view class="name" onTap="onLogin">{{ !user.status.login ? '请登录' : user.info.name || '无' }}</view>
     <view class="control">
       <view class="item" data-page-url="/pages/mine/collect/collect" onTap="changePage">
         <view class="icon"><image mode="widthFix" src="/image/mine/collect.png" /></view>

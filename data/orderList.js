@@ -101,6 +101,7 @@ class OrderList extends BaseData{
           label: statusSelect[resItem.status]
         },
         payTime: resItem.pay_time, // 支付时间
+        expiresTime: resItem.expires_time, // 有效时间
         price: price,
         wash: {
           id: resItem.order_no, // 洗护

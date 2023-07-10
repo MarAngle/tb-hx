@@ -8,6 +8,11 @@ Page({
     user.$appendPage(this)
   },
   onShow() {},
+  onLogin() {
+    if (!user.status.login) {
+      user.auth()
+    }
+  },
   changePage({target}) {
     my.navigateTo({
       url: target.dataset.pageUrl
