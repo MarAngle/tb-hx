@@ -7,6 +7,7 @@
     请输入姓名
     <input 
       slot="extra"
+      class='address-edit-input'
       placeholder-style="text-align: right;"
       value="{{form.name}}"
       placeholder="请输入姓名" 
@@ -17,6 +18,7 @@
     请输入手机号
     <input 
       slot="extra"
+      class='address-edit-input'
       placeholder-style="text-align: right;"
       value="{{form.mobile}}"
       placeholder="请输入手机号" 
@@ -47,6 +49,7 @@
     请输入详细地址
     <input 
       slot="extra"
+      class='address-edit-input'
       placeholder-style="text-align: right;"
       value="{{form.address}}"
       placeholder="请输入详细地址" 

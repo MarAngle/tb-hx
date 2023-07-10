@@ -4,4 +4,7 @@
   padding: 24rpx;
 }
 
+input{
+  text-align: right;
+}
 
