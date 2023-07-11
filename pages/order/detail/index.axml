@@ -2,8 +2,8 @@
   <view class="state">
     <view class="order-no">
       <view>
-        <view>订单号：{{orderInfo.data.wash.id}}</view>
-        <view class="icon" data-order-num="{{orderInfo.data.wash.id}}" onTap="copy"><image mode="widthFix" src="/image/order/copy.png" /></view>
+        <view>订单号：{{orderInfo.data.wash.no}}</view>
+        <view class="icon" data-order-num="{{orderInfo.data.wash.no}}" onTap="copy"><image mode="widthFix" src="/image/order/copy.png" /></view>
       </view>
       <view>{{orderInfo.data.statusInfo.process}}</view>
     </view>
@@ -25,14 +25,14 @@
         <view>预约时间：</view>
         <view>{{orderInfo.data.wash.time}}</view>
       </view>
-      <!-- <view>
+      <view>
         <view>取件快递：</view>
-        <view>SF123323423423412</view>
+        <view>{{orderInfo.data.waybill_send || '-'}}</view>
       </view>
       <view>
         <view>送回快递：</view>
-        <view>SF221313242342342323</view>
-      </view> -->
+        <view>{{orderInfo.data.waybill_back || '-'}}</view>
+      </view>
     </view>
   </view>
   <!-- <view class="product">

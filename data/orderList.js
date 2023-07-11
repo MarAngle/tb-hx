@@ -104,10 +104,13 @@ class OrderList extends BaseData{
       expiresTime: resData.expires_time, // 有效时间
       createTime: resData.pay_create_time,
       price: price,
+      waybill_send: resData.waybill_send,
+      waybill_back: resData.waybill_back,
       send: resData.send,
       back: resData.back,
       wash: {
-        id: resData.order_no, // 洗护
+        id: resData.order_id,
+        no: resData.order_no, // 洗护
         time: resData.reservation_time, // 预约时间
         send: resData.waybill_send, // 取衣地址
         back: resData.waybill_back, // 送回地址
@@ -166,7 +169,7 @@ class OrderList extends BaseData{
           url: '/tb_api/api/Order.php',
           data: {
             status: 'tradeWashOrderCancel',
-            order_no: target.wash.id
+            order_no: target.wash.no
           },
           timeout: 0,
           token: true
