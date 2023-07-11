@@ -157,7 +157,6 @@ class OrderList extends BaseData{
   }
   payBack(target) {
     return new Promise((resolve, reject) => {
-      console.log(target)
       user.auth().then(() => {
         require.post({
           url: '/tb_api/api/Order.php',

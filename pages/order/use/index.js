@@ -39,7 +39,6 @@ Page({
     console.log('onVisibleChange', visible, e);
   },
   onTimeChange(date, format, e) {
-    console.log('onOk', date, format, e);
     this.data.data.time = format
     this.setData({
       data: this.data.data

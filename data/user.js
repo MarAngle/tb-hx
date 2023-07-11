@@ -111,7 +111,6 @@ class UserData extends BaseData{
   }
   auth(force) {
     return new Promise((resolve, reject) => {
-      console.log(force, this.status.login)
       if (force || !this.status.login) {
         my.authorize({
           scopes: ['scope.userInfo', 'scope.addressList', 'scope.getPhoneNumber'],
@@ -200,7 +199,6 @@ class UserData extends BaseData{
           ...info
         }
       }).then((res) => {
-        console.log(res)
         require.setToken(res.data.token)
         require.setRefreshToken(res.data.refreshToken)
         resolve(res)
@@ -211,11 +209,9 @@ class UserData extends BaseData{
     })
   }
   getDataByLocal() {
-    console.log(require.getToken())
     if (require.getToken()) {
       this.status.login = true
       this.info = getLocal('userInfo')
-      console.log(this.info)
     }
   }
 }

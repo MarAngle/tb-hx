@@ -8,7 +8,6 @@ Component({
   },
   props: {},
   didMount() {
-    // console.log('item', this.props)
     const data = this.props.data
     this.setData({
       showPay: !!orderList.checkDataCanPay(data)

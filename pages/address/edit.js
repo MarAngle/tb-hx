@@ -31,7 +31,7 @@ Page({
     this.data.form.name = defaultData.name
     this.data.form.mobile = defaultData.mobile
     this.data.form.provinceCity = [defaultData.province_name, defaultData.city_name]
-    this.data.form.county = defaultData.county_name
+    this.data.form.county = [defaultData.county_name]
     this.data.form.address = defaultData.address
     address.getCounty(this.data.form.provinceCity).then(res => {
       this.data.county = res.list
@@ -55,12 +55,10 @@ Page({
       this.setData({
         form: this.data.form
       })
-      console.log(this.data)
     })
   },
   onShow(query) {
     address.$appendPage(this)
-    address.loadLocation()
   },
   onLocationChange(valueList) {
     this.data.county = []

@@ -29,7 +29,6 @@ class Data {
   $syncPage(force) {
     if (force) {
       for (let i = 0; i < this.$unEnum.page.length; i++) {
-        console.log(this.$unEnum.page[i], this.$prop)
         this.$syncTargetPage(this.$unEnum.page[i])
       }
     } else {
