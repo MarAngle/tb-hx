@@ -1,4 +1,5 @@
 import BaseData from "../class/BaseData"
+import { showMsg } from "../utils";
 import require from "../utils/require";
 import productList from "./productList";
 import user from "./user";
@@ -126,6 +127,7 @@ class OrderList extends BaseData{
         orderId: target.aliOrderId,
         fail: (err) => {
           showMsg('支付失败！', 'error')
+          console.error(err)
           reject(err)
         },
         success: (res) => {

@@ -1,5 +1,6 @@
 
 import address from "../../data/address";
+import { showMsg } from "../../utils";
 
 Page({
   data: {
