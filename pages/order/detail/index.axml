@@ -2,12 +2,12 @@
   <view class="state">
     <view class="order-no">
       <view>
-        <view>订单号：{{orderInfo.data.id}}</view>
+        <view>订单号?：{{orderInfo.data.id}}</view>
         <view class="icon" data-order-num="{{orderInfo.data.id}}" onTap="copy"><image mode="widthFix" src="/image/order/copy.png" /></view>
       </view>
-      <view>取件收货</view>
+      <view>当前状态？</view>
     </view>
-    <view class="order-state">
+    <!-- <view class="order-state">
       <view class="title">取件收货</view>
       <view>详情信息</view>
       <view class="icon"><icon type="RightOutline" /></view>
@@ -15,42 +15,34 @@
     <view class="state-detail">
       <view>订单已完成，请对小浣的服务做出评价</view>
       <view>去评价</view>
-    </view>
+    </view> -->
     <view class="state-info">
       <view>
         <view>下单时间：</view>
-        <view>2020-02-02 11:11:11</view>
+        <view>{{orderInfo.data.wash.createTime}}</view>
       </view>
       <view>
         <view>预约时间：</view>
-        <view>2022-22-22 11:11:11</view>
+        <view>{{orderInfo.data.wash.time}}</view>
       </view>
-      <view>
+      <!-- <view>
         <view>取件快递：</view>
         <view>SF123323423423412</view>
       </view>
       <view>
         <view>送回快递：</view>
         <view>SF221313242342342323</view>
-      </view>
+      </view> -->
     </view>
   </view>
-  <view class="product">
+  <!-- <view class="product">
     <view class="title">
       <view>洗护详情</view>
       <view>共 1 件</view>
     </view>
-    <view class="pd-detail">
-      <view class="img"><image mode="widthFix" src="/image/index/5.png" /></view>
-      <view class="info">
-        <view class="name">【淘宝用户专享】衣鞋任洗三件套</view>
-        <view class="tip-1">长短不限任洗免费上门取送</view>
-        <view class="tip-2">拒用“四氯”健康洗</view>
-      </view>
-      <view class="look-img">查看在厂图片</view>
-    </view>
-  </view>
-  <view class="address">
+  </view> -->
+  <product-card data="{{orderInfo.data.product}}" show="{{true}}" />
+  <!-- <view class="address">
     <view class="title">地址信息</view>
     <view class="ad-detail">
       <view>取衣地址</view>
@@ -62,48 +54,48 @@
       <view>小浣 &nbsp;&nbsp;&nbsp; 150****7777</view>
       <view>山东省日照市东港区海曲东路绿舟南路IFC国际财富中心A座5011</view>
     </view>
-  </view>
+  </view> -->
   <view class="order-info">
     <view class="item">
       <view class="text">套餐总价</view>
-      <view class="val">￥109.00</view>
+      <view class="val">￥{{orderInfo.data.product.price.show.origin}}</view>
     </view>
-    <view class="item">
+    <!-- <view class="item">
       <view class="text">优惠券</view>
       <view class="val mark">-￥10.00</view>
-    </view>
+    </view> -->
     <view class="item">
       <view class="text">实付款</view>
-      <view class="val mark" style="font-weight: 600;">￥100.00</view>
+      <view class="val mark" style="font-weight: 600;">￥{{orderInfo.data.price.show.data}}</view>
     </view>
     <view class="item">
-      <view class="text">订单编号</view>
+      <view class="text">订单编号?</view>
       <view class="val">
-        <view>752438752890437509</view>
-        <view class="icon" data-order-num="213123123" onTap="copy"><image mode="widthFix" src="/image/order/copy.png" /></view>
+        <view>{{orderInfo.data.payNo}}</view>
+        <view class="icon" data-order-num="{{orderInfo.data.payNo}}" onTap="copy"><image mode="widthFix" src="/image/order/copy.png" /></view>
       </view>
     </view>
     <view class="item">
-      <view class="text">支付宝交易号</view>
-      <view class="val">89304903284092321</view>
+      <view class="text">支付宝交易号?</view>
+      <view class="val">{{orderInfo.data.aliOrderId}}</view>
     </view>
     <view class="item">
       <view class="text">创建时间</view>
-      <view class="val">2022-22-22 17:00:00</view>
+      <view class="val">{{orderInfo.data.createTime}}</view>
     </view>
     <view class="item">
       <view class="text">付款时间</view>
-      <view class="val">2022-22-22 17:00:00</view>
+      <view class="val">{{orderInfo.data.payTime}}</view>
     </view>
   </view>
-  <view class="artificial">
+  <!-- <view class="artificial">
     <view>咨询浣洗客服</view>
     <view><image mode="widthFix" src="/image/order/phone.png" /></view>
   </view>
   <view class="btm-button">
     <view onTap="refund">申请退款</view>
     <view onTap="useThali">立即预约</view>
-  </view>
+  </view> -->
   <popup 
     visible="{{refundPopup}}" 
     position="bottom">

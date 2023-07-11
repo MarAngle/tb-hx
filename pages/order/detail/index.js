@@ -11,7 +11,7 @@ Page({
       return
     }
     orderInfo.$appendPage(this)
-    orderInfo.$syncPage()
+    orderInfo.getWashData().then(() => {})
   },
   onShow() {},
   copy({target}) {

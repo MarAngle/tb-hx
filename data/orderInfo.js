@@ -1,5 +1,4 @@
 import BaseData from "../class/BaseData";
-import { showAlert, showMsg } from "../utils";
 import require from "../utils/require";
 
 class OrderInfo extends BaseData{
@@ -10,6 +9,24 @@ class OrderInfo extends BaseData{
   setData(data) {
     this.data = data
     this.$syncPage()
+  }
+  getWashData() {
+    return new Promise((resolve, reject) => {
+      require.post({
+        url: '/tb_api/api/Order.php',
+        token: true,
+        data: {
+          status: "tradeOrderStatus",
+          order_id: this.data.wash.id
+        }
+      }).then((res) => {
+        this.data.wash.list = res.data
+        resolve(res)
+      }).catch(err => {
+        console.error(err)
+        reject(err)
+      })
+    })
   }
   useOrder(data) {
     return new Promise((resolve, reject) => {

@@ -39,6 +39,7 @@ class ProductList extends BaseData{
     price.discounted = price.origin - price.data
     price.show = {
       data: (price.data / 100).toString(),
+      origin: (price.origin / 100).toString(),
       discounted: (price.discounted / 100).toString()
     }
     const data = {

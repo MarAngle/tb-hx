@@ -109,6 +109,7 @@ class OrderList extends BaseData{
         send: resData.waybill_send, // 取衣地址
         back: resData.waybill_back, // 送回地址
         createTime: resData.order_time, // 下单时间
+        list: []
       },
       product: productList.parseData(resData)
     }
