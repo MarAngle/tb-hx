@@ -2,10 +2,10 @@
   <view class="state">
     <view class="order-no">
       <view>
-        <view>订单号?：{{orderInfo.data.id}}</view>
-        <view class="icon" data-order-num="{{orderInfo.data.id}}" onTap="copy"><image mode="widthFix" src="/image/order/copy.png" /></view>
+        <view>订单号：{{orderInfo.data.wash.id}}</view>
+        <view class="icon" data-order-num="{{orderInfo.data.wash.id}}" onTap="copy"><image mode="widthFix" src="/image/order/copy.png" /></view>
       </view>
-      <view>当前状态？</view>
+      <view>{{orderInfo.data.statusInfo.process}}</view>
     </view>
     <!-- <view class="order-state">
       <view class="title">取件收货</view>
@@ -42,19 +42,19 @@
     </view>
   </view> -->
   <product-card data="{{orderInfo.data.product}}" show="{{true}}" />
-  <!-- <view class="address">
+  <view class="address">
     <view class="title">地址信息</view>
     <view class="ad-detail">
       <view>取衣地址</view>
-      <view>小浣 &nbsp;&nbsp;&nbsp; 150****7777</view>
-      <view>山东省日照市东港区海曲东路绿舟南路IFC国际财富中心A座5011</view>
+      <view>{{orderInfo.data.send.name}}&nbsp;&nbsp;&nbsp;{{orderInfo.data.send.mobile}}</view>
+      <view>{{orderInfo.data.send.address}}</view>
     </view>
     <view class="ad-detail">
       <view>净衣送达</view>
-      <view>小浣 &nbsp;&nbsp;&nbsp; 150****7777</view>
-      <view>山东省日照市东港区海曲东路绿舟南路IFC国际财富中心A座5011</view>
+      <view>{{orderInfo.data.back.name}}&nbsp;&nbsp;&nbsp;{{orderInfo.data.back.mobile}}</view>
+      <view>{{orderInfo.data.back.address}}</view>
     </view>
-  </view> -->
+  </view>
   <view class="order-info">
     <view class="item">
       <view class="text">套餐总价</view>
@@ -69,7 +69,7 @@
       <view class="val mark" style="font-weight: 600;">￥{{orderInfo.data.price.show.data}}</view>
     </view>
     <view class="item">
-      <view class="text">订单编号?</view>
+      <view class="text">订单编号</view>
       <view class="val">
         <view>{{orderInfo.data.payNo}}</view>
         <view class="icon" data-order-num="{{orderInfo.data.payNo}}" onTap="copy"><image mode="widthFix" src="/image/order/copy.png" /></view>

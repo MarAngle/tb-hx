@@ -29,10 +29,10 @@ if(AFAppX.registerApp) {
 
 function success() {
 require('../../app');
-require('../../components/OrderCard/index?hash=05d2a9730dd6009bf9446182f9c985f40f8c0f43');
-require('../../components/OrderList/index?hash=95dc1a030cf80ae3c7e0cf28e5258515304a09db');
 require('../../components/ProductCard/index?hash=05d2a9730dd6009bf9446182f9c985f40f8c0f43');
 require('../../components/ProductList/index?hash=aeca18ec55e4c36a45554211c7af7fa8db0b298d');
+require('../../components/OrderCard/index?hash=05d2a9730dd6009bf9446182f9c985f40f8c0f43');
+require('../../components/OrderList/index?hash=95dc1a030cf80ae3c7e0cf28e5258515304a09db');
 require('../../node_modules/antd-mini/es/Icon/index?hash=05d2a9730dd6009bf9446182f9c985f40f8c0f43');
 require('../../node_modules/antd-mini/es/Input/index?hash=749bba9d48276e5b3ca959928cddef5b7b4ff081');
 require('../../node_modules/antd-mini/es/Popup/index?hash=05d2a9730dd6009bf9446182f9c985f40f8c0f43');
@@ -45,8 +45,8 @@ require('../../node_modules/antd-mini/es/Loading/index?hash=05d2a9730dd6009bf944
 require('../../node_modules/antd-mini/es/Button/index?hash=dc16c4564261c93d3748f79b0e515f4d4859b95c');
 require('../../node_modules/antd-mini/es/DatePicker/index?hash=ce5e8ad2c21f10561d6cfd032c3c5791eebae5b0');
 require('../../node_modules/antd-mini/es/Input/Textarea/index?hash=749bba9d48276e5b3ca959928cddef5b7b4ff081');
-require('../../pages/order/index?hash=8c997138e47743dfd962708fcb1d6094f360f759');
 require('../../pages/home/index?hash=ba28b9f05083c7e5ff40c64239269b0057bf9a31');
+require('../../pages/order/index?hash=8c997138e47743dfd962708fcb1d6094f360f759');
 require('../../pages/address/index?hash=8385356bd8b4ca9fa87738563e035351b35a7175');
 require('../../pages/mine/mine?hash=8385356bd8b4ca9fa87738563e035351b35a7175');
 require('../../pages/pay/success?hash=ba28b9f05083c7e5ff40c64239269b0057bf9a31');

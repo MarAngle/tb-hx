@@ -17,7 +17,7 @@
       <view class="component-order-item-content-text">有效期：{{data.expiresTime}}</view>
     </view>
     <view class="component-order-item-content-line end" a:if="{{ !use }}">
-      <!-- <view class="component-order-item-content-menu detail" a:if="{{ data.status.value == 201 }}" onTap="toDetail">洗护详情</view> -->
+      <view class="component-order-item-content-menu detail" a:if="{{ data.wash.id }}" onTap="toDetail">洗护详情</view>
       <view class="component-order-item-content-menu use" a:if="{{ showPay }}" onTap="payOrder">支付</view>
       <!-- <view class="component-order-item-content-menu use" a:if="{{ data.status.value == 200 }}" onTap="payBack">退款</view> -->
       <view class="component-order-item-content-menu use" a:if="{{ data.status.value == 200 }}" onTap="use">立即使用</view>

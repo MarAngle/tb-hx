@@ -99,10 +99,13 @@ class OrderList extends BaseData{
         value: resData.status,
         label: statusSelect[resData.status]
       },
+      statusInfo: resData.status_info || {},
       payTime: resData.pay_time, // 支付时间
       expiresTime: resData.expires_time, // 有效时间
       createTime: resData.pay_create_time,
       price: price,
+      send: resData.send,
+      back: resData.back,
       wash: {
         id: resData.order_no, // 洗护
         time: resData.reservation_time, // 预约时间
