@@ -3,8 +3,6 @@ import { showAlert, showMsg } from "../utils";
 import require from "../utils/require";
 import user from "./user";
 
-console.error('检查传参，特别是编辑')
-
 class AddressData extends BaseData{
   constructor(initOption) {
     super(initOption)

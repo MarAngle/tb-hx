@@ -3,10 +3,16 @@ import orderList from "../../data/orderList";
 
 Component({
   mixins: [],
-  data: {},
+  data: {
+    showPay: false
+  },
   props: {},
   didMount() {
     // console.log('item', this.props)
+    const data = this.props.data
+    this.setData({
+      showPay: !!orderList.checkDataCanPay(data)
+    })
   },
   didUpdate() {},
   didUnmount() {},

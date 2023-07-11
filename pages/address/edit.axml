@@ -1,6 +1,6 @@
 
-<list header="添加地址">
-  <view class="btn-wrapper">
+<list header="{{ id? '修改' : '添加地址'}}">
+  <view class="btn-wrapper" a:if="{{!id}}">
     <button inline onTap="onSync">从淘宝地址同步</button>
   </view>
   <list-item>
@@ -57,6 +57,6 @@
     />
   </list-item>
   <view class="btn-wrapper">
-    <button inline onTap="onBuild">新增</button>
+    <button inline onTap="onEdit">{{ id ? '修改' : '新增'}}</button>
   </view>
 </list>

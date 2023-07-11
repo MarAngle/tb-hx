@@ -101,6 +101,7 @@ class OrderList extends BaseData{
       },
       payTime: resData.pay_time, // 支付时间
       expiresTime: resData.expires_time, // 有效时间
+      createTime: resData.pay_create_time,
       price: price,
       wash: {
         id: resData.order_no, // 洗护
@@ -113,6 +114,18 @@ class OrderList extends BaseData{
     }
     return item
   }
+  checkDataCanPay(data) {
+    if (data.status.value == 100) {
+      const offset = new Date().getTime() - new Date(data.createTime).getTime()
+      if (offset < 1000 * 60 * 60) {
+        return offset
+      } else {
+        return false
+      }
+    } else {
+      return false
+    }
+  }
   formatData(resList = []) {
     let list = []
     for (let i = 0; i < resList.length; i++) {
@@ -122,24 +135,24 @@ class OrderList extends BaseData{
   }
   payOrder(target) {
     return new Promise((resolve, reject) => {
-      my.tb.createOrderAndPay({
-        outOrderId: target.payNo,
-        orderId: target.aliOrderId,
-        fail: (err) => {
-          showMsg('支付失败！', 'error')
-          console.error(err)
-          reject(err)
-        },
-        success: (res) => {
-          // 这里需要进行订单的重新判断还是直接获取订单列表？？
-          // this.syncOrder(target.payNo, res.bizOrderIdStr).then(res => {
-          //   resolve(res)
-          // }).catch(err => {
-          //   reject(err)
-          // })
-          resolve(res)
-        },
-      })
+      if (this.checkDataCanPay(target)) {
+        my.tb.orderPay({
+          outOrderId: target.payNo,
+          orderId: target.aliOrderId,
+          fail: (err) => {
+            showMsg('支付失败！', 'error')
+            console.error(err)
+            reject(err)
+          },
+          success: (res) => {
+            resolve(res)
+          },
+        })
+      } else {
+        showMsg('订单超时，无法再次支付', 'error')
+        this.$syncPage()
+        reject()
+      }
     })
   }
   payBack(target) {

@@ -101,14 +101,14 @@ Page({
       form: this.data.form
     })
   },
-  onBuild() {
+  onEdit() {
     if (!this.data.form.name) {
       showMsg('请输入姓名')
     } else if (!this.data.form.mobile) {
       showMsg('请输入手机号')
     } else if (this.data.form.provinceCity.length != 2) {
       showMsg('请选择城市')
-    } else if (!this.data.form.county) {
+    } else if (this.data.form.county != 1) {
       showMsg('请选择县区')
     } else if (!this.data.form.address) {
       showMsg('请输入详细地址')
@@ -118,7 +118,7 @@ Page({
         mobile: this.data.form.mobile,
         province_name: this.data.form.provinceCity[0],
         city_name: this.data.form.provinceCity[1],
-        county_name: this.data.form.county,
+        county_name: this.data.form.county[0],
         address: this.data.form.address,
       }).then(() => {
         my.navigateBack()
@@ -130,7 +130,7 @@ Page({
         mobile: this.data.form.mobile,
         province_name: this.data.form.provinceCity[0],
         city_name: this.data.form.provinceCity[1],
-        county_name: this.data.form.county,
+        county_name: this.data.form.county[0],
         address: this.data.form.address,
       }).then(() => {
         my.navigateBack()
