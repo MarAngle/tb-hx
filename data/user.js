@@ -226,6 +226,6 @@ const user = new UserData({
   }
 })
 
-user.getDataByLocal()
+// user.getDataByLocal()
 
 export default user
