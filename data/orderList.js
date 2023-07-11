@@ -123,6 +123,7 @@ class OrderList extends BaseData{
     return new Promise((resolve, reject) => {
       my.tb.createOrderAndPay({
         outOrderId: target.payNo,
+        orderId: target.aliOrderId,
         fail: (err) => {
           showMsg('支付失败！', 'error')
           reject(err)

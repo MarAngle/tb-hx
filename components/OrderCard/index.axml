@@ -18,7 +18,7 @@
     </view>
     <view class="component-order-item-content-line end" a:if="{{ !use }}">
       <!-- <view class="component-order-item-content-menu detail" onTap="toDetail">订单详情</view> -->
-      <view class="component-order-item-content-menu use" a:if="{{ data.status.value == 100 }}" onTap="payOrder">支付</view>
+      <!-- <view class="component-order-item-content-menu use" a:if="{{ data.status.value == 100 }}" onTap="payOrder">支付</view> -->
       <view class="component-order-item-content-menu use" a:if="{{ data.status.value == 200 }}" onTap="payBack">退款</view>
       <view class="component-order-item-content-menu use" a:if="{{ data.status.value == 200 }}" onTap="use">立即使用</view>
     </view>
