@@ -134,9 +134,12 @@ class UserData extends BaseData{
             })
           },
           fail:(err)=>{
+            console.error(err)
             this.status.login = false
             this.$syncPage()
-            console.log(err)
+            if (err && err.errorMessage) {
+              showMsg(err.errorMessage)
+            }
             reject(err)
           }
         })
