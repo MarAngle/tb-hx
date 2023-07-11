@@ -13,14 +13,11 @@ Page({
     productInfo.$syncPage()
   },
   createOrder() {
-    productInfo.createOrder().then((res) => {
+    productInfo.$triggerMethod('createOrder', [], true).then((res) => {
       if (res.success) {
         my.navigateTo({
           url: '/pages/pay/success?payId=' + productInfo.payId
         })
-        // my.navigateTo({
-        //   url: '/pages/order/index?type=isPay'
-        // })
       } else {
         my.navigateTo({
           url: '/pages/order/index?type=isOrder'

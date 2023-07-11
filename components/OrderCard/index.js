@@ -17,10 +17,9 @@ Component({
   didUnmount() {},
   methods: {
     payOrder() {
-      orderList.payOrder(this.props.data).then(() => {
-        // orderList.changeType('isPay')
+      orderList.$triggerMethod('payOrder', [this.props.data], true).then((res) => {
         my.navigateTo({
-          url: '/pages/pay/success?payId=' + productInfo.payId
+          url: '/pages/pay/success'
         })
       }).catch(err => {
         console.error(err)

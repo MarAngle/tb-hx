@@ -25,13 +25,13 @@ class BaseData extends DefaultData {
   $triggerMethod(methodName, args = [], strict = false) {
     if (this[methodName]) {
       if (strict && this.status.operate == 'ing') {
-        return Promise.resolve({ status: 'fail', code: `operate is ing` })
+        return Promise.reject({ status: 'fail', code: `operate is ing` })
       } else {
         return new Promise((resolve, reject) => {
           this.$changeOperate('ing')
-          this[methodName](...args).then(() => {
+          this[methodName](...args).then(res => {
             this.$changeOperate('un')
-            resolve({ status: 'success' })
+            resolve(res)
           }).catch(err => {
             this.$changeOperate('un')
             console.error(err)
