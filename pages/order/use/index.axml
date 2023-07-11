@@ -9,7 +9,7 @@
         <view class="text">取衣地址</view>
         <picker
           class="item-content"
-          defaultValue="{{data.send}}"
+          value="{{data.send}}"
           placeholder="请选择取衣地址"
           title="请选择取衣地址"
           onOk="onSendChange"
@@ -25,7 +25,7 @@
         <view class="text">净衣地址</view>
         <picker
           class="item-content"
-          defaultValue="{{data.back}}"
+          value="{{data.back}}"
           placeholder="请选择净衣地址"
           title="请选择净衣地址"
           onOk="onBackChange"
@@ -42,8 +42,11 @@
         <date-picker
           class="item-content"
           min="{{minDate}}"
-          precision="minute"
-          format="YYYY-MM-DD HH:mm"
+          max="{{maxDate}}"
+          precision="hour"
+          value="{{data.time}}"
+          format="YYYY-MM-DD HH"
+          style="font-size: 26rpx;"
           placeholder="请选择上门时间"
           onOk="onTimeChange"
         />
@@ -54,7 +57,7 @@
           placeholder-class="item-content"
           placeholder="下单备注"
           autoHeight
-          style="width: 100%;"
+          style="width: 100%;font-size: 26rpx;"
           onChange="onRemarkChange"
         />
       </view>

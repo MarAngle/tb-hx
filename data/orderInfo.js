@@ -20,7 +20,7 @@ class OrderInfo extends BaseData{
           status: "tradeWashOrderCreate",
           send: data.send,
           back: data.back,
-          reservation_time: data.time,
+          reservation_time: data.time + ':00:00',
           remark: data.remark || '无',
           uc_id: this.data.ucId,
           sku_id: this.data.product.skuId,
