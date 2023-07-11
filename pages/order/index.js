@@ -19,6 +19,6 @@ Page({
     my.showToast();
   },
   changeOrderType({target}) {
-    orderList.changeType(target.dataset.value)
+    orderList.$triggerMethod('changeType', [target.dataset.value], true)
   },
 })

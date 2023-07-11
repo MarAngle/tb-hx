@@ -72,7 +72,7 @@ class OrderList extends BaseData{
       }
     }
     this.$syncPage()
-    this.$reloadData(true)
+    return this.$loadData(true)
   }
   $getSearch() {
     if (this.getSearch) {
