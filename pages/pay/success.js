@@ -5,11 +5,11 @@ Page({
   data: {
     info: null,
     load: '',
-    payNo: undefined,
+    payId: undefined,
     redirect: false
   },
   onLoad(query) {
-    this.data.payNo = query.payNo
+    this.data.payId = query.payId
     this.data.info = null
     this.data.load = ''
     this.data.redirect = false
@@ -18,7 +18,7 @@ Page({
   loadInfo() {
     if (!this.data.load) {
       this.data.load = 'ing'
-      orderList.getInfo(this.data.payNo).then(res => {
+      orderList.getInfo(this.data.payId).then(res => {
         this.data.info = res.data
         this.data.load = 'ed'
         if (this.data.redirect) {

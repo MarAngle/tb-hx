@@ -12,7 +12,9 @@ Component({
   didUnmount() {},
   methods: {
     payOrder() {
-      orderList.payOrder(this.props.data).then(() => {}).catch(err => {
+      orderList.payOrder(this.props.data).then(() => {
+        orderList.changeType('isPay')
+      }).catch(err => {
         console.error(err)
       })
     },

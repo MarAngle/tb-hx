@@ -10,10 +10,12 @@ class ProductInfo extends BaseData{
     super(initOption)
     this.data = {}
     this.payNo = null
+    this.payId = null
   }
   setData(data) {
     this.data = data
     this.payNo = null
+    this.payId = null
     this.$syncPage()
   }
   createOrder() {
@@ -49,6 +51,7 @@ class ProductInfo extends BaseData{
         }
       }).then((res) => {
         this.payNo = res.data.pay_no
+        this.payId = res.data.pay_id
         resolve(res)
       }).catch(err => {
         console.error(err)

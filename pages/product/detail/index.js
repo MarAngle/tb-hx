@@ -15,8 +15,11 @@ Page({
   createOrder() {
     productInfo.createOrder().then((res) => {
       if (res.success) {
+        // my.navigateTo({
+        //   url: '/pages/pay/success?payId=' + productInfo.payId
+        // })
         my.navigateTo({
-          url: '/pages/pay/success?payNo=' + res.payNo
+          url: '/pages/order/index?type=isPay'
         })
       } else {
         my.navigateTo({

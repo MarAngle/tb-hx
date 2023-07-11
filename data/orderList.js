@@ -130,11 +130,12 @@ class OrderList extends BaseData{
         },
         success: (res) => {
           // 这里需要进行订单的重新判断还是直接获取订单列表？？
-          this.syncOrder(target.payNo, res.bizOrderIdStr).then(res => {
-            resolve(res)
-          }).catch(err => {
-            reject(err)
-          })
+          // this.syncOrder(target.payNo, res.bizOrderIdStr).then(res => {
+          //   resolve(res)
+          // }).catch(err => {
+          //   reject(err)
+          // })
+          resolve(res)
         },
       })
     })
@@ -185,15 +186,14 @@ class OrderList extends BaseData{
       })
     })
   }
-  getInfo(payNo) {
+  getInfo(payId) {
     return new Promise((resolve, reject) => {
       user.auth().then(() => {
         require.post({
           url: '/tb_api/api/Order.php',
           data: {
             status: 'tradeOrderInfo',
-            pay_id: '',
-            uc_id: ''
+            pay_id: payId
           },
           timeout: 0,
           token: true
