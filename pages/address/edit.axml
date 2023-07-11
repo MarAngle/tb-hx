@@ -57,6 +57,6 @@
     />
   </list-item>
   <view class="btn-wrapper">
-    <button inline onTap="onEdit">{{ id ? '修改' : '新增'}}</button>
+    <button inline onTap="onEdit">{{ id ? '修改' : '保存'}}</button>
   </view>
 </list>

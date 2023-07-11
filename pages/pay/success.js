@@ -10,10 +10,10 @@ Page({
   },
   onLoad(query) {
     this.data.payId = query.payId
-    this.data.info = null
-    this.data.load = ''
-    this.data.redirect = false
-    this.loadInfo()
+    // this.data.info = null
+    // this.data.load = ''
+    // this.data.redirect = false
+    // this.loadInfo()
   },
   loadInfo() {
     if (!this.data.load) {
@@ -35,14 +35,17 @@ Page({
     })
   },
   useProduct({ target }) {
-    this.data.redirect = true
-    if (this.data.load == 'ed') {
-      orderInfo.setData(this.data.info)
-      my.navigateTo({
-        url: '/pages/product/index'
-      })
-    } else if (!this.data.load) {
-      this.loadInfo()
-    }
+    my.navigateTo({
+      url: '/pages/order/index?type=isPay'
+    })
+    // this.data.redirect = true
+    // if (this.data.load == 'ed') {
+    //   orderInfo.setData(this.data.info)
+    //   my.navigateTo({
+    //     url: '/pages/product/index'
+    //   })
+    // } else if (!this.data.load) {
+    //   this.loadInfo()
+    // }
   }
 })

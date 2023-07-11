@@ -19,7 +19,10 @@ Component({
   methods: {
     payOrder() {
       orderList.payOrder(this.props.data).then(() => {
-        orderList.changeType('isPay')
+        // orderList.changeType('isPay')
+        my.navigateTo({
+          url: '/pages/pay/success?payId=' + productInfo.payId
+        })
       }).catch(err => {
         console.error(err)
       })

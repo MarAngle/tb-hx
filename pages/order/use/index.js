@@ -23,7 +23,7 @@ Page({
     orderInfo.$syncPage()
     address.$appendPage(this)
     address.$loadData().then(() => {
-      if (address.length == 0) {
+      if (address.data.length == 0) {
         showMsg('请先添加地址')
         this.toAddress()
       }

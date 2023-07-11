@@ -180,6 +180,8 @@ class OrderList extends BaseData{
   }
   $getData() {
     return new Promise((resolve, reject) => {
+      // 考虑分页
+      this.list = []
       user.auth().then(() => {
         require.post({
           url: '/tb_api/api/Order.php',
