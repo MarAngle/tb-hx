@@ -13,7 +13,6 @@ class OrderInfo extends BaseData{
   }
   useOrder(data) {
     return new Promise((resolve, reject) => {
-      console.log(data, this.data)
       require.post({
         url: '/tb_api/api/Order.php',
         token: true,
@@ -28,7 +27,9 @@ class OrderInfo extends BaseData{
           freight: this.data.price.freight
         }
       }).then((res) => {
-        console.log(res)
+        my.navigateTo({
+          url: '/pages/order/index?type=isUse'
+        });
         resolve(res)
       }).catch(err => {
         console.error(err)
