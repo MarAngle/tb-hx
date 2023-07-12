@@ -1,6 +1,6 @@
 <view class="reservation">
   <view class="detail">
-    <order-card data="{{orderInfo.data}}" use="{{true}}" ></order-card>
+    <order-card data="{{orderInfo.data}}" show="{{true}}" ></order-card>
     <view class="info">
       <view class="item">
         <view class="text" onTap="toAddress">地址列表</view>

@@ -9,7 +9,6 @@ Page({
   onLoad() {
     address.$appendPage(this)
     address.$reloadData(true)
-    address.loadLocation()
   },
   onShow() {},
   onChange(e) {

@@ -114,6 +114,7 @@ class OrderList extends BaseData{
     return item
   }
   checkDataCanPay(data) {
+    console.log(data)
     if (data.status.value == 100) {
       const offset = new Date().getTime() - new Date(data.createTime).getTime()
       if (offset < 1000 * 60 * 60) {

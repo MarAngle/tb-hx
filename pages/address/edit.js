@@ -27,7 +27,6 @@ Page({
     })
   },
   initData(defaultData) {
-    console.log(defaultData)
     this.data.form.name = defaultData.name
     this.data.form.mobile = defaultData.mobile
     this.data.form.provinceCity = [defaultData.province_name, defaultData.city_name]

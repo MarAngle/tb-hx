@@ -9,9 +9,11 @@ Component({
   props: {},
   didMount() {
     const data = this.props.data
-    this.setData({
-      showPay: !!orderList.checkDataCanPay(data)
-    })
+    if (!this.props.show) {
+      this.setData({
+        showPay: !!orderList.checkDataCanPay(data)
+      })
+    }
   },
   didUpdate() {},
   didUnmount() {},
@@ -32,7 +34,7 @@ Component({
         console.error(err)
       })
     },
-    use() {
+    useOrder() {
       // orderInfo.setData(this.props.data)
       orderInfo.setId(this.props.data.id)
       my.navigateTo({
