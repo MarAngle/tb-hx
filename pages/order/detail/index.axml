@@ -1,4 +1,4 @@
-<view class="detail">
+<view class="detail" a:if="{{orderInfo.status.load == 'success'}}">
   <view class="state">
     <view class="order-no">
       <view>
@@ -27,11 +27,11 @@
       </view>
       <view>
         <view>取件快递：</view>
-        <view>{{orderInfo.data.waybill_send || '-'}}</view>
+        <view>{{orderInfo.data.address.send.no || '-'}}</view>
       </view>
       <view>
         <view>送回快递：</view>
-        <view>{{orderInfo.data.waybill_back || '-'}}</view>
+        <view>{{orderInfo.data.address.back.no || '-'}}</view>
       </view>
     </view>
   </view>
@@ -46,13 +46,13 @@
     <view class="title">地址信息</view>
     <view class="ad-detail">
       <view>取衣地址</view>
-      <view>{{orderInfo.data.send.name}}&nbsp;&nbsp;&nbsp;{{orderInfo.data.send.mobile}}</view>
-      <view>{{orderInfo.data.send.address}}</view>
+      <view>{{orderInfo.data.address.send.name}}&nbsp;&nbsp;&nbsp;{{orderInfo.data.address.send.mobile}}</view>
+      <view>{{orderInfo.data.address.send.address}}</view>
     </view>
     <view class="ad-detail">
       <view>净衣送达</view>
-      <view>{{orderInfo.data.back.name}}&nbsp;&nbsp;&nbsp;{{orderInfo.data.back.mobile}}</view>
-      <view>{{orderInfo.data.back.address}}</view>
+      <view>{{orderInfo.data.address.back.name}}&nbsp;&nbsp;&nbsp;{{orderInfo.data.address.back.mobile}}</view>
+      <view>{{orderInfo.data.address.back.address}}</view>
     </view>
   </view>
   <view class="order-info">

@@ -45,7 +45,7 @@ class BaseData extends DefaultData {
     }
   }
   $reloadData(force, ...args) {
-    this.$loadData(force, ...args).then(() => {}).catch(() => {})
+    this.$loadData(force, ...args).then(() => {}).catch((err) => { console.error(err) })
   }
   $loadData(force, ...args) {
     if (this.status.load == 'success' && !force) {

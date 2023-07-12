@@ -6,15 +6,17 @@ Page({
     refundPopup: false
   },
   onLoad() {
-    if (!orderInfo.data.id) {
+    orderInfo.$appendPage(this)
+  },
+  onShow() {
+    if (!orderInfo.id) {
       my.navigateBack(1)
       return
     }
-    // orderInfo.getInfo()
-    orderInfo.$appendPage(this)
-    orderInfo.getWashData().then(() => {})
+    orderInfo.$loadData(true).then(() => {}).catch(err => {
+      console.error(err)
+    })
   },
-  onShow() {},
   copy({target}) {
     my.setClipboard({
       text: target.dataset.orderNum,

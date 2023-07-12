@@ -4,7 +4,7 @@ import require from "../utils/require";
 import productList from "./productList";
 import user from "./user";
 
-const statusSelect = {
+export const statusSelect = {
   100: '待支付',
   200: '未使用',
   201: '洗护中',
@@ -99,23 +99,15 @@ class OrderList extends BaseData{
         value: resData.status,
         label: statusSelect[resData.status]
       },
-      statusInfo: resData.status_info || {},
       payTime: resData.pay_time, // 支付时间
       expiresTime: resData.expires_time, // 有效时间
       createTime: resData.pay_create_time,
       price: price,
-      waybill_send: resData.waybill_send,
-      waybill_back: resData.waybill_back,
-      send: resData.send,
-      back: resData.back,
       wash: {
         id: resData.order_id,
         no: resData.order_no, // 洗护
         time: resData.reservation_time, // 预约时间
-        send: resData.waybill_send, // 取衣地址
-        back: resData.waybill_back, // 送回地址
         createTime: resData.order_time, // 下单时间
-        list: []
       },
       product: productList.parseData(resData)
     }
