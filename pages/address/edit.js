@@ -8,11 +8,11 @@ Page({
     county: [],
     id: undefined,
     form: {
-      name: '',
-      mobile: '',
+      name: undefined,
+      mobile: undefined,
       provinceCity: [],
-      county: undefined,
-      address: ''
+      county: [],
+      address: undefined
     }
   },
   onLoad(query) {
@@ -22,6 +22,14 @@ Page({
       this.data.id = query.value
     } else {
       this.data.id = undefined
+      this.data.form.name = undefined
+      this.data.form.mobile = undefined
+      this.data.form.provinceCity = []
+      this.data.form.county = []
+      this.data.form.address = undefined
+      this.setData({
+        form: this.data.form
+      })
       address.loadLocation()
     }
     this.setData({
@@ -59,9 +67,6 @@ Page({
         form: this.data.form
       })
     })
-  },
-  onShow(query) {
-    // address.$appendPage(this)
   },
   onLocationChange(valueList) {
     this.data.county = []

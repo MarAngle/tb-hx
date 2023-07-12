@@ -10,7 +10,7 @@
 }
 
 .item {
-  padding: 20rpx;
+  padding: 40rpx 40rpx;
   display: flex;
   justify-content: space-between;
   align-items: center;
