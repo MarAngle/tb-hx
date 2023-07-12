@@ -45,6 +45,7 @@
 
 .page-home-banner {
   padding-bottom: 0rpx;
+  height: 160rpx;
 }
 .page-home-banner-swiper{
   width: 750rpx;
