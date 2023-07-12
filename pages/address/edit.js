@@ -109,7 +109,7 @@ Page({
       showMsg('请输入手机号')
     } else if (this.data.form.provinceCity.length != 2) {
       showMsg('请选择城市')
-    } else if (this.data.form.county != 1) {
+    } else if (this.data.form.county.length != 1) {
       showMsg('请选择县区')
     } else if (!this.data.form.address) {
       showMsg('请输入详细地址')
