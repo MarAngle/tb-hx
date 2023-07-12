@@ -4,7 +4,7 @@
 
 .title {
   font-size: 44rpx;
-  font-family: '阿里妈妈数黑体 Bold';
+  line-height: 80rpx;
   color: #494949;
   padding: 0 0 10rpx 10rpx;
 }

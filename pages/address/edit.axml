@@ -1,8 +1,5 @@
 
 <list header="{{ id? '修改' : '添加地址'}}">
-  <view class="btn-wrapper" a:if="{{!id}}">
-    <button inline onTap="onSync">从淘宝地址同步</button>
-  </view>
   <list-item>
     请输入姓名
     <input 
@@ -58,5 +55,6 @@
   </list-item>
   <view class="btn-wrapper">
     <button inline onTap="onEdit">{{ id ? '修改' : '保存'}}</button>
+    <button inline a:if="{{!id}}" style="margin-left: 25rpx;" onTap="onSync">从淘宝地址同步</button>
   </view>
 </list>

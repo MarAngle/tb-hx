@@ -158,28 +158,6 @@ class OrderList extends BaseData{
       }
     })
   }
-  payBack(target) {
-    return new Promise((resolve, reject) => {
-      user.auth().then(() => {
-        require.post({
-          url: '/tb_api/api/Order.php',
-          data: {
-            status: 'tradeWashOrderCancel',
-            order_no: target.wash.no
-          },
-          timeout: 0,
-          token: true
-        }).then(res => {
-          my.alert('这里需要看一下咋下一步')
-          resolve(res)
-        }).catch(err => {
-          reject(err)
-        })
-      }).catch(err => {
-        reject(err)
-      })
-    })
-  }
   $getData() {
     return new Promise((resolve, reject) => {
       // 考虑分页

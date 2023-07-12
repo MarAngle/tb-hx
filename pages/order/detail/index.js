@@ -1,4 +1,5 @@
 import orderInfo from "../../../data/orderInfo";
+import { showMsg } from "../../../utils";
 
 Page({
   data: {
@@ -7,26 +8,26 @@ Page({
       wash: {
         show: false
       },
-      re: {
-        show: false
+      refund: {
+        show: false,
+        reason: ''
       }
-    },
-    refundPopup: false
+    }
   },
   onLoad() {
     orderInfo.$appendPage(this)
   },
-  showWashList() {
-    this.data.popup.wash.show = true
+  setPopup(prop, show) {
+    this.data.popup[prop].show = show
     this.setData({
       popup: this.data.popup
     })
   },
+  showWashList() {
+    this.setPopup('wash', true)
+  },
   hiddenWashList() {
-    this.data.popup.wash.show = false
-    this.setData({
-      popup: this.data.popup
-    })
+    this.setPopup('wash', false)
   },
   onShow() {
     if (!orderInfo.id) {
@@ -50,24 +51,39 @@ Page({
       }
     });
   },
-  refund() {
+  showRefundOrder() {
+    this.data.popup.refund.reason = ''
+    this.setPopup('refund', true)
+  },
+  hideRefundOrder() {
+    this.setPopup('refund', false)
+  },
+  onReasonChange(value) {
+    this.data.popup.refund.reason = value
     this.setData({
-      refundPopup: true
+      popup: this.data.popup
     })
   },
-  cancel() {
-    this.setData({
-      refundPopup: false
+  cancelWash() {
+    orderInfo.$triggerMethod('cancelWash', [], true).then(() => {
+      // my.navigateBack(1)
+      showMsg('取消预约成功！')
+      orderInfo.$reloadData(true)
     })
   },
-  useThali() {
+  payBack() {
+    orderInfo.$triggerMethod('payBack', [this.data.popup.refund.reason], true).then(() => {
+      // my.navigateTo({
+      //   url: '/pages/order/refund/refund'
+      // });
+      showMsg('退款成功！')
+      this.setPopup('refund', false)
+      orderInfo.$reloadData(true)
+    })
+  },
+  useOrder() {
     my.navigateTo({
       url: '/pages/order/use/index'
-    });
-  },
-  refundPage() {
-    my.navigateTo({
-      url: '/pages/order/refund/refund'
     });
   }
 })

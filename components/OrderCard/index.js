@@ -29,11 +29,6 @@ Component({
         console.error(err)
       })
     },
-    payBack() {
-      orderList.payBack(this.props.data).then(() => {}).catch(err => {
-        console.error(err)
-      })
-    },
     useOrder() {
       // orderInfo.setData(this.props.data)
       orderInfo.setId(this.props.data.id)

@@ -1,6 +1,7 @@
 {
   "defaultTitle": "订单详情",
   "usingComponents": {
+    "input": "antd-mini/es/Input/index",
     "steps": "antd-mini/es/Steps/index",
     "popup": "antd-mini/es/Popup/index",
     "icon": "antd-mini/es/Icon/index",

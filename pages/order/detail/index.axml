@@ -1,5 +1,5 @@
 <view class="detail" a:if="{{orderInfo.status.load == 'success'}}">
-  <view class="state">
+  <view class="state" a:if="{{orderInfo.data.status.value == 201}}">
     <view class="order-no">
       <view>
         <view>订单号：{{orderInfo.data.wash.no}}</view>
@@ -12,7 +12,7 @@
       <view>详情信息</view>
       <view class="icon"><icon type="RightOutline" /></view>
     </view>
-    <view class="state-detail" a:if="{{orderInfo.data.wash.list == 'success'}}">
+    <view class="state-detail" a:if="{{orderInfo.data.statusInfo.process_no == 3001 }}">
       <view>订单已完成，请对小浣的服务做出评价</view>
       <view>去评价</view>
     </view>
@@ -25,25 +25,28 @@
         <view>预约时间：</view>
         <view>{{orderInfo.data.wash.time}}</view>
       </view>
-      <view>
+      <view a:if="{{orderInfo.data.address.send.no}}">
         <view>取件快递：</view>
-        <view>{{orderInfo.data.address.send.no || '-'}}</view>
+        <view>{{orderInfo.data.address.send.no}}</view>
       </view>
-      <view>
+      <view a:if="{{orderInfo.data.address.back.no}}">
         <view>送回快递：</view>
-        <view>{{orderInfo.data.address.back.no || '-'}}</view>
+        <view>{{orderInfo.data.address.back.no}}</view>
+      </view>
+      <view class="cancel-wash" a:if="{{orderInfo.data.statusInfo.process_no <= 1005}}">
+        <view onTap="cancelWash">取消预约</view>
       </view>
     </view>
   </view>
   <product-card data="{{orderInfo.data.product}}" show="{{true}}" />
-  <view class="address">
+  <view class="address" a:if="{{orderInfo.data.address.send.no || orderInfo.data.address.back.no}}">
     <view class="title">地址信息</view>
-    <view class="ad-detail">
+    <view class="ad-detail" a:if="{{orderInfo.data.address.send.no}}" >
       <view>取衣地址</view>
       <view>{{orderInfo.data.address.send.name}}&nbsp;&nbsp;&nbsp;{{orderInfo.data.address.send.mobile}}</view>
       <view>{{orderInfo.data.address.send.address}}</view>
     </view>
-    <view class="ad-detail">
+    <view class="ad-detail" a:if="{{orderInfo.data.address.back.no}}">
       <view>净衣送达</view>
       <view>{{orderInfo.data.address.back.name}}&nbsp;&nbsp;&nbsp;{{orderInfo.data.address.back.mobile}}</view>
       <view>{{orderInfo.data.address.back.address}}</view>
@@ -58,8 +61,8 @@
       <view class="text">优惠券</view>
       <view class="val mark">-￥10.00</view>
     </view> -->
-    <view class="item">
-      <view class="text">实付款</view>
+    <view class="item" >
+      <view class="text">{{orderInfo.data.status.value == 100 ? '价格' : '实付款'}}</view>
       <view class="val mark" style="font-weight: 600;">￥{{orderInfo.data.price.show.data}}</view>
     </view>
     <view class="item">
@@ -77,7 +80,7 @@
       <view class="text">创建时间</view>
       <view class="val">{{orderInfo.data.createTime}}</view>
     </view>
-    <view class="item">
+    <view class="item" a:if="{{orderInfo.data.status.value > 100}}">
       <view class="text">付款时间</view>
       <view class="val">{{orderInfo.data.payTime}}</view>
     </view>
@@ -85,11 +88,11 @@
   <!-- <view class="artificial">
     <view>咨询浣洗客服</view>
     <view><image mode="widthFix" src="/image/order/phone.png" /></view>
-  </view>
-  <view class="btm-button">
-    <view onTap="refund">申请退款</view>
-    <view onTap="useThali">立即预约</view>
   </view> -->
+  <view class="btm-button" a:if="{{orderInfo.data.status.value == 200}}">
+    <view onTap="showRefundOrder">申请退款</view>
+    <view onTap="useOrder">立即使用</view>
+  </view>
   <popup 
     visible="{{popup.wash.show}}" 
     position="bottom"
@@ -104,35 +107,30 @@
     </view>
   </popup>
   <popup 
-    visible="{{refundPopup}}" 
+    visible="{{popup.refund.show}}" 
     position="bottom">
     <view class="popup">
       <view class="title">申请退款</view>
-      <view class="product-item">
-        <view class="img"><image mode="widthFix" src="/image/index/5.png" /></view>
-        <view class="info">
-          <view class="name">衣鞋任意洗3件</view>
-          <view class="tip-1">快递免费上门取送</view>
-          <view class="tip-2">拒用“四氯”健康洗</view>
-        </view>
-        <view class="price">
-          <view>￥109</view>
-          <view class="arrow"><image mode="widthFix" src="/image/index/arrow.png" /></view>
-        </view>
-      </view>
       <view class="reason">
         <view>
-          <view class="text">请选择退款原因</view>
-          <view class="icon"><image mode="widthFix" src="/image/index/arrow.png" /></view>
+          <view class="text">退款原因</view>
+          <input 
+            class='reson-input'
+            style="text-align: right;"
+            placeholder-style="text-align: right;"
+            value="{{popup.refund.reason}}"
+            onChange="onReasonChange"
+            placeholder="请输入退款原因"
+          />
         </view>
         <view>
           <view class="text">退款金额</view>
-          <view class="val">￥109.00</view>
+          <view class="val">￥{{orderInfo.data.price.show.data}}</view>
         </view>
       </view>
       <view class="popup-button">
-        <view onTap="cancel">取消</view>
-        <view onTap="refundPage">确认提交</view>
+        <view onTap="hideRefundOrder">取消</view>
+        <view onTap="payBack">确认提交</view>
       </view>
     </view>
   </popup>

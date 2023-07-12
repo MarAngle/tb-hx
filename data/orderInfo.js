@@ -170,6 +170,46 @@ class OrderInfo extends BaseData{
       })
     })
   }
+  cancelWash() {
+    return new Promise((resolve, reject) => {
+      require.post({
+        url: '/tb_api/api/Order.php',
+        token: true,
+        data: {
+          status: "tradeWashOrderCancel",
+          order_no: this.data.wash.no
+        }
+      }).then((res) => {
+        resolve(res)
+      }).catch(err => {
+        console.error(err)
+        reject(err)
+      })
+    })
+  }
+  payBack(reson) {
+    return new Promise((resolve, reject) => {
+      user.auth().then(() => {
+        require.post({
+          url: '/tb_api/api/Order.php',
+          data: {
+            status: 'tradeOrderRefund',
+            pay_no: this.data.payNo,
+            refund_reason: reson || '无',
+            refund_price: this.data.price.data
+          },
+          timeout: 0,
+          token: true
+        }).then(res => {
+          resolve(res)
+        }).catch(err => {
+          reject(err)
+        })
+      }).catch(err => {
+        reject(err)
+      })
+    })
+  }
 }
 
 const orderInfo = new OrderInfo({
