@@ -100,7 +100,7 @@ class OrderInfo extends BaseData{
         value: resData.status,
         label: statusSelect[resData.status]
       },
-      statusInfo: resData.status_info || {},
+      statusInfo: resData.status_info || {}, // process_no <= 1005 可撤单/3001 待评价
       payTime: resData.pay_time, // 支付时间
       expiresTime: resData.expires_time, // 有效时间
       createTime: resData.pay_create_time,

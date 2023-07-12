@@ -33,9 +33,7 @@ Page({
       my.navigateBack(1)
       return
     }
-    orderInfo.$loadData(true).then(() => {}).catch(err => {
-      console.error(err)
-    })
+    orderInfo.$reloadData(true)
   },
   copy({target}) {
     my.setClipboard({

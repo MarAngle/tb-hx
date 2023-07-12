@@ -31,17 +31,14 @@ Page({
     }
   },
   onLoad() {
-    if (!orderInfo.data.id) {
-      my.navigateBack(1)
-      return
-    }
     orderInfo.$appendPage(this)
-    orderInfo.$syncPage()
     address.$appendPage(this)
     address.$loadData().then(() => {
       if (address.data.length == 0) {
         showMsg('请先添加地址')
-        this.toAddress()
+        my.navigateTo({
+          url: '/pages/address/edit'
+        })
       }
     })
   },
@@ -50,9 +47,12 @@ Page({
       url: '/pages/address/index'
     })
   },
-  onShow() {},
-  handleTriggerPicker(visible, e) {
-    console.log('onVisibleChange', visible, e);
+  onShow() {
+    if (!orderInfo.id) {
+      my.navigateBack(1)
+      return
+    }
+    orderInfo.$reloadData(true)
   },
   onTimeChange(date, format, e) {
     let h = date.getHours()

@@ -45,6 +45,7 @@ require('../../node_modules/antd-mini/es/Loading/index?hash=05d2a9730dd6009bf944
 require('../../node_modules/antd-mini/es/Button/index?hash=dc16c4564261c93d3748f79b0e515f4d4859b95c');
 require('../../node_modules/antd-mini/es/DatePicker/index?hash=ce5e8ad2c21f10561d6cfd032c3c5791eebae5b0');
 require('../../node_modules/antd-mini/es/Input/Textarea/index?hash=749bba9d48276e5b3ca959928cddef5b7b4ff081');
+require('../../node_modules/antd-mini/es/Steps/index?hash=05d2a9730dd6009bf9446182f9c985f40f8c0f43');
 require('../../pages/home/index?hash=ba28b9f05083c7e5ff40c64239269b0057bf9a31');
 require('../../pages/order/index?hash=8c997138e47743dfd962708fcb1d6094f360f759');
 require('../../pages/address/index?hash=8385356bd8b4ca9fa87738563e035351b35a7175');
@@ -66,7 +67,7 @@ require('../../pages/mine/set/account/account?hash=8385356bd8b4ca9fa87738563e035
 require('../../pages/mine/help/help?hash=8385356bd8b4ca9fa87738563e035351b35a7175');
 require('../../pages/mine/help/artificial/artificial?hash=32d7d2807ed4e666ef03b4b3fe8c38ecf2e34e68');
 require('../../pages/order/use/index?hash=3bfda3c6ddf7e3a5561550eb7cbd2a5d1ad82fb4');
-require('../../pages/order/detail/index?hash=a3db9e58e6897f37a68452741175bf2af281a0e9');
+require('../../pages/order/detail/index?hash=de09b5d543d28a1903656098d2a9ee3a6645170d');
 require('../../pages/order/refund/refund?hash=32d7d2807ed4e666ef03b4b3fe8c38ecf2e34e68');
 }
 self.bootstrapApp ? self.bootstrapApp({ success }) : success();
