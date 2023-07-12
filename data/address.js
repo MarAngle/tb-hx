@@ -13,7 +13,6 @@ class AddressData extends BaseData{
   loadLocation() {
     return new Promise((resolve, reject) => {
       user.auth().then(() => {
-        console.log(this.location)
         if (this.location.length == 0) {
           require.post({
             url: '/tb_api/api/Address.php',
@@ -22,7 +21,6 @@ class AddressData extends BaseData{
               status: "getArea"
             }
           }).then((res) => {
-            console.log(res)
             this.location = []
             this.cityMap = {}
             let originList = res.data || []

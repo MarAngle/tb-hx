@@ -121,9 +121,6 @@ class OrderInfo extends BaseData{
     }
     return item
   }
-  // "process": "下单成功",
-  // "process_desc": "正在分配快递上门，点击可修改",
-  // "create_time": "2023-07-10 10:47:27"
   getWashData() {
     return new Promise((resolve, reject) => {
       require.post({

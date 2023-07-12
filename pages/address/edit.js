@@ -16,11 +16,13 @@ Page({
     }
   },
   onLoad(query) {
+    address.$appendPage(this)
     if (query && query.value) {
       this.initData(query)
       this.data.id = query.value
     } else {
       this.data.id = undefined
+      address.loadLocation()
     }
     this.setData({
       id: this.data.id
@@ -32,10 +34,12 @@ Page({
     this.data.form.provinceCity = [defaultData.province_name, defaultData.city_name]
     this.data.form.county = [defaultData.county_name]
     this.data.form.address = defaultData.address
-    address.getCounty(this.data.form.provinceCity).then(res => {
-      this.data.county = res.list
-      this.setData({
-        county: this.data.county
+    address.loadLocation().then(() => {
+      address.getCounty(this.data.form.provinceCity).then(res => {
+        this.data.county = res.list
+        this.setData({
+          county: this.data.county
+        })
       })
     })
     this.setData({
@@ -57,7 +61,7 @@ Page({
     })
   },
   onShow(query) {
-    address.$appendPage(this)
+    // address.$appendPage(this)
   },
   onLocationChange(valueList) {
     this.data.county = []
