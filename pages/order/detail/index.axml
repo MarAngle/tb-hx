@@ -1,5 +1,5 @@
 <view class="detail" a:if="{{orderInfo.status.load == 'success'}}">
-  <view class="state" a:if="{{orderInfo.data.status.value == 201}}">
+  <view class="state" a:if="{{orderInfo.data.wash.no}}">
     <view class="order-no">
       <view>
         <view>订单号：{{orderInfo.data.wash.no}}</view>
@@ -83,6 +83,22 @@
     <view class="item" a:if="{{orderInfo.data.status.value > 100}}">
       <view class="text">付款时间</view>
       <view class="val">{{orderInfo.data.payTime}}</view>
+    </view>
+    <view class="item" a:if="{{orderInfo.data.status.value == 4000}}">
+      <view class="text">退款发起时间</view>
+      <view class="val">{{orderInfo.data.cancel.startTime}}</view>
+    </view>
+    <view class="item" a:if="{{orderInfo.data.cancel.successTime}}">
+      <view class="text">退款成功时间</view>
+      <view class="val">{{orderInfo.data.cancel.successTime}}</view>
+    </view>
+    <view class="item" a:if="{{orderInfo.data.status.value == 4000}}">
+      <view class="text">退款金额</view>
+      <view class="val">{{orderInfo.data.cancel.showPrice}}</view>
+    </view>
+    <view class="item" a:if="{{orderInfo.data.status.value == 4000}}">
+      <view class="text">退款原因</view>
+      <view class="val">{{orderInfo.data.cancel.reason}}</view>
     </view>
   </view>
   <!-- <view class="artificial">

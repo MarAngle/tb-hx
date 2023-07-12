@@ -115,7 +115,15 @@ class OrderInfo extends BaseData{
         no: resData.order_no, // 洗护
         time: resData.reservation_time, // 预约时间
         createTime: resData.order_time, // 下单时间
-        list: []
+        list: [],
+      },
+      cancel: {
+        no: resData.refund_no,
+        startTime: resData.refund_start_time,
+        successTime: resData.refund_end_time,
+        showPrice: (resData.refund_price / 100).toString(),
+        price: resData.refund_price,
+        reason: resData.refund_reason,
       },
       product: productList.parseData(resData)
     }

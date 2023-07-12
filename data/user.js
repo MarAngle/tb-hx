@@ -137,9 +137,10 @@ class UserData extends BaseData{
             console.error(err)
             this.status.login = false
             this.$syncPage()
-            if (err && err.errorMessage) {
-              showMsg(err.errorMessage)
-            }
+            // if (err && err.errorMessage) {
+            //   showMsg(err.errorMessage)
+            // }
+            showMsg('请在小程序授权管理设置里开启相关权限才能进行下一步操作哦~')
             reject(err)
           }
         })

@@ -8,7 +8,8 @@ export const statusSelect = {
   100: '待支付',
   200: '未使用',
   201: '洗护中',
-  202: '已完成'
+  202: '已完成',
+  4000: '已退款'
 }
 
 class OrderList extends BaseData{
