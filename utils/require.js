@@ -81,7 +81,15 @@ const require = {
         timeout: 6000
       }
       cloud.application.httpRequest(requireOption).then(res => {
-        res = JSON.parse(res)
+        try{
+          res = JSON.parse(res)
+        } catch(e) {
+          if (typeof res == 'string') {
+            showMsg(res, 'fail')
+          }
+          reject({ status: 'fail', code: 'JSON fail', message: res })
+          return
+        }
         if (res.success) {
           resolve(res)
         } else {
