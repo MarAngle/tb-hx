@@ -10,6 +10,7 @@ Page({
       my.navigateBack(1)
       return
     }
+    // orderInfo.getInfo()
     orderInfo.$appendPage(this)
     orderInfo.getWashData().then(() => {})
   },

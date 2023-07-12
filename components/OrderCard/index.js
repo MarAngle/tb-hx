@@ -18,9 +18,11 @@ Component({
   methods: {
     payOrder() {
       orderList.$triggerMethod('payOrder', [this.props.data], true).then((res) => {
-        my.navigateTo({
-          url: '/pages/pay/success'
-        })
+        if (res.success) {
+          my.navigateTo({
+            url: '/pages/pay/success'
+          })
+        }
       }).catch(err => {
         console.error(err)
       })

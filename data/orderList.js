@@ -152,7 +152,11 @@ class OrderList extends BaseData{
             reject(err)
           },
           success: (res) => {
-            resolve(res)
+            this.syncOrder(target.payNo, target.aliOrderId).then(res => {
+              resolve(res)
+            }).catch(err => {
+              reject(err)
+            })
           },
         })
       } else {
@@ -209,28 +213,28 @@ class OrderList extends BaseData{
       })
     })
   }
-  getInfo(payId) {
-    return new Promise((resolve, reject) => {
-      user.auth().then(() => {
-        require.post({
-          url: '/tb_api/api/Order.php',
-          data: {
-            status: 'tradeOrderInfo',
-            pay_id: payId
-          },
-          timeout: 0,
-          token: true
-        }).then(res => {
-          const data = this.$formatItem(res.data)
-          resolve({ status: 'success', data: data })
-        }).catch(err => {
-          reject(err)
-        })
-      })
-    }).catch(err => {
-      reject(err)
-    })
-  }
+  // getInfo(payId) {
+  //   return new Promise((resolve, reject) => {
+  //     user.auth().then(() => {
+  //       require.post({
+  //         url: '/tb_api/api/Order.php',
+  //         data: {
+  //           status: 'tradeOrderInfo',
+  //           pay_id: payId
+  //         },
+  //         timeout: 0,
+  //         token: true
+  //       }).then(res => {
+  //         const data = this.$formatItem(res.data)
+  //         resolve({ status: 'success', data: data })
+  //       }).catch(err => {
+  //         reject(err)
+  //       })
+  //     })
+  //   }).catch(err => {
+  //     reject(err)
+  //   })
+  // }
   syncOrder(payNo, aliOrderId) {
     return new Promise((resolve, reject) => {
       require.post({

@@ -16,18 +16,18 @@ Page({
     // this.loadInfo()
   },
   loadInfo() {
-    if (!this.data.load) {
-      this.data.load = 'ing'
-      orderList.getInfo(this.data.payId).then(res => {
-        this.data.info = res.data
-        this.data.load = 'ed'
-        if (this.data.redirect) {
-          this.useProduct()
-        }
-      }).catch(err => {
-        this.data.load = ''
-      })
-    }
+    // if (!this.data.load) {
+    //   this.data.load = 'ing'
+    //   orderList.getInfo(this.data.payId).then(res => {
+    //     this.data.info = res.data
+    //     this.data.load = 'ed'
+    //     if (this.data.redirect) {
+    //       this.useProduct()
+    //     }
+    //   }).catch(err => {
+    //     this.data.load = ''
+    //   })
+    // }
   },
   toList({ target }) {
     my.navigateTo({

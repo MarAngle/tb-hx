@@ -1,10 +1,38 @@
 import BaseData from "../class/BaseData";
 import require from "../utils/require";
+import user from "./user";
 
 class OrderInfo extends BaseData{
   constructor(initOption) {
     super(initOption)
+    this.id = null
     this.data = {}
+  }
+  setId(id) {
+    this.id = id
+  }
+  getInfo() {
+    return new Promise((resolve, reject) => {
+      user.auth().then(() => {
+        require.post({
+          url: '/tb_api/api/Order.php',
+          data: {
+            status: 'tradeOrderInfo',
+            pay_id: this.id
+          },
+          timeout: 0,
+          token: true
+        }).then(res => {
+          console.log(res)
+          const data = this.$formatItem(res.data)
+          resolve({ status: 'success', data: data })
+        }).catch(err => {
+          reject(err)
+        })
+      }).catch(err => {
+        reject(err)
+      })
+    })
   }
   setData(data) {
     this.data = data
