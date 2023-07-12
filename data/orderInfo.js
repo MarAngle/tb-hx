@@ -126,6 +126,9 @@ class OrderInfo extends BaseData{
     }
     return item
   }
+  // "process": "下单成功",
+  // "process_desc": "正在分配快递上门，点击可修改",
+  // "create_time": "2023-07-10 10:47:27"
   getWashData() {
     return new Promise((resolve, reject) => {
       require.post({
@@ -136,7 +139,12 @@ class OrderInfo extends BaseData{
           order_id: this.data.wash.id
         }
       }).then((res) => {
-        this.data.wash.list = res.data
+        this.data.wash.list = (res.data || []).map(item => {
+          return {
+            title: item.process,
+            description: item.create_time + ':' + item.process_desc
+          }
+        })
         resolve(res)
       }).catch(err => {
         console.error(err)

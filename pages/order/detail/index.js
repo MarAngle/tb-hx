@@ -3,10 +3,30 @@ import orderInfo from "../../../data/orderInfo";
 Page({
   data: {
     [orderInfo.$prop]: orderInfo,
+    popup: {
+      wash: {
+        show: false
+      },
+      re: {
+        show: false
+      }
+    },
     refundPopup: false
   },
   onLoad() {
     orderInfo.$appendPage(this)
+  },
+  showWashList() {
+    this.data.popup.wash.show = true
+    this.setData({
+      popup: this.data.popup
+    })
+  },
+  hiddenWashList() {
+    this.data.popup.wash.show = false
+    this.setData({
+      popup: this.data.popup
+    })
   },
   onShow() {
     if (!orderInfo.id) {

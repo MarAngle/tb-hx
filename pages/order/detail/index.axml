@@ -7,15 +7,15 @@
       </view>
       <view>{{orderInfo.data.statusInfo.process}}</view>
     </view>
-    <!-- <view class="order-state">
-      <view class="title">取件收货</view>
+    <view class="order-state" a:if="{{orderInfo.data.wash.list.length > 0}}" onTap="showWashList" >
+      <view class="title">{{orderInfo.data.statusInfo.process}}</view>
       <view>详情信息</view>
       <view class="icon"><icon type="RightOutline" /></view>
     </view>
-    <view class="state-detail">
+    <view class="state-detail" a:if="{{orderInfo.data.wash.list == 'success'}}">
       <view>订单已完成，请对小浣的服务做出评价</view>
       <view>去评价</view>
-    </view> -->
+    </view>
     <view class="state-info">
       <view>
         <view>下单时间：</view>
@@ -35,12 +35,6 @@
       </view>
     </view>
   </view>
-  <!-- <view class="product">
-    <view class="title">
-      <view>洗护详情</view>
-      <view>共 1 件</view>
-    </view>
-  </view> -->
   <product-card data="{{orderInfo.data.product}}" show="{{true}}" />
   <view class="address">
     <view class="title">地址信息</view>
@@ -76,7 +70,7 @@
       </view>
     </view>
     <view class="item">
-      <view class="text">支付宝交易号?</view>
+      <view class="text">支付宝交易号</view>
       <view class="val">{{orderInfo.data.aliOrderId}}</view>
     </view>
     <view class="item">
@@ -96,6 +90,19 @@
     <view onTap="refund">申请退款</view>
     <view onTap="useThali">立即预约</view>
   </view> -->
+  <popup 
+    visible="{{popup.wash.show}}" 
+    position="bottom"
+    onClose="hiddenWashList"
+  > 
+    <view class="popup-wash">
+      <steps
+        items="{{orderInfo.data.wash.list}}"
+        current="{{orderInfo.data.wash.list.length - 1}}"
+        direction="vertical"
+      />
+    </view>
+  </popup>
   <popup 
     visible="{{refundPopup}}" 
     position="bottom">
@@ -129,4 +136,12 @@
       </view>
     </view>
   </popup>
+  <!-- <modal 
+    visible="{{customBodyVisible}}" 
+    onClose="handleClose">
+    <view class="body">
+      <image mode="scaleToFill" src="https://mdn.alipayobjects.com/huamei_yujk1o/afts/img/A*xYjqRJiKsvoAAAAAAAAAAAAADuaJAQ/original" class="bodyImg"/>
+      <view class="bodyAction"><icon type="CloseCircleOutline" onTap="handleClose"/></view>
+    </view>
+  </modal> -->
 </view>
