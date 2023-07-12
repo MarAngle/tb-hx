@@ -12,7 +12,8 @@
       <view>详情信息</view>
       <view class="icon"><icon type="RightOutline" /></view>
     </view>
-    <view class="state-detail" a:if="{{orderInfo.data.statusInfo.process_no == 3001 }}">
+    <view class="state-detail" a:if="{{orderInfo.data.statusInfo.process_no == 3001 }}" onTap="showEvaluate">
+    <!-- <view class="state-detail" onTap="showEvaluate"> -->
       <view>订单已完成，请对小浣的服务做出评价</view>
       <view>去评价</view>
     </view>
@@ -150,12 +151,26 @@
       </view>
     </view>
   </popup>
-  <!-- <modal 
-    visible="{{customBodyVisible}}" 
-    onClose="handleClose">
-    <view class="body">
-      <image mode="scaleToFill" src="https://mdn.alipayobjects.com/huamei_yujk1o/afts/img/A*xYjqRJiKsvoAAAAAAAAAAAAADuaJAQ/original" class="bodyImg"/>
-      <view class="bodyAction"><icon type="CloseCircleOutline" onTap="handleClose"/></view>
+  <popup 
+    visible="{{popup.evaluate.show}}" 
+    position="bottom">
+    <view class="popup">
+      <view class="title">评价</view>
+      <view class="evaluate">
+        <rate value="{{popup.evaluate.rate}}" onChange="onRateChange" />
+        <textarea
+          value="{{popup.evaluate.content}}"
+          placeholder-style="font-size: 26rpx;"
+          placeholder="订单评价"
+          autoHeight
+          style="height: 100rpx;width: 80%; margin: 20rpx auto; font-size: 26rpx;"
+          onChange="onContentChange"
+        />
+      </view>
+      <view class="popup-button">
+        <view onTap="hideEvaluate">取消</view>
+        <view onTap="onEvaluate">确认提交</view>
+      </view>
     </view>
-  </modal> -->
+  </popup>
 </view>

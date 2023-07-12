@@ -11,6 +11,11 @@ Page({
       refund: {
         show: false,
         reason: ''
+      },
+      evaluate: {
+        show:false,
+        rate: 0,
+        content: ''
       }
     }
   },
@@ -63,6 +68,39 @@ Page({
     this.setData({
       popup: this.data.popup
     })
+  },
+  onRateChange(value) {
+    this.data.popup.evaluate.rate = value
+    this.setData({
+      popup: this.data.popup
+    })
+  },
+  onContentChange(value) {
+    this.data.popup.evaluate.content = value
+    this.setData({
+      popup: this.data.popup
+    })
+  },
+  showEvaluate() {
+    this.data.popup.evaluate.rate = 0
+    this.data.popup.evaluate.content = ''
+    this.setPopup('evaluate', true)
+  },
+  hideEvaluate() {
+    this.setPopup('evaluate', false)
+  },
+  onEvaluate() {
+    if (!this.data.popup.evaluate.rate) {
+      showMsg('请选择星级')
+    } else if (!this.data.popup.evaluate.content) {
+      showMsg('请输入评价内容')
+    } else {
+      orderInfo.evaluateOrder(this.data.popup.evaluate).then(() => {
+        showMsg('评价成功！')
+        this.setPopup('evaluate', false)
+        orderInfo.$reloadData(true)
+      })
+    }
   },
   cancelWash() {
     orderInfo.$triggerMethod('cancelWash', [], true).then(() => {

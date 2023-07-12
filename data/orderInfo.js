@@ -195,6 +195,25 @@ class OrderInfo extends BaseData{
       })
     })
   }
+  evaluateOrder({ rate, content }) {
+    return new Promise((resolve, reject) => {
+      require.post({
+        url: '/tb_api/api/Order.php',
+        token: true,
+        data: {
+          status: "tradeWashOrderEvaluate",
+          order_id: this.data.wash.id,
+          service: rate,
+          info: content
+        }
+      }).then((res) => {
+        resolve(res)
+      }).catch(err => {
+        console.error(err)
+        reject(err)
+      })
+    })
+  }
   payBack(reson) {
     return new Promise((resolve, reject) => {
       user.auth().then(() => {

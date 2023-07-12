@@ -364,4 +364,9 @@
   background-color: #f39b11;
 }
 
-.popup-wash{}
+.evaluate{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
