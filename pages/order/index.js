@@ -18,7 +18,7 @@ Page({
   search() {
     my.showToast();
   },
-  changeOrderType({target}) {
+  changeOrderType({ target }) {
     orderList.$triggerMethod('changeType', [target.dataset.value], true)
   },
 })

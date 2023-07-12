@@ -86,6 +86,9 @@ class OrderInfo extends BaseData{
       data: (price.data / 100).toString(),
       freight: (price.freight / 100).toString()
     }
+    if (!resData.refund) {
+      resData.refund = {}
+    }
     const item = {
       id: resData.pay_id, // 订单id
       ucId: resData.uc_id, // 用户商品id?
@@ -118,12 +121,12 @@ class OrderInfo extends BaseData{
         list: [],
       },
       cancel: {
-        no: resData.refund_no,
-        startTime: resData.refund_start_time,
-        successTime: resData.refund_end_time,
-        showPrice: (resData.refund_price / 100).toString(),
-        price: resData.refund_price,
-        reason: resData.refund_reason,
+        no: resData.refund.refund_no,
+        startTime: resData.refund.refund_start_time,
+        successTime: resData.refund.refund_end_time,
+        showPrice: (resData.refund.refund_price / 100).toString(),
+        price: resData.refund.refund_price,
+        reason: resData.refund.refund_reason,
       },
       product: productList.parseData(resData)
     }

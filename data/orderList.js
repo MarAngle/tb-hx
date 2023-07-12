@@ -59,6 +59,15 @@ class OrderList extends BaseData{
             state: 202
           }
         },
+        {
+          value: 'isRefund',
+          label: '已退款',
+          hidden: true,
+          params: {
+            status: 'tradeOrderList',
+            state: 4000
+          }
+        },
       ]
     }
     this.list = []
@@ -112,6 +121,9 @@ class OrderList extends BaseData{
       },
       product: productList.parseData(resData)
     }
+    // if (!item.status.label) {
+    //   console.log(resData.status, item, resData)
+    // }
     return item
   }
   checkDataCanPay(data) {
