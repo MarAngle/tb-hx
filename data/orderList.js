@@ -72,7 +72,7 @@ class OrderList extends BaseData{
     }
     this.list = []
   }
-  changeType(current) {
+  changeType(current, unLoadData) {
     this.type.current = current || 'total'
     for (let i = 0; i < this.type.list.length; i++) {
       const typeItem = this.type.list[i];
@@ -82,7 +82,9 @@ class OrderList extends BaseData{
       }
     }
     this.$syncPage()
-    return this.$loadData(true)
+    if (!unLoadData) {
+      return this.$loadData(true)
+    }
   }
   $getSearch() {
     if (this.getSearch) {
@@ -121,9 +123,9 @@ class OrderList extends BaseData{
       },
       product: productList.parseData(resData)
     }
-    // if (!item.status.label) {
-    //   console.log(resData.status, item, resData)
-    // }
+    if (!item.status.label) {
+      console.log(resData.status, item, resData)
+    }
     return item
   }
   checkDataCanPay(data) {

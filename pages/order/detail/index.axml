@@ -34,13 +34,13 @@
         <view>送回快递：</view>
         <view>{{orderInfo.data.address.back.no}}</view>
       </view>
-      <view class="cancel-wash" a:if="{{orderInfo.data.statusInfo.process_no <= 1005}}">
+      <view class="cancel-wash" a:if="{{orderInfo.data.statusInfo.process_no > 1003 && orderInfo.data.statusInfo.process_no <= 1005}}">
         <view onTap="cancelWash">取消预约</view>
       </view>
     </view>
   </view>
   <product-card data="{{orderInfo.data.product}}" show="{{true}}" />
-  <view class="address" a:if="{{orderInfo.data.address.send.no || orderInfo.data.address.back.no}}">
+  <view class="address" a:if="{{orderInfo.data.statusInfo.process_no > 1004 && (orderInfo.data.address.send.no || orderInfo.data.address.back.no)}}">
     <view class="title">地址信息</view>
     <view class="ad-detail" a:if="{{orderInfo.data.address.send.no}}" >
       <view>取衣地址</view>

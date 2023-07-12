@@ -5,16 +5,12 @@ Page({
     [orderList.$prop]: orderList
   },
   onLoad(query) {
-    orderList.changeType(query.type)
+    orderList.changeType(query.type, true)
     orderList.$appendPage(this)
+  },
+  onShow() {
     orderList.$reloadData(true)
   },
-  // onShow(query) {
-  //   console.log(query)
-  //   orderList.changeType(query.type)
-  //   orderList.$appendPage(this)
-  //   orderList.$reloadData(true)
-  // },
   search() {
     my.showToast();
   },
