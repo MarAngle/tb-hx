@@ -1,14 +1,14 @@
 
 .component-order-item{
   margin: 0 auto;
-  width: 700rpx;
+  width: 714rpx;
   background-color: rgb(247, 248, 250);
   border-radius: 8rpx;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  padding: 25rpx 25rpx;
+  padding: 24rpx 24rpx;
   box-shadow: 0 0 10rpx #ccc;
   position: relative;
   overflow: hidden;
@@ -16,10 +16,10 @@
 
 .component-order-item-icon{
   flex: none;
-  width: 200rpx;
-  height: 200rpx;
+  width: 220rpx;
+  height: 220rpx;
   border-radius: 12rpx;
-  margin-right: 25rpx;
+  margin-right: 24rpx;
   overflow: hidden;
 }
 .component-order-item-icon image{
@@ -28,11 +28,11 @@
 }
 .component-order-item-content{
   width: 100%;
-  height: 200rpx;
+  height: 220rpx;
   flex: auto;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: stretch;
 }
 
@@ -65,12 +65,12 @@
 }
 .component-order-item-content-menu{
   font-size: 26rpx;
-  margin-left: 20rpx;
+  line-height: 1.5;
+  margin-left: 16rpx;
   border-width: 1px;
   border-style: solid;
-  border-radius: 60rpx;
-  padding: 6rpx 30rpx;
-
+  border-radius: 12rpx;
+  padding: 8rpx 24rpx;
 }
 
 .detail {
@@ -87,11 +87,11 @@
   position: absolute;
   right: -30rpx;
   top: 10rpx;
-  width: 120rpx;
+  /* width: 120rpx; */
   text-align: center;
   color: #e50c2c;
   transform: rotate(45deg);
   background-color: rgba(8, 9, 4, 0.21);
   font-size: 20rpx;
-  padding: 10rpx 10rpx 6rpx;
+  padding: 8rpx 32rpx;
 }

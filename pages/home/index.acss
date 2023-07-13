@@ -1,10 +1,10 @@
 .page-home-title{
   text-align: left;
-  font-size: 36rpx;
+  font-size: 32rpx;
   color: rgba(245,134,11,1);
   font-weight: bold;
-  padding: 0 25rpx;
-  line-height: 100rpx;
+  padding: 16rpx 18rpx;
+  line-height: 1.75;
 }
 
 .page-home-category{
@@ -12,7 +12,7 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 0 0rpx 20rpx 0rpx;
+  padding: 0 0rpx 16rpx 0rpx;
 }
 
 .page-home-category-item{
@@ -48,12 +48,12 @@
   height: 160rpx;
 }
 .page-home-banner-swiper{
-  width: 750rpx;
+  width: 714rpx;
   margin: 0 auto;
 }
 .page-home-banner-swiper-item{
   display: block;
-  width: 750rpx;
+  width: 714rpx;
   height: 160rpx;
   border-radius: 12rpx;
 }
