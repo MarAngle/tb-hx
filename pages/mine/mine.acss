@@ -3,27 +3,27 @@
 }
 
 .setting {
+  position: absolute;
+  right: 18rpx;
+  top: 18rpx;
   height: 80rpx;
   width: 80rpx;
   border: 1px solid #bbbbbb;
   border-radius: 50%;
   font-size: 50rpx;
   text-align: center;
-  line-height: 80rpx;
-  position: absolute;
-  right: 10rpx;
-  top: 40rpx;
+  line-height: 78rpx;
 }
 
 .user {
   background-color: #ECECEC;
   position: absolute;
   top: 200rpx;
-  width: calc(100% - 40rpx);
+  width: 714rpx;
   box-sizing: border-box;
-  margin: 0 20rpx;
-  border-radius: 20rpx;
-  padding: 0 30rpx 30rpx;
+  margin: 0 24rpx;
+  border-radius: 12rpx;
+  padding: 0 24rpx 24rpx;
 }
 
 .user .img {
@@ -32,7 +32,7 @@
   border-radius: 50%;
   overflow: hidden;
   background-color: #fefefe;
-  padding: 10rpx;
+  padding: 8rpx;
   position: absolute;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -43,12 +43,12 @@
   top: 100rpx;
   left: 50%;
   transform: translate(-50%);
-  font-size: 32rpx;
+  font-size: 28rpx;
 }
 
 .user .control {
   margin-top: 180rpx;
-  padding: 20rpx 0;
+  padding: 16rpx 0;
   background-color: #ffffff;
   border-radius: 20rpx;
   display: grid;
@@ -67,7 +67,7 @@
 
 .item .icon {
   width: 50rpx;
-  margin-bottom: 10rpx;
+  margin-bottom: 8rpx;
 }
 
 .item .text {

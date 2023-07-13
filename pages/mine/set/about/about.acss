@@ -1,23 +1,21 @@
 .about {
-  padding: 14rpx;
+  padding: 18rpx;
 }
 
 .title {
-  font-size: 44rpx;
-  font-family: '阿里妈妈数黑体 Bold';
+  font-size: 32rpx;
   color: #494949;
-  padding: 0 0 10rpx 10rpx;
+  line-height: 1.75;
 }
 
 .item {
-  padding: 20rpx;
+  padding: 16rpx 24rpx;
   display: flex;
   justify-content: space-between;
   align-items: center;
   border: 1rpx solid #bbbbbb;
   border-radius: 20rpx;
-  margin-top: 20rpx;
-  height: 60rpx;
+  margin-top: 24rpx;
 }
 
 .name {
