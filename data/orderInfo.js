@@ -4,44 +4,6 @@ import { statusSelect } from "./orderList";
 import productList from "./productList";
 import user from "./user";
 
-// back: {name: "测试", mobile: "18303335898", address: null}
-// commodity_id: "5"
-// commodity_marketing: "拒用“四氯" 健康洗"
-// commodity_marketing_id: "1"
-// commodity_name: "测试套餐"
-// commodity_resourceniche_id: "1"
-// commodity_zone_id: "0"
-// create_time: "0000-00-00 00:00:00"
-// detail_pic: []
-// effective_day: "365"
-// evaluate: "99"
-// expires_time: "2023-07-11 15:47:04"
-// freight: "0"
-// main_pic: ["https://img.alicdn.com/imgextra/i3/2215920109002/O1CN01zEp6s42GMyEooO4qb_!!2215920109002-0-wsb.jpg"]
-// model_id: "3000000535"
-// order_by: "1"
-// order_id: "13"
-// order_no: "tb10000013230711182350"
-// order_time: "2023-07-11 18:23:50"
-// original_price: "1"
-// pay_amount: "1"
-// pay_id: "119"
-// pay_no: "23071115464810011966926"
-// pay_number: "1"
-// pay_order_id: "3430581480199828446"
-// pay_time: "2023-07-11 15:47:04"
-// reservation_time: "2023-10-11 17:00:00"
-// sale_status: "1"
-// selling_price: "1"
-// send: {name: "测试", mobile: "18303335898", address: "无盐"}
-// sku_id: "92001008"
-// sold_quantity: "1234"
-// status: 201
-// status_info: {process: null, process_desc: null}
-// uc_id: "12"
-// waybill_back: ""
-// waybill_send: "SF8880628048"
-
 class OrderInfo extends BaseData{
   constructor(initOption) {
     super(initOption)
