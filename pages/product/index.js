@@ -5,16 +5,17 @@ Page({
     [productList.$prop]: productList
   },
   onLoad(query) {
-    productList.$setExtra('search', {
-      categoaryId: query.id
-    })
+    // productList.$setExtra('search', {
+    //   select_zone: query.category
+    // })
+    // 专区考虑单独页面实现
     productList.$appendPage(this)
-    productList.$reloadData(true)
   },
   onReady() {
     // 页面加载完成
   },
   onShow() {
+    productList.$reloadData(true)
     // 页面显示
   },
   onHide() {

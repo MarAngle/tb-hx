@@ -1,5 +1,6 @@
 import banner from "../../data/banner";
 import hotProductList from "../../data/hotProductList";
+import productList from "../../data/productList";
 import { toLogin } from "../../utils";
 import category from "./../../data/category";
 
@@ -19,7 +20,7 @@ Page({
   },
   toProductList({ target }) {
     my.navigateTo({
-      url: '/pages/product/index?id=' + target.dataset.id
+      url: '/pages/product/index?category=' + target.dataset.id
     })
   },
   onReady() {

@@ -7,6 +7,9 @@ const productList = new ProductList({
   },
   service: {
     url: '/tb_api/api/TradeItem.php'
+  },
+  getSearch() {
+    return this.$getExtra('search') || {}
   }
 })
 
