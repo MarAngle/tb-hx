@@ -3,6 +3,7 @@ import { showAlert, showMsg } from "../utils";
 import require from "../utils/require";
 import local from "./local";
 import orderList from "./orderList";
+import productList from "./productList";
 import user from "./user";
 
 class ProductInfo extends BaseData{
@@ -28,6 +29,30 @@ class ProductInfo extends BaseData{
         })
       }).catch(err => {
         showMsg('请授权信息以进行下一步操作！', 'error')
+        reject(err)
+      })
+    })
+  }
+  getInfo(skuId) {
+    return new Promise((resolve, reject) => {
+      // 考虑分页
+      this.list = []
+      user.auth().then(() => {
+        require.post({
+          url: '/tb_api/api/TradeItem.php',
+          data: {
+            status: "tradeItemInfo",
+            sku_id: skuId
+          },
+          timeout: 0,
+          token: true
+        }).then(res => {
+          this.setData(productList.parseData(res.data))
+          resolve(res)
+        }).catch(err => {
+          reject(err)
+        })
+      }).catch(err => {
         reject(err)
       })
     })

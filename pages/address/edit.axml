@@ -55,6 +55,6 @@
   </list-item>
   <view class="btn-wrapper">
     <button inline onTap="onEdit">{{ id ? '修改' : '保存'}}</button>
-    <button inline a:if="{{!id}}" style="margin-left: 25rpx;" onTap="onSync">从淘宝地址同步</button>
+    <button inline a:if="{{!id}}" style="margin-left: 25rpx;background-color: #2F3143;color: #ffffff;" onTap="onSync">从淘宝地址同步</button>
   </view>
 </list>

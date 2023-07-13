@@ -13,14 +13,9 @@ Component({
     toInfo() {
       if (!this.props.show) {
         productInfo.setData(this.props.data)
-        // my.navigateTo({
-        //   url: '/pages/product/detail/index?id=' + this.props.data.id
-        // })
         my.navigateTo({
           url: '/pages/product/detail/index'
         })
-        // toLogin()
-
       }
     },
   },
