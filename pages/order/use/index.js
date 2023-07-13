@@ -52,6 +52,13 @@ Page({
       my.navigateBack(1)
       return
     }
+    this.data.data.send = undefined
+    this.data.data.back = undefined
+    this.data.data.time = undefined
+    this.data.data.remark = undefined
+    this.setData({
+      data: this.data.data
+    })
     orderInfo.$reloadData(true)
   },
   onTimeChange(date, format, e) {

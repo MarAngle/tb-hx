@@ -37,7 +37,7 @@ class AddressData extends BaseData{
                     label: citem.city_name,
                     load: false,
                     id: citem.city_id,
-                    children: []
+                    $children: []
                   }
                   this.cityMap[oitem.province_name + ccitem.value] = ccitem
                   return ccitem
@@ -67,7 +67,7 @@ class AddressData extends BaseData{
         const prop = valueList.join('')
         const cityItem = this.cityMap[prop]
         if (cityItem.load) {
-          resolve({ list: cityItem.children })
+          resolve({ list: cityItem.$children })
         } else {
           require.post({
             url: '/tb_api/api/Address.php',
@@ -77,7 +77,7 @@ class AddressData extends BaseData{
               city_id: cityItem.id
             }
           }).then((res) => {
-            cityItem.children = []
+            cityItem.$children = []
             let originList = res.data || []
             for (let i = 0; i < originList.length; i++) {
               const oitem = originList[i]
@@ -86,11 +86,11 @@ class AddressData extends BaseData{
                 label: oitem.county_name,
                 id: oitem.county_id,
               }
-              cityItem.children.push(item)
+              cityItem.$children.push(item)
             }
             cityItem.load = true
             this.$syncPage()
-            resolve({ list: cityItem.children })
+            resolve({ list: cityItem.$children })
           }).catch(err => {
             console.error(err)
             reject(err)

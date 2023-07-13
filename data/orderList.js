@@ -12,7 +12,7 @@ export const statusSelect = {
   4000: '已退款'
 }
 
-class OrderList extends BaseData{
+class OrderList extends BaseData {
   constructor(initOption) {
     super(initOption)
     this.type = {
