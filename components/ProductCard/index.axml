@@ -21,7 +21,7 @@
       <view class="component-product-item-content-evaluate">好评率{{data.evaluate}}%</view>
     </view> -->
   </view>
-  <view class="component-product-item-menu">
+  <view class="component-product-item-menu" a:if="{{!show}}">
     <image src="/image/icon/open.png" />
   </view>
 </view>

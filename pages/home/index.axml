@@ -1,15 +1,15 @@
 <view class="page-home">
-  <view class="page-home-title">品类</view>
+  <view class="page-home-title">专区</view>
   <view class="page-home-category">
     <view class="page-home-category-left page-home-category-item" data-id="{{1}}" onTap="toProductList">
-      <image src="/image/test/cate1.png" />
+      <image src="{{category.data.left.icon}}" />
     </view>
     <view class="page-home-category-right">
       <view class="page-home-category-right-top page-home-category-item" data-id="{{2}}" onTap="toProductList">
-        <image src="/image/test/cate2.png" />
+        <image src="{{category.data.rightTop.icon}}" />
       </view>
       <view class="page-home-category-right-bottom page-home-category-item" data-id="{{3}}" onTap="toProductList">
-        <image src="/image/test/cate3.png" />
+        <image src="{{category.data.rightBottom.icon}}" />
       </view>
     </view>
   </view>

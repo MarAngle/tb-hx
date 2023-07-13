@@ -47,8 +47,7 @@
           placeholder-class="item-content"
           placeholder-style="font-size: 26rpx;"
           placeholder="下单备注"
-          autoHeight
-          style="width: 100%;font-size: 26rpx;"
+          style="width: 100%; padding: 8rpx 8rpx;font-size: 26rpx;line-height: 42rpx;height: 142rpx;"
           onChange="onRemarkChange"
         />
       </view>
