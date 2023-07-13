@@ -28,10 +28,10 @@
         <view class="icon"><image mode="widthFix" src="/image/mine/isRefund.png" /></view>
         <view class="text">已退款</view>
       </view> -->
-      <!-- <view class="item" data-page-url="/pages/mine/help/help" onTap="changePage">
+      <view class="item" data-page-url="/pages/web/customer" onTap="changePage">
         <view class="icon"><image mode="widthFix" src="/image/mine/customer.png" /></view>
         <view class="text">客户服务</view>
-      </view> -->
+      </view>
     </view>
   </view>
 </view>
