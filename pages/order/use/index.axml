@@ -1,9 +1,9 @@
 <view class="reservation">
+  <order-card data="{{orderInfo.data}}" show="{{true}}" ></order-card>
   <view class="detail">
-    <order-card data="{{orderInfo.data}}" show="{{true}}" ></order-card>
     <view class="info">
-      <view class="item">
-        <view class="text" onTap="toAddress">地址列表</view>
+      <view class="menu">
+        <view class="menu-item" onTap="toAddress">地址列表</view>
       </view>
       <view class="item">
         <view class="text">取衣地址</view>
