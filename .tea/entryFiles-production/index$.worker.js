@@ -31,9 +31,9 @@ function success() {
 require('../../app');
 require('../../components/ProductCard/index?hash=05d2a9730dd6009bf9446182f9c985f40f8c0f43');
 require('../../components/ProductList/index?hash=aeca18ec55e4c36a45554211c7af7fa8db0b298d');
+require('../../node_modules/antd-mini/es/Icon/index?hash=05d2a9730dd6009bf9446182f9c985f40f8c0f43');
 require('../../components/OrderCard/index?hash=05d2a9730dd6009bf9446182f9c985f40f8c0f43');
 require('../../components/OrderList/index?hash=95dc1a030cf80ae3c7e0cf28e5258515304a09db');
-require('../../node_modules/antd-mini/es/Icon/index?hash=05d2a9730dd6009bf9446182f9c985f40f8c0f43');
 require('../../node_modules/antd-mini/es/Input/index?hash=749bba9d48276e5b3ca959928cddef5b7b4ff081');
 require('../../node_modules/antd-mini/es/Popup/index?hash=05d2a9730dd6009bf9446182f9c985f40f8c0f43');
 require('../../node_modules/antd-mini/es/Picker/index?hash=1e26405b939fb0f22fa79dc760b5c89d57a15021');
@@ -48,8 +48,8 @@ require('../../node_modules/antd-mini/es/Input/Textarea/index?hash=749bba9d48276
 require('../../node_modules/antd-mini/es/Rate/index?hash=749bba9d48276e5b3ca959928cddef5b7b4ff081');
 require('../../node_modules/antd-mini/es/Steps/index?hash=05d2a9730dd6009bf9446182f9c985f40f8c0f43');
 require('../../pages/home/index?hash=ba28b9f05083c7e5ff40c64239269b0057bf9a31');
-require('../../pages/order/index?hash=8c997138e47743dfd962708fcb1d6094f360f759');
 require('../../pages/address/index?hash=8385356bd8b4ca9fa87738563e035351b35a7175');
+require('../../pages/order/index?hash=8c997138e47743dfd962708fcb1d6094f360f759');
 require('../../pages/mine/mine?hash=8385356bd8b4ca9fa87738563e035351b35a7175');
 require('../../pages/pay/success?hash=ba28b9f05083c7e5ff40c64239269b0057bf9a31');
 require('../../pages/address/edit?hash=c39c3ff51248f88f25a75da13ac17d470086842e');
@@ -70,6 +70,7 @@ require('../../pages/mine/help/artificial/artificial?hash=32d7d2807ed4e666ef03b4
 require('../../pages/order/use/index?hash=3bfda3c6ddf7e3a5561550eb7cbd2a5d1ad82fb4');
 require('../../pages/order/detail/index?hash=0a892e646fea6332018de32c7ca49449a80c4e3e');
 require('../../pages/order/refund/refund?hash=32d7d2807ed4e666ef03b4b3fe8c38ecf2e34e68');
+require('../../pages/web/customer?hash=32d7d2807ed4e666ef03b4b3fe8c38ecf2e34e68');
 }
 self.bootstrapApp ? self.bootstrapApp({ success }) : success();
 }
