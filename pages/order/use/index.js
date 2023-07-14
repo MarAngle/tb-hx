@@ -30,17 +30,12 @@ Page({
       remark: undefined
     }
   },
-  onLoad() {
+  onLoad(query) {
+    if (query && query.id) {
+      orderInfo.setId(query.id)
+    }
     orderInfo.$appendPage(this)
     address.$appendPage(this)
-    address.$loadData().then(() => {
-      if (address.data.length == 0) {
-        showMsg('请先添加地址')
-        my.navigateTo({
-          url: '/pages/address/edit'
-        })
-      }
-    })
   },
   toAddress() {
     my.navigateTo({
@@ -60,6 +55,14 @@ Page({
       data: this.data.data
     })
     orderInfo.$reloadData(true)
+    address.$loadData().then(() => {
+      if (address.data.length == 0) {
+        showMsg('请先添加地址')
+        my.navigateTo({
+          url: '/pages/address/edit'
+        })
+      }
+    })
   },
   onTimeChange(date, format, e) {
     let h = date.getHours()
@@ -92,6 +95,7 @@ Page({
     })
   },
   onUse() {
+    console.log(orderInfo.data)
     if (!this.data.data.send) {
       showMsg('请选择取衣地址')
     } else if (!this.data.data.back) {
