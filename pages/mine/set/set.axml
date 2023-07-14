@@ -12,6 +12,10 @@
     <view class="name">关于我们</view>
     <view class="icon"><image mode="widthFix" src="/image/index/arrow.png" /></view>
   </view>
+  <view class="item" data-page-url="/pages/mine/set/cred/index" onTap="changePage">
+    <view class="name">证照信息</view>
+    <view class="icon"><image mode="widthFix" src="/image/index/arrow.png" /></view>
+  </view>
   <!-- <view class="item" data-page-url="/pages/mine/set/feedback/feedback" onTap="changePage">
     <view class="name">意见反馈</view>
     <view class="icon"><image mode="widthFix" src="/image/index/arrow.png" /></view>

@@ -19,7 +19,7 @@ class OrderInfo extends BaseData{
         url: '/tb_api/api/Order.php',
         data: {
           status: 'tradeOrderInfo',
-          pay_id: this.id
+          pay_no: this.id
         },
         timeout: 0,
         token: true

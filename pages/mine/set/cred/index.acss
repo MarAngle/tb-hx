@@ -1,0 +1,7 @@
+.set-cred-image{
+  width: 714rpx;
+  margin: 0 auto;
+}
+.set-cred-image image{
+  width: 100%;
+}

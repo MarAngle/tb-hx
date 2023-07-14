@@ -30,15 +30,13 @@ Component({
       })
     },
     useOrder() {
-      // orderInfo.setData(this.props.data)
-      orderInfo.setId(this.props.data.id)
+      orderInfo.setId(this.props.data.payNo)
       my.navigateTo({
         url: '/pages/order/use/index'
       });
     },
     toDetail() {
-      // orderInfo.setData(this.props.data)
-      orderInfo.setId(this.props.data.id)
+      orderInfo.setId(this.props.data.payNo)
       my.navigateTo({
         url: '/pages/order/detail/index'
       })

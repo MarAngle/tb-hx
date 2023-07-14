@@ -12,7 +12,7 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 0 0rpx 16rpx 0rpx;
+  padding: 0 18rpx 16rpx 18rpx;
 }
 
 .page-home-category-item{
@@ -21,18 +21,18 @@
 .page-home-category-item image{
   width: 100%;
   height: 100%;
-  border-radius: 12rpx;
+  border-radius: 16rpx;
 }
 
 .page-home-category-left{
   flex: none;
-  width: 400rpx;
-  height: 470rpx;
+  width: 345rpx;
+  height: 380rpx;
 }
 .page-home-category-right{
   flex: none;
-  width: 330rpx;
-  height: 470rpx;
+  width: 345rpx;
+  height: 380rpx;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -40,12 +40,12 @@
 }
 .page-home-category-right-top,.page-home-category-right-bottom{
   width: 100%;
-  height: 225rpx;
+  height: 175rpx;
 }
 
 .page-home-banner {
   padding-bottom: 0rpx;
-  height: 160rpx;
+  height: 140rpx;
 }
 .page-home-banner-swiper{
   width: 714rpx;
@@ -54,6 +54,6 @@
 .page-home-banner-swiper-item{
   display: block;
   width: 714rpx;
-  height: 160rpx;
-  border-radius: 12rpx;
+  height: 140rpx;
+  border-radius: 16rpx;
 }

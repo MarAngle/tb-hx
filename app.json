@@ -17,6 +17,7 @@
     "pages/mine/set/about/about",
     "pages/mine/set/about/policy/policy",
     "pages/mine/set/about/agreement/agreement",
+    "pages/mine/set/cred/index",
     "pages/mine/set/account/account",
     "pages/mine/help/help",
     "pages/mine/help/artificial/artificial",
