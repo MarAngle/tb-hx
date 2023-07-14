@@ -1,10 +1,11 @@
 .page-home-title{
   text-align: left;
-  font-size: 32rpx;
+  font-size: 36rpx;
   color: rgba(245,134,11,1);
   font-weight: bold;
   padding: 16rpx 18rpx;
   line-height: 1.75;
+  font-family: '宋体';
 }
 
 .page-home-category{
@@ -13,11 +14,12 @@
   justify-content: space-between;
   align-items: center;
   padding: 0 18rpx 50rpx 18rpx;
-
 }
 
 .page-home-category-item{
   flex: none;
+  border-radius: 16rpx;
+  box-shadow: 0 0 8rpx #ccc;
 }
 .page-home-category-item image{
   width: 100%;
@@ -46,15 +48,19 @@
 
 .page-home-banner {
   padding-bottom: 0rpx;
-  height: 160rpx;
-}
-.page-home-banner-swiper{
   width: 714rpx;
   margin: 0 auto;
+  height: 160rpx;
+  box-shadow: 0 0 8rpx #ccc;
+  border-radius: 16rpx;
+}
+.page-home-banner-swiper{
+  width: 100%;
 }
 .page-home-banner-swiper-item{
   display: block;
   width: 714rpx;
   height: 160rpx;
+  box-shadow: 0 0 8rpx #ccc;
   border-radius: 16rpx;
 }
