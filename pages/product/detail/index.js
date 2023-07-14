@@ -5,12 +5,14 @@ Page({
     [productInfo.$prop]: productInfo
   },
   onLoad() {
-    if (!productInfo.data.id) {
+    productInfo.$appendPage(this)
+  },
+  onShow() {
+    if (!productInfo.id) {
       my.navigateBack(1)
       return
     }
-    productInfo.$appendPage(this)
-    productInfo.$syncPage()
+    productInfo.$reloadData(true)
   },
   createOrder() {
     productInfo.$triggerMethod('createOrder', [], true).then((res) => {

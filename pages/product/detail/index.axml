@@ -1,4 +1,4 @@
-<view class="detail">
+<view class="detail" a:if="{{productInfo.status.load == 'success'}}">
   <view class="swiper">
     <swiper indicator-dots="{{true}}" indicator-active-color="#999BB2" indicator-color="#ECECEC">
       <block a:for="{{productInfo.data.mainPic}}">

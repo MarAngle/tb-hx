@@ -12,9 +12,10 @@ Component({
   methods: {
     toInfo() {
       if (!this.props.show) {
-        productInfo.setData(this.props.data)
+        // productInfo.setData(this.props.data)
+        productInfo.setId(this.props.data.skuId)
         my.navigateTo({
-          url: '/pages/product/detail/index'
+          url: '/pages/product/detail/index?id=' + this.props.data.skuId
         })
       }
     },

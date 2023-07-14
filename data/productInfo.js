@@ -9,15 +9,39 @@ import user from "./user";
 class ProductInfo extends BaseData{
   constructor(initOption) {
     super(initOption)
+    this.id = null
     this.data = {}
     this.payNo = null
     this.payId = null
   }
-  setData(data) {
-    this.data = data
+  setId(id) {
+    this.id = id
     this.payNo = null
     this.payId = null
-    this.$syncPage()
+    this.data = {}
+  }
+  getInfo() {
+    return new Promise((resolve, reject) => {
+      user.auth().then(() => {
+        require.post({
+          url: '/tb_api/api/TradeItem.php',
+          data: {
+            status: "tradeItemInfo",
+            sku_id: this.id
+          },
+          timeout: 0,
+          token: true
+        }).then(res => {
+          this.data = productList.parseData(res.data)
+          this.$syncPage()
+          resolve(res)
+        }).catch(err => {
+          reject(err)
+        })
+      }).catch(err => {
+        reject(err)
+      })
+    })
   }
   createOrder() {
     return new Promise((resolve, reject) => {
@@ -29,30 +53,6 @@ class ProductInfo extends BaseData{
         })
       }).catch(err => {
         showMsg('请授权信息以进行下一步操作！', 'error')
-        reject(err)
-      })
-    })
-  }
-  getInfo(skuId) {
-    return new Promise((resolve, reject) => {
-      // 考虑分页
-      this.list = []
-      user.auth().then(() => {
-        require.post({
-          url: '/tb_api/api/TradeItem.php',
-          data: {
-            status: "tradeItemInfo",
-            sku_id: skuId
-          },
-          timeout: 0,
-          token: true
-        }).then(res => {
-          this.setData(productList.parseData(res.data))
-          resolve(res)
-        }).catch(err => {
-          reject(err)
-        })
-      }).catch(err => {
         reject(err)
       })
     })
@@ -123,7 +123,10 @@ class ProductInfo extends BaseData{
 }
 
 const productInfo = new ProductInfo({
-  prop: 'productInfo'
+  prop: 'productInfo',
+  getData() {
+    return this.getInfo()
+  }
 })
 
 export default productInfo
