@@ -23,11 +23,11 @@ App({
     //   //       url: '/pages/product/detail/index'
     //   //     })
     //   //   }
-    //   // } else if (page == '/product/order/index') {
+    //   // } else if (page == '/product/order/detail/index') {
     //   //   if (query.payId) {
     //   //     orderInfo.setId(query.payId)
     //   //     my.navigateTo({
-    //   //       url: '/pages/product/order/index'
+    //   //       url: '/pages/product/order/detail/index'
     //   //     })
     //   //   }
     //   // } else {

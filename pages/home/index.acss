@@ -12,7 +12,8 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 0 18rpx 16rpx 18rpx;
+  padding: 0 18rpx 50rpx 18rpx;
+
 }
 
 .page-home-category-item{
@@ -45,7 +46,7 @@
 
 .page-home-banner {
   padding-bottom: 0rpx;
-  height: 140rpx;
+  height: 160rpx;
 }
 .page-home-banner-swiper{
   width: 714rpx;
@@ -54,6 +55,6 @@
 .page-home-banner-swiper-item{
   display: block;
   width: 714rpx;
-  height: 140rpx;
+  height: 160rpx;
   border-radius: 16rpx;
 }

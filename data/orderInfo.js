@@ -15,26 +15,30 @@ class OrderInfo extends BaseData{
   }
   getInfo() {
     return new Promise((resolve, reject) => {
-      require.post({
-        url: '/tb_api/api/Order.php',
-        data: {
-          status: 'tradeOrderInfo',
-          pay_no: this.id
-        },
-        timeout: 0,
-        token: true
-      }).then(res => {
-        this.data = this.$formatItem(res.data)
-        this.$syncPage()
-        if (this.data.wash.id) {
-          this.getWashData().finally(() => {
+      user.auth().then(() => {
+        require.post({
+          url: '/tb_api/api/Order.php',
+          data: {
+            status: 'tradeOrderInfo',
+            pay_no: this.id
+          },
+          timeout: 0,
+          token: true
+        }).then(res => {
+          this.data = this.$formatItem(res.data)
+          this.$syncPage()
+          if (this.data.wash.id) {
+            this.getWashData().finally(() => {
+              resolve()
+            })
+          } else {
             resolve()
-          })
-        } else {
-          resolve()
-        }
+          }
+        }).catch(err => {
+          console.error(err)
+          reject(err)
+        })
       }).catch(err => {
-        console.error(err)
         reject(err)
       })
     })
