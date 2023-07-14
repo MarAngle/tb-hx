@@ -4,7 +4,10 @@ Page({
   data: {
     [productInfo.$prop]: productInfo
   },
-  onLoad() {
+  onLoad(query) {
+    if (query && query.id) {
+      productInfo.setId(query.id)
+    }
     productInfo.$appendPage(this)
   },
   onShow() {

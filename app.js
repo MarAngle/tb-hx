@@ -1,7 +1,7 @@
 import local from "./data/local";
-import orderInfo from "./data/orderInfo";
-import productInfo from "./data/productInfo";
-import { showAlert } from "./utils";
+// import orderInfo from "./data/orderInfo";
+// import productInfo from "./data/productInfo";
+// import { showAlert } from "./utils";
 
 App({
   onLaunch(options) {
@@ -15,25 +15,25 @@ App({
     local.setData('appInitData', appInitData)
     const page = query.page
     if (page) {
-      if (page == '/product/detail/index') {
-        if (query.skuId) {
-          productInfo.setId(query.skuId)
-          my.navigateTo({
-            url: '/pages/product/detail/index'
-          })
-        }
-      } else if (page == '/product/order/index') {
-        if (query.payId) {
-          orderInfo.setId(query.payId)
-          my.navigateTo({
-            url: '/pages/product/order/index'
-          })
-        }
-      } else {
+      // if (page == '/product/detail/index') {
+      //   if (query.skuId) {
+      //     productInfo.setId(query.skuId)
+      //     my.navigateTo({
+      //       url: '/pages/product/detail/index'
+      //     })
+      //   }
+      // } else if (page == '/product/order/index') {
+      //   if (query.payId) {
+      //     orderInfo.setId(query.payId)
+      //     my.navigateTo({
+      //       url: '/pages/product/order/index'
+      //     })
+      //   }
+      // } else {
         my.navigateTo({
           url: '/pages' + page
         })
-      }
+      // }
     }
   },
   onShow(options) {

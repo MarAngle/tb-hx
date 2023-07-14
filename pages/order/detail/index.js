@@ -19,8 +19,18 @@ Page({
       }
     }
   },
-  onLoad() {
+  onLoad(query) {
+    if (query && query.id) {
+      orderInfo.setId(query.id)
+    }
     orderInfo.$appendPage(this)
+  },
+  onShow() {
+    if (!orderInfo.id) {
+      my.navigateBack(1)
+      return
+    }
+    orderInfo.$reloadData(true)
   },
   setPopup(prop, show) {
     this.data.popup[prop].show = show
@@ -33,13 +43,6 @@ Page({
   },
   hiddenWashList() {
     this.setPopup('wash', false)
-  },
-  onShow() {
-    if (!orderInfo.id) {
-      my.navigateBack(1)
-      return
-    }
-    orderInfo.$reloadData(true)
   },
   copy({target}) {
     my.setClipboard({
