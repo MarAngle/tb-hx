@@ -7,21 +7,14 @@
       <view class="component-product-item-content-title">{{data.name}}</view>
     </view>
     <view class="component-product-item-content-line">
-      <view class="component-product-item-content-desc">{{data.desc}}</view>
-      <view class="component-product-item-content-price">
-        <view>¥</view>
-        <view>{{data.price.show.data}}</view>
-      </view>
+      <view class="component-product-item-content-import">{{data.market}}</view>
     </view>
-    <view class="component-product-item-content-line">
-      <view class="component-product-item-content-import">{{data.import}}</view>
-    </view>
-    <!-- <view class="component-product-item-content-line">
-      <view class="component-product-item-content-sale">月销{{data.sale}}</view>
-      <view class="component-product-item-content-evaluate">好评率{{data.evaluate}}%</view>
-    </view> -->
   </view>
-  <view class="component-product-item-menu" a:if="{{!show}}">
-    <image src="/image/icon/open.png" />
+  <view class="component-product-item-right">
+    <view class="component-product-item-right-price">
+      <view>¥</view>
+      <view>{{data.price.show.data}}</view>
+    </view>
+    <image class="component-product-item-right-menu" src="/image/icon/open.png" a:if="{{!show}}" />
   </view>
 </view>

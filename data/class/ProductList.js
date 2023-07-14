@@ -49,9 +49,8 @@ class ProductList extends BaseData{
       aliId: originData.model_id, // 阿里商品ID
       name: originData.commodity_name,
       label: '特惠',
-      desc: originData.commodity_marketing,
+      market: originData.commodity_marketing,
       commodity_resourceniche_id: originData.commodity_resourceniche_id, // 资源位ID
-      import: '拒用"四氯"健康洗',
       icon: originData.main_pic[0],
       price: price,
       sale: originData.sold_quantity,

@@ -1,7 +1,7 @@
 .component-product-item{
   margin: 0 auto;
   width: 714rpx;
-  background-color: rgb(247, 248, 240);
+  background-color: #fff;
   border-radius: 8rpx;
   display: flex;
   flex-direction: row;
@@ -32,15 +32,6 @@
   justify-content: space-around;
   align-items: stretch;
 }
-.component-product-item-menu{
-  flex: none;
-  padding: 0 0rpx 0 24rpx;
-}
-.component-product-item-menu image{
-  width: 40rpx;
-  height: 40rpx;
-  margin: 0 auto;
-}
 
 .component-product-item-content-line{
   display: flex;
@@ -56,18 +47,32 @@
 .component-product-item-content-desc{
   color: rgba(0, 0, 0, 0.65);
 }
-.component-product-item-content-price{
+.component-product-item-content-import{
+  color: #f5222d;
+  font-size: 24rpx;
+}
+
+.component-product-item-right{
+  flex: none;
+  padding: 0 0rpx 0 24rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+.component-product-item-right-menu{
+  width: 40rpx;
+  height: 40rpx;
+  margin-left: 16rpx;
+}
+.component-product-item-right-price{
   color: #f5222d;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
 }
-.component-product-item-content-price view{
+.component-product-item-right-price view{
   font-size: 32rpx;
   font-weight: bold;
-}
-.component-product-item-content-import{
-  color: #f5222d;
-  font-size: 24rpx;
 }
