@@ -1,5 +1,5 @@
 import orderInfo from "../../../data/orderInfo";
-import { showMsg } from "../../../utils";
+import { showAlert, showMsg } from "../../../utils";
 
 Page({
   data: {
@@ -30,7 +30,10 @@ Page({
       my.navigateBack(1)
       return
     }
-    orderInfo.$reloadData(true)
+    orderInfo.$loadData(true).then(() => {}, err => {
+      // showAlert(err)
+      my.navigateBack(1)
+    })
   },
   setPopup(prop, show) {
     this.data.popup[prop].show = show

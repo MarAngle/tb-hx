@@ -1,4 +1,5 @@
 import productInfo from "../../../data/productInfo";
+import { showAlert } from "../../../utils";
 
 Page({
   data: {
@@ -15,7 +16,10 @@ Page({
       my.navigateBack(1)
       return
     }
-    productInfo.$reloadData(true)
+    productInfo.$loadData(true).then(() => {}, err => {
+      // showAlert(err)
+      my.navigateBack(1)
+    })
   },
   createOrder() {
     productInfo.$triggerMethod('createOrder', [], true).then((res) => {
