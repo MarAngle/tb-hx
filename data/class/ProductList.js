@@ -62,6 +62,8 @@ class ProductList extends BaseData{
   }
   $getData() {
     return new Promise((resolve, reject) => {
+      this.list = []
+      this.$syncPage()
       const search = this.$getSearch()
       require[this.service.method]({
         url: this.service.url,
@@ -72,7 +74,6 @@ class ProductList extends BaseData{
         timeout: 0,
         token: false
       }).then(res => {
-        console.log(res)
         this.formatData(res.data)
         resolve(res)
       }).catch(err => {

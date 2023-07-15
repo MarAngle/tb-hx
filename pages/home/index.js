@@ -1,7 +1,5 @@
 import banner from "../../data/banner";
 import hotProductList from "../../data/hotProductList";
-import productList from "../../data/productList";
-import { toLogin } from "../../utils";
 import category from "./../../data/category";
 
 Page({
@@ -47,8 +45,8 @@ Page({
   onShareAppMessage() {
     // 返回自定义分享信息
     return {
-      title: 'My App',
-      desc: 'My App description',
+      title: '浣洗',
+      desc: '浣洗洗护',
       path: 'pages/home/index',
     };
   },

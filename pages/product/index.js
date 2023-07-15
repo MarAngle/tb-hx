@@ -2,19 +2,21 @@ import productList from "../../data/productList";
 
 Page({
   data: {
-    [productList.$prop]: productList
+    [productList.$prop]: productList,
+    cate: undefined
   },
   onLoad(query) {
-    // productList.$setExtra('search', {
-    //   select_zone: query.category
-    // })
-    // 专区考虑单独页面实现
+    this.data.cate = query ? query.category : undefined
     productList.$appendPage(this)
   },
   onReady() {
     // 页面加载完成
   },
   onShow() {
+    // 考虑套餐加检索项
+    // productList.$setExtra('search', {
+    //   select_zone: this.data.cate
+    // })
     productList.$reloadData(true)
     // 页面显示
   },
@@ -36,8 +38,8 @@ Page({
   onShareAppMessage() {
     // 返回自定义分享信息
     return {
-      title: 'My App',
-      desc: 'My App description',
+      title: '浣洗',
+      desc: '浣洗洗护',
       path: 'pages/home/index',
     };
   },
