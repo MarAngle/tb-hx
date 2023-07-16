@@ -7,9 +7,6 @@
     <view class="component-order-item-content-line">
       <view class="component-order-item-content-title">{{data.product.name}}</view>
     </view>
-    <!-- <view class="component-order-item-content-line">
-      <view class="component-order-item-content-desc">{{data.product.desc}}</view>
-    </view> -->
     <view class="component-order-item-content-line">
       <view class="component-order-item-content-import">{{data.product.market}}</view>
     </view>

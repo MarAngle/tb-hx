@@ -9,6 +9,7 @@
   align-items: center;
   padding: 24rpx 24rpx;
   box-shadow: 0 0 10rpx #ccc;
+  margin-bottom: 24rpx;
 }
 
 .component-product-item-icon{

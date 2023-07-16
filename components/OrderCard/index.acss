@@ -89,9 +89,9 @@
   top: 10rpx;
   /* width: 120rpx; */
   text-align: center;
-  color: #e50c2c;
+  color: #fff;
   transform: rotate(45deg);
-  background-color: rgba(8, 9, 4, 0.21);
+  background-color: rgba(245,134,11,1);
   font-size: 20rpx;
   padding: 8rpx 32rpx;
 }
