@@ -39,21 +39,21 @@ class DefaultData extends Data {
       return
     }
     if (data.immediate && data.once) {
-      data.data()
+      data.data.call(this)
       return
     }
     this.$life[lifeName][data.id] = data
     if (data.immediate) {
-      data.data()
+      data.data.call(this)
     }
     return data.id
   }
-  $triggerLife(lifeName) {
+  $triggerLife(lifeName, ...args) {
     if (this.$life[lifeName]) {
       for (const id in this.$life[lifeName]) {
         const data = this.$life[lifeName][id]
         if (data) {
-          data.data()
+          data.data.call(this, ...args)
           if (data.once) {
             this.$life[lifeName][id] = undefined
           }

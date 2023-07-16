@@ -14,11 +14,11 @@ Page({
     banner.$appendPage(this)
     banner.$reloadData(true)
     hotProductList.$appendPage(this)
-    hotProductList.$reloadData(true)
+    hotProductList.$reloadData()
   },
   toProductList({ target }) {
     my.navigateTo({
-      url: '/pages/product/index?category=' + target.dataset.id
+      url: '/pages/product/index?id=' + target.dataset.id
     })
   },
   onReady() {

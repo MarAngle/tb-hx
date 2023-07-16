@@ -1,5 +1,5 @@
 {
   "usingComponents": {
-    "product-list":"/components/ProductList/index"
+    "product-card":"/components/ProductCard/index"
   }
 }

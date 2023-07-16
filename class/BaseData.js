@@ -3,12 +3,31 @@ import DefaultData from "./DefaultData"
 class BaseData extends DefaultData {
   constructor(initOption) {
     super(initOption)
+    this.$option = initOption.option || {}
     this.status = {
       operate: 'un',
       load: 'un'
     }
     this.$operate = 0
     this.$appendMethod('$getData', initOption.getData)
+    if (this.$option.auto) {
+      this.$onLife('binded', () => {
+        this.$reloadData(this.$option.reload)
+      })
+    }
+  }
+  $bindPage(page) {
+    // 将数据绑定到生命周期页面中
+    if (this.$unEnum.page.indexOf(page) == -1) {
+      if (page.data[this.$prop]) {
+        this.$exportMsg(`绑定页面报错,重复绑定!`, 'error')
+      }
+      this.$appendPage(page)
+      this.$triggerLife('binded', page)
+      page.$onLife('unload', () => {
+        this.$removePage(page)
+      })
+    }
   }
   $changeOperate(target) {
     if (target == 'un') {
