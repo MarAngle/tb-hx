@@ -1,3 +1,0 @@
-<view class="component-product-list">
-  <product-card a:for="{{product.list}}" data="{{item}}" key="component-product-list-item-{{index}}" />
-</view>

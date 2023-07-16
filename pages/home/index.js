@@ -1,53 +1,36 @@
 import banner from "../../data/banner";
-import hotProductList from "../../data/hotProductList";
+import productList from "../../data/productList";
 import category from "./../../data/category";
+import { createLifePage } from "../../utils/page";
 
-Page({
+Page(createLifePage({
   data: {
-    [category.$prop]: category,
-    [banner.$prop]: banner,
-    [hotProductList.$prop]: hotProductList
+    list: []
   },
-  onLoad() {
-    category.$appendPage(this)
-    category.$reloadData(true)
-    banner.$appendPage(this)
-    banner.$reloadData(true)
-    hotProductList.$appendPage(this)
-    hotProductList.$reloadData()
+  createList() {
+    this.data.list = [...productList.list]
+    this.setData({
+      list: this.data.list
+    })
   },
   toProductList({ target }) {
     my.navigateTo({
       url: `/pages/product/index?id=${target.dataset.id}&name=${target.dataset.name}`
     })
-  },
-  onReady() {
-    // 页面加载完成
-  },
-  onShow() {
-    // 页面显示
-  },
-  onHide() {
-    // 页面隐藏
-  },
-  onUnload() {
-    // 页面被关闭
-  },
-  onTitleClick() {
-    // 标题被点击
-  },
-  onPullDownRefresh() {
-    // 页面被下拉
-  },
-  onReachBottom() {
-    // 页面被拉到底部
-  },
-  onShareAppMessage() {
-    // 返回自定义分享信息
-    return {
-      title: '浣洗',
-      desc: '浣洗洗护',
-      path: 'pages/home/index',
-    };
-  },
-});
+  }
+}, {
+  load() {
+    category.$appendPage(this)
+    category.$reloadData(true)
+    banner.$appendPage(this)
+    banner.$reloadData(true)
+    productList.$appendPage(this)
+    productList.$reloadData()
+    productList.$onLife('loaded', {
+      immediate: true,
+      data: () => {
+        this.createList()
+      }
+    })
+  }
+}));
