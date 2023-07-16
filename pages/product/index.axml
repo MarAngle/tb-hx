@@ -1,3 +1,11 @@
 <view class="page-product">
-  <product-card a:for="{{list}}" data="{{item}}" key="page-product-card-{{index}}" />
+  <view class="page-product-list" a:if="{{productInfo.status.load == 'success' || list.length > 0}}">
+    <product-card a:for="{{list}}" data="{{item}}" key="page-product-card-{{index}}" />
+  </view>
+  <view class="page-product-list-notice" a:elif="{{productInfo.status.load == 'success' || list.length == 0}}">
+    <view>暂无数据</view>
+  </view>
+  <view class="page-product-list-notice" a:else>
+    <view>正在加载</view>
+  </view>
 </view>

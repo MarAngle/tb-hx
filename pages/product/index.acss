@@ -1,0 +1,8 @@
+.page-product{
+  padding: 16rpx 16rpx;
+}
+
+.page-product-list-notice{
+  font-size: 28rpx;
+  color: rgba(0, 0, 0, 0.85);
+}
