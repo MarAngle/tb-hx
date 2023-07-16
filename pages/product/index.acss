@@ -1,8 +1,18 @@
 .page-product{
   padding: 16rpx 16rpx;
 }
-
+.page-product-title{
+  text-align: left;
+  font-size: 36rpx;
+  color: rgba(245,134,11,1);
+  font-weight: bold;
+  padding: 16rpx 0;
+  line-height: 1.75;
+  font-family: '宋体';
+}
 .page-product-list-notice{
   font-size: 28rpx;
+  padding-top: 20rpx;
+  text-align: center;
   color: rgba(0, 0, 0, 0.85);
 }

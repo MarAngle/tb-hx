@@ -1,14 +1,14 @@
 <view class="page-home">
   <view class="page-home-title">品类</view>
   <view class="page-home-category">
-    <view class="page-home-category-left page-home-category-item" data-id="{{1}}" onTap="toProductList">
+    <view class="page-home-category-left page-home-category-item" data-name="{{category.data.left.name}}" data-id="{{1}}" onTap="toProductList">
       <image src="{{category.data.left.icon}}" />
     </view>
     <view class="page-home-category-right">
-      <view class="page-home-category-right-top page-home-category-item" data-id="{{2}}" onTap="toProductList">
+      <view class="page-home-category-right-top page-home-category-item" data-name="{{category.data.rightTop.name}}" data-id="{{2}}" onTap="toProductList">
         <image src="{{category.data.rightTop.icon}}" />
       </view>
-      <view class="page-home-category-right-bottom page-home-category-item" data-id="{{3}}" onTap="toProductList">
+      <view class="page-home-category-right-bottom page-home-category-item" data-name="{{category.data.rightBottom.name}}" data-id="{{3}}" onTap="toProductList">
         <image src="{{category.data.rightBottom.icon}}" />
       </view>
     </view>

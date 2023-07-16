@@ -18,7 +18,7 @@ Page({
   },
   toProductList({ target }) {
     my.navigateTo({
-      url: '/pages/product/index?id=' + target.dataset.id
+      url: `/pages/product/index?id=${target.dataset.id}&name=${target.dataset.name}`
     })
   },
   onReady() {

@@ -4,6 +4,7 @@ import { createLifePage } from "../../utils/page";
 Page(createLifePage({
   data: {
     id: undefined,
+    title: '',
     list: []
   },
   createList() {
@@ -26,6 +27,7 @@ Page(createLifePage({
 }, {
   load(query) {
     this.data.id = query.id
+    this.data.title = query.name
     productList.$bindPage(this)
     productList.$reloadData()
     productList.$onLife('loaded', {

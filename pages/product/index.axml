@@ -1,4 +1,7 @@
 <view class="page-product">
+  <view class="page-product-title">
+    <view>{{title || '所有商品'}}</view>
+  </view>
   <view class="page-product-list" a:if="{{productInfo.status.load == 'success' || list.length > 0}}">
     <product-card a:for="{{list}}" data="{{item}}" key="page-product-card-{{index}}" />
   </view>
