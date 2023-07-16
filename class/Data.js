@@ -23,8 +23,18 @@ class Data {
   $appendPage(page) {
     if (this.$unEnum.page.indexOf(page) == -1) {
       this.$unEnum.page.push(page)
+      this.$syncTargetPage(page)
+      return true
     }
-    this.$syncTargetPage(page)
+    return false
+  }
+  $removePage(page) {
+    let index = this.$unEnum.page.indexOf(page)
+    if (index !== -1) {
+      this.$unEnum.page.splice(index, 1)
+      return true
+    }
+    return false
   }
   $syncPage(force) {
     if (force) {

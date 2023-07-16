@@ -55,13 +55,16 @@ class BaseData extends DefaultData {
     } else {
       return new Promise((resolve, reject) => {
         this.status.load = 'ing'
+        this.$triggerLife('beforeLoad')
         this.$syncPage()
         this.$getData(...args).then(() => {
           this.status.load = 'success'
+          this.$triggerLife('loaded')
           this.$syncPage()
           resolve({ status: 'success' })
         }).catch(err => {
           this.status.load = 'un'
+          this.$triggerLife('loadFail')
           this.$syncPage()
           console.error(err)
           reject(err)
