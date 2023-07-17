@@ -91,6 +91,17 @@ class BaseData extends DefaultData {
       })
     }
   }
+  $resetStatus() {
+    this.$operate = 0
+    this.status.operate = 'un'
+    this.status.load = 'un'
+  }
+  $reset(resetOption = {}) {
+    if (resetOption.status !== false) {
+      this.$resetStatus()
+    }
+    this.$triggerLife('reseted', resetOption)
+  }
 }
 
 export default BaseData
