@@ -60,7 +60,7 @@
   left: 18rpx;
   width: 714rpx;
   background-color: #2F3143;
-  color: #ffffff;
+  color: #FFF;
   text-align: center;
   padding: 24rpx 0;
   font-size: 28rpx;

@@ -113,10 +113,45 @@ class UserData extends InfoData{
       })
     })
   }
+  $loginByPhone(form) {
+    return new Promise((resolve, reject) => {
+      this.status.load = 'ing'
+      this.$syncPage()
+      require.post({
+        url: '/washService/loginAction.php',
+        token: false,
+        data: {
+          scene: "H5",
+          status: "checkLogin",
+          city_Index: "1",
+          mobile: form.phone,
+          code: form.code
+        }
+      }).then((res) => {
+        require.setToken(res.data.token)
+        require.setRefreshToken(res.data.refreshToken)
+        this.status.load = 'success'
+        this.$syncPage()
+        resolve(res)
+      }).catch(err => {
+        this.status.load = 'un'
+        console.error(err)
+        this.$syncPage()
+        reject(err)
+      })
+    }).catch(err => {
+      console.error(err)
+      reject(err)
+    })
+  }
   $getData(auto) {
     return new Promise((resolve, reject) => {
       this.$authPhone().then(() => {
-        resolve()
+        this.$login().then(res => {
+          resolve(res)
+        }).catch(err => {
+          reject(err)
+        })
       }).catch(err => {
         console.error(err)
         if (auto !== false) {

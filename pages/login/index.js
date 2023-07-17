@@ -1,52 +1,85 @@
-import user from "./../../data/user";
+import { ruleData, showMsg } from "../../utils/index"
+import { createLifePage } from "../../utils/page"
+import requireS from "../../utils/require"
+import user from "./../../data/user"
 
-Page({
+Page(createLifePage({
   data: {
-    [user.$prop]: user
+    form: {
+      phone: '',
+      code: ''
+    },
+    code: {
+      ing: false,
+      operate: false,
+      count: 60
+    }
   },
   getCode() {
-    user.getCode()
+    if (!this.checkForm(true)) {
+      this.data.code.ing = true
+      this.setData({
+        code: this.data.code
+      })
+      requireS.post({
+        url: '/washService/loginAction.php',
+        token: false,
+        data: {
+          scene: "H5",
+          status: "getCode",
+          mobile: this.data.form.phone
+        }
+      }).then(() => {
+        this.data.code.ing = false
+        this.data.code.operate = true
+        this.startCount()
+        this.setData({
+          code: this.data.code
+        })
+      }).catch(err => {
+        console.error(err)
+        this.data.code.ing = false
+        this.setData({
+          code: this.data.code
+        })
+      })
+    }
+  },
+  checkForm(unCode) {
+    if (ruleData.mobile.test(this.data.form.phone)) {
+      if (unCode || this.data.form.code.length >= 4) {
+        return false
+      } else {
+        showMsg('请输入验证码！', 'fail')
+        return true
+      }
+    } else {
+      showMsg('请正确输入手机号！', 'fail')
+      return true
+    }
   },
   onLogin() {
-    user.loginByPhone()
+    if (!this.checkForm()) {
+      user.$triggerMethod('$loginByPhone', [this.data.form], true)
+    }
   },
   onFormChange(e) {
-    const prop = get.dataset.prop
-    user.changeForm(prop, e.detail.value)
-  },
-  onLoad() {
-    user.$appendPage(this)
-    user.autoData().then(res => {}, err => {
-      console.error(err)
+    const prop = e.target.dataset.prop
+    this.data.form[prop] = e.detail.value
+    this.setData({
+      form: this.data.form
     })
-  },
-  onReady() {
-    // 页面加载完成
-  },
-  onShow() {
-    // 页面显示
-  },
-  onHide() {
-    // 页面隐藏
-  },
-  onUnload() {
-    // 页面被关闭
-  },
-  onTitleClick() {
-    // 标题被点击
-  },
-  onPullDownRefresh() {
-    // 页面被下拉
-  },
-  onReachBottom() {
-    // 页面被拉到底部
-  },
-  onShareAppMessage() {
-    // 返回自定义分享信息
-    return {
-      title: 'My App',
-      desc: 'My App description',
-      path: 'pages/home/index',
-    };
-  },
-});
+  }
+}, {
+  show() {
+    // this.data.form.phone = ''
+    // this.data.form.code = ''
+    // this.data.code.ing = false
+    // this.data.code.operate = false
+    // this.data.code.count = 60
+    // this.setData({
+    //   form: this.data.form,
+    //   code: this.data.code
+    // })
+  }
+}))

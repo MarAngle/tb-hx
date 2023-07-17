@@ -1,15 +1,21 @@
 <view class='page-login'>
   <view class="page-login-form">
-    <view class="page-login-form-item">
+    <view class="page-login-form-icon">
+      <icon type="UserOutline" style="font-size: 100rpx; color: rgba(0, 0, 0, 0.65);" />
+    </view>
+    <view class="page-login-form-content">
       <view class="page-login-form-row">
         <input class="page-login-form-input" data-prop='phone' placeholder="请输入手机号" onInput="onFormChange" />
-        <button class="page-login-form-code" onTap="getCode" loading="{{ user.code.ing }}" disabled="{{ user.code.operate }}" >{{ user.code.operate ? user.code.count : '发送验证码' }}</button>
+        <button class="page-login-form-code" onTap="getCode" loading="{{ code.ing }}" disabled="{{ code.operate }}" >{{ code.operate ? code.count : '发送验证码' }}</button>
       </view>
       <view class="page-login-form-row">
         <input class="page-login-form-input" data-prop='code' placeholder="请输入验证码" onInput="onFormChange" />
       </view>
       <view class="page-login-form-row">
-        <button class="page-login-form-menu" onTap="onLogin">登录</button>
+        <button class="main-page-button" onTap="onLogin">下一步</button>
+      </view>
+      <view class="page-login-form-row">
+        <text>如手机号未注册，将直接为您创建账号</text>
       </view>
     </view>
   </view>
