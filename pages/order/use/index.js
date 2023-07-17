@@ -103,7 +103,7 @@ Page({
     } else if (!this.data.data.time) {
       showMsg('请选择上门时间')
     } else {
-      orderInfo.useOrder(this.data.data)
+      orderInfo.$triggerMethod('useOrder', [this.data.data], true)
     }
   }
 })
