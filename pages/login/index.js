@@ -15,6 +15,26 @@ Page(createLifePage({
       count: 60
     }
   },
+  startCount() {
+    this.data.code.count = 60
+    this.setData({
+      code: this.data.code
+    })
+    this.runCount()
+  },
+  runCount() {
+    setTimeout(() => {
+      this.data.code.count = this.data.code.count - 1
+      if (this.data.code.count === 0) {
+        this.data.code.operate = false
+      } else {
+        this.runCount()
+      }
+      this.setData({
+        code: this.data.code
+      })
+    }, 1000)
+  },
   getCode() {
     if (!this.checkForm(true)) {
       this.data.code.ing = true
@@ -22,11 +42,10 @@ Page(createLifePage({
         code: this.data.code
       })
       requireS.post({
-        url: '/washService/loginAction.php',
+        url: '/tb_api/api/Login.php',
         token: false,
         data: {
-          scene: "H5",
-          status: "getCode",
+          status: "tradeCode",
           mobile: this.data.form.phone
         }
       }).then(() => {

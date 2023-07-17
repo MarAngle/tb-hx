@@ -6,7 +6,7 @@
     <view class="page-login-form-content">
       <view class="page-login-form-row">
         <input class="page-login-form-input" data-prop='phone' placeholder="请输入手机号" onInput="onFormChange" />
-        <button class="page-login-form-code" onTap="getCode" loading="{{ code.ing }}" disabled="{{ code.operate }}" >{{ code.operate ? code.count : '发送验证码' }}</button>
+        <button class="{{ code.operate ? 'page-login-form-code page-login-form-code-disabled' : 'page-login-form-code' }}" onTap="getCode" loading="{{ code.ing }}" disabled="{{ code.operate }}" >{{ code.operate ? code.count : '发送验证码' }}</button>
       </view>
       <view class="page-login-form-row">
         <input class="page-login-form-input" data-prop='code' placeholder="请输入验证码" onInput="onFormChange" />

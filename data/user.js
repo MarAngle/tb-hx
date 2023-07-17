@@ -118,12 +118,10 @@ class UserData extends InfoData{
       this.status.load = 'ing'
       this.$syncPage()
       require.post({
-        url: '/washService/loginAction.php',
+        url: '/tb_api/api/Login.php',
         token: false,
         data: {
-          scene: "H5",
-          status: "checkLogin",
-          city_Index: "1",
+          status: "tradeLogin",
           mobile: form.phone,
           code: form.code
         }
@@ -139,9 +137,6 @@ class UserData extends InfoData{
         this.$syncPage()
         reject(err)
       })
-    }).catch(err => {
-      console.error(err)
-      reject(err)
     })
   }
   $getData(auto) {
