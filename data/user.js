@@ -1,161 +1,37 @@
-import BaseData from "../class/BaseData";
-import { getLocal, rule, setLocal, showAlert, showMsg } from "../utils";
-import require from "../utils/require";
+import InfoData from "../class/InfoData"
+import require from "../utils/require"
+import { showMsg } from "../utils";
 
-class UserData extends BaseData{
+class UserData extends InfoData{
   constructor(initOption) {
     super(initOption)
-    this.status.login = false
-    this.status.type = 'auth'
-    this.info = {
-      phone: undefined,
-      name: undefined,
-      avatar: undefined
-    }
-    this.form = {
-      phone: '',
-      code: ''
-    }
-    this.code = {
-      ing: false,
-      operate: false,
-      count: 60
-    }
   }
-  setInfoPhone(phone) {
-    this.info.phone = phone
-    setLocal('userInfo', this.info)
-  }
-  setInfoData(name, avatar) {
-    this.info.name = name
-    this.info.avatar = avatar
-    setLocal('userInfo', this.info)
-  }
-  changeForm(prop, value) {
-    this.form[prop] = value
-  }
-  checkForm(unCode) {
-    if (rule.mobile.test(this.form.phone)) {
-      if (unCode || this.form.code.length >= 4) {
-        return false
-      } else {
-        showMsg('请输入验证码！', 'fail')
-        return true
-      }
-    } else {
-      showMsg('请正确输入手机号！', 'fail')
-      return true
-    }
-  }
-  getCode() {
-    if (!this.checkForm(true)) {
-      this.code.ing = true
-      this.$syncPage()
-      require.post({
-        url: '/washService/loginAction.php',
-        token: false,
-        data: {
-          scene: "H5",
-          status: "getCode",
-          mobile: this.form.phone
-        }
-      }).then(() => {
-        this.code.ing = false
-        this.code.operate = true
-        this.startCount()
-        this.$syncPage()
-      }).catch(err => {
-        console.error(err)
-        this.code.ing = false
-        this.$syncPage()
-      })
-    }
-  }
-  loginByPhone() {
-    if (!this.checkForm()) {
-      require.post({
-        url: '/washService/loginAction.php',
-        token: false,
-        data: {
-          scene: "H5",
-          status: "checkLogin",
-          city_Index: "1",
-          mobile: this.form.phone,
-          code: this.form.code
-        }
-      }).then((res) => {
-        require.setToken(res.data.token)
-        require.setRefreshToken(res.data.refreshToken)
-        this.status.login = true
-        this.$syncPage()
-      }).catch(err => {
-        console.error(err)
-        this.$syncPage()
-      })
-    }
-  }
-  startCount() {
-    this.code.count = 60
-    this.runCount()
-  }
-  runCount() {
-    setTimeout(() => {
-      this.code.count = this.code.count - 1
-      if (this.code.count === 0) {
-        this.code.operate = false
-      } else {
-        this.runCount()
-      }
-      this.$syncPage(true)
-    }, 1000)
-  }
-  auth(force) {
+  $auth() {
     return new Promise((resolve, reject) => {
-      if (force || !this.status.login) {
-        my.authorize({
-          scopes: ['scope.userInfo', 'scope.addressList', 'scope.getPhoneNumber'],
-          success: () => {
-            this.getAuthInfo().then((info) => {
-              this.loginByAuth(info).then(res => {
-                this.status.login = true
-                this.$syncPage()
-                resolve(res)
-              }).catch(err => {
-                this.status.login = false
-                this.$syncPage()
-                console.error(err)
-                reject(err)
-              })
-            }).catch(err => {
-              this.status.login = false
-              this.$syncPage()
-              console.error(err)
-              reject(err)
-            })
-          },
-          fail:(err)=>{
-            console.error(err)
-            this.status.login = false
-            this.$syncPage()
-            // if (err && err.errorMessage) {
-            //   showMsg(err.errorMessage)
-            // }
-            showMsg('请在小程序授权管理设置里开启相关权限才能进行下一步操作哦~')
+      my.authorize({
+        scopes: ['scope.userInfo', 'scope.addressList', 'scope.getPhoneNumber'],
+        success: () => {
+          this.$authNext().then(() => {
+            resolve()
+          }).catch(err => {
             reject(err)
-          }
-        })
-      } else {
-        resolve({ status: 'success', code: 'logined' })
-      }
+          })
+        },
+        fail:(err)=>{
+          console.error(err)
+          showMsg('请在小程序授权管理设置里开启相关权限才能进行下一步操作哦~')
+          reject(err)
+        }
+      })
     })
   }
-  getPhoneNumber() {
+  $authPhone() {
     return new Promise((resolve, reject) => {
       require.top({
         api: 'taobao.miniapp.user.phone.get',
         scope: 'scope.getPhoneNumber'
       }).then((res) => {
-        this.setInfoPhone(res.phone)
+        this.info.phone = res.phone
         resolve(res)
       }).catch(err => {
         console.error(err)
@@ -163,44 +39,44 @@ class UserData extends BaseData{
       })
     })
   }
-  getAuthInfo() {
+  $authInfo() {
     return new Promise((resolve, reject) => {
-      this.getPhoneNumber().then(() => {
-        my.getAuthUserInfo({
-          success:(infoRes)=>{
-            this.$syncPage()
-            this.setInfoData(infoRes.nickName, infoRes.avatar)
-            resolve({
-              mobile: this.info.phone,
-              nickname: this.info.name,
-              avatar: this.info.avatar
-            })
-          },
-          fail:(err)=>{
-            console.log(err)
-            this.setInfoData()
-            resolve({
-              mobile: this.info.phone,
-              nickname: '',
-              avatar: ''
-            })
-          }
+      my.getAuthUserInfo({
+        success:(res)=>{
+          this.info.name = res.nickName
+          this.info.avatar = res.avatar
+          resolve()
+        },
+        fail:(err)=>{
+          console.log(err)
+          resolve(err)
+        }
+      })
+    })
+  }
+  $authNext() {
+    return new Promise((resolve, reject) => {
+      Promise.allSettled([this.$authPhone(), this.$authInfo]).then(() => {
+        this.$login().then(res => {
+          resolve(res)
+        }).catch(err => {
+          reject(err)
         })
       }).catch(err => {
-        console.error(err)
         reject(err)
       })
     })
   }
-  
-  loginByAuth(info) {
+  $login() {
     return new Promise((resolve, reject) => {
       require.post({
         url: '/tb_api/api/Login.php',
         token: false,
         data: {
           status: "tradeLogin",
-          ...info
+          mobile: this.info.phone,
+          nickname: this.info.name,
+          avatar: this.info.avatar
         }
       }).then((res) => {
         require.setToken(res.data.token)
@@ -212,24 +88,14 @@ class UserData extends BaseData{
       })
     })
   }
-  getDataByLocal() {
-    if (require.getToken()) {
-      this.status.login = true
-      this.info = getLocal('userInfo')
-    }
+  $getData() {
+    return this.$auth()
   }
 }
 
 const user = new UserData({
-  prop: 'user',
-  getData() {
-    return new Promise((resolve, reject) => {
-      this.$syncPage()
-      resolve()
-    })
-  }
+  name: '用户',
+  prop: 'user'
 })
-
-// user.getDataByLocal()
 
 export default user

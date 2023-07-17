@@ -22,7 +22,7 @@ class ProductInfo extends BaseData{
   }
   getInfo() {
     return new Promise((resolve, reject) => {
-      user.auth().then(() => {
+      user.$loadData().then(() => {
         require.post({
           url: '/tb_api/api/TradeItem.php',
           data: {
@@ -45,7 +45,7 @@ class ProductInfo extends BaseData{
   }
   createOrder() {
     return new Promise((resolve, reject) => {
-      user.auth().then(() => {
+      user.$loadData().then(() => {
         this.createOrderNext().then((res) => {
           resolve(res)
         }).catch(err => {

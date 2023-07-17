@@ -10,7 +10,7 @@ Page({
   onShow() {},
   onLogin() {
     if (!user.status.login) {
-      user.auth()
+      user.$loadData()
     }
   },
   changePage({target}) {

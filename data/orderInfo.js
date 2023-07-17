@@ -15,7 +15,7 @@ class OrderInfo extends BaseData{
   }
   getInfo() {
     return new Promise((resolve, reject) => {
-      user.auth().then(() => {
+      user.$loadData().then(() => {
         require.post({
           url: '/tb_api/api/Order.php',
           data: {
@@ -186,7 +186,7 @@ class OrderInfo extends BaseData{
   }
   payBack(reson) {
     return new Promise((resolve, reject) => {
-      user.auth().then(() => {
+      user.$loadData().then(() => {
         require.post({
           url: '/tb_api/api/Order.php',
           data: {

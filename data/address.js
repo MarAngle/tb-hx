@@ -12,7 +12,7 @@ class AddressData extends BaseData{
   }
   loadLocation() {
     return new Promise((resolve, reject) => {
-      user.auth().then(() => {
+      user.$loadData().then(() => {
         if (this.location.length == 0) {
           require.post({
             url: '/tb_api/api/Address.php',
@@ -226,7 +226,7 @@ const address = new AddressData({
   prop: 'address',
   getData() {
     return new Promise((resolve, reject) => {
-      user.auth().then(() => {
+      user.$loadData().then(() => {
         require.post({
           url: '/tb_api/api/Address.php',
           token: true,

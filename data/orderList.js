@@ -177,7 +177,7 @@ class OrderList extends BaseData {
     return new Promise((resolve, reject) => {
       // 考虑分页
       this.list = []
-      user.auth().then(() => {
+      user.$loadData().then(() => {
         require.post({
           url: '/tb_api/api/Order.php',
           data: {
@@ -200,7 +200,7 @@ class OrderList extends BaseData {
   }
   // getInfo(payId) {
   //   return new Promise((resolve, reject) => {
-  //     user.auth().then(() => {
+  //     user.$loadData().then(() => {
   //       require.post({
   //         url: '/tb_api/api/Order.php',
   //         data: {
