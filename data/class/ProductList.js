@@ -48,7 +48,6 @@ class ProductList extends BaseData{
       skuId: originData.sku_id, // 外部商品ID
       aliId: originData.model_id, // 阿里商品ID
       name: originData.commodity_name,
-      label: '特惠',
       market: originData.commodity_marketing,
       commodity_resourceniche_id: originData.commodity_resourceniche_id, // 资源位ID
       icon: originData.main_pic[0],
@@ -68,6 +67,8 @@ class ProductList extends BaseData{
       require[this.service.method]({
         url: this.service.url,
         [this.service.data]: {
+          pageNumber: 1,
+          pageSize: 100,
           ...this.$params,
           ...search
         },
