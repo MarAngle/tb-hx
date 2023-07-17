@@ -6,20 +6,35 @@ class UserData extends InfoData{
   constructor(initOption) {
     super(initOption)
   }
-  $auth() {
+  // $auth(scopes) {
+  //   return new Promise((resolve, reject) => {
+  //     my.authorize({
+  //       scopes: ['scope.userInfo', 'scope.addressList', 'scope.getPhoneNumber'],
+  //       success: () => {
+  //         this.$authNext().then(() => {
+  //           resolve()
+  //         }).catch(err => {
+  //           reject(err)
+  //         })
+  //       },
+  //       fail:(err)=>{
+  //         console.error(err)
+  //         showMsg('请在小程序授权管理设置里开启相关权限才能进行下一步操作哦~')
+  //         reject(err)
+  //       }
+  //     })
+  //   })
+  // }
+  $auth(scopes) {
     return new Promise((resolve, reject) => {
       my.authorize({
-        scopes: ['scope.userInfo', 'scope.addressList', 'scope.getPhoneNumber'],
+        scopes: scopes,
         success: () => {
-          this.$authNext().then(() => {
-            resolve()
-          }).catch(err => {
-            reject(err)
-          })
+          resolve()
         },
         fail:(err)=>{
           console.error(err)
-          showMsg('请在小程序授权管理设置里开启相关权限才能进行下一步操作哦~')
+          // showMsg('请在小程序授权管理设置里开启相关权限才能进行下一步操作哦~')
           reject(err)
         }
       })
@@ -27,12 +42,17 @@ class UserData extends InfoData{
   }
   $authPhone() {
     return new Promise((resolve, reject) => {
-      require.top({
-        api: 'taobao.miniapp.user.phone.get',
-        scope: 'scope.getPhoneNumber'
-      }).then((res) => {
-        this.info.phone = res.phone
-        resolve(res)
+      this.$auth(['scope.getPhoneNumber']).then(() => {
+        require.top({
+          api: 'taobao.miniapp.user.phone.get',
+          scope: 'scope.getPhoneNumber'
+        }).then((res) => {
+          this.info.phone = res.phone
+          resolve(res)
+        }).catch(err => {
+          console.error(err)
+          reject(err)
+        })
       }).catch(err => {
         console.error(err)
         reject(err)
@@ -41,16 +61,21 @@ class UserData extends InfoData{
   }
   $authInfo() {
     return new Promise((resolve, reject) => {
-      my.getAuthUserInfo({
-        success:(res)=>{
-          this.info.name = res.nickName
-          this.info.avatar = res.avatar
-          resolve()
-        },
-        fail:(err)=>{
-          console.log(err)
-          resolve(err)
-        }
+      this.$auth(['scope.getPhoneNumber']).then(() => {
+        my.getAuthUserInfo({
+          success:(res)=>{
+            this.info.name = res.nickName
+            this.info.avatar = res.avatar
+            resolve()
+          },
+          fail:(err)=>{
+            console.log(err)
+            resolve(err)
+          }
+        })
+      }).catch(err => {
+        console.error(err)
+        reject(err)
       })
     })
   }
@@ -88,8 +113,20 @@ class UserData extends InfoData{
       })
     })
   }
-  $getData() {
-    return this.$auth()
+  $getData(auto) {
+    return new Promise((resolve, reject) => {
+      this.$authPhone().then(() => {
+        resolve()
+      }).catch(err => {
+        console.error(err)
+        if (auto !== false) {
+          my.navigateTo({
+            url: `/pages/login/index`
+          })
+        }
+        reject(err)
+      })
+    })
   }
 }
 

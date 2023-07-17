@@ -1,8 +1,5 @@
 <view class='page-login'>
-  <view class="page-login-form" a:if="{{user.auth == 'auto'}}" >
-
-  </view>
-  <view class="page-login-form" a:if="{{user.auth == 'phone'}}" >
+  <view class="page-login-form">
     <view class="page-login-form-item">
       <view class="page-login-form-row">
         <input class="page-login-form-input" data-prop='phone' placeholder="请输入手机号" onInput="onFormChange" />
