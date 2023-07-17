@@ -12,53 +12,48 @@ class AddressData extends BaseData{
   }
   loadLocation() {
     return new Promise((resolve, reject) => {
-      user.$loadData().then(() => {
-        if (this.location.length == 0) {
-          require.post({
-            url: '/tb_api/api/Address.php',
-            token: true,
-            data: {
-              status: "getArea"
+      if (this.location.length == 0) {
+        require.post({
+          url: '/tb_api/api/Address.php',
+          token: true,
+          data: {
+            status: "getArea"
+          }
+        }).then((res) => {
+          this.location = []
+          this.cityMap = {}
+          let originList = res.data || []
+          for (let i = 0; i < originList.length; i++) {
+            const oitem = originList[i]
+            const item = {
+              value: oitem.province_name,
+              label: oitem.province_name,
+              id: oitem.province_id,
+              load: true,
+              children: oitem.city.map(citem => {
+                let ccitem = {
+                  value: citem.city_name,
+                  label: citem.city_name,
+                  load: false,
+                  id: citem.city_id,
+                  $children: []
+                }
+                this.cityMap[oitem.province_name + ccitem.value] = ccitem
+                return ccitem
+              })
             }
-          }).then((res) => {
-            this.location = []
-            this.cityMap = {}
-            let originList = res.data || []
-            for (let i = 0; i < originList.length; i++) {
-              const oitem = originList[i]
-              const item = {
-                value: oitem.province_name,
-                label: oitem.province_name,
-                id: oitem.province_id,
-                load: true,
-                children: oitem.city.map(citem => {
-                  let ccitem = {
-                    value: citem.city_name,
-                    label: citem.city_name,
-                    load: false,
-                    id: citem.city_id,
-                    $children: []
-                  }
-                  this.cityMap[oitem.province_name + ccitem.value] = ccitem
-                  return ccitem
-                })
-              }
-              this.location.push(item)
-            }
-            this.$syncPage()
-            resolve(res)
-          }).catch(err => {
-            console.error(err)
-            reject(err)
-          })
-  
-        } else {
-          resolve({ status: 'success', code: 'loaded' })
-        }
-      }).catch(err => {
-        console.error(err)
-        reject(err)
-      })
+            this.location.push(item)
+          }
+          this.$syncPage()
+          resolve(res)
+        }).catch(err => {
+          console.error(err)
+          reject(err)
+        })
+
+      } else {
+        resolve({ status: 'success', code: 'loaded' })
+      }
     })
   }
   getCounty(valueList) {

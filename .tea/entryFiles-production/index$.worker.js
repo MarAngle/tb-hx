@@ -30,7 +30,6 @@ if(AFAppX.registerApp) {
 function success() {
 require('../../app');
 require('../../components/ProductCard/index?hash=05d2a9730dd6009bf9446182f9c985f40f8c0f43');
-require('../../components/ProductList/index?hash=aeca18ec55e4c36a45554211c7af7fa8db0b298d');
 require('../../node_modules/antd-mini/es/Icon/index?hash=05d2a9730dd6009bf9446182f9c985f40f8c0f43');
 require('../../components/OrderCard/index?hash=05d2a9730dd6009bf9446182f9c985f40f8c0f43');
 require('../../components/OrderList/index?hash=95dc1a030cf80ae3c7e0cf28e5258515304a09db');
@@ -47,14 +46,14 @@ require('../../node_modules/antd-mini/es/DatePicker/index?hash=ce5e8ad2c21f10561
 require('../../node_modules/antd-mini/es/Input/Textarea/index?hash=749bba9d48276e5b3ca959928cddef5b7b4ff081');
 require('../../node_modules/antd-mini/es/Rate/index?hash=749bba9d48276e5b3ca959928cddef5b7b4ff081');
 require('../../node_modules/antd-mini/es/Steps/index?hash=05d2a9730dd6009bf9446182f9c985f40f8c0f43');
-require('../../pages/home/index?hash=ba28b9f05083c7e5ff40c64239269b0057bf9a31');
+require('../../pages/home/index?hash=c125e432b75928b6fb33e4cccd11eb3890b5a4df');
+require('../../pages/login/index?hash=8385356bd8b4ca9fa87738563e035351b35a7175');
 require('../../pages/address/index?hash=8385356bd8b4ca9fa87738563e035351b35a7175');
 require('../../pages/order/index?hash=8c997138e47743dfd962708fcb1d6094f360f759');
 require('../../pages/mine/mine?hash=8385356bd8b4ca9fa87738563e035351b35a7175');
-require('../../pages/pay/success?hash=ba28b9f05083c7e5ff40c64239269b0057bf9a31');
+require('../../pages/pay/success?hash=32d7d2807ed4e666ef03b4b3fe8c38ecf2e34e68');
 require('../../pages/address/edit?hash=c39c3ff51248f88f25a75da13ac17d470086842e');
-require('../../pages/login/index?hash=32d7d2807ed4e666ef03b4b3fe8c38ecf2e34e68');
-require('../../pages/product/index?hash=ba28b9f05083c7e5ff40c64239269b0057bf9a31');
+require('../../pages/product/index?hash=c125e432b75928b6fb33e4cccd11eb3890b5a4df');
 require('../../pages/product/detail/index?hash=8385356bd8b4ca9fa87738563e035351b35a7175');
 require('../../pages/mine/collect/collect?hash=8385356bd8b4ca9fa87738563e035351b35a7175');
 require('../../pages/mine/info/info?hash=32d7d2807ed4e666ef03b4b3fe8c38ecf2e34e68');
@@ -64,6 +63,7 @@ require('../../pages/mine/set/feedback/feedback?hash=32d7d2807ed4e666ef03b4b3fe8
 require('../../pages/mine/set/about/about?hash=32d7d2807ed4e666ef03b4b3fe8c38ecf2e34e68');
 require('../../pages/mine/set/about/policy/policy?hash=32d7d2807ed4e666ef03b4b3fe8c38ecf2e34e68');
 require('../../pages/mine/set/about/agreement/agreement?hash=32d7d2807ed4e666ef03b4b3fe8c38ecf2e34e68');
+require('../../pages/mine/set/cred/index?hash=32d7d2807ed4e666ef03b4b3fe8c38ecf2e34e68');
 require('../../pages/mine/set/account/account?hash=8385356bd8b4ca9fa87738563e035351b35a7175');
 require('../../pages/mine/help/help?hash=8385356bd8b4ca9fa87738563e035351b35a7175');
 require('../../pages/mine/help/artificial/artificial?hash=32d7d2807ed4e666ef03b4b3fe8c38ecf2e34e68');

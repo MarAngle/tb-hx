@@ -22,22 +22,18 @@ class ProductInfo extends BaseData{
   }
   getInfo() {
     return new Promise((resolve, reject) => {
-      user.$loadData().then(() => {
-        require.post({
-          url: '/tb_api/api/TradeItem.php',
-          data: {
-            status: "tradeItemInfo",
-            sku_id: this.id
-          },
-          timeout: 0,
-          token: true
-        }).then(res => {
-          this.data = productList.parseData(res.data)
-          this.$syncPage()
-          resolve(res)
-        }).catch(err => {
-          reject(err)
-        })
+      require.post({
+        url: '/tb_api/api/TradeItem.php',
+        data: {
+          status: "tradeItemInfo",
+          sku_id: this.id
+        },
+        timeout: 0,
+        token: true
+      }).then(res => {
+        this.data = productList.parseData(res.data)
+        this.$syncPage()
+        resolve(res)
       }).catch(err => {
         reject(err)
       })

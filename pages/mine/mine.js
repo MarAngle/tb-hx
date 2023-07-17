@@ -9,7 +9,7 @@ Page({
   },
   onShow() {},
   onLogin() {
-    if (!user.status.login) {
+    if (user.status.load == 'un') {
       user.$loadData()
     }
   },
