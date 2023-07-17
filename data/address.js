@@ -96,33 +96,22 @@ class AddressData extends BaseData{
   }
   choiceData() {
     return new Promise((resolve, reject) => {
-      my.authorize({
-        scopes: ['scope.addressList'],
-        success: () => {
-          my.tb.chooseAddress({}, (res) => {
-            const addressInfo = {
-              name: res.name,
-              mobile: res.telNumber,
-              province_name: res.provinceName	,
-              city_name: res.cityName,
-              county_name: res.countyName,
-              address: res.streetName + res.detailInfo
-            }
-            resolve(addressInfo)
-            // this.autoBuildData(addressInfo).then(res => {
-            //   resolve(res)
-            // }).catch(err => {
-            //   console.error(err)
-            //   reject(err)
-            // })
-          }, (err) => {
-            reject(err)
-          })
-        },
-        fail:(err)=>{
-          console.log(err)
+      user.$auth(['scope.addressList']).then(() => {
+        my.tb.chooseAddress({}, (res) => {
+          const addressInfo = {
+            name: res.name,
+            mobile: res.telNumber,
+            province_name: res.provinceName	,
+            city_name: res.cityName,
+            county_name: res.countyName,
+            address: res.streetName + res.detailInfo
+          }
+          resolve(addressInfo)
+        }, (err) => {
           reject(err)
-        }
+        })
+      }).catch(err => {
+        reject(err)
       })
     })
   }
