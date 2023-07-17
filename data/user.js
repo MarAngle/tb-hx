@@ -1,6 +1,6 @@
 import InfoData from "../class/InfoData"
 import require from "../utils/require"
-import { showMsg } from "../utils";
+import { showMsg, getLocal, rule, setLocal } from "../utils";
 
 class UserData extends InfoData{
   constructor(initOption) {
@@ -126,6 +126,8 @@ class UserData extends InfoData{
           code: form.code
         }
       }).then((res) => {
+        this.info.phone = res.phone
+        setLocal('userInfo', this.info)
         require.setToken(res.data.token)
         require.setRefreshToken(res.data.refreshToken)
         this.status.load = 'success'
@@ -158,11 +160,21 @@ class UserData extends InfoData{
       })
     })
   }
+  $getDataByLoal() {
+    const userInfo = getLocal('userInfo')
+    if (userInfo && userInfo.phone && require.getToken()) {
+      this.status.load = 'success'
+      this.info = userInfo
+      this.$syncPage()
+    }
+  }
 }
 
 const user = new UserData({
   name: '用户',
   prop: 'user'
 })
+
+user.$getDataByLoal()
 
 export default user

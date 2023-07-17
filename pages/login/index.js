@@ -79,7 +79,9 @@ Page(createLifePage({
   },
   onLogin() {
     if (!this.checkForm()) {
-      user.$triggerMethod('$loginByPhone', [this.data.form], true)
+      user.$triggerMethod('$loginByPhone', [this.data.form], true).then(() => {
+        my.navigateBack(1)
+      })
     }
   },
   onFormChange(e) {
