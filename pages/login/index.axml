@@ -15,7 +15,7 @@
         <button class="main-page-button" onTap="onLogin">下一步</button>
       </view>
       <view class="page-login-form-row">
-        <text>如手机号未注册，将直接为您创建账号</text>
+        <text style="font-size: 24rpx;">如手机号未注册，将直接为您创建账号</text>
       </view>
     </view>
   </view>

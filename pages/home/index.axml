@@ -23,7 +23,7 @@
       circular="{{true}}"
     >
       <swiper-item a:for="{{banner.list}}" key="page-home-banner-swiper-item-{{index}}">
-        <image class="page-home-banner-swiper-item" src="/image/test/banner.jpg"></image>
+        <image class="page-home-banner-swiper-item" src="/image/test/banner.jpg" data-page="/pages/product/detail/index?id=300000000009" onTap="$toPage"></image>
       </swiper-item>
     </swiper>
   </view>

@@ -26,7 +26,6 @@ class OrderInfo extends BaseData{
           token: true
         }).then(res => {
           this.data = this.$formatItem(res.data)
-          console.log(this.id, this.data, res.data)
           this.$syncPage()
           if (this.data.wash.id) {
             this.getWashData().finally(() => {

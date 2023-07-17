@@ -9,7 +9,7 @@
   justify-content: flex-start;
   align-items: center;
   padding: 24rpx 24rpx;
-  box-shadow: 0 0 10rpx #ccc;
+  box-shadow: 0 0 8rpx #ccc;
   position: relative;
   overflow: hidden;
 }

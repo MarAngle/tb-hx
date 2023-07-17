@@ -8,9 +8,10 @@
 .state {
   background-color: #ffffff;
   padding: 16rpx 24rpx;
-  border-radius: 20rpx;
+  border-radius: 16rpx;
   margin-bottom: 24rpx;
   color: #494949;
+  box-shadow: 0 0 8rpx #ccc;
 }
 
 .state .order-no {
@@ -69,7 +70,7 @@
   font-size: 24rpx;
   background-color: #f5f5f5;
   padding: 16rpx 24rpx;
-  border-radius: 40rpx;
+  border-radius: 16rpx;
   margin-bottom: 24rpx;
 }
 
@@ -77,7 +78,7 @@
   color: #F39B11;
   border: 1rpx solid #F39B11;
   padding: 8rpx 16rpx;
-  border-radius: 20rpx;
+  border-radius: 16rpx;
   font-size: 22rpx;
 }
 
@@ -102,7 +103,7 @@
   border: 1px #F39B11 solid;
   padding: 0 24rpx;
   line-height: 50rpx;
-  border-radius: 12rpx;
+  border-radius: 16rpx;
   color: #F39B11;
 }
 
@@ -110,9 +111,10 @@
   margin-top: 24rpx;
   background-color: #ffffff;
   padding: 16rpx 24rpx;
-  border-radius: 12rpx;
+  border-radius: 16rpx;
   margin-bottom: 24rpx;
   color: #494949;
+  box-shadow: 0 0 8rpx #ccc;
 }
 
 .address .title {
@@ -162,15 +164,13 @@
 }
 
 
-
-
-
 .order-info {
   padding: 16rpx 24rpx;
   background-color: #ffffff;
-  border-radius: 12rpx;
+  border-radius: 16rpx;
   color: #494949;
   margin-bottom: 24rpx;
+  box-shadow: 0 0 8rpx #ccc;
 }
 
 .order-info .item {
@@ -201,7 +201,7 @@
 
 .artificial {
   background-color: #ffffff;
-  border-radius: 12rpx;
+  border-radius: 16rpx;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -226,7 +226,7 @@
 }
 
 .btm-button view {
-  border-radius: 12rpx;
+  border-radius: 16rpx;
   border: 1rpx solid #F39B11;
   padding: 16rpx 0;
   text-align: center;
@@ -260,7 +260,7 @@
 
 /* .product-item {
   background-color: #d9ecf2;
-  border-radius: 20rpx;
+  border-radius: 16rpx;
   margin-bottom: 20rpx;
   display: flex;
   justify-content: space-between;
@@ -271,7 +271,7 @@
 
 .product-item .img {
   width: 30%;
-  border-radius: 20rpx;
+  border-radius: 16rpx;
   overflow: hidden;
 }
 
@@ -347,7 +347,7 @@
 }
 
 .popup-button view {
-  border-radius: 12rpx;
+  border-radius: 16rpx;
   font-size: 26rpx;
   width: 200rpx;
   text-align: center;

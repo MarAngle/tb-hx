@@ -2,13 +2,13 @@
   margin: 0 auto;
   width: 714rpx;
   background-color: #fff;
-  border-radius: 8rpx;
+  border-radius: 16rpx;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
   padding: 24rpx 24rpx;
-  box-shadow: 0 0 10rpx #ccc;
+  box-shadow: 0 0 8rpx #ccc;
   margin-bottom: 24rpx;
 }
 
@@ -16,7 +16,7 @@
   flex: none;
   width: 160rpx;
   height: 160rpx;
-  border-radius: 12rpx;
+  border-radius: 16rpx;
   margin-right: 24rpx;
   overflow: hidden;
 }

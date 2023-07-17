@@ -111,6 +111,9 @@ class AddressData extends BaseData{
           reject(err)
         })
       }).catch(err => {
+        if (err) {
+
+        }
         reject(err)
       })
     })
