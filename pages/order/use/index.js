@@ -88,14 +88,13 @@ Page({
       data: this.data.data
     })
   },
-  onRemarkChange(value) {
-    this.data.data.remark = value
+  onRemarkChange({ detail }) {
+    this.data.data.remark = detail.value
     this.setData({
       data: this.data.data
     })
   },
   onUse() {
-    console.log(orderInfo.data)
     if (!this.data.data.send) {
       showMsg('请选择取衣地址')
     } else if (!this.data.data.back) {

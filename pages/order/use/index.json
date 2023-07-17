@@ -3,7 +3,6 @@
   "usingComponents": {
     "order-card":"/components/OrderCard/index",
     "date-picker": "antd-mini/es/DatePicker/index",
-    "picker": "antd-mini/es/Picker/index",
-    "textarea": "antd-mini/es/Input/Textarea/index"
+    "picker": "antd-mini/es/Picker/index"
   }
 }
