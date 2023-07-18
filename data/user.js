@@ -66,13 +66,33 @@ class UserData extends InfoData{
           success:(res)=>{
             this.info.name = res.nickName
             this.info.avatar = res.avatar
-            resolve()
+            setLocal('userInfo', this.info)
+            this.$syncInfo().finally(() => {
+              resolve()
+            })
           },
           fail:(err)=>{
             console.log(err)
             resolve(err)
           }
         })
+      }).catch(err => {
+        console.error(err)
+        reject(err)
+      })
+    })
+  }
+  $syncInfo() {
+    return new Promise((resolve, reject) => {
+      require.post({
+        url: '/tb_api/api/User.php',
+        data: {
+          status: "updateUserInfo",
+          nickname: this.info.name,
+          avatar: this.info.avatar
+        }
+      }).then((res) => {
+        resolve(res)
       }).catch(err => {
         console.error(err)
         reject(err)
@@ -99,11 +119,13 @@ class UserData extends InfoData{
         token: false,
         data: {
           status: "tradeLogin",
-          mobile: this.info.phone,
-          nickname: this.info.name,
-          avatar: this.info.avatar
+          mobile: this.info.phone
         }
       }).then((res) => {
+        this.info.name = res.data.nickname
+        this.info.avatar = res.data.avatar
+        // 自动鉴权不保存数据，避免数据更新问题
+        // setLocal('userInfo', this.info)
         require.setToken(res.data.token)
         require.setRefreshToken(res.data.refreshToken)
         resolve(res)
@@ -126,7 +148,9 @@ class UserData extends InfoData{
           code: form.code
         }
       }).then((res) => {
-        this.info.phone = res.phone
+        this.info.name = res.data.nickname
+        this.info.avatar = res.data.avatar
+        this.info.phone = form.phone
         setLocal('userInfo', this.info)
         require.setToken(res.data.token)
         require.setRefreshToken(res.data.refreshToken)
