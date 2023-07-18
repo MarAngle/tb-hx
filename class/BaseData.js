@@ -101,6 +101,7 @@ class BaseData extends DefaultData {
       this.$resetStatus()
     }
     this.$triggerLife('reseted', resetOption)
+    this.$syncPage()
   }
 }
 

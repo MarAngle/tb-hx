@@ -1,12 +1,21 @@
-Page({
+import user from "../../../data/user";
+import { createLifePage } from "../../../utils/page";
+
+Page(createLifePage({
   data: {},
-  onLoad(query) {
-    console.log('page onLoad', query)
+  logout() {
+    user.$reset()
+    my.navigateTo({
+      url: '/pages/login/index'
+    })
   },
-  onShow() {},
   changePage({target}) {
     my.navigateTo({
       url: target.dataset.pageUrl
     });
   }
-})
+}, {
+  load() {
+    user.$bindPage(this)
+  }
+}))
