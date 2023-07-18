@@ -24,7 +24,7 @@ Page({
     if (user.status.load !== 'success') {
       user.$loadData()
     } else if (!user.info.name) {
-      user.$triggerMethod('authInfo', [], true)
+      user.$triggerMethod('$authInfo', [], true)
     }
   },
   changePage({target}) {

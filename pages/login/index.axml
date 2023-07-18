@@ -12,10 +12,13 @@
         <input class="page-login-form-input" data-prop='code' placeholder="请输入验证码" onInput="onFormChange" />
       </view>
       <view class="page-login-form-row">
-        <button class="main-page-button" onTap="onLogin">下一步</button>
+        <button class="local-page-main-button" onTap="onLogin">下一步</button>
       </view>
       <view class="page-login-form-row">
         <text style="font-size: 24rpx;">如手机号未注册，将直接为您创建账号</text>
+      </view>
+      <view class="page-login-form-row">
+        <view class="page-login-form-refuse-button" data-page="/pages/home/index" onTap='$toPage' >我再看看</view>
       </view>
     </view>
   </view>

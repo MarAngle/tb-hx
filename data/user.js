@@ -34,7 +34,15 @@ class UserData extends InfoData{
         },
         fail:(err)=>{
           console.error(err)
-          // showMsg('请在小程序授权管理设置里开启相关权限才能进行下一步操作哦~')
+          if (err && err.errorMessage) {
+            if (err.errorCode == 'PC_USER_CANCEL') {
+              showMsg('请在小程序授权管理设置里开启相关权限才能进行下一步操作哦~', 'fail')
+            } else {
+              showMsg(err.errorMessage, 'fail')
+            }
+          } else {
+            showMsg('授权信息失败！', 'fail')
+          }
           reject(err)
         }
       })
@@ -61,7 +69,7 @@ class UserData extends InfoData{
   }
   $authInfo() {
     return new Promise((resolve, reject) => {
-      this.$auth(['scope.getPhoneNumber']).then(() => {
+      this.$auth(['scope.userInfo']).then(() => {
         my.getAuthUserInfo({
           success:(res)=>{
             this.info.name = res.nickName
@@ -188,6 +196,7 @@ class UserData extends InfoData{
   $getDataByLoal() {
     const userInfo = getLocal('userInfo')
     if (userInfo && userInfo.phone && require.getToken()) {
+      userInfo.name = ''
       this.status.load = 'success'
       this.info = userInfo
       this.$syncPage()

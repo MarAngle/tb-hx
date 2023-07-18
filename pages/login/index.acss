@@ -39,4 +39,14 @@
   color: rgba(0, 0, 0, 0.25);
   border: 1px rgba(0, 0, 0, 0.25) solid;
 }
-
+.page-login-form-refuse-button{
+  margin-top: 10rpx;
+  display: inline-block;
+  color: rgba(0, 0, 0, 0.65);
+  padding: 0 24rpx;
+  text-align: center;
+  font-size: 24rpx;
+  line-height: 2;
+  border-radius: 12rpx;
+  border: 1rpx rgba(0, 0, 0, 0.65) solid;
+}
