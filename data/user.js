@@ -25,7 +25,7 @@ class UserData extends InfoData{
   //     })
   //   })
   // }
-  $auth(scopes) {
+  $auth(scopes, showFail) {
     return new Promise((resolve, reject) => {
       my.authorize({
         scopes: scopes,
@@ -34,14 +34,16 @@ class UserData extends InfoData{
         },
         fail:(err)=>{
           console.error(err)
-          if (err && err.errorMessage) {
-            if (err.errorCode == 'PC_USER_CANCEL') {
-              showMsg('请在小程序授权管理设置里开启相关权限才能进行下一步操作哦~', 'fail')
+          if (showFail) {
+            if (err && err.errorMessage) {
+              if (err.errorCode == 'PC_USER_CANCEL') {
+                showMsg('请在小程序授权管理设置里开启相关权限才能进行下一步操作哦~', 'fail')
+              } else {
+                showMsg(err.errorMessage, 'fail')
+              }
             } else {
-              showMsg(err.errorMessage, 'fail')
+              showMsg('授权信息失败！', 'fail')
             }
-          } else {
-            showMsg('授权信息失败！', 'fail')
           }
           reject(err)
         }
@@ -196,7 +198,6 @@ class UserData extends InfoData{
   $getDataByLoal() {
     const userInfo = getLocal('userInfo')
     if (userInfo && userInfo.phone && require.getToken()) {
-      userInfo.name = ''
       this.status.load = 'success'
       this.info = userInfo
       this.$syncPage()

@@ -96,7 +96,7 @@ class AddressData extends BaseData{
   }
   choiceData() {
     return new Promise((resolve, reject) => {
-      user.$auth(['scope.addressList']).then(() => {
+      user.$auth(['scope.addressList'], true).then(() => {
         my.tb.chooseAddress({}, (res) => {
           const addressInfo = {
             name: res.name,
@@ -111,9 +111,6 @@ class AddressData extends BaseData{
           reject(err)
         })
       }).catch(err => {
-        if (err) {
-
-        }
         reject(err)
       })
     })

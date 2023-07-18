@@ -129,5 +129,10 @@ Page({
     my.navigateTo({
       url: '/pages/order/use/index'
     });
+  },
+  onWashTap(e) {
+    let index = e.target.dataset.index
+    let washData = orderInfo.data.wash.list[index]
+    console.log(washData)
   }
 })

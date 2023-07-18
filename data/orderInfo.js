@@ -110,6 +110,7 @@ class OrderInfo extends BaseData{
       }).then((res) => {
         this.data.wash.list = (res.data || []).map(item => {
           return {
+            no: item.log_no,
             title: item.process,
             description: item.create_time + ':' + item.process_desc
           }
