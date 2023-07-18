@@ -1,6 +1,6 @@
 import InfoData from "../class/InfoData"
 import require from "../utils/require"
-import { showMsg, getLocal, rule, setLocal } from "../utils";
+import { showMsg, getLocal, rule, setLocal, showAlert } from "../utils";
 
 class UserData extends InfoData{
   constructor(initOption) {
@@ -180,6 +180,7 @@ class UserData extends InfoData{
             url: `/pages/login/index`
           })
         }
+        // showAlert(err, '鉴权失败！')
         reject(err)
       })
     })

@@ -1,3 +1,4 @@
+
 export const toLogin = function(redirect) {
   my.navigateTo({
     url: '/pages/login/index?redirect=' + redirect
@@ -9,6 +10,7 @@ export const ruleData = {
 }
 
 export const setLocal = function(key, value) {
+  // showAlert(value, '保存:' + key)
   my.setStorageSync({
     key: key,
     data: value
@@ -16,9 +18,12 @@ export const setLocal = function(key, value) {
 }
 
 export const getLocal = function(key) {
-  my.getStorageSync({
+  // showAlert(my.getStorageSync({
+  //   key: key
+  // }).data, '获取:' + key)
+  return my.getStorageSync({
     key: key
-  })
+  }).data
 }
 
 export const confirm = function(content, next, option = {}) {
