@@ -1,4 +1,6 @@
-
+.page-address-edit{
+  padding-bottom: 200rpx;
+}
 .btn-wrapper {
   text-align: center;
   padding: 24rpx;
@@ -8,3 +10,32 @@ input{
   text-align: right;
 }
 
+.page-address-edit-menu {
+  position: fixed;
+  bottom: 20rpx;
+  width: 714rpx;
+  left: 18rpx;
+  display: flex;
+  justify-content: center;
+  padding: 0 0;
+}
+
+.page-address-edit-menu view {
+  border-radius: 16rpx;
+  border: 1rpx solid #F39B11;
+  padding: 16rpx 0;
+  text-align: center;
+  font-size: 26rpx;
+  margin: 0 16rpx;
+}
+
+.page-address-edit-menu view:first-of-type {
+  color: #F39B11;
+  width: 40%;
+}
+
+.page-address-edit-menu view:last-of-type {
+  color: #ffffff;
+  background-color: #F39B11;
+  width: 40%;
+}

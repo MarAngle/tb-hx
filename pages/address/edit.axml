@@ -1,60 +1,62 @@
-
-<list header="{{ id? '修改' : '添加地址'}}">
-  <list-item>
-    请输入姓名
-    <input 
-      slot="extra"
-      class='address-edit-input'
-      placeholder-style="text-align: right;"
-      value="{{form.name}}"
-      placeholder="请输入姓名" 
-      onChange="onNameChange"
-    />
-  </list-item>
-  <list-item>
-    请输入手机号
-    <input 
-      slot="extra"
-      class='address-edit-input'
-      placeholder-style="text-align: right;"
-      value="{{form.mobile}}"
-      placeholder="请输入手机号" 
-      onChange="onMobileChange"
-    />
-  </list-item>
-  <list-item>
-    请选择城市
-    <cascader-picker 
-      slot="extra"
-      value="{{form.provinceCity}}"
-      placeholder="请选择城市" 
-      options="{{address.location}}" 
-      onOk="onLocationChange"
-    />
-  </list-item>
-  <list-item>
-    请选择县区
-    <cascader-picker 
-      slot="extra"
-      value="{{form.county}}"
-      placeholder="请选择县区" 
-      options="{{county}}" 
-      onOk="onCountyChange"
-    />
-  </list-item>
-  <list-item>
-    请输入详细地址
-    <input 
-      slot="extra"
-      class='address-edit-input'
-      placeholder-style="text-align: right;"
-      value="{{form.address}}"
-      placeholder="请输入详细地址" 
-      onChange="onAddressChange"
-    />
-  </list-item>
-  <view class="btn-wrapper">
-    <button inline onTap="onEdit">{{ id ? '修改' : '保存'}}</button>
-    <button inline a:if="{{!id}}" style="margin-left: 25rpx;background-color: #2F3143;color: #ffffff;" onTap="onSync">从淘宝地址同步</button>
+<view class="page-address-edit">
+  <list header="{{ id? '修改' : '添加地址'}}">
+    <list-item>
+      请输入姓名
+      <input 
+        slot="extra"
+        class='address-edit-input'
+        placeholder-style="text-align: right;"
+        value="{{form.name}}"
+        placeholder="请输入姓名" 
+        onChange="onNameChange"
+      />
+    </list-item>
+    <list-item>
+      请输入手机号
+      <input 
+        slot="extra"
+        class='address-edit-input'
+        placeholder-style="text-align: right;"
+        value="{{form.mobile}}"
+        placeholder="请输入手机号" 
+        onChange="onMobileChange"
+      />
+    </list-item>
+    <list-item>
+      请选择城市
+      <cascader-picker 
+        slot="extra"
+        value="{{form.provinceCity}}"
+        placeholder="请选择城市" 
+        options="{{address.location}}" 
+        onOk="onLocationChange"
+      />
+    </list-item>
+    <list-item>
+      请选择县区
+      <cascader-picker 
+        slot="extra"
+        value="{{form.county}}"
+        placeholder="请选择县区" 
+        options="{{county}}" 
+        onOk="onCountyChange"
+      />
+    </list-item>
+    <list-item>
+      请输入详细地址
+      <input 
+        slot="extra"
+        class='address-edit-input'
+        placeholder-style="text-align: right;"
+        value="{{form.address}}"
+        placeholder="请输入详细地址" 
+        onChange="onAddressChange"
+      />
+    </list-item>
+  </list>
+  <view class="page-address-edit-menu" >
+    <view onTap="onEdit">{{ id ? '修改' : '保存'}}</view>
+    <view a:if="{{!id}}" onTap="onSync">从淘宝地址同步</view>
   </view>
-</list>
+
+</view>
