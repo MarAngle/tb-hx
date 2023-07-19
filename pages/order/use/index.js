@@ -109,19 +109,24 @@ Page({
       orderInfo.$triggerMethod('useOrder', [this.data.data], true)
     }
   },
-  openAddress() {
-    this.data.modal.address = true
+  openAddress({ target }) {
+    const type = target.dataset.type
+    this.data.modal.address = type
     this.setData({
       modal: this.data.modal
     })
   },
-  handleAddressClose() {
+  hideAddress() {
     this.data.modal.address = false
     this.setData({
       modal: this.data.modal
     })
   },
-  $onAddressCardTap(...args) {
-    console.log(...args)
+  $onAddressCardTap({index}) {
+    this.data.data[this.data.modal.address] = address.data[index]
+    this.setData({
+      data: this.data.data
+    })
+    this.hideAddress()
   }
 })

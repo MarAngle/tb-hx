@@ -147,8 +147,8 @@ class OrderInfo extends BaseData{
         token: true,
         data: {
           status: "tradeWashOrderCreate",
-          send: data.send,
-          back: data.back,
+          send: data.send.value,
+          back: data.back.value,
           reservation_time: data.time + ':00:00',
           remark: data.remark || '无',
           uc_id: this.data.ucId,
