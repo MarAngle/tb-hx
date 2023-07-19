@@ -1,13 +1,13 @@
-<view class="component-address-card" onTap="toInfo" >
+<view class="component-address-card" onTap="onTap" >
   <view class="component-address-card-address">{{data.totalAddress}}</view>
   <view class="component-address-card-info">
     <view class="component-address-card-name">{{data.name}} &nbsp;&nbsp; {{data.mobile}}</view>
     <view class="component-address-card-button-group" a:if="{{menu}}">
-      <view class="component-address-card-button" data-index="{{index}}" onTap="onChange">
+      <view class="component-address-card-button" data-index="{{index}}" catchTap="onChange">
         <view class="component-address-card-button-icon"><icon type="EditSOutline" /></view>
         <view class="component-address-card-button-text">编辑</view>
       </view>
-      <view class="component-address-card-button" data-index="{{index}}" onTap="onDelete">
+      <view class="component-address-card-button" data-index="{{index}}" catchTap="onDelete">
         <view class="component-address-card-button-icon"><icon type="DeleteOutline" /></view>
         <view class="component-address-card-button-text">删除</view>
       </view>

@@ -7,14 +7,15 @@
       </view>
       <view class="item">
         <view class="text">取衣地址</view>
-        <picker
+        <view class="item-content" onTap="openAddress">{{data.send || '请选择取衣地址'}}</view>
+        <!-- <picker
           class="item-content"
           value="{{data.send}}"
           placeholder="请选择取衣地址"
           title="请选择取衣地址"
           onOk="onSendChange"
           options="{{address.data}}">
-        </picker>
+        </picker> -->
       </view>
       <view class="item">
         <view class="text">净衣地址</view>
@@ -54,12 +55,15 @@
       </view>
     </view>
   </view>
-  <modal 
+  <!-- <modal 
     visible="{{modal.address}}" 
     onClose="handleAddressClose">
     <view class="body">
       <image a:for="{{popup.factory.list}}" mode="scaleToFill" src="{{item.img}}" />
     </view>
-  </modal>
+  </modal> -->
   <view class="button" onTap="onUse">立即预约</view>
+  <view a:if="{{modal.address}}">
+    <address-card a:for="{{address.data}}" data="{{item}}" index="{{index}}" />
+  </view>
 </view>
