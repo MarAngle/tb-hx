@@ -29,6 +29,9 @@
       </swiper-item>
     </swiper>
   </view>
-  <view class="page-home-title">热销</view>
+  <view class="page-home-title-line">
+    <view data-id='1' class="{{resourceniche == '1' ? 'choice' : 'un-choice'}}" onTap='changeProduct'>热销</view>
+    <view data-id='2' class="{{resourceniche == '2' ? 'choice' : 'un-choice'}}" onTap='changeProduct'>上新</view>
+  </view>
   <product-card a:for="{{list}}" data="{{item}}" key="page-product-card-{{index}}" />
 </view>

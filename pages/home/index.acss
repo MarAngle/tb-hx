@@ -8,6 +8,28 @@
   font-family: '宋体';
 }
 
+.page-home-title-line{
+  font-size: 36rpx;
+  font-weight: bold;
+  padding: 16rpx 18rpx;
+  line-height: 1.75;
+  font-family: '宋体';
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.page-home-title-line .choice{
+  color: rgba(245,134,11,1);
+  margin-right: 16rpx;
+}
+
+.page-home-title-line .un-choice{
+  color: rgba(0,0,0,0.65);
+  margin-right: 16rpx;
+}
+
 .page-home-category{
   display: flex;
   flex-direction: row;
