@@ -33,3 +33,12 @@ image {
   line-height: 1.75;
   padding-bottom: 16rpx;
 }
+.local-page-main-title{
+  text-align: left;
+  font-size: 36rpx;
+  color: rgba(245,134,11,1);
+  font-weight: bold;
+  padding: 16rpx 18rpx;
+  line-height: 1.75;
+  font-family: '宋体';
+}

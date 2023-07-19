@@ -1,6 +1,7 @@
 {
   "defaultTitle": "商品详情",
   "usingComponents": {
-    "icon": "antd-mini/es/Icon/index"
+    "icon": "antd-mini/es/Icon/index",
+    "product-card":"/components/ProductCard/index"
   }
 }

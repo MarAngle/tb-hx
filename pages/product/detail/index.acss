@@ -91,92 +91,15 @@
 
 
 .tit {
-  font-size: 44rpx;
+  font-size: 36rpx;
   color: #F5860B;
   padding: 0 0 10rpx 10rpx;
 }
 
-.product-list {
-  padding: 10rpx;
+.product-detail-product-list {
+  margin-left: -7rpx;
 }
 
-.product-item {
-  background-color: #d9ecf2;
-  border-radius: 20rpx;
-  margin-bottom: 20rpx;
-  display: flex;
-  justify-content: space-between;
-  position: relative;
-  overflow: hidden;
-  padding: 20rpx;
-}
-
-.product-item .img {
-  width: 30%;
-  overflow: hidden;
-  border-radius: 20rpx;
-}
-
-.product-item .info1 {
-  width: 66%;
-  box-sizing: border-box;
-  padding-right: 20rpx;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-}
-
-.info1 .name {
-  font-weight: 600;
-  font-size: 30rpx;
-}
-
-.info1 .tip-1 {
-  font-size: 20rpx;
-  color: rgba(0, 0, 0, 0.65);
-}
-
-.info1 .tip-2 {
-  font-size: 24rpx;
-  color: #f5222d;
-}
-
-.info1 .another {
-  display: flex;
-  justify-content: space-between;
-  font-size: 22rpx;
-  color: rgba(0, 0, 0, 0.65);
-}
-
-.pri {
-  position: absolute;
-  right: 4%;
-  top: 0;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  font-weight: 600;
-  font-size: 34rpx;
-  color: #f5222d;
-}
-
-.pri .arrow {
-  width: 40rpx;
-  padding-left: 20rpx;
-}
-
-.mark {
-  position: absolute;
-  right: -36rpx;
-  top: 0;
-  color: #f5222d;
-  background-color: rgba(8, 9, 4, 0.21);
-  font-size: 20rpx;
-  padding: 16rpx 10rpx 10rpx;
-  width: 100rpx;
-  text-align: center;
-  transform: rotate(45deg);
-}
 
 .buy {
   position: fixed;
@@ -205,42 +128,4 @@
   font-size: 34rpx;
   font-weight: 600;
   padding: 40rpx;
-}
-
-.am-modal {
-  border-radius: 20rpx;
-}
-
-.am-modal-body {
-  margin: 0;
-  padding: 0;
-}
-
-.dialog {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 60vh;
-  padding: 30rpx;
-}
-
-.dialog-title {
-  font-size: 38rpx;
-  font-weight: 600;
-  letter-spacing: 3rpx;
-  color: #101010;
-}
-
-.dialog-control {
-  display: flex;
-  justify-content: space-around;
-}
-
-.dialog-control view {
-  padding: 20rpx 40rpx;
-  background-color: #F39B11;
-  color: #ffffff;
-  border-radius: 20rpx;
-  font-size: 26rpx;
-  letter-spacing: 2rpx;
 }

@@ -3,19 +3,6 @@ import productList from "../../data/productList";
 import category from "./../../data/category";
 import { createLifePage } from "../../utils/page";
 
-// fresourceniche id: "1", resourceniche na
-// 1: {resourceniche id: "2", resourceniche na
-// 2: [resourceniche id: "3", resourceniche na
-// success: true
-// "热销
-// ame:
-// 0i
-// 0i
-// e:
-// "热销”
-// "上新"
-// "更多推若
-
 Page(createLifePage({
   data: {
     list: [],
@@ -62,8 +49,7 @@ Page(createLifePage({
     category.$reloadData(true)
     banner.$appendPage(this)
     banner.$reloadData(true)
-    productList.$appendPage(this)
-    productList.$reloadData()
+    productList.$bindPage(this)
     productList.$onLife('loaded', {
       immediate: true,
       data: () => {

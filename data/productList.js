@@ -2,6 +2,9 @@ import ProductList from './class/ProductList'
 
 const productList = new ProductList({
   prop: 'productList',
+  option: {
+    auto: true
+  },
   params: {
     status: "tradeItemList"
   },

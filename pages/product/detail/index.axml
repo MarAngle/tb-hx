@@ -23,39 +23,15 @@
     <view>服务详情</view>
     <view><image a:for="{{productInfo.data.detailPic}}" mode="widthFix" src="{{item}}" /></view>
   </view>
-  <!-- <view class="more">
-    <view class="tit">更多推荐</view>
-    <view class="product-list">
-      <view class="product-item" a:for="{{4}}" onTap="detail">
-        <view class="img"><image mode="widthFix" src="/image/index/5.png" /></view>
-        <view class="info1">
-          <view class="name">衣鞋任意洗3件</view>
-          <view class="tip-1">快递免费上门取送</view>
-          <view class="tip-2">拒用“四氯”健康洗</view>
-          <view class="another">
-            <view>月销100+</view>
-            <view>好评度96%</view>
-          </view>
-        </view>
-        <view class="pri">
-          <view>￥109</view>
-          <view class="arrow"><image mode="widthFix" src="/image/index/arrow.png" /></view>
-        </view>
-      </view>
+  <view class="more" a:if="{{list.length > 0}}" >
+    <view class="local-page-main-title">更多推荐</view>
+    <view class="product-detail-product-list">
+      <product-card a:for="{{list}}" data="{{item}}" key="page-product-card-{{index}}" />
     </view>
-  </view> -->
+  </view>
   <view style="height: 200rpx;width: 100%;"></view>
   <view class="buy">
     <view>￥{{productInfo.data.price.show.data}}</view>
     <view onTap="createOrder">立即购买</view>
   </view>
-  <!-- <modal class="modal" show="{{showModal}}" show-close="{{false}}">
-    <view class="dialog">
-      <view class="dialog-title">支付成功！</view>
-      <view class="dialog-control">
-        <view onTap="close">查看更多</view>
-        <view onTap="close">立即使用</view>
-      </view>
-    </view>
-  </modal> -->
 </view>
