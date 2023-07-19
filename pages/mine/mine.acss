@@ -13,13 +13,15 @@
 }
 
 .user {
-  background-color: #ECECEC;
+  /* background-color: #ECECEC; */
+  box-sizing: border-box;
+  background-image: url('/image/mine/bg.jpg');
   position: absolute;
   top: 200rpx;
   width: 714rpx;
+  left: 18rpx;
   box-sizing: border-box;
-  margin: 0 24rpx;
-  border-radius: 12rpx;
+  border-radius: 16rpx;
   padding: 0 24rpx 24rpx;
 }
 

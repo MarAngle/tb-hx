@@ -1,4 +1,5 @@
 <view class="mine">
+  <!-- <image mode="widthFill" src="/image/mine/bg.jpg" class="mine-bg" /> -->
   <view class="setting" data-page-url="/pages/mine/set/set" onTap="changePage"><icon type="SetOutline" /></view>
   <view class="user">
     <view class="img" onTap="onSyncInfo"><image mode="aspectFill" src="{{ user.info.avatar || '/image/mine/avatar.png' }}" /></view>
