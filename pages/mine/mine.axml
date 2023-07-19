@@ -4,10 +4,10 @@
     <view class="img" onTap="onSyncInfo"><image mode="aspectFill" src="{{ user.info.avatar || '/image/mine/avatar.png' }}" /></view>
     <view class="name" onTap="onSyncInfo">{{ user.status.load != 'success' ? '请登录' : user.info.name || '点击使用淘宝昵称' }}</view>
     <view class="control">
-      <view class="item" data-page-url="/pages/mine/collect/collect" onTap="changePage">
+      <!-- <view class="item" data-page-url="/pages/mine/collect/collect" onTap="changePage">
         <view class="icon"><image mode="widthFix" src="/image/mine/collect.png" /></view>
         <view class="text">收藏</view>
-      </view>
+      </view> -->
       <view class="item" data-page-url="/pages/order/index?type=isOrder" onTap="changePage">
         <view class="icon"><image mode="widthFix" src="/image/mine/isOrder.png" /></view>
         <view class="text">待付款</view>
@@ -24,10 +24,6 @@
         <view class="icon"><image mode="widthFix" src="/image/mine/isFinished.png" /></view>
         <view class="text">已完成</view>
       </view>
-      <!-- <view class="item" data-page-url="/pages/order/index?type=isRefund" onTap="changePage">
-        <view class="icon"><image mode="widthFix" src="/image/mine/isRefund.png" /></view>
-        <view class="text">已退款</view>
-      </view> -->
       <view class="item" data-page-url="/pages/web/customer" onTap="changePage">
         <view class="icon"><image mode="widthFix" src="/image/mine/customer.png" /></view>
         <view class="text">客户服务</view>
