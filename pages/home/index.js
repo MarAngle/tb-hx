@@ -17,6 +17,12 @@ Page(createLifePage({
     my.navigateTo({
       url: `/pages/product/index?id=${target.dataset.id}&name=${target.dataset.name}`
     })
+  },
+  onBanner({ target }) {
+    const productId = target.dataset.product
+    my.navigateTo({
+      url: `/pages/product/detail/index?id=${productId}`
+    })
   }
 }, {
   load() {

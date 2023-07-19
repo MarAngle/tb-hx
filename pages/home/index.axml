@@ -17,13 +17,15 @@
      <swiper 
       class="page-home-banner-swiper"
       indicator-dots="{{true}}"
-      autoplay="{{false}}"
+      autoplay="{{true}}"
       vertical="{{false}}"
       interval="{{5000}}"
       circular="{{true}}"
     >
       <swiper-item a:for="{{banner.list}}" key="page-home-banner-swiper-item-{{index}}">
-        <image class="page-home-banner-swiper-item" src="/image/test/banner.jpg" data-page="/pages/product/detail/index?id=300000000009" onTap="$toPage"></image>
+        <image a:if="{{index == 0}}" class="page-home-banner-swiper-item" src="/image/test/banner1.jpg" data-product="{{item.product}}" onTap="onBanner"></image>
+        <image a:if="{{index == 1}}" class="page-home-banner-swiper-item" src="/image/test/banner2.jpg" data-product="{{item.product}}" onTap="onBanner"></image>
+        <image a:if="{{index == 2}}" class="page-home-banner-swiper-item" src="/image/test/banner3.jpg" data-product="{{item.product}}" onTap="onBanner"></image>
       </swiper-item>
     </swiper>
   </view>

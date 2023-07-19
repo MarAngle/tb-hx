@@ -1,5 +1,5 @@
 import BaseData from "../class/BaseData";
-import require from "../utils/require";
+import requireS from "../utils/require";
 
 class BannerData extends BaseData{
   constructor(initOption) {
@@ -27,23 +27,23 @@ const banner = new BannerData({
       setTimeout(() => {
         this.list = [
           {
-            name: '衣鞋洗护专区',
             id: 1,
-            icon: ''
+            product: 300000000009,
+            icon: require('/image/test/banner1.jpg')
           },
           {
-            name: '家纺专区',
             id: 2,
-            icon: ''
+            product: 300000000007,
+            icon: require('/image/test/banner2.jpg')
           },
           {
-            name: '奢护专区',
             id: 3,
-            icon: ''
+            product: 300000000017,
+            icon: require('/image/test/banner3.jpg')
           },
         ]
         resolve()
-      }, 1000)
+      }, 0)
     })
   }
 })
