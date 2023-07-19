@@ -43,14 +43,16 @@
       />
     </list-item>
     <list-item>
-      请输入详细地址
-      <input 
+      详细地址
+      <textarea
         slot="extra"
-        class='address-edit-input'
-        placeholder-style="text-align: right;"
         value="{{form.address}}"
-        placeholder="请输入详细地址" 
-        onChange="onAddressChange"
+        controlled="{{true}}"
+        placeholder-style="font-size: 34rpx;"
+        placeholder="请输入详细地址"
+        enableNative="{{false}}"
+        style="text-align: right;font-size: 34rpx;width: 100%; padding: 8rpx 8rpx;line-height: 1.5;height: 200rpx;"
+        onInput="onAddressChange"
       />
     </list-item>
   </list>

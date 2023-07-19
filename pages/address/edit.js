@@ -101,8 +101,8 @@ Page({
       form: this.data.form
     })
   },
-  onAddressChange(value) {
-    this.data.form.address = value
+  onAddressChange({ detail }) {
+    this.data.form.address = detail.value
     this.setData({
       form: this.data.form
     })
