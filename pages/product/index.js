@@ -30,7 +30,7 @@ Page(createLifePage({
     this.data.title = query.name
     productList.$bindPage(this)
     productList.$reloadData()
-    productList.$onLife('loaded', {
+    productList.$bindLifeToPage(this, 'loaded', {
       immediate: true,
       data: () => {
         this.createList()

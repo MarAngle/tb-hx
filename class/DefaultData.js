@@ -22,6 +22,13 @@ class DefaultData extends Data {
   $resetExtra() {
     this.$extra = {}
   }
+  $bindLifeToPage(page, lifeName, data) {
+    let id = this.$onLife(lifeName, data)
+    page.$onLife('unload', () => {
+      this.$offLife(lifeName, id)
+      console.log(this.$life[lifeName])
+    })
+  }
   $onLife(lifeName, data) {
     if (!this.$life[lifeName]) {
       this.$life[lifeName] = {}

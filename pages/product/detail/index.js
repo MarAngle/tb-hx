@@ -55,7 +55,7 @@ Page(createLifePage({
       my.navigateBack(1)
     })
     productList.$bindPage(this)
-    productList.$onLife('loaded', {
+    productList.$bindLifeToPage(this, 'loaded', {
       immediate: true,
       data: () => {
         this.createList()

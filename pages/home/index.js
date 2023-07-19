@@ -50,7 +50,7 @@ Page(createLifePage({
     banner.$appendPage(this)
     banner.$reloadData(true)
     productList.$bindPage(this)
-    productList.$onLife('loaded', {
+    productList.$bindLifeToPage(this, 'loaded', {
       immediate: true,
       data: () => {
         this.createList()

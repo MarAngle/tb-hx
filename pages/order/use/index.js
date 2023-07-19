@@ -37,7 +37,6 @@ Page({
     if (query && query.id) {
       orderInfo.setId(query.id)
     }
-    orderInfo.setId('23071223061210017011733')
     orderInfo.$appendPage(this)
     address.$appendPage(this)
   },
