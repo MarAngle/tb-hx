@@ -176,4 +176,11 @@
       </view>
     </view>
   </popup>
+  <modal 
+    visible="{{popup.factory.show}}" 
+    onClose="handleClose">
+    <view class="body">
+      <image a:for="{{popup.factory.list}}" mode="scaleToFill" src="{{item.img}}" />
+    </view>
+  </modal>
 </view>

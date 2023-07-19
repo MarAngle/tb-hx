@@ -16,6 +16,10 @@ Page({
         show:false,
         rate: 0,
         content: ''
+      },
+      factory: {
+        show: false,
+        list: []
       }
     }
   },
@@ -133,6 +137,17 @@ Page({
   onWashTap(e) {
     let index = e.target.dataset.index
     let washData = orderInfo.data.wash.list[index]
-    console.log(washData)
+    if (washData.no == '2005') {
+      orderInfo.getFactoryPic().then((res) => {
+        this.data.popup.factory.list = res.data
+        this.setPopup('factory', true)
+      }).catch(err => {
+        console.error(err)
+      })
+    }
+  },
+  handleClose() {
+    this.data.popup.factory.list = []
+    this.setPopup('factory', false)
   }
 })

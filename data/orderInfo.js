@@ -122,6 +122,24 @@ class OrderInfo extends BaseData{
       })
     })
   }
+  getFactoryPic() {
+    return new Promise((resolve, reject) => {
+      require.post({
+        url: '/tb_api/api/Order.php',
+        token: true,
+        data: {
+          status: "tradeOrderPic",
+          order_id: this.data.wash.id
+        }
+      }).then((res) => {
+        console.log(res)
+        resolve(res)
+      }).catch(err => {
+        console.error(err)
+        reject(err)
+      })
+    })
+  }
   useOrder(data) {
     return new Promise((resolve, reject) => {
       require.post({
@@ -208,6 +226,24 @@ class OrderInfo extends BaseData{
     })
   }
 }
+
+// 三、元素<请求>
+// https://xxx/tb_api/api/Order.php
+// #	属性	类型（约束）	必填	说明
+// 1	status	string	是	tradeOrderPic（请求模块）
+// 3	order_id	int	是	订单id
+
+// [
+//   {
+//       "img": "https://hximg-1255667659.cos.ap-beijing.myqcloud.com/huanxiShop/2023-07/9ad27020e50441fbaceb6a670809bf5f.jpg"
+//   },
+//   {
+//       "img": "https://hximg-1255667659.cos.ap-beijing.myqcloud.com/huanxiShop/2023-07/634535dd0f21413eab565d14109f24f2.jpg"
+//   },
+//   {
+//       "img": "https://hximg-1255667659.cos.ap-beijing.myqcloud.com/huanxiShop/2023-07/634535dd0f21413eab565d14109f24f3.jpg"
+//   }
+// ]
 
 const orderInfo = new OrderInfo({
   prop: 'orderInfo',
