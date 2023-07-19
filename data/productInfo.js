@@ -101,6 +101,7 @@ class ProductInfo extends BaseData{
           discountedPrice: this.data.price.discounted,
           fail: (err) => {
             showMsg('支付失败！', 'error')
+            showAlert(err, '支付失败')
             reject(err)
           },
           success: (res) => {

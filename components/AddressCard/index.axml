@@ -1,20 +1,16 @@
 <view class="component-address-card" onTap="toInfo" >
-  <view class="component-address-card-icon">
-    <image src="{{ data.icon }}" />
-  </view>
-  <view class="component-address-card-content">
-    <view class="component-address-card-content-line">
-      <view class="component-address-card-content-title">{{data.name}}</view>
+  <view class="component-address-card-address">{{data.totalAddress}}</view>
+  <view class="component-address-card-info">
+    <view class="component-address-card-name">{{data.name}} &nbsp;&nbsp; {{data.mobile}}</view>
+    <view class="component-address-card-button-group" a:if="{{menu}}">
+      <view class="component-address-card-button" data-index="{{index}}" onTap="onChange">
+        <view class="component-address-card-button-icon"><icon type="EditSOutline" /></view>
+        <view class="component-address-card-button-text">编辑</view>
+      </view>
+      <view class="component-address-card-button" data-index="{{index}}" onTap="onDelete">
+        <view class="component-address-card-button-icon"><icon type="DeleteOutline" /></view>
+        <view class="component-address-card-button-text">删除</view>
+      </view>
     </view>
-    <view class="component-address-card-content-line">
-      <view class="component-address-card-content-import">{{data.market}}</view>
-    </view>
-  </view>
-  <view class="component-address-card-right">
-    <view class="component-address-card-right-price">
-      <view>¥</view>
-      <view>{{data.price.show.data}}</view>
-    </view>
-    <image class="component-address-card-right-menu" src="/image/icon/open.png" a:if="{{!show}}" />
   </view>
 </view>
