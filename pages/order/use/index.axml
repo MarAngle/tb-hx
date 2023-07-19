@@ -54,5 +54,12 @@
       </view>
     </view>
   </view>
+  <modal 
+    visible="{{modal.address}}" 
+    onClose="handleAddressClose">
+    <view class="body">
+      <image a:for="{{popup.factory.list}}" mode="scaleToFill" src="{{item.img}}" />
+    </view>
+  </modal>
   <view class="button" onTap="onUse">立即预约</view>
 </view>

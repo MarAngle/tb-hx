@@ -28,6 +28,9 @@ Page({
       back: undefined,
       time: undefined,
       remark: undefined
+    },
+    modal: {
+      address: false
     }
   },
   onLoad(query) {
@@ -104,5 +107,17 @@ Page({
     } else {
       orderInfo.$triggerMethod('useOrder', [this.data.data], true)
     }
+  },
+  openAddress() {
+    this.data.modal.address = true
+    this.setData({
+      modal: this.data.modal
+    })
+  },
+  handleAddressClose() {
+    this.data.modal.address = false
+    this.setData({
+      modal: this.data.modal
+    })
   }
 })

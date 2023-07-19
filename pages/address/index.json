@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "icon": "antd-mini/es/Icon/index"
+    "icon": "antd-mini/es/Icon/index",
+    "address-card":"/components/AddressCard/index"
   }
 }

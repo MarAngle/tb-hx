@@ -1,0 +1,20 @@
+<view class="component-address-card" onTap="toInfo" >
+  <view class="component-address-card-icon">
+    <image src="{{ data.icon }}" />
+  </view>
+  <view class="component-address-card-content">
+    <view class="component-address-card-content-line">
+      <view class="component-address-card-content-title">{{data.name}}</view>
+    </view>
+    <view class="component-address-card-content-line">
+      <view class="component-address-card-content-import">{{data.market}}</view>
+    </view>
+  </view>
+  <view class="component-address-card-right">
+    <view class="component-address-card-right-price">
+      <view>¥</view>
+      <view>{{data.price.show.data}}</view>
+    </view>
+    <image class="component-address-card-right-menu" src="/image/icon/open.png" a:if="{{!show}}" />
+  </view>
+</view>
