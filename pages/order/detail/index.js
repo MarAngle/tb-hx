@@ -27,6 +27,8 @@ Page({
     if (query && query.id) {
       orderInfo.setId(query.id)
     }
+    // showMsg('设置单独的订单')
+    // orderInfo.setId('tb500000018')
     orderInfo.$appendPage(this)
   },
   onShow() {
@@ -148,10 +150,31 @@ Page({
       }).catch(err => {
         console.error(err)
       })
+    } else if (washData.no == '1006') {
+      orderInfo.getExpressInfo(washData.no).then((res) => {
+        this.data.popup.express.title = '取件物流'
+        this.data.popup.express.list = res.data
+        this.setPopup('express', true)
+      }).catch(err => {
+        console.error(err)
+      })
+    } else if (washData.no == '2008' || washData.no == '2009') {
+      orderInfo.getExpressInfo(washData.no).then((res) => {
+        this.data.popup.express.title = '送件物流'
+        this.data.popup.express.list = res.data
+        this.setPopup('express', true)
+      }).catch(err => {
+        console.error(err)
+      })
     }
   },
   hideFactory() {
     this.data.popup.factory.list = []
     this.setPopup('factory', false)
+  },
+  hideExpress() {
+    this.data.popup.express.list = []
+    this.data.popup.express.title = ''
+    this.setPopup('express', false)
   }
 })

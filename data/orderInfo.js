@@ -122,6 +122,24 @@ class OrderInfo extends BaseData{
       })
     })
   }
+  getExpressInfo(status_no) {
+    return new Promise((resolve, reject) => {
+      require.post({
+        url: '/tb_api/api/Order.php',
+        token: true,
+        data: {
+          status: "tradeOrderExpress",
+          order_id: this.data.wash.id,
+          status_no: status_no
+        }
+      }).then((res) => {
+        resolve(res)
+      }).catch(err => {
+        console.error(err)
+        reject(err)
+      })
+    })
+  }
   getFactoryPic() {
     return new Promise((resolve, reject) => {
       require.post({
@@ -132,18 +150,6 @@ class OrderInfo extends BaseData{
           order_id: this.data.wash.id
         }
       }).then((res) => {
-        console.log(res)
-        // res.data = [
-        //   {
-        //     "img": "https://hximg-1255667659.cos.ap-beijing.myqcloud.com/huanxiShop/2023-07/9ad27020e50441fbaceb6a670809bf5f.jpg"
-        //   },
-        //   {
-        //     "img": "https://hximg-1255667659.cos.ap-beijing.myqcloud.com/huanxiShop/2023-07/634535dd0f21413eab565d14109f24f2.jpg"
-        //   },
-        //   {
-        //     "img": "https://hximg-1255667659.cos.ap-beijing.myqcloud.com/huanxiShop/2023-07/634535dd0f21413eab565d14109f24f3.jpg"
-        //   }
-        // ]
         resolve(res)
       }).catch(err => {
         console.error(err)

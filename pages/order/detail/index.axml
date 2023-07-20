@@ -58,10 +58,6 @@
       <view class="text">套餐总价</view>
       <view class="val">￥{{orderInfo.data.product.price.show.origin}}</view>
     </view>
-    <!-- <view class="item">
-      <view class="text">优惠券</view>
-      <view class="val mark">-￥10.00</view>
-    </view> -->
     <view class="item" >
       <view class="text">{{orderInfo.data.status.value == 100 ? '价格' : '实付款'}}</view>
       <view class="val mark" style="font-weight: 600;">￥{{orderInfo.data.price.show.data}}</view>
@@ -180,5 +176,17 @@
     <view class="local-page-modal-title">工厂图片</view>
     <view class="local-page-modal-close" onTap="hideFactory">关闭</view>
     <image a:for="{{popup.factory.list}}" mode="widthFill" src="{{item.img}}" />
+  </view>
+  <view class="local-page-modal address-modal" a:if="{{popup.express.show}}">
+    <view class="local-page-modal-title">{{popup.express.title}}</view>
+    <view class="local-page-modal-close" onTap="hideExpress">关闭</view>
+    <steps
+      items="{{popup.express.list}}"
+      current="{{popup.express.list.length - 1}}"
+      direction="vertical"
+    >
+      <view slot="title" slot-scope="item" ></view>
+      <view slot="description" slot-scope="item">{{item.value.message}} {{item.value.time}}</view>
+    </steps>
   </view>
 </view>
