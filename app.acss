@@ -19,7 +19,9 @@ image {
   border-radius: 12rpx;
 }
 .local-page-modal{
+  box-sizing: border-box;
   position: fixed;
+  z-index: 1000;
   top: 0;
   left: 0;
   right: 0;
@@ -32,6 +34,15 @@ image {
   font-weight: 600;
   line-height: 1.75;
   padding-bottom: 16rpx;
+}
+.local-page-modal-close{
+  position: absolute;
+  top: 16rpx;
+  right: 18rpx;
+  font-size: 32rpx;
+  font-weight: 600;
+  line-height: 1.75;
+  color: #FF3141;
 }
 .local-page-main-title{
   text-align: left;

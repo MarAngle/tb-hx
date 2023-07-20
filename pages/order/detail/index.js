@@ -34,6 +34,10 @@ Page({
       my.navigateBack(1)
       return
     }
+    this.hiddenWashList()
+    this.hideRefundOrder()
+    this.hideEvaluate()
+    this.hideFactory()
     orderInfo.$loadData(true).then(() => {}, err => {
       // showAlert(err)
       my.navigateBack(1)
@@ -146,7 +150,7 @@ Page({
       })
     }
   },
-  handleClose() {
+  hideFactory() {
     this.data.popup.factory.list = []
     this.setPopup('factory', false)
   }

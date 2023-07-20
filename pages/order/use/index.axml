@@ -43,6 +43,7 @@
   <view class="button" onTap="onUse">立即预约</view>
   <view class="local-page-modal address-modal" a:if="{{modal.address}}">
     <view class="local-page-modal-title">选择地址</view>
+    <view class="local-page-modal-close" onTap="hideAddress">关闭</view>
     <address-card a:for="{{address.data}}" data="{{item}}" index="{{index}}" />
   </view>
 </view>

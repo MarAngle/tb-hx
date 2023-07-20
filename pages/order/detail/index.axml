@@ -176,11 +176,9 @@
       </view>
     </view>
   </popup>
-  <modal 
-    visible="{{popup.factory.show}}" 
-    onClose="handleClose">
-    <view class="body">
-      <image a:for="{{popup.factory.list}}" mode="scaleToFill" src="{{item.img}}" />
-    </view>
-  </modal>
+  <view class="local-page-modal address-modal" a:if="{{popup.factory.show}}">
+    <view class="local-page-modal-title">工厂图片</view>
+    <view class="local-page-modal-close" onTap="hideFactory">关闭</view>
+    <image a:for="{{popup.factory.list}}" mode="widthFill" src="{{item.img}}" />
+  </view>
 </view>
