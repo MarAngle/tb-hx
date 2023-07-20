@@ -1,7 +1,9 @@
 import banner from "../../data/banner";
-import productList from "../../data/productList";
+import hotProductList from "../../data/hotProductList";
 import category from "./../../data/category";
 import { createLifePage } from "../../utils/page";
+
+const startTime = Date.now()
 
 Page(createLifePage({
   data: {
@@ -9,15 +11,14 @@ Page(createLifePage({
     resourceniche: '1'
   },
   createList() {
-    this.data.list = [...productList.list]
-    let list = []
-    for (let i = 0; i < productList.list.length; i++) {
-      const item = productList.list[i];
-      if (item.commodity_resourceniche_id == this.data.resourceniche) {
-        list.push(item)
-      }
+    if (Date.now() - startTime > 4000 || hotProductList.list.length <= 4) {
+      this.data.list = hotProductList.list
+    } else {
+      this.data.list = hotProductList.list.slice(0, 4)
+      setTimeout(() => {
+        this.createList()
+      }, 4000)
     }
-    this.data.list = list
     this.setData({
       list: this.data.list
     })
@@ -37,11 +38,17 @@ Page(createLifePage({
     const id = target.dataset.id
     if (this.data.resourceniche != id) {
       this.data.resourceniche = id
-      this.createList()
       this.setData({
         resourceniche: this.data.resourceniche
       })
+      this.syncProduct()
     }
+  },
+  syncProduct() {
+    hotProductList.$setExtra('search', {
+      select_resourceniche: this.data.resourceniche
+    })
+    hotProductList.$reloadData(true)
   }
 }, {
   load() {
@@ -49,12 +56,29 @@ Page(createLifePage({
     category.$reloadData(true)
     banner.$appendPage(this)
     banner.$reloadData(true)
-    productList.$bindPage(this)
-    productList.$bindLifeToPage(this, 'loaded', {
+    hotProductList.$bindPage(this)
+    hotProductList.$bindLifeToPage(this, 'loaded', {
       immediate: true,
       data: () => {
         this.createList()
       }
     })
+  },
+  show() {
+    let needLoad = false
+    if (hotProductList.status.load != 'success') {
+      // // 未加载
+      needLoad = true
+    } else {
+      const search = hotProductList.$getSearch()
+      if (search.select_resourceniche != this.data.resourceniche) {
+        needLoad = true
+      }
+    }
+    if (needLoad) {
+      this.syncProduct()
+    } else {
+      this.createList()
+    }
   }
 }));
