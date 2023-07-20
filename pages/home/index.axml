@@ -23,9 +23,7 @@
       circular="{{true}}"
     >
       <swiper-item a:for="{{banner.list}}" key="page-home-banner-swiper-item-{{index}}">
-        <image a:if="{{index == 0}}" class="page-home-banner-swiper-item" src="/image/test/banner1.jpg" data-product="{{item.product}}" onTap="onBanner"></image>
-        <image a:if="{{index == 1}}" class="page-home-banner-swiper-item" src="/image/test/banner2.jpg" data-product="{{item.product}}" onTap="onBanner"></image>
-        <image a:if="{{index == 2}}" class="page-home-banner-swiper-item" src="/image/test/banner3.jpg" data-product="{{item.product}}" onTap="onBanner"></image>
+        <image class="page-home-banner-swiper-item" src="{{item.swiper_picture}}" data-page="{{item.swiper_link}}" onTap="$toPage"></image>
       </swiper-item>
     </swiper>
   </view>
