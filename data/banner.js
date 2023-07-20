@@ -28,17 +28,17 @@ const banner = new BannerData({
         this.list = [
           {
             id: 1,
-            product: 300000000009,
+            product: 300000000028,
             icon: require('/image/test/banner1.jpg')
           },
           {
             id: 2,
-            product: 300000000007,
+            product: 300000000026,
             icon: require('/image/test/banner2.jpg')
           },
           {
             id: 3,
-            product: 300000000017,
+            product: 300000000036,
             icon: require('/image/test/banner3.jpg')
           },
         ]
