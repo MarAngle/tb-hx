@@ -37,6 +37,9 @@
       <view class="cancel-wash" a:if="{{orderInfo.data.statusInfo.process_no > 1003 && orderInfo.data.statusInfo.process_no <= 1005}}">
         <view onTap="cancelWash">取消预约</view>
       </view>
+      <!-- ！！
+      这里做在厂图片查看按钮
+      ！！ -->
     </view>
   </view>
   <product-card data="{{orderInfo.data.product}}" show="{{true}}" />
