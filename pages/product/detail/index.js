@@ -29,7 +29,7 @@ Page(createLifePage({
     let list = []
     for (let i = 0; i < productList.list.length; i++) {
       const item = productList.list[i];
-      if (item.commodity_resourceniche_id != this.data.resourceniche) {
+      if (item.commodity_resourceniche_id == this.data.resourceniche) {
         list.push(item)
       }
     }
