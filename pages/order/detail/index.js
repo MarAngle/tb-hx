@@ -91,8 +91,8 @@ Page({
       popup: this.data.popup
     })
   },
-  onContentChange(value) {
-    this.data.popup.evaluate.content = value
+  onContentChange({ detail }) {
+    this.data.popup.evaluate.content = detail.value
     this.setData({
       popup: this.data.popup
     })

@@ -158,12 +158,14 @@
       <view class="evaluate">
         <rate value="{{popup.evaluate.rate}}" onChange="onRateChange" />
         <textarea
+          class="evaluate-textarea"
           value="{{popup.evaluate.content}}"
+          controlled="{{true}}"
           placeholder-style="font-size: 26rpx;"
-          placeholder="订单评价"
-          autoHeight
-          style="height: 100rpx;width: 80%; margin: 20rpx auto; font-size: 26rpx;"
-          onChange="onContentChange"
+          placeholder="请输入订单内容"
+          enableNative="{{false}}"
+          style="font-size: 26rpx;"
+          onInput="onContentChange"
         />
       </view>
       <view class="popup-button">

@@ -3,7 +3,6 @@
   "usingComponents": {
     "input": "antd-mini/es/Input/index",
     "rate": "antd-mini/es/Rate/index",
-    "textarea": "antd-mini/es/Input/Textarea/index",
     "steps": "antd-mini/es/Steps/index",
     "popup": "antd-mini/es/Popup/index",
     "icon": "antd-mini/es/Icon/index",
